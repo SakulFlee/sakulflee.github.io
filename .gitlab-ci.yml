@@ -1,21 +1,22 @@
 stages:
-- build
-- deploy
+  - build
+  - deploy
 
 build:
   stage: build
+  script: npm run deploy
   only:
-  - branches
-  - tags
-  - api
-  - external
-  - pipelines
-  - pushes
-  - schedules
-  - triggers
-  - web
-  - merge_requests
-  - chats
+    - branches
+    - tags
+    - api
+    - external
+    - pipelines
+    - pushes
+    - schedules
+    - triggers
+    - web
+    - merge_requests
+    - chats
 
 deploy_staging:
   stage: deploy
