@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+@import "../node_modules/bulma/bulma";
+
+@import "./icons.scss";
+
+@import "./start-frame.scss";
+
+.no-font {
+    font-size: 0;
+}
+
+.section {
+    background-color: whitesmoke;
+}
+
+#info-tiles {
+    padding-top: 0;
+}
