@@ -1,0 +1,28 @@
+stages:
+ - build
+ - deploy
+
+build:
+  stage: build
+  only:
+    - branches
+    - tags
+    - api
+    - external
+    - pipelines
+    - pushes
+    - schedules
+    - triggers
+    - web
+    - merge_requests
+    - chats
+
+deploy_staging:
+  stage: deploy
+  script:
+    - echo "Deploy to staging server"
+  environment:
+    name: sakul6499
+    url: https://sakul6499.de
+  only:
+  - master
