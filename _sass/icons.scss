@@ -1,0 +1,47 @@
+.is-icon {
+  &,
+  * {
+    width: 32px;
+    height: 32px;
+  }
+
+  & + & {
+    margin-left: 10px;
+  }
+}
+
+.is-icon-small {
+  &,
+  * {
+    width: 16px;
+    height: 16px;
+  }
+
+  & + & {
+    margin-left: 10px;
+  }
+}
+
+.is-icon-big {
+  &,
+  * {
+    width: 48px;
+    height: 48px;
+  }
+
+  & + & {
+    margin-left: 10px;
+  }
+}
+
+.is-icon-bigger {
+  &,
+  * {
+    width: 64px;
+    height: 64px;
+  }
+
+  & + & {
+    margin-left: 10px;
+  }
+}
