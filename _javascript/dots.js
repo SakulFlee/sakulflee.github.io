@@ -96,8 +96,6 @@ function resize(canvas) {
       const dot = dots[i];
       dot.x += diffWidth;
       dot.y += diffHeight;
-
-      console.log("UPDATING " + diffWidth + " " + diffHeight);
     }
 
     // Check if the canvas is not the same size.
