@@ -1,9 +1,12 @@
+image: node:latest
+
 stages:
   - build
   - deploy
 
 build:
   stage: build
+  before_script: npm install
   script: npm run deploy
   only:
     - branches
