@@ -6,8 +6,7 @@ stages:
 
 build:
   stage: build
-  before_script: npm install
-  script: npm run deploy
+  script: npm install && npm run deploy
   only:
     - branches
     - tags
