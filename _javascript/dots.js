@@ -42,13 +42,6 @@ function draw() {
   for (let i = 0; i < dots.length; i++) {
     const dot = dots[i];
 
-    // ctx.fillStyle = "#fff";
-    // ctx.beginPath();
-    // ctx.arc(dot.x, dot.y, dot.radius, 0, 2 * Math.PI);
-    // ctx.fill();
-    // ctx.fillStyle = "black";
-    // ctx.stroke();
-
     for (let j = 0; j < dots.length; j++) {
       const dot1 = dots[j];
       let d = dist(dot, dot1);
