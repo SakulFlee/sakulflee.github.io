@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My first Bulma website</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <section class="hero is-dark is-fullheight">
+      <a href="">
+        <h2>Blog</h2>
+        <img src="icons/blog.svg" alt="Blog" />
+      </a>
+      <canvas id="wire-frame"></canvas>
+      <div class="hero-body">
+        <div class="container has-text-centered" id="start-frame">
+          <h2 class="title is-size-4 is-family-code has-text-danger">
+            Hello, world!
+          </h2>
+          <h1 class="title is-size-1 has-text-white-ter">I'm Lukas Weber.</h1>
+          <h4 class="subtitle is-size-6 has-text-light">@Sakul6499</h4>
+          <h2 class="subtitle is-uppercase has-text-light">
+            | Software Engineer |
+          </h2>
+          <h2 class="title is-uppercase is-size-7 has-text-light">
+            | Student |
+          </h2>
+          <div id="social-images">
+            <a class="is-icon" href="">
+              <img src="icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/stackoverflow.svg" alt="StackOverflow" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/keybase.svg" alt="KeyBase" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/mail.svg" alt="Mail" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/github.svg" alt="GitHub" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/gitlab.svg" alt="GitLab" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/bitbucket.svg" alt="BitBucket" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/telegram.svg" alt="Telegram" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/discord.svg" alt="Discord" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/twitter.svg" alt="Twitter" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/mastodon.svg" alt="Mastodon" />
+            </a>
+            <a class="is-icon" href="">
+              <img src="icons/blog.svg" alt="Blog" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="about-me">
+      <div class="tile is-ancestor">
+        <div class="tile is-vertical is-8">
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-danger">
+              <p class="title">Projects</p>
+              <div class="subtitle no-font">
+                <a class="is-icon-small" href="">
+                  <img src="icons/gitlab.svg" alt="GitLab" />
+                </a>
+                <a class="is-icon-small" href="">
+                  <img src="icons/github.svg" alt="GitHub" />
+                </a>
+                <a class="is-icon-small" href="">
+                  <img src="icons/bitbucket.svg" alt="BitBucket" />
+                </a>
+              </div>
+              <div class="content">
+                Most of my projects are available on <a href="">GitLab</a>, however occasionally I also make use of <a href="">GitHub</a>.
+                A few years back, I primarily used <a href="">BitBucket</a> though <a href="">GitLab</a> actually offered way more features so I switched over.
+                However, this doesn't mean that everything is on <a href="">GitLab</a> yet!
+                In fact, many old(er) projects are still on <a href="">BitBucket</a> and are waiting to be cleaned-up and transfered to <a href="">GitLab</a>.
+                That said, I don't really use <a href="">GitHub</a> that much.
+                I primarily only follow interesting people, groups and projects there.
+              </div>
+            </article>
+          </div>
+          <div class="tile">
+            <div class="tile is-parent is-vertical">
+              <article class="tile is-child notification is-primary">
+                <p class="title">Vertical...</p>
+                <p class="subtitle">Top tile</p>
+              </article>
+              <article class="tile is-child notification is-warning">
+                <p class="title">...tiles</p>
+                <p class="subtitle">Bottom tile</p>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification is-info">
+                <p class="title">Middle tile</p>
+                <p class="subtitle">With an image</p>
+                <figure class="image is-4by3">
+                  <img src="https://bulma.io/images/placeholders/640x480.png" />
+                </figure>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-success">
+            <div class="content">
+              <p class="title">Tall tile</p>
+              <p class="subtitle">With even more content</p>
+              <div class="content">
+                <!-- Content -->
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8-desktop is-offset-2-desktop">
+            <div class="content">
+              <h3>What's included</h3>
+              <p>
+                The <code>npm</code> dependencies included in
+                <code>package.json</code> are:
+              </p>
+              <ul>
+                <li>
+                  <code
+                    ><a href="https://github.com/jgthms/bulma">bulma</a></code
+                  >
+                </li>
+                <li>
+                  <code
+                    ><a href="https://github.com/sass/node-sass"
+                      >node-sass</a
+                    ></code
+                  >
+                  to compile your own Sass file
+                </li>
+                <li>
+                  <code
+                    ><a href="https://github.com/postcss/postcss-cli"
+                      >postcss-cli</a
+                    ></code
+                  >
+                  and
+                  <code
+                    ><a href="https://github.com/postcss/autoprefixer"
+                      >autoprefixer</a
+                    ></code
+                  >
+                  to add support for older browsers
+                </li>
+                <li>
+                  <code
+                    ><a href="https://babeljs.io/docs/usage/cli/"
+                      >babel-cli</a
+                    ></code
+                  >,
+                  <code
+                    ><a href="https://github.com/babel/babel-preset-env"
+                      >babel-preset-env</a
+                    ></code
+                  >
+                  and
+                  <code
+                    ><a
+                      href="https://github.com/jmcriffey/babel-preset-es2015-ie"
+                      >babel-preset-es2015-ie</a
+                    ></code
+                  >
+                  for compiling ES6 JavaScript files
+                </li>
+              </ul>
+              <p>
+                Apart from <code>package.json</code>, the following files are
+                included:
+              </p>
+              <ul>
+                <li>
+                  <code>.babelrc</code> configuration file for
+                  <a href="https://babeljs.io/">Babel</a>
+                </li>
+                <li>
+                  <code>.gitignore</code> common
+                  <a href="https://git-scm.com/">Git</a> ignored files
+                </li>
+                <li><code>index.html</code> this HTML5 file</li>
+                <li>
+                  <code>_sass/main.scss</code> a basic SCSS file that
+                  <strong>imports Bulma</strong> and explains how to
+                  <strong>customize</strong> your styles, and compiles to
+                  <code>css/main.css</code>
+                </li>
+                <li>
+                  <code>_javascript/main.js</code> an ES6 JavaScript that
+                  compiles to <code>lib/main.js</code>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer has-text-centered">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8-desktop is-offset-2-desktop">
+            <p>
+              <strong class="has-text-weight-semibold">
+                <a href="/credits.html">Credits</a>
+                <a href="https://www.npmjs.com/package/bulma-start"
+                  >bulma-start@0.0.3</a
+                >
+              </strong>
+            </p>
+            <p>
+              <small>
+                Source code licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+              </small>
+            </p>
+            <p style="margin-top: 1rem;">
+              <a href="http://bulma.io">
+                <img
+                  src="made-with-bulma.png"
+                  alt="Made with Bulma"
+                  width="128"
+                  height="24"
+                />
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="lib/dots.js"></script>
+  </body>
+</html>
