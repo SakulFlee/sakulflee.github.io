@@ -20,8 +20,7 @@ build:
     - merge_requests
     - chats
 
-deploy_preview:
-  stage: deploy
+.deploy_template: &deploy_definition
   before_script:
   # Create directories and give write permissions to it
   - mkdir -p ~/.ssh
@@ -39,6 +38,10 @@ deploy_preview:
   # [Probably optional:] Set git credentials
   - git config --global user.email "webmaster@sakul6499.de"
   - git config --global user.name "webmaster"
+
+deploy_preview:
+  stage: deploy
+  <<: *deploy_definition
   script: rsync -avrPtzu -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/preview.sakul6499.de/
   environment:
     name: preview
@@ -48,23 +51,7 @@ deploy_preview:
 
 deploy_production:
   stage: deploy
-  before_script:
-  # Create directories and give write permissions to it
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-  # Store public and private key
-  - echo "$SSH_PUBLIC_KEY" | tr -d '\r' > ~/.ssh/id_rsa.pub
-  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-  # Set read permission for private key
-  - chmod 600 ~/.ssh/id_rsa
-  # Invoke ssh-agent and add private key
-  - eval $(ssh-agent -s)
-  - ssh-add ~/.ssh/id_rsa
-  # Add deploy domain to known hosts
-  - ssh-keyscan -H 'raw.sakul6499.de' >> ~/.ssh/known_hosts
-  # [Probably optional:] Set git credentials
-  - git config --global user.email "webmaster@sakul6499.de"
-  - git config --global user.name "webmaster"
+  <<: *deploy_definition
   script: rsync -avrPtzu -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/sakul6499.de/
   environment:
     name: production
