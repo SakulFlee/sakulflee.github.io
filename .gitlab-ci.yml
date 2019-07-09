@@ -28,15 +28,9 @@ build:
   # Store public and private key
   - echo "$SSH_PUBLIC_KEY" | tr -d '\r' > ~/.ssh/webmaster.pub
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/webmaster
-  # Make sure both keys DON'T end with a new line
-  - sed  '/^$/d' ~/.ssh/webmaster > ~/.ssh/webmaster
-  - sed  '/^$/d' ~/.ssh/webmaster.pub > ~/.ssh/webmaster.pub
   # Set permission for keys
   - chmod 600 ~/.ssh/webmaster
   - chmod 644 ~/.ssh/webmaster.pub
-  # Print keys
-  - echo "$SSH_PUBLIC_KEY"
-  - echo "$SSH_PRIVATE_KEY"
   # Print files
   - cat ~/.ssh/webmaster
   - cat ~/.ssh/webmaster.pub
