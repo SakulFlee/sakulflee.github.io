@@ -63,7 +63,7 @@ deploy_preview:
   except:
   - master
 
-  deploy_production:
+deploy_production:
   stage: deploy
   script: rsync -avrPtzu -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/sakul6499.de/
   environment:
