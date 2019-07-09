@@ -4,6 +4,9 @@ stages:
   - build
   - deploy
 
+before_script:
+ - apt-get install rsync
+
 build:
   stage: build
   script: npm install && npm run deploy
