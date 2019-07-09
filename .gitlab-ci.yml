@@ -4,9 +4,6 @@ stages:
   - build
   - deploy
 
-before_script:
- - apt-get update -y && apt-get install -y rsync
-
 build:
   stage: build
   script: npm install && npm run deploy
@@ -41,6 +38,8 @@ build:
   # [Probably optional:] Set git credentials
   - git config --global user.email "webmaster@sakul6499.de"
   - git config --global user.name "webmaster"
+  # Install rsync
+  - apt-get update -y && apt-get install -y rsync
 
 deploy_preview:
   stage: deploy
