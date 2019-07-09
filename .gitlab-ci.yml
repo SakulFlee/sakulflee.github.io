@@ -45,7 +45,11 @@ build:
 deploy_preview:
   stage: deploy
   <<: *deploy_definition
-  script: rsync -avrPtzu -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/preview.sakul6499.de/
+  script: 
+  # Clean directory
+   - ssh webmaster@raw.sakul6499.de -p 4753 'rm -rf /srv/http/preview.sakul6499.de/*'
+  # Upload current version
+   - rsync -avrPtzu -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/preview.sakul6499.de/
   environment:
     name: preview
     url: https://preview.sakul6499.de
@@ -55,7 +59,11 @@ deploy_preview:
 deploy_production:
   stage: deploy
   <<: *deploy_definition
-  script: rsync -avrPtzu -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/sakul6499.de/
+  script: 
+  # Clean directory
+   - ssh webmaster@raw.sakul6499.de -p 4753 'rm -rf /srv/http/sakul6499.de/*'
+  # Upload current version
+   - rsync -avrPtzu -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/sakul6499.de/
   environment:
     name: production
     url: https://sakul6499.de
