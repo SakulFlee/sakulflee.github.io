@@ -45,8 +45,6 @@ deploy_preview:
   stage: deploy
   <<: *deploy_definition
   script: 
-  # Clean directory
-   - ssh -o StrictHostKeyChecking=No webmaster@raw.sakul6499.de -p 4753 'rm -rf /srv/http/preview.sakul6499.de/*'
   # Upload current version
    - rsync -avrPzuh --delete -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/preview.sakul6499.de/
   environment:
@@ -59,8 +57,6 @@ deploy_production:
   stage: deploy
   <<: *deploy_definition
   script: 
-  # Clean directory
-   - ssh -o StrictHostKeyChecking=No webmaster@raw.sakul6499.de -p 4753 'rm -rf /srv/http/sakul6499.de/*'
   # Upload current version
    - rsync -avrPzuh --delete -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/sakul6499.de/
   environment:
