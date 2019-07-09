@@ -31,9 +31,6 @@ build:
   # Set permission for keys
   - chmod 600 ~/.ssh/webmaster
   - chmod 644 ~/.ssh/webmaster.pub
-  # Print files
-  - cat ~/.ssh/webmaster
-  - cat ~/.ssh/webmaster.pub
   # Invoke ssh-agent and add private key
   - eval $(ssh-agent -s) && ssh-add ~/.ssh/webmaster
   # Add deploy domain to known hosts
