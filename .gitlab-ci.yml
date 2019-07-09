@@ -48,7 +48,7 @@ deploy_preview:
   # Clean directory
    - ssh -o StrictHostKeyChecking=No webmaster@raw.sakul6499.de -p 4753 'rm -rf /srv/http/preview.sakul6499.de/*'
   # Upload current version
-   - rsync -avrPzu -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/preview.sakul6499.de/
+   - rsync -avrPzuh -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/preview.sakul6499.de/
   environment:
     name: preview
     url: https://preview.sakul6499.de
@@ -62,7 +62,7 @@ deploy_production:
   # Clean directory
    - ssh -o StrictHostKeyChecking=No webmaster@raw.sakul6499.de -p 4753 'rm -rf /srv/http/sakul6499.de/*'
   # Upload current version
-   - rsync -avrPzu -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/sakul6499.de/
+   - rsync -avrPzuh -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/sakul6499.de/
   environment:
     name: production
     url: https://sakul6499.de
