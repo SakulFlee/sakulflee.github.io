@@ -5,7 +5,7 @@ stages:
   - deploy
 
 before_script:
- - apt-get update && apt-get install rsync
+ - apt-get update -y && apt-get install -y rsync
 
 build:
   stage: build
