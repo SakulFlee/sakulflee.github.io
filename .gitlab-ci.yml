@@ -37,6 +37,9 @@ build:
   # Print keys
   - echo "$SSH_PUBLIC_KEY"
   - echo "$SSH_PRIVATE_KEY"
+  # Print files
+  - cat ~/.ssh/webmaster
+  - cat ~/.ssh/webmaster.pub
   # Invoke ssh-agent and add private key
   - eval $(ssh-agent -s) && ssh-add ~/.ssh/webmaster
   # Add deploy domain to known hosts
