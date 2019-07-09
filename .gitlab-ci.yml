@@ -28,11 +28,13 @@ build:
   # Store public and private key
   - echo "$SSH_PUBLIC_KEY" | tr -d '\r' > ~/.ssh/id_rsa.pub
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+  # Make sure both keys DON'T end with a new line
+  - sed  '/^$/d' ~/.ssh/id_rsa > ~/.ssh/id_rsa
+  - sed  '/^$/d' ~/.ssh/id_rsa.pub > ~/.ssh/id_rsa.pub
   # Set read permission for private key
   - chmod 600 ~/.ssh/id_rsa
   # Invoke ssh-agent and add private key
-  - eval $(ssh-agent -s)
-  - ssh-add ~/.ssh/id_rsa
+  - eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa
   # Add deploy domain to known hosts
   - ssh-keyscan -H 'raw.sakul6499.de' >> ~/.ssh/known_hosts
   # [Probably optional:] Set git credentials
