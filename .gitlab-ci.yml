@@ -33,6 +33,9 @@ build:
   - sed  '/^$/d' ~/.ssh/webmaster.pub > ~/.ssh/webmaster.pub
   # Set read permission for private key
   - chmod 600 ~/.ssh/webmaster
+  # Print keys
+  - echo "$SSH_PUBLIC_KEY"
+  - echo "$SSH_PRIVATE_KEY"
   # Invoke ssh-agent and add private key
   - eval $(ssh-agent -s) && ssh-add ~/.ssh/webmaster
   # Add deploy domain to known hosts
