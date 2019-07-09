@@ -44,9 +44,7 @@ build:
 deploy_preview:
   stage: deploy
   <<: *deploy_definition
-  script: 
-  # Upload current version
-   - rsync -avrPzuh --delete -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/preview.sakul6499.de/
+  script: ssh webmaster@raw.sakul6499.de -p 4753 'rm -rf /srv/http/preview.sakul6499.de/* && git clone -b '$CI_COMMIT_REF_NAME' git@gitlab.com:sakul6499.de/sakul6499.de.git /srv/http/preview.sakul6499.de && npm install && npm run deploy'
   environment:
     name: preview
     url: https://preview.sakul6499.de
@@ -56,9 +54,7 @@ deploy_preview:
 deploy_production:
   stage: deploy
   <<: *deploy_definition
-  script: 
-  # Upload current version
-   - rsync -avrPzuh --delete -e "ssh -p 4753" . webmaster@raw.sakul6499.de:/srv/http/sakul6499.de/
+  script: ssh webmaster@raw.sakul6499.de -p 4753 'rm -rf /srv/http/sakul6499.de/* && git clone -b 'master' git@gitlab.com:sakul6499.de/sakul6499.de.git /srv/http/sakul6499.de && npm install && npm run deploy'
   environment:
     name: production
     url: https://sakul6499.de
