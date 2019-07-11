@@ -7,13 +7,46 @@
 @import "./start-frame.scss";
 
 .no-font {
-    font-size: 0;
+  font-size: 0;
 }
 
 .section {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
+}
+
+.no-padding-top {
+  padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0 !important;
 }
 
 #info-tiles {
-    padding-top: 0;
+  @extend .no-padding-top;
+}
+
+embed {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 0%;
+  max-height: 100%;
+}
+
+.no-overflow {
+    overflow: hidden;
+}
+
+$header-height: 48px;
+.nav {
+    height: $header-height;
+    min-height: $header-height;
+    max-height: $header-height;
+    margin: 0;
 }

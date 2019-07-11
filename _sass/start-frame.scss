@@ -5,11 +5,15 @@
   position: absolute;
 }
 
+$frame-color: rgba(0, 0, 0, 0.5);
 #start-frame {
-  $frame-color: rgba(0, 0, 0, 0.5);
   background-color: $frame-color;
   border-color: $frame-color;
   border-radius: 15px;
   border-style: hidden;
   padding: 5%;
+}
+
+body {
+  @extend .has-background-black;
 }
