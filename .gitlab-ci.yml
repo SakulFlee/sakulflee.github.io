@@ -2,11 +2,10 @@ image: node:latest
 
 stages:
   - build
-  - deploy
 
 build:
   stage: build
-  script: npm install && npm run deploy
+  script: ./build.sh
   only:
     - branches
     - tags
