@@ -6,11 +6,11 @@ OUT_FOLDER="out"
 
 ### Auto Settings
 HTML_INPUT_FOLDER="$SRC_FOLDER/html"
-SASS_INPUT_FOLDER="$SRC_FOLDER/sass"
-SCSS_INPUT_FOLDER="$SRC_FOLDER/scss"
 JS_INPUT_FOLDER="$SRC_FOLDER/js"
 TEMPLATE_INPUT_FOLDER="$SRC_FOLDER/templates"
 ICONS_INPUT_FOLDER="$SRC_FOLDER/icons"
+
+SCSS_MAIN_INPUT="$SRC_FOLDER/scss/main.scss"
 
 HTML_OUTPUT_FOLDER="$OUT_FOLDER"
 CSS_OUTPUT_FOLDER="$OUT_FOLDER/css"
@@ -25,17 +25,9 @@ rm -rf "$OUT_FOLDER"
 # Create output folder
 mkdir -p "$CSS_OUTPUT_FOLDER"
 # Compile SASS
-for file in $SASS_INPUT_FOLDER/*; do
-    file_name=$(basename "$file")
-    file_name=${file_name/sass/css}
-    sass "$file" "$CSS_OUTPUT_FOLDER/$file_name"
-done
-# Compile SCSS
-for file in $SCSS_INPUT_FOLDER/*; do
-    file_name=$(basename "$file")
-    file_name=${file_name/scss/css}
-    sass "$file" "$CSS_OUTPUT_FOLDER/$file_name"
-done
+sass_file_name=$(basename "$SCSS_MAIN_INPUT")
+css_file_name=${sass_file_name/scss/css}
+sass "$SCSS_MAIN_INPUT" "$CSS_OUTPUT_FOLDER/$css_file_name"
 
 ## JS
 # Create output folder
