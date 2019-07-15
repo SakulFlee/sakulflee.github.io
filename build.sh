@@ -15,7 +15,6 @@ ICONS_INPUT_FOLDER="$SRC_FOLDER/icons"
 HTML_OUTPUT_FOLDER="$OUT_FOLDER"
 CSS_OUTPUT_FOLDER="$OUT_FOLDER/css"
 JS_OUTPUT_FOLDER="$OUT_FOLDER/lib"
-ICONS_OUTPUT_FOLDER="$OUT_FOLDER/icons"
 
 ### Script
 ## Clean
@@ -72,7 +71,5 @@ for file in $(find $HTML_OUTPUT_FOLDER -type f -name '*.html'); do
 done
 
 ## Icons
-# Create output folder
-mkdir -p "$ICONS_OUTPUT_FOLDER"
 # Copy icons
-cp -r $ICONS_INPUT_FOLDER $ICONS_OUTPUT_FOLDER
+cp -r $ICONS_INPUT_FOLDER $HTML_OUTPUT_FOLDER
