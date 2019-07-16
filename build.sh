@@ -17,25 +17,8 @@ CSS_OUTPUT_FOLDER="$OUT_FOLDER/css"
 JS_OUTPUT_FOLDER="$OUT_FOLDER/lib"
 
 ### Script
-## Clean
-# Clean output
-rm -rf "$OUT_FOLDER"
-
-## SASS
-# Create output folder
-mkdir -p "$CSS_OUTPUT_FOLDER"
-# Compile SASS
-sass_file_name=$(basename "$SCSS_MAIN_INPUT")
-css_file_name=${sass_file_name/scss/css}
-sass "$SCSS_MAIN_INPUT" "$CSS_OUTPUT_FOLDER/$css_file_name"
-
-## JS
-# Create output folder
-mkdir -p "$JS_OUTPUT_FOLDER"
-# Copy JS
-cp $JS_INPUT_FOLDER/* $JS_OUTPUT_FOLDER
-
 ## HTML
+echo "# HTTP"
 # Create output folder
 mkdir -p "$HTML_OUTPUT_FOLDER"
 # Copy HTML
@@ -62,6 +45,23 @@ for file in $(find $HTML_OUTPUT_FOLDER -type f -name '*.html'); do
     done
 done
 
+## SASS
+echo "# SASS"
+# Create output folder
+mkdir -p "$CSS_OUTPUT_FOLDER"
+# Compile SASS
+sass_file_name=$(basename "$SCSS_MAIN_INPUT")
+css_file_name=${sass_file_name/scss/css}
+sass --update "$SCSS_MAIN_INPUT:$CSS_OUTPUT_FOLDER/$css_file_name"
+
+## JS
+echo "# JS"
+# Create output folder
+mkdir -p "$JS_OUTPUT_FOLDER"
+# Copy JS
+cp $JS_INPUT_FOLDER/* $JS_OUTPUT_FOLDER
+
 ## Icons
+echo "# ICONS"
 # Copy icons
 cp -r $ICONS_INPUT_FOLDER $HTML_OUTPUT_FOLDER
