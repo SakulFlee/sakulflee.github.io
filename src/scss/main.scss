@@ -52,3 +52,13 @@ embed {
     padding-top: 16px;
     padding-bottom: 16px;
 }
+
+#about-me {
+    @include until($tablet) {
+        margin-bottom: 32px;
+        border-bottom: solid black;
+    }
+    @include from($tablet) {
+        border-right: solid black;
+    }
+}
