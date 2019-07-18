@@ -337,7 +337,15 @@
     <include>footer.html</include>
 
     <!-- Dots.JS for animating the main page -->
-    <script type="text/javascript" src="lib/dots.js"></script>
+    <!-- <script type="text/javascript" src="js/dots.js"></script> -->
+    <script type="module">
+        import init from '/js/dots/rust_wasm_dots.js'; 
+        
+        (async() => {
+            await init();
+        })();
+    </script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135429793-3"></script>
     <script>

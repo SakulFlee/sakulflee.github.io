@@ -8,13 +8,15 @@ OUT_FOLDER="out"
 HTML_INPUT_FOLDER="$SRC_FOLDER/html"
 JS_INPUT_FOLDER="$SRC_FOLDER/js"
 TEMPLATE_INPUT_FOLDER="$SRC_FOLDER/templates"
+RUST_INPUT_FOLDER="$SRC_FOLDER/rust"
 ICONS_INPUT_FOLDER="$SRC_FOLDER/icons"
 
 SCSS_MAIN_INPUT="$SRC_FOLDER/scss/main.scss"
 
 HTML_OUTPUT_FOLDER="$OUT_FOLDER"
 CSS_OUTPUT_FOLDER="$OUT_FOLDER/css"
-JS_OUTPUT_FOLDER="$OUT_FOLDER/lib"
+JS_OUTPUT_FOLDER="$OUT_FOLDER/js"
+RUST_OUTPUT_FOLDER="$JS_OUTPUT_FOLDER"
 
 ### Script
 ## HTML
@@ -60,6 +62,31 @@ echo "# JS"
 mkdir -p "$JS_OUTPUT_FOLDER"
 # Copy JS
 cp $JS_INPUT_FOLDER/* $JS_OUTPUT_FOLDER
+
+## Rust
+echo "# Rust"
+FIRST=1
+for folder in $(find $RUST_INPUT_FOLDER -maxdepth 1 -type d); do
+    if [ $FIRST -eq 1 ]; then
+        FIRST=0
+        continue
+    fi
+    echo "> $folder"
+
+    name=${folder##*/}
+    echo "NAME: $name"
+
+    pkg_folder="$folder/pkg"
+    dest_folder="$RUST_OUTPUT_FOLDER/$name"
+
+    pushd "$folder"
+    wasm-pack build --target web
+    popd
+
+    mkdir -p "$dest_folder"
+    cp "$pkg_folder"/*.js "$dest_folder"
+    cp "$pkg_folder"/*.wasm "$dest_folder"
+done
 
 ## Icons
 echo "# ICONS"
