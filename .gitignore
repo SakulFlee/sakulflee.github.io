@@ -3,3 +3,11 @@ out/
 
 # SASS Cache
 .sass-cache/
+
+# IDEA
+.idea/
+
+# Rust
+target/
+pkg/
+*.lock
