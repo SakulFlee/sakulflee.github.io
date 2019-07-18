@@ -80,7 +80,7 @@ for folder in $(find $RUST_INPUT_FOLDER -maxdepth 1 -type d); do
     dest_folder="$RUST_OUTPUT_FOLDER/$name"
 
     pushd "$folder"
-    wasm-pack build --target web
+    wasm-pack build --release --target web
     popd
 
     mkdir -p "$dest_folder"
