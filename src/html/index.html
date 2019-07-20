@@ -346,22 +346,6 @@
             await init();
         })();
     </script>
-    <!-- <script>
-        var importObject = {
-            'global': {},
-            'env': {
-                'memoryBase': 0,
-                'tableBase': 0,
-                'memory': new WebAssembly.Memory({initial: 256}),
-                'table': new WebAssembly.Table({initial: 0, element: 'anyfunc'})
-            },
-            'imports': {},
-        };
-        WebAssembly.instantiateStreaming(fetch('/js/dots/rust_wasm_dots_bg.wasm'), importObject)
-        .then(obj => {
-            init();
-        })
-    </script> -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135429793-3"></script>
