@@ -9,7 +9,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 use wasm_bindgen::{prelude::*, JsCast};
-use web_sys::{HtmlCanvasElement, CanvasRenderingContext2d, Document, console, Window};
+use web_sys::{HtmlCanvasElement, CanvasRenderingContext2d, Document, Window};
 use js_sys::Math::random;
 
 #[wasm_bindgen]
@@ -23,7 +23,8 @@ fn request_animation_frame(window: &Window, f: &Closure<dyn FnMut()>) {
         .expect("should register `requestAnimationFrame`");
 }
 
-const FPS: f64 = 120f64;
+const FPS: f64 = 30f64;
+const FPS_INTERVAL: f64 = 1000f64 / FPS;
 const MAX_RGB: f64 = 255f64;
 
 struct Dot {
@@ -136,7 +137,6 @@ impl Dots {
                 if d <= 500.0 {
                     let base = MAX_RGB / self.max_d;
                     let base_dist = base * d;
-                    let alpha = MAX_RGB - base_dist;
 
                     let r = MAX_RGB - base_dist * 4f64;
                     let g = MAX_RGB - base_dist * 4f64;
@@ -155,21 +155,21 @@ impl Dots {
 
     fn update(&mut self) {
         for dot in &mut self.dots {
-            dot.position.0 = dot.position.0 + dot.velocity.0 / FPS;
-            dot.position.1 = dot.position.1 + dot.velocity.1 / FPS;
+            dot.position.0 = dot.position.0 + dot.velocity.0 / FPS_INTERVAL;
+            dot.position.1 = dot.position.1 + dot.velocity.1 / FPS_INTERVAL;
 
             if dot.position.0 < 0.0 {
                 dot.velocity.0 = -dot.velocity.0;
                 dot.position.0 = 0.0;
-            }
+            }  
             if dot.position.0 > self.canvas.width() as f64 {
                 dot.velocity.0 = -dot.velocity.0;
                 dot.position.0 = self.canvas.width() as f64;
-            }
+            }  
             if dot.position.1 < 0.0 {
                 dot.velocity.1 = -dot.velocity.1;
                 dot.position.1 = 0.0;
-            }
+            }  
             if dot.position.1 > self.canvas.height() as f64 {
                 dot.velocity.1 = -dot.velocity.1;
                 dot.position.1 = self.canvas.height() as f64;
@@ -188,18 +188,30 @@ pub fn main() -> Result<(), JsValue> {
 
     let window = web_sys::window().expect("no global 'window' exists");
     let document = window.document().expect("should have a document in 'window'");
-    let body = document.body().expect("document should have a body");
+    let performance = window.performance().expect("performance should be available");
 
-    // ---
     let mut dots = Dots::new(&document);
+    let mut then = performance.now();
+
     let f = Rc::new(RefCell::new(None));
     let g = f.clone();
     *g.borrow_mut() = Some(Closure::wrap(Box::new(move || {
-        dots.tick();
+        let now = performance.now();
+        
+        // if 'elapsed' frames past: render/draw!
+        let elapsed = now - then;
+        if elapsed > FPS_INTERVAL {
+            // set 'then' to 'now', minus the rest from 'elapsed'
+            then = now - (elapsed % FPS_INTERVAL);
+
+            // Draw
+            dots.tick();
+        }
+
+        // Request new animation frame (start over again)
         request_animation_frame(&web_sys::window().unwrap(), f.borrow().as_ref().unwrap());
     }) as Box<dyn FnMut()>));
     request_animation_frame(&window, g.borrow().as_ref().unwrap());
-    // ---
 
     Ok(())
 }

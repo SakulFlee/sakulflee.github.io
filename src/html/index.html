@@ -75,8 +75,9 @@
         <div class="columns has-text-centered">
             <div class="column" id="about-me">
                 <u class="is-half is-family-code has-text-underlined">About me</u>
-                <p>CONTENT GOES HERE</p>
-                <p>Should be left</p>
+                Hey there! My name is Lukas and this is my website.
+                I am a Software Engineering student.
+                I study in the Netherlands, but I am living in Germany at the moment. 
             </div>
             <div class="column">
                 <u class="is-half is-family-code has-text-underlined tooltip is-tooltip-multiline is-tooltip-active is-tooltip-info" data-tooltip="Hover over my tags!">
@@ -337,6 +338,7 @@
     <include>footer.html</include>
 
     <!-- Dots.JS for animating the main page -->
+    <script async type="module" src="/js/dots/rust_wasm_dots.js"></script>
     <script type="module">
         import init from '/js/dots/rust_wasm_dots.js'; 
         
@@ -344,6 +346,22 @@
             await init();
         })();
     </script>
+    <!-- <script>
+        var importObject = {
+            'global': {},
+            'env': {
+                'memoryBase': 0,
+                'tableBase': 0,
+                'memory': new WebAssembly.Memory({initial: 256}),
+                'table': new WebAssembly.Table({initial: 0, element: 'anyfunc'})
+            },
+            'imports': {},
+        };
+        WebAssembly.instantiateStreaming(fetch('/js/dots/rust_wasm_dots_bg.wasm'), importObject)
+        .then(obj => {
+            init();
+        })
+    </script> -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135429793-3"></script>
