@@ -1,0 +1,16 @@
+{
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "cargo +nightly build",
+            "problemMatcher": ["$rustc"]
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "cargo +nightly run -- ../sakul6499.de/out",
+            "problemMatcher": ["$rustc"]
+        }
+    ]
+}

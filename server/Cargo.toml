@@ -1,0 +1,9 @@
+[package]
+name = "sakul6499_de_server"
+version = "0.1.0"
+authors = ["Lukas Weber | #Sakul6499 <me@sakul6499.de>"]
+edition = "2018"
+
+[dependencies]
+rocket = "0.4.2"
+rocket_contrib = "0.4.2"
