@@ -47,7 +47,7 @@ deploy_staging:
   script:
     - ssh -p22 deploy@raw.sakul6499.de "mkdir -p /srv/website/staging/tmp"
     - rsync -rav -e ssh --exclude='.git/' --exclude='.gitlab-ci.yml' --delete-excluded ./ deploy@raw.sakul6499.de:/srv/website/staging/tmp
-    - ssh -p22 deploy@raw.sakul6499.de "mv /srv/website/staging/current /srv/website/staging/old && mv /srv/website/staging/tmp /srv/website/staging/current
+    - ssh -p22 deploy@raw.sakul6499.de "mv /srv/website/staging/current /srv/website/staging/old && mv /srv/website/staging/tmp /srv/website/staging/current"
     - ssh -p22 deploy@raw.sakul6499.de "rm -rf /srv/website/staging/old"
   only:
     - staging
