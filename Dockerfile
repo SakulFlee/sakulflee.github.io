@@ -12,7 +12,7 @@ RUN apt-get install -y nodejs
 RUN npm install -g sass
 
 # Rust
-RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
 
 RUN cargo install wasm-pack
 
