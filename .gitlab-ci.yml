@@ -1,0 +1,53 @@
+stages:
+    - docker
+    - build
+    - deploy
+
+docker_image:
+  image: docker:stable
+  stage: docker
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVER: overlay2
+    IMAGE_NAME: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
+  script:
+    - docker build -f Dockerfile -t $IMAGE_NAME -t $IMAGE_NAME:$CI_COMMIT_REF_SLUG -t $IMAGE_NAME:latest .
+  before_script:
+    - docker info
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  after_script:
+    - docker push $IMAGE_NAME
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
+  only:
+    changes:
+      - "Dockerfile"
+      - ".gitlab-ci.yml"
+
+build:
+  stage: build
+  image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
+  script:
+    - ./build.sh
+
+deploy_staging:
+  stage: deploy
+  image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+  script:
+    - ssh -p22 deploy@raw.sakul6499.de "mkdir -p /srv/website_staging_tmp"
+    - rsync -rav -e ssh --exclude='.git/' --exclude='.gitlab-ci.yml' --delete-excluded ./ deploy@raw.sakul6499.de:/srv/website_staging_tmp
+    - ssh -p22 deploy@raw.sakul6499.de "mv /srv/website_staging /srv/website_staging_old && mv /srv/website_staging_tmp /srv/website_staging"
+    - ssh -p22 deploy@raw.sakul6499.de "rm -rf /srv/website_staging_old"
+  only:
+    - staging
