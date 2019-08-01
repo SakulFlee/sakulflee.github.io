@@ -2,11 +2,16 @@ FROM ubuntu:latest
 
 # Update APT
 RUN apt-get update && apt-get upgrade -y
-## Install build-essential
-RUN apt-get install -y build-essential
+## Install needed dependencies
+RUN apt-get install -y                                                      \
+    build-essential                                                         \
+    pkg-config                                                              \
+    ssh                                                                     \
+    curl                                                                    \
+    wget                                                                    \
+    software-properties-common
 
 # Install NPM / NodeJS
-RUN apt-get install -y curl software-properties-common
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash
 RUN apt-get install -y nodejs
 ## Install sass-lang
