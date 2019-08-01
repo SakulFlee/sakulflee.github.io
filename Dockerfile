@@ -7,6 +7,7 @@ RUN apt-get install -y build-essential
 # NPM / NodeJS
 RUN apt-get install -y curl software-properties-common
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash
+RUN apt-get install -y nodejs
 
 RUN npm install -g sass
 
