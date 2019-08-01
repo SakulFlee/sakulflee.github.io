@@ -7,9 +7,10 @@ RUN apt-get install -y                                                      \
     build-essential                                                         \
     pkg-config                                                              \
     ssh                                                                     \
+    libssl-dev                                                              \
     curl                                                                    \
     wget                                                                    \
-    software-properties-common
+    software-properties-common                                              
 
 # Install NPM / NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash
