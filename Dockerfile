@@ -20,13 +20,13 @@ RUN npm install -g sass
 
 # Install Rust
 ## Install rustup
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -v -y --no-modify-path
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -v -y
 ## Ensure that rust and cargo are in path
 ENV PATH="/root/.cargo/bin:$PATH"
 ## Set nightly as default toolchain
-RUN rustup default nightly-armv7-unknown-linux-gnueabihf
+RUN /usr/bin/rustup default nightly-armv7-unknown-linux-gnueabihf
 # Install wasm-pack
-RUN cargo install wasm-pack
+RUN /usr/bin/cargo install wasm-pack
 
 # RSync
 RUN apt-get install -y rsync
