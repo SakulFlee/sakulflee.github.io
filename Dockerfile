@@ -23,7 +23,7 @@ RUN npm install -g sass
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -v -y
 ## Ensure that rust and cargo are in path
 ENV PATH="/root/.cargo/bin:$PATH"
-RUN source $HOME/.cargo/env
+RUN cat $HOME/.cargo/env
 ## Set nightly as default toolchain
 RUN /usr/bin/rustup default nightly-armv7-unknown-linux-gnueabihf
 # Install wasm-pack
