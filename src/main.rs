@@ -5,15 +5,11 @@ use std::env;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    println!("{:?}", args);
-    let path = if args.len() > 1 {
-        println!("Path argument found!");
-        println!("Path: {}", args[1]);
-        args[1].to_owned()
-    } else {
-        format!("/srv/http/sakul6499.de")
-    };
-
+    if args.len() <= 1 {
+        println!("Error: No path specified.");
+        return;
+    }
+    let path = args[1].to_owned();
     rocket::ignite()
         .mount("/", StaticFiles::from(path).rank(-1))
         .launch();

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### Settings
-SRC_FOLDER="src"
+SRC_FOLDER="src_web"
 OUT_FOLDER="out"
 
 ### Auto Settings
