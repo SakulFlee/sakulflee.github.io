@@ -36,6 +36,7 @@ RUN yay -S --noconfirm yay
 ## Install rustup
 RUN yay -S --noconfirm rustup
 ## Set nightly as default toolchain
+RUN rustup install stable nightly
 RUN rustup default nightly-armv7-unknown-linux-gnueabihf
 
 # Install wasm-pack
