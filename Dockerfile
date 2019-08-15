@@ -1,5 +1,5 @@
 FROM archlinux/base:latest
-LABEL maintainer="sakul6499@live.de" 
+LABEL maintainer="me@sakul6499.de" 
 
 # Update APT
 RUN apt-get update && apt-get upgrade -y
