@@ -35,9 +35,16 @@ RUN yay -S --noconfirm yay
 # Install Rust
 ## Install rustup
 RUN yay -S --noconfirm rustup
-## Set nightly as default toolchain
-RUN rustup install stable nightly
-RUN rustup default nightly-armv7-unknown-linux-gnueabihf
+## Install nightly
+RUN rustup install nightly
+## Install stable
+RUN rustup install stable
+## Install RPI-nightly
+RUN rustup install nightly-armv7-unknown-linux-gnueabihf
+## Install RPI-stable
+RUN rustup install stable-armv7-unknown-linux-gnueabihf
+## Set nightly as default
+RUN rustup default nightly
 
 # Install wasm-pack
 RUN cargo install wasm-pack
