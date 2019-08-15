@@ -47,7 +47,7 @@ RUN rustup install stable-armv7-unknown-linux-gnueabihf
 RUN rustup default nightly
 
 # Install wasm-pack
-RUN cargo install wasm-pack
+RUN /usr/bin/cargo install wasm-pack
 
 # Install sass
 RUN yay -S --noconfirm ruby-sass
