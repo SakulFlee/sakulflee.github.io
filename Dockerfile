@@ -17,6 +17,21 @@ RUN groupadd sudo
 RUN echo "sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+# Install AUR
+USER root
+## Add aur user
+RUN useradd --create-home --groups sudo,root --shell=/bin/false aur
+## Give aur user permission to run anything, without password
+RUN echo "aur ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+USER aur
+# Manually install yay (AUR helper)
+RUN cd /tmp                                                                 \
+ && git clone https://aur.archlinux.org/yay.git                             \
+ && cd yay                                                                  \
+ && makepkg -si --noconfirm
+# Reinstall yay with yay from aur (ensures that yay will work)
+RUN yay -S --noconfirm yay
+
 # # Update APT
 # RUN apt-get update && apt-get upgrade -y
 # ## Install needed dependencies
