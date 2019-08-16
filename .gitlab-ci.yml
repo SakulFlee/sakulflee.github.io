@@ -12,13 +12,14 @@ docker_image:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVER: overlay2
     IMAGE_NAME: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
-  script:
-    - DOCKER_BUILDKIT=1 docker image build -f Dockerfile -t $IMAGE_NAME -t $IMAGE_NAME:$CI_COMMIT_REF_SLUG -t $IMAGE_NAME:latest .
   before_script:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $IMAGE_NAME -t $IMAGE_NAME:$CI_COMMIT_REF_SLUG .
   after_script:
     - docker push $IMAGE_NAME
+    - docker push $IMAGE_NAME:$CI_COMMIT_REF_SLUG
   retry:
     max: 2
     when:
