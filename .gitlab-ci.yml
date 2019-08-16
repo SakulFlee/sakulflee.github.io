@@ -38,6 +38,7 @@ build:
   artifacts:
     paths:
       - out/
+      - target/
 
 deploy_staging:
   stage: deploy
