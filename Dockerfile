@@ -55,14 +55,5 @@ RUN yay -S --noconfirm ruby-sass
 # Install rsync
 RUN yay -S --noconfirm rsync
 
-# # Update APT
-# RUN apt-get update && apt-get upgrade -y
-# ## Install needed dependencies
-# RUN apt-get install -y                                                      \
-#     build-essential                                                         \
-#     pkg-config                                                              \
-#     ssh                                                                     \
-#     libssl-dev                                                              \
-#     curl                                                                    \
-#     wget                                                                    \
-#     software-properties-common                                              
+# Install SSH
+RUN yay -S --noconfirm openssh
