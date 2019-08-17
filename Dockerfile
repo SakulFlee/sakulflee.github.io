@@ -47,6 +47,9 @@ RUN rustup install stable-armv7-unknown-linux-gnueabihf
 RUN rustup default nightly
 ## Install 'armv7-unknown-linux-gnueabihf' target
 RUN rustup target add armv7-unknown-linux-gnueabihf
+### Install rust-std
+RUN rustup component add rust-std --toolchain stable --target armv7-unknown-linux-gnueabihf
+RUN rustup component add rust-std --toolchain nightly --target armv7-unknown-linux-gnueabihf
 
 # Install wasm-pack
 RUN /usr/bin/cargo install wasm-pack
