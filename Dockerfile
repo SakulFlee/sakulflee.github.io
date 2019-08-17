@@ -45,6 +45,8 @@ RUN rustup install nightly-armv7-unknown-linux-gnueabihf
 RUN rustup install stable-armv7-unknown-linux-gnueabihf
 ## Set nightly as default
 RUN rustup default nightly
+## Install 'armv7-unknown-linux-gnueabihf' target
+RUN rustup target add armv7-unknown-linux-gnueabihf
 
 # Install wasm-pack
 RUN /usr/bin/cargo install wasm-pack
