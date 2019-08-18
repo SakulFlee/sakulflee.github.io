@@ -28,11 +28,12 @@ USER aur
 RUN cd /tmp                                                                 \
  && git clone https://aur.archlinux.org/yay.git                             \
  && cd yay                                                                  \
- && makepkg -si --noconfirm
-# Reinstall yay with yay from aur (ensures that yay will work)
-RUN yay -S --noconfirm yay
+ && makepkg -si --noconfirm													\
+ && yay -S --noconfirm yay
+# Last line: Reinstall yay with yay from aur (ensures that yay will work)
 
 # Install Rust
+USER root
 ## Install rustup
 RUN yay -S --noconfirm rustup
 ## Install nightly
@@ -54,11 +55,8 @@ RUN rustup component add rust-std --toolchain nightly --target armv7-unknown-lin
 # Install wasm-pack
 RUN /usr/bin/cargo install wasm-pack
 
-# Install sass
-RUN yay -S --noconfirm ruby-sass
-
-# Install rsync
-RUN yay -S --noconfirm rsync
-
-# Install SSH
-RUN yay -S --noconfirm openssh
+# Install sass, rsync, ssh
+RUN yay -S --noconfirm														\
+  ruby-sass																	\
+  rsync																		\
+  ssh
