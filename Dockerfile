@@ -59,4 +59,4 @@ RUN /usr/bin/cargo install wasm-pack
 RUN yay -S --noconfirm														\
   ruby-sass																	\
   rsync																		\
-  ssh
+  openssh
