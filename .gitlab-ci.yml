@@ -34,7 +34,7 @@ build:
   stage: build
   image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
   script:
-    - cargo +nightly build --target armv7-unknown-linux-gnueabihf --release
+    - cargo build --target armv7-unknown-linux-gnueabihf --release
     - mkdir artifacts
     - mv target/release/sakul6499_de_server artifact/server
     - mv out/ artifacts/

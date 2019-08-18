@@ -3,27 +3,11 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "cargo +nightly build",
-            "problemMatcher": ["$rustc"],
-            "presentation": {
-                "showReuseMessage": false,
-                "panel": "new",
-                "focus": true
-            }
-        },
-        {
-            "label": "Run",
-            "type": "shell",
-            "command": "cargo +nightly run -- ./out",
-            "problemMatcher": ["$rustc"],
+            "command": "./build.sh",
+            "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            },
-            "presentation": {
-                "showReuseMessage": false,
-                "panel": "new",
-                "focus": true
             }
         }
     ]
