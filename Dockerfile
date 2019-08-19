@@ -32,31 +32,31 @@ RUN cd /tmp                                                                 \
  && yay -S --noconfirm yay
 # Last line: Reinstall yay with yay from aur (ensures that yay will work)
 
-# Install Rust
-USER root
-## Install rustup
-RUN yay -S --noconfirm rustup
-## Install nightly
-RUN rustup install nightly
-## Install stable
-RUN rustup install stable
-## Install RPI-nightly
-RUN rustup install nightly-armv7-unknown-linux-gnueabihf
-## Install RPI-stable
-RUN rustup install stable-armv7-unknown-linux-gnueabihf
-## Set nightly as default
-RUN rustup default nightly
-## Install 'armv7-unknown-linux-gnueabihf' target
-RUN rustup target add armv7-unknown-linux-gnueabihf
-### Install rust-std
-RUN rustup component add rust-std --toolchain stable --target armv7-unknown-linux-gnueabihf
-RUN rustup component add rust-std --toolchain nightly --target armv7-unknown-linux-gnueabihf
-
-# Install wasm-pack
-RUN /usr/bin/cargo install wasm-pack
-
-# Install sass, rsync, ssh
+# Install sass, rsync, ssh, python
+USER aur
 RUN yay -S --noconfirm														\
   ruby-sass																	\
   rsync																		\
-  openssh
+  openssh																	\
+  python2																	\
+  python
+
+RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc-stage1
+RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc-stage2
+RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc
+
+# Install Rust
+## Install rustup
+USER aur
+RUN yay -S --noconfirm rustup
+USER root
+RUN rustup default nightly
+RUN rustup install nightly-armv7-unknown-linux-gnueabihf
+RUN rustup target add armv7-unknown-linux-gnueabihf
+RUN rustup component add rust-std --target armv7-unknown-linux-gnueabihf
+RUN echo -e "[target.armv7-unknown-linux-gnueabihf]\nlinker = \"arm-linux-gnueabihf-gcc\"" > /root/.cargo/config
+
+# Install wasm-pack
+RUN /usr/bin/cargo install wasm-pack
+# Exit as root for default user
+USER root
