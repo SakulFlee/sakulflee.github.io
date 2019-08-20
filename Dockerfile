@@ -28,7 +28,12 @@ RUN cd /tmp                                                                 \
 
 # Install sass, rsync, ssh, python
 USER aur
-RUN yay -S --noconfirm ruby-sass rsync openssh python2 python arm-linux-gnueabihf-gcc arm-linux-gnueabihf-glibc
+RUN yay -S --noconfirm ruby-sass rsync openssh python2 pythonc
+
+# Install arm-linux-gnueabihf-gcc
+RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc-stage1
+RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc-stage2
+RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc
 
 # Install Rust
 ## Install rustup
