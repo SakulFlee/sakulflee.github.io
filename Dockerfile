@@ -6,40 +6,29 @@ USER root
 ## Update image
 RUN pacman -Syu --noconfirm
 ## Install basic needed packages for AUR
-RUN pacman -S --noconfirm                                                   \
-    base-devel                                                              \
-    git                                                                     \
-    sudo
-## Setup sudo
-### Add sudo group
-RUN groupadd sudo
-### Give sudo (and root) group permission to run anything, without password
-RUN echo "sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-RUN echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN pacman -S --noconfirm base-devel git sudo
 
 # Install AUR
 USER root
-## Add aur user
 RUN useradd --create-home --groups sudo,root --shell=/bin/false aur
-## Give aur user permission to run anything, without password
-RUN echo "aur ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+# Setup sudo
+## Add sudo group
+RUN groupadd sudo
+## Give sudo, root and aur permission to run anything without password
+RUN echo -e "sudo ALL=(ALL) NOPASSWD: ALL\nroot ALL=(ALL) NOPASSWD: ALL\naur ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 USER aur
 # Manually install yay (AUR helper)
 RUN cd /tmp                                                                 \
  && git clone https://aur.archlinux.org/yay.git                             \
  && cd yay                                                                  \
  && makepkg -si --noconfirm													\
- && yay -S --noconfirm yay
-# Last line: Reinstall yay with yay from aur (ensures that yay will work)
+ && rm -rf /tmp/yay	
 
 # Install sass, rsync, ssh, python
 USER aur
-RUN yay -S --noconfirm														\
-  ruby-sass																	\
-  rsync																		\
-  openssh																	\
-  python2																	\
-  python
+RUN yay -S --noconfirm ruby-sass rsync openssh python python2
 
 RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc-stage1
 RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc-stage2
