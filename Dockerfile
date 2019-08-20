@@ -8,18 +8,18 @@ RUN pacman -Syu --noconfirm
 ## Install basic needed packages for AUR
 RUN pacman -S --noconfirm gcc clang gdb lldb git sudo
 
-# Install AUR
-USER root
-RUN useradd --create-home --groups sudo,root --shell=/bin/false aur
-
 # Setup sudo
 ## Add sudo group
 RUN groupadd sudo
 ## Give sudo, root and aur permission to run anything without password
 RUN echo -e "sudo ALL=(ALL) NOPASSWD: ALL\nroot ALL=(ALL) NOPASSWD: ALL\naur ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-USER aur
+# Install AUR
+USER root
+RUN useradd --create-home --groups sudo,root --shell=/bin/false aur
+
 # Manually install yay (AUR helper)
+USER aur
 RUN cd /tmp                                                                 \
  && git clone https://aur.archlinux.org/yay.git                             \
  && cd yay                                                                  \
