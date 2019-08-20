@@ -6,7 +6,7 @@ USER root
 ## Update image
 RUN pacman -Syu --noconfirm
 ## Install basic needed packages for AUR
-RUN pacman -S --noconfirm base-devel git sudo
+RUN pacman -S --noconfirm gcc clang gdb lldb git sudo
 
 # Install AUR
 USER root
