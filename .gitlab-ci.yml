@@ -16,10 +16,12 @@ docker_image:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $IMAGE_NAME -t $IMAGE_NAME:$CI_COMMIT_REF_SLUG .
-  after_script:
-    - docker push $IMAGE_NAME
-    - docker push $IMAGE_NAME:$CI_COMMIT_REF_SLUG
+    - docker build -t staging .
+  after_script:    
+    - docker tag -f staging $IMAGE_NAME 
+    - docker tag -f staging $IMAGE_NAME:$CI_COMMIT_REF_SLUG
+    - docker push -f $IMAGE_NAME
+    - docker push -f $IMAGE_NAME:$CI_COMMIT_REF_SLUG
   retry:
     max: 2
     when:
