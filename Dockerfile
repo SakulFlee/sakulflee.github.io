@@ -28,7 +28,7 @@ RUN cd /tmp                                                                 \
 
 # Install sass, rsync, ssh, python
 USER aur
-RUN yay -S --noconfirm ruby-sass rsync openssh python2 pythonc
+RUN yay -S --noconfirm ruby-sass rsync openssh python2 python
 
 # Install arm-linux-gnueabihf-gcc
 RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc-stage1
