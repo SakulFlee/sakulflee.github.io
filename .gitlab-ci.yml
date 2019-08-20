@@ -18,8 +18,8 @@ docker_image:
   script:
     - docker build -t staging .
   after_script:    
-    - docker tag -f staging $IMAGE_NAME 
-    - docker tag -f staging $IMAGE_NAME:$CI_COMMIT_REF_SLUG
+    - docker tag staging $IMAGE_NAME 
+    - docker tag staging $IMAGE_NAME:$CI_COMMIT_REF_SLUG
     - docker push -f $IMAGE_NAME
     - docker push -f $IMAGE_NAME:$CI_COMMIT_REF_SLUG
   retry:
