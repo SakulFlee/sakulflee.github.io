@@ -49,7 +49,7 @@ USER root
 RUN rustup default nightly-armv7-unknown-linux-gnueabihf
 RUN rustup target add armv7-unknown-linux-gnueabihf
 RUN rustup component add rust-std --target armv7-unknown-linux-gnueabihf
-RUN echo -e "[target.armv7-unknown-linux-gnueabihf]\nlinker = \"arm-linux-gnueabihf-gcc\"" > /root/.cargo/config
+RUN mkdir -p /root/.cargo && echo -e "[target.armv7-unknown-linux-gnueabihf]\nlinker = \"arm-linux-gnueabihf-gcc\"" > /root/.cargo/config
 
 # Install wasm-pack
 RUN /usr/bin/cargo install wasm-pack
