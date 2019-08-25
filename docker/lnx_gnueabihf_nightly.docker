@@ -3,13 +3,13 @@ LABEL maintainer="me@sakul6499.de"
 
 # Install compiler
 USER aur
-RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-binutils
-RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc-stage1
-RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-linux-api-headers
-RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-glibc-headers
-RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc-stage2
-RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-glibc
-RUN yay -S --noconfirm --force --useask arm-linux-gnueabihf-gcc 
+RUN yay -S --noconfirm --force --useask -mflags --skipinteg arm-linux-gnueabihf-binutils
+RUN yay -S --noconfirm --force --useask -mflags --skipinteg arm-linux-gnueabihf-gcc-stage1
+RUN yay -S --noconfirm --force --useask -mflags --skipinteg arm-linux-gnueabihf-linux-api-headers
+RUN yay -S --noconfirm --force --useask -mflags --skipinteg arm-linux-gnueabihf-glibc-headers
+RUN yay -S --noconfirm --force --useask -mflags --skipinteg arm-linux-gnueabihf-gcc-stage2
+RUN yay -S --noconfirm --force --useask -mflags --skipinteg arm-linux-gnueabihf-glibc
+RUN yay -S --noconfirm --force --useask -mflags --skipinteg arm-linux-gnueabihf-gcc 
 
 # Rust
 ## Install toolchain
