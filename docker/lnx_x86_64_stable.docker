@@ -1,0 +1,17 @@
+FROM registry.gitlab.com/sakul6499.de/sakul6499.de/base:latest
+LABEL maintainer="me@sakul6499.de"
+
+# Rust
+## Install toolchain
+RUN rustup install stable-x86_64-unknown-linux-gnu
+RUN rustup default stable-x86_64-unknown-linux-gnu
+
+## Add target
+RUN rustup target add x86_64-unknown-linux-gnu
+
+# WASM
+USER rust
+RUN cargo install wasm-pack
+
+# Exit as rust
+USER rust

@@ -1,0 +1,4 @@
+include:
+  - local: '/.gitlab-ci-rust-build-lnx-x86_64.yml'
+  - local: '/.gitlab-ci-rust-build-lnx-gnueabihf.yml'
+  - local: '/.gitlab-ci-rust-build-win.yml'

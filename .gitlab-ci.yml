@@ -1,67 +1,13 @@
 stages:
-    - docker
-    - build
-    - deploy
+  - docker_base
+  - docker
+  - check
+  - test
+  - build
+  - deploy
 
-docker_image:
-  image: docker:stable
-  stage: docker
-  services:
-    - docker:dind
-  variables:
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_DRIVER: overlay2
-    IMAGE_NAME: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
-  before_script:
-    - docker info
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-  script:
-    - docker build -t staging .
-  after_script:    
-    - docker tag staging $IMAGE_NAME 
-    - docker tag staging $IMAGE_NAME:$CI_COMMIT_REF_SLUG
-    - docker push -f $IMAGE_NAME
-    - docker push -f $IMAGE_NAME:$CI_COMMIT_REF_SLUG
-  retry:
-    max: 2
-    when:
-      - runner_system_failure
-      - stuck_or_timeout_failure
-  only:
-    changes:
-      - "Dockerfile"
-      - ".gitlab-ci.yml"
-
-build:
-  stage: build
-  image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
-  script:
-    - cargo +nightly build --target armv7-unknown-linux-gnueabihf
-    - mkdir artifacts
-    - mv target/release/sakul6499_de_server artifact/server
-    - mv out/ artifacts/
-  artifacts:
-    paths:
-      - artifacts/
-
-deploy_staging:
-  stage: deploy
-  image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
-  dependencies:
-    - build
-  before_script:
-    - mkdir -p ~/.ssh
-    - eval $(ssh-agent -s)
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
-  script:
-    - ssh -p22 deploy@raw.sakul6499.de "mkdir -p /srv/website/staging/tmp"
-    - rsync -rav -e ssh --exclude='.git/*' --exclude='.gitlab-ci.yml' --delete-excluded artifacts/* deploy@raw.sakul6499.de:/srv/website/staging/tmp
-    - ssh -p22 deploy@raw.sakul6499.de "if [ -d '/srv/website/staging/current' ]; then mv /srv/website/staging/current /srv/website/staging/old; fi && mv /srv/website/staging/tmp /srv/website/staging/current"
-    - ssh -p22 deploy@raw.sakul6499.de "rm -rf /srv/website/staging/old"
-    - ssh -p22 deploy@raw.sakul6499.de "sudo systemctl restart staging-server"
-  environment:
-    name: staging
-    url: https://staging.sakul6499.de
-  only:
-    - staging
+include:
+  - local: '/.gitlab-ci-docker.yml'
+  - local: '/.gitlab-ci-rust-validation.yml'
+  - local: '/.gitlab-ci-rust-build.yml'
+  - local: '/.gitlab-ci-deploy.yml'

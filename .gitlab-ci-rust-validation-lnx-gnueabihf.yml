@@ -1,0 +1,65 @@
+check_lnx_gnueabihf_stable:
+    stage: check
+    image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/lnx_gnueabihf_stable
+    before_script:
+        - if [ ! -d "logs" ]; then mkdir -p logs; fi
+    script:
+        - cargo +stable check --target armv7-unknown-linux-gnueabihf 2>&1 | tee logs/check
+    artifacts:
+        untracked: true
+        when: always
+
+check_lnx_gnueabihf_beta:
+    stage: check
+    image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/lnx_gnueabihf_beta
+    before_script:
+        - if [ ! -d "logs" ]; then mkdir -p logs; fi
+    script:
+        - cargo +beta check --target armv7-unknown-linux-gnueabihf 2>&1 | tee logs/check
+    artifacts:
+        untracked: true
+        when: always
+
+check_lnx_gnueabihf_nightly:
+    stage: check
+    image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/lnx_gnueabihf_nightly
+    before_script:
+        - if [ ! -d "logs" ]; then mkdir -p logs; fi
+    script:
+        - cargo +nightly check --target armv7-unknown-linux-gnueabihf 2>&1 | tee logs/check
+    artifacts:
+        untracked: true
+        when: always
+
+test_lnx_gnueabihf_stable:
+    stage: test
+    image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/lnx_gnueabihf_stable
+    before_script:
+        - if [ ! -d "logs" ]; then mkdir -p logs; fi
+    script:
+        - cargo +stable test 2>&1 | tee logs/test
+    artifacts:
+        untracked: true
+        when: always
+
+test_lnx_gnueabihf_beta:
+    stage: test
+    image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/lnx_gnueabihf_beta
+    before_script:
+        - if [ ! -d "logs" ]; then mkdir -p logs; fi
+    script:
+        - cargo +beta test 2>&1 | tee logs/test
+    artifacts:
+        untracked: true
+        when: always
+
+test_lnx_gnueabihf_nightly:
+    stage: test
+    image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/lnx_gnueabihf_nightly
+    before_script:
+        - if [ ! -d "logs" ]; then mkdir -p logs; fi
+    script:
+        - cargo +nightly test 2>&1 | tee logs/test
+    artifacts:
+        untracked: true
+        when: always

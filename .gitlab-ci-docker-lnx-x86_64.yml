@@ -1,0 +1,125 @@
+docker_lnx_x86_64_stable:
+    image: docker:stable
+    stage: docker
+    services:
+        - docker:dind
+    variables:
+        DOCKER_HOST: tcp://docker:2375
+        DOCKER_DRIVE: overlay2
+        NAME: lnx_x86_64_stable
+        FILE_NAME: docker/$NAME.docker
+        IMAGE_NAME: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$NAME
+    before_script:
+        - if [ ! -d "logs" ]; then mkdir -p logs; fi
+        - docker info 2>&1 | tee logs/docker_info
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY 2>&1 | tee logs/docker_login
+    script:
+        - docker build -f $FILE_NAME -t $IMAGE_NAME -t $IMAGE_NAME:latest docker 2>&1 | tee logs/docker_build
+        - docker push $IMAGE_NAME 2>&1 | tee logs/docker_push
+        - docker push $IMAGE_NAME:latest 2>&1 | tee logs/docker_push_latest
+    retry:
+        max: 2
+    only:
+        changes:
+            - ".gitlab-ci.yml"
+            - ".gitlab-ci-docker.yml"
+            - ".gitlab-ci-docker-lnx.yml"
+            - ".gitlab-ci-docker-win.yml"
+            - ".gitlab-ci-rust-validation-win.yml"
+            - ".gitlab-ci-rust-validation.yml"
+            - ".gitlab-ci-rust-build.yml"
+            - ".gitlab-ci-rust-build-lnx.yml"
+            - ".gitlab-ci-rust-build-win.yml"
+            - ".gitlab-ci-docker-base.yml"
+            - ".gitlab-ci-rust-validation-lnx.yml"
+            - "docker/base.docker"
+            - "docker/lnx_x86_64_stable"
+    needs:
+        - docker_base
+    artifacts:
+        untracked: true
+        when: always
+
+docker_lnx_x86_64_beta:
+    image: docker:stable
+    stage: docker
+    services:
+        - docker:dind
+    variables:
+        DOCKER_HOST: tcp://docker:2375
+        DOCKER_DRIVE: overlay2
+        NAME: lnx_x86_64_beta
+        FILE_NAME: docker/$NAME.docker
+        IMAGE_NAME: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$NAME
+    before_script:
+        - if [ ! -d "logs" ]; then mkdir -p logs; fi
+        - docker info 2>&1 | tee logs/docker_info
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY 2>&1 | tee logs/docker_login
+    script:
+        - docker build -f $FILE_NAME -t $IMAGE_NAME -t $IMAGE_NAME:latest docker 2>&1 | tee logs/docker_build
+        - docker push $IMAGE_NAME 2>&1 | tee logs/docker_push
+        - docker push $IMAGE_NAME:latest 2>&1 | tee logs/docker_push_latest
+    retry:
+        max: 2
+    only:
+        changes:
+            - ".gitlab-ci.yml"
+            - ".gitlab-ci-docker.yml"
+            - ".gitlab-ci-docker-lnx.yml"
+            - ".gitlab-ci-docker-win.yml"
+            - ".gitlab-ci-rust-validation-win.yml"
+            - ".gitlab-ci-rust-validation.yml"
+            - ".gitlab-ci-rust-build.yml"
+            - ".gitlab-ci-rust-build-lnx.yml"
+            - ".gitlab-ci-rust-build-win.yml"
+            - ".gitlab-ci-docker-base.yml"
+            - ".gitlab-ci-rust-validation-lnx.yml"
+            - "docker/base.docker"
+            - "docker/lnx_x86_64_beta"
+    needs:
+        - docker_base
+    artifacts:
+        untracked: true
+        when: always
+
+docker_lnx_x86_64_nightly:
+    image: docker:stable
+    stage: docker
+    services:
+        - docker:dind
+    variables:
+        DOCKER_HOST: tcp://docker:2375
+        DOCKER_DRIVE: overlay2
+        NAME: lnx_x86_64_nightly
+        FILE_NAME: docker/$NAME.docker
+        IMAGE_NAME: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$NAME
+    before_script:
+        - if [ ! -d "logs" ]; then mkdir -p logs; fi
+        - docker info 2>&1 | tee logs/docker_info
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY 2>&1 | tee logs/docker_login
+    script:
+        - docker build -f $FILE_NAME -t $IMAGE_NAME -t $IMAGE_NAME:latest docker 2>&1 | tee logs/docker_build
+        - docker push $IMAGE_NAME 2>&1 | tee logs/docker_push
+        - docker push $IMAGE_NAME:latest 2>&1 | tee logs/docker_push_latest
+    retry:
+        max: 2
+    only:
+        changes:
+            - ".gitlab-ci.yml"
+            - ".gitlab-ci-docker.yml"
+            - ".gitlab-ci-docker-lnx.yml"
+            - ".gitlab-ci-docker-win.yml"
+            - ".gitlab-ci-rust-validation-win.yml"
+            - ".gitlab-ci-rust-validation.yml"
+            - ".gitlab-ci-rust-build.yml"
+            - ".gitlab-ci-rust-build-lnx.yml"
+            - ".gitlab-ci-rust-build-win.yml"
+            - ".gitlab-ci-docker-base.yml"
+            - ".gitlab-ci-rust-validation-lnx.yml"
+            - "docker/base.docker"
+            - "docker/lnx_x86_64_nightly"
+    needs:
+        - docker_base
+    artifacts:
+        untracked: true
+        when: always
