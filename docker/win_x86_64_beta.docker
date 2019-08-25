@@ -12,6 +12,9 @@ RUN rustup default beta-x86_64-pc-windows-gnu
 ## Add target
 RUN rustup target add x86_64-pc-windows-gnu
 
+## Add components
+RUN rustup component add cargo --target x86_64-pc-windows-gnu
+
 ## Configure rust to use the right tools
 RUN mkdir -p $HOME/.cargo
 RUN echo -e "[target.x86_64-pc-windows-gnu]\nlinker = \"/usr/bin/x86_64-w64-mingw32-gcc\"\nar = \"/usr/bin/x86_64-w64-mingw32-ar\"" >> $HOME/.cargo/config
