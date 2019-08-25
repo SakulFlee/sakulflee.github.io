@@ -21,17 +21,7 @@ docker_lnx_x86_64_stable:
         max: 2
     only:
         changes:
-            - ".gitlab-ci.yml"
-            - ".gitlab-ci-docker.yml"
-            - ".gitlab-ci-docker-lnx.yml"
-            - ".gitlab-ci-docker-win.yml"
-            - ".gitlab-ci-rust-validation-win.yml"
-            - ".gitlab-ci-rust-validation.yml"
-            - ".gitlab-ci-rust-build.yml"
-            - ".gitlab-ci-rust-build-lnx.yml"
-            - ".gitlab-ci-rust-build-win.yml"
-            - ".gitlab-ci-docker-base.yml"
-            - ".gitlab-ci-rust-validation-lnx.yml"
+            - ".gitlab-ci*"
             - "docker/base.docker"
             - "docker/lnx_x86_64_stable"
     needs:
@@ -63,17 +53,7 @@ docker_lnx_x86_64_beta:
         max: 2
     only:
         changes:
-            - ".gitlab-ci.yml"
-            - ".gitlab-ci-docker.yml"
-            - ".gitlab-ci-docker-lnx.yml"
-            - ".gitlab-ci-docker-win.yml"
-            - ".gitlab-ci-rust-validation-win.yml"
-            - ".gitlab-ci-rust-validation.yml"
-            - ".gitlab-ci-rust-build.yml"
-            - ".gitlab-ci-rust-build-lnx.yml"
-            - ".gitlab-ci-rust-build-win.yml"
-            - ".gitlab-ci-docker-base.yml"
-            - ".gitlab-ci-rust-validation-lnx.yml"
+            - ".gitlab-ci*"
             - "docker/base.docker"
             - "docker/lnx_x86_64_beta"
     needs:
@@ -105,17 +85,7 @@ docker_lnx_x86_64_nightly:
         max: 2
     only:
         changes:
-            - ".gitlab-ci.yml"
-            - ".gitlab-ci-docker.yml"
-            - ".gitlab-ci-docker-lnx.yml"
-            - ".gitlab-ci-docker-win.yml"
-            - ".gitlab-ci-rust-validation-win.yml"
-            - ".gitlab-ci-rust-validation.yml"
-            - ".gitlab-ci-rust-build.yml"
-            - ".gitlab-ci-rust-build-lnx.yml"
-            - ".gitlab-ci-rust-build-win.yml"
-            - ".gitlab-ci-docker-base.yml"
-            - ".gitlab-ci-rust-validation-lnx.yml"
+            - ".gitlab-ci*"
             - "docker/base.docker"
             - "docker/lnx_x86_64_nightly"
     needs:
