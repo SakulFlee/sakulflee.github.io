@@ -1,13 +1,15 @@
-# Output
+# Out
 out/
-
-# SASS Cache
-.sass-cache/
-
-# IDEA
-.idea/
 
 # Rust
 target/
-pkg/
 *.lock
+
+# SASS cache
+.sass-cache/
+
+# VSCode
+.vscode/
+
+# IDEA
+.idea/

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### Settings
-SRC_FOLDER="src_web"
+SRC_FOLDER="src"
 OUT_FOLDER="out"
 
 ### Auto Settings
@@ -92,3 +92,6 @@ done
 echo "# ICONS"
 # Copy icons
 cp -r $ICONS_INPUT_FOLDER $HTML_OUTPUT_FOLDER
+
+## Docker
+docker build -f Dockerfile -t web_test .

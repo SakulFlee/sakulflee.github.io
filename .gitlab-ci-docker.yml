@@ -1,5 +1,0 @@
-include:
-  - local: '/.gitlab-ci-docker-base.yml'
-  - local: '/.gitlab-ci-docker-lnx-x86_64.yml'
-  - local: '/.gitlab-ci-docker-lnx-gnueabihf.yml'
-  - local: '/.gitlab-ci-docker-win.yml'

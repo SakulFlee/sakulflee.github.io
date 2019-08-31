@@ -1,4 +1,0 @@
-include:
-  - local: '/.gitlab-ci-rust-validation-lnx-x86_64.yml'
-  - local: '/.gitlab-ci-rust-validation-lnx-gnueabihf.yml'
-  - local: '/.gitlab-ci-rust-validation-win.yml'

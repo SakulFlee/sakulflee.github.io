@@ -1,13 +1,31 @@
 stages:
-  - docker_base
-  - docker
-  - check
-  - test
-  - build
+  - build_src
+  - build_docker
   - deploy
 
-include:
-  - local: '/.gitlab-ci-docker.yml'
-  - local: '/.gitlab-ci-rust-validation.yml'
-  - local: '/.gitlab-ci-rust-build.yml'
-  - local: '/.gitlab-ci-deploy.yml'
+build_src:
+  stage: build_src
+  image: registry.gitlab.com/docker-arch/rust/wasm-stable:latest
+  script:
+    - ./build.sh
+  artifacts:
+    - out/
+
+build_docker:
+  stage: build_docker
+  image: docker:stable
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVE: overlay2
+    IMAGE_NAME: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME 
+  before_script:
+    - docker info 
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -f Dockerfile -t $IMAGE_NAME -t $IMAGE_NAME:latest .
+    - docker push $IMAGE_NAME
+    - docker push $IMAGE_NAME:latest
+  needs:
+    - build_src
