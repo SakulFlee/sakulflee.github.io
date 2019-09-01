@@ -92,6 +92,3 @@ done
 echo "# ICONS"
 # Copy icons
 cp -r $ICONS_INPUT_FOLDER $HTML_OUTPUT_FOLDER
-
-## Docker
-docker build -f Dockerfile -t web_test .
