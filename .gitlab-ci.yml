@@ -33,9 +33,9 @@ build_docker:
 
 deploy_staging:
   stage: deploy
-  image: alpine:latest
+  image: ubuntu:latest
   before_script:
-    - apk update && apk add openssh
+    - apt update && apt install -y ssh
     - mkdir -p ~/.ssh
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
