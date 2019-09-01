@@ -9,7 +9,8 @@ build_src:
   script:
     - ./build.sh
   artifacts:
-    - out/
+    paths:
+        - out/
 
 build_docker:
   stage: build_docker
