@@ -33,14 +33,14 @@ build_docker:
 
 deploy_staging:
   stage: deploy
-  image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
+  image: registry.gitlab.com/sakul6499.de/sakul6499.de:latest
   before_script:
     - mkdir -p ~/.ssh
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
   script:
-    - ssh -p22 deploy@raw.sakul6499.de "docker pull $IMAGE_NAME:latest && docker run $IMAGE_NAME:latest"
+    - ssh -p22 deploy@raw.sakul6499.de "docker pull registry.gitlab.com/sakul6499.de/sakul6499.de:latest && docker run registry.gitlab.com/sakul6499.de/sakul6499.de:latest"
   environment:
     name: staging
     url: https://staging.sakul6499.de
