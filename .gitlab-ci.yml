@@ -34,8 +34,6 @@ build_docker:
 deploy_staging:
   stage: deploy
   image: alpine:latest
-  dependencies:
-    - build
   before_script:
     - apk update && apk install openssh
     - mkdir -p ~/.ssh
@@ -43,7 +41,7 @@ deploy_staging:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
   script:
-    - ssh -p22 deploy@raw.sakul6499.de "docker pull $IMAGE_NAME:latest && docker run $IMAGE_NAME:latest"
+    - ssh -p22 deploy@raw.sakul6499.de "docker pull registry.gitlab.com/sakul6499.de/sakul6499.de:latest && docker run registry.gitlab.com/sakul6499.de/sakul6499.de:latest"
   environment:
     name: staging
     url: https://staging.sakul6499.de
