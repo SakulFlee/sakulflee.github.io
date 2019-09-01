@@ -35,7 +35,7 @@ deploy_staging:
   stage: deploy
   image: alpine:latest
   before_script:
-    - apk update && apk install openssh
+    - apk update && apk add openssh
     - mkdir -p ~/.ssh
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
