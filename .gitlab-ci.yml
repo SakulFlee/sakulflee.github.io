@@ -34,8 +34,6 @@ build_docker:
 deploy_staging:
   stage: deploy
   image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME
-  dependencies:
-    - build
   before_script:
     - mkdir -p ~/.ssh
     - eval $(ssh-agent -s)
