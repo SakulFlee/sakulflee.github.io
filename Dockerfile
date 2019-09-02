@@ -1,2 +1,4 @@
-FROM nginx
-COPY out /usr/share/nginx/html
+FROM registry.gitlab.com/docker-arch/arch
+USER aur
+
+RUN yay -S --noconfirm openssh rsync
