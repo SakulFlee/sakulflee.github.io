@@ -24,7 +24,7 @@ docker:
 
 build:
   stage: build
-  image: registry.gitlab.com/docker-arch/rust/wasm-stable:latest
+  image: registry.gitlab.com/docker-arch/rust/wasm-sass/stable:latest
   script:
     - ./build.sh
   artifacts:
