@@ -44,7 +44,7 @@ deploy_staging:
     - rsync -rav -e ssh --exclude='.git/*' --exclude='.gitlab-ci.yml' --delete-excluded out/* nginx.conf deploy@raw.sakul6499.de:/srv/staging/tmp
     - ssh deploy@raw.sakul6499.de "if [ -d '/srv/staging/current' ]; then mv /srv/staging/current /srv/staging/old; fi && mv /srv/staging/tmp /srv/staging/current"
     - ssh deploy@raw.sakul6499.de "rm -rf /srv/staging/old"
-    - ssh deploy@raw.sakul6499.de 'if [[ `docker ps -a --format '{{.Names}}' | grep web_staging` ]]; then docker stop web_staging && docker rm -vf web_staging; fi; docker run -d --name web_staging -p 80:80 -v /srv/staging/current:/usr/share/nginx/html:ro -v /srv/staging/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
+    - ssh deploy@raw.sakul6499.de 'docker stop web_staging && docker rm -vf web_staging; docker run -d --name web_staging -p 80:80 -v /srv/staging/current:/usr/share/nginx/html:ro -v /srv/staging/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
   environment:
     name: staging
     url: https://staging.sakul6499.de
