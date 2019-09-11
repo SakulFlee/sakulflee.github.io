@@ -26,7 +26,7 @@ build:
   stage: build
   image: registry.gitlab.com/docker-arch/rust/wasm-sass/stable:latest
   script:
-    - ./build.sh
+    - chmod +x ./build.sh && ./build.sh
   artifacts:
     paths:
         - out/
