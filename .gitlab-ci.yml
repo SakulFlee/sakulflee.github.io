@@ -52,3 +52,25 @@ deploy_staging:
     - staging
   needs:
     - build
+
+deploy_master:
+  stage: deploy
+  image: registry.gitlab.com/sakul6499.de/sakul6499.de
+  before_script:
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+  script:
+    - ssh deploy@raw.sakul6499.de "mkdir -p /srv/master/tmp"
+    - rsync -rav -e ssh --exclude='.git/*' --exclude='.gitlab-ci.yml' --delete-excluded out/* nginx.conf deploy@raw.sakul6499.de:/srv/master/tmp
+    - ssh deploy@raw.sakul6499.de "if [ -d '/srv/master/current' ]; then mv /srv/master/current /srv/master/old; fi && mv /srv/master/tmp /srv/master/current"
+    - ssh deploy@raw.sakul6499.de "rm -rf /srv/master/old"
+    - ssh deploy@raw.sakul6499.de 'docker stop web_master && docker rm -vf web_master; docker run -d --name web_master -p 80:80 -v /srv/master/current:/usr/share/nginx/html:ro -v /srv/master/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
+  environment:
+    name: master
+    url: https://sakul6499.de
+  only:
+    - master
+  needs:
+    - build
