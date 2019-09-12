@@ -1,0 +1,64 @@
+@charset "utf-8";
+@import "../sass/bulma/bulma.sass";
+@import "../sass/bulma-tooltips/bulma-tooltips.sass";
+@import "./icons.scss";
+@import "./start-frame.scss";
+.no-font {
+    font-size: 0;
+}
+
+.section {
+    background-color: whitesmoke;
+}
+
+.no-padding-top {
+    padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+    padding-bottom: 0 !important;
+}
+
+#info-tiles {
+    @extend .no-padding-top;
+}
+
+embed {
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0%;
+    max-height: 100%;
+}
+
+.no-overflow {
+    overflow: hidden;
+}
+
+.header {
+    margin: 0 !important;
+    border-bottom: solid rgba(0, 0, 0, 0.5);
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.footer {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#about-me {
+    @include until($tablet) {
+        margin-bottom: 32px;
+        border-bottom: solid black;
+    }
+    @include from($tablet) {
+        border-right: solid black;
+    }
+}

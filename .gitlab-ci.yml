@@ -1,21 +1,54 @@
-image: node:latest
-
 stages:
+  - docker
   - build
   - deploy
 
+docker:
+  stage: docker
+  image: docker
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVE: overlay2
+    IMAGE_NAME: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
+  before_script:
+    - docker info
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -f deploy.docker -t $IMAGE_NAME -t $IMAGE_NAME:latest .
+    - docker push $IMAGE_NAME:latest
+  only:
+    changes:
+      - "deploy.docker"
+
 build:
   stage: build
-  script: npm install && npm run deploy
+  image: registry.gitlab.com/docker-arch/rust/wasm-sass/stable:latest
+  script:
+    - bash ./build.sh
+  artifacts:
+    paths:
+        - out/
+
+deploy_staging:
+  stage: deploy
+  image: registry.gitlab.com/sakul6499.de/sakul6499.de
+  before_script:
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+  script:
+    - ssh deploy@raw.sakul6499.de "mkdir -p /srv/staging/tmp"
+    - rsync -rav -e ssh --exclude='.git/*' --exclude='.gitlab-ci.yml' --delete-excluded out/* nginx.conf deploy@raw.sakul6499.de:/srv/staging/tmp
+    - ssh deploy@raw.sakul6499.de "if [ -d '/srv/staging/current' ]; then mv /srv/staging/current /srv/staging/old; fi && mv /srv/staging/tmp /srv/staging/current"
+    - ssh deploy@raw.sakul6499.de "rm -rf /srv/staging/old"
+    - ssh deploy@raw.sakul6499.de 'docker stop web_staging && docker rm -vf web_staging; docker run -d --name web_staging -p 80:80 -v /srv/staging/current:/usr/share/nginx/html:ro -v /srv/staging/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
+  environment:
+    name: staging
+    url: https://staging.sakul6499.de
   only:
-    - branches
-    - tags
-    - api
-    - external
-    - pipelines
-    - pushes
-    - schedules
-    - triggers
-    - web
-    - merge_requests
-    - chats
+    - staging
+  needs:
+    - build

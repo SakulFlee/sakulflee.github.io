@@ -1,18 +1,15 @@
-# Generated CSS files
-_sass/*.css*
-css/
+# Out
+out/
+
+# Rust
+target/
+*.lock
+
+# SASS cache
 .sass-cache/
 
-# Genearted JS files
-lib/
-
-# NodeJS
-node_modules/
-package-lock.json
-
-# IDEA files
-.idea/
-*.iml
-
-# VSCode files
+# VSCode
 .vscode/
+
+# IDEA
+.idea/
