@@ -5,11 +5,11 @@ out/
 target/
 *.lock
 
+# Wasm-Pack
+pkg/
+
 # SASS cache
 .sass-cache/
-
-# VSCode
-.vscode/
 
 # IDEA
 .idea/
