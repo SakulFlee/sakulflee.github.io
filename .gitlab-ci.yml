@@ -44,7 +44,7 @@ deploy_staging:
     - rsync -rav -e ssh --exclude='.git/*' --exclude='.gitlab-ci.yml' --delete-excluded out/* nginx.conf deploy@raw.sakul6499.de:/srv/staging/tmp
     - ssh deploy@raw.sakul6499.de "if [ -d '/srv/staging/current' ]; then mv /srv/staging/current /srv/staging/old; fi && mv /srv/staging/tmp /srv/staging/current"
     - ssh deploy@raw.sakul6499.de "rm -rf /srv/staging/old"
-    - ssh deploy@raw.sakul6499.de 'docker stop web_staging && docker rm -vf web_staging; docker run -d --name web_staging -p 80:80 -v /srv/staging/current:/usr/share/nginx/html:ro -v /srv/staging/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
+    - ssh deploy@raw.sakul6499.de 'docker stop web && docker rm -vf web; docker run -d --name web -p 80:80 -v /srv/staging/current:/usr/share/nginx/html/staging:ro -v /srv/master/current:/usr/share/nginx/html/master:ro -v /srv/staging/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
   environment:
     name: staging
     url: https://staging.sakul6499.de
@@ -66,7 +66,7 @@ deploy_master:
     - rsync -rav -e ssh --exclude='.git/*' --exclude='.gitlab-ci.yml' --delete-excluded out/* nginx.conf deploy@raw.sakul6499.de:/srv/master/tmp
     - ssh deploy@raw.sakul6499.de "if [ -d '/srv/master/current' ]; then mv /srv/master/current /srv/master/old; fi && mv /srv/master/tmp /srv/master/current"
     - ssh deploy@raw.sakul6499.de "rm -rf /srv/master/old"
-    - ssh deploy@raw.sakul6499.de 'docker stop web_master && docker rm -vf web_master; docker run -d --name web_master -p 80:80 -v /srv/master/current:/usr/share/nginx/html:ro -v /srv/master/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
+    - ssh deploy@raw.sakul6499.de 'docker stop web && docker rm -vf web; docker run -d --name web -p 80:80 -v /srv/staging/current:/usr/share/nginx/html/staging:ro -v /srv/master/current:/usr/share/nginx/html/master:ro -v /srv/master/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
   environment:
     name: master
     url: https://sakul6499.de
