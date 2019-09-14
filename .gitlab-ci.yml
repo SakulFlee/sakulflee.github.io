@@ -49,7 +49,6 @@ deploy_staging:
     name: staging
     url: https://staging.sakul6499.de
   only:
-    - web
     - staging
   needs:
     - build
@@ -72,7 +71,6 @@ deploy_master:
     name: master
     url: https://sakul6499.de
   only:
-    - web
     - master
   needs:
     - build
