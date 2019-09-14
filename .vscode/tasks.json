@@ -1,0 +1,75 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Cargo check",
+            "type": "shell",
+            "command": "cargo check",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "windows": {
+                "options": {
+                    "env": {
+                        "RUST_BACKTRACE": "1"
+                    }
+                }
+            },
+            "linux": {
+                "options": {
+                    "env": {
+                        "RUST_BACKTRACE": "1"
+                    }
+                }
+            },
+            "osx": {
+                "options": {
+                    "env": {
+                        "RUST_BACKTRACE": "1"
+                    }
+                }
+            }
+        },
+        {
+            "label": "Cargo run",
+            "type": "shell",
+            "command": "cargo run",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "windows": {
+                "options": {
+                    "env": {
+                        "RUST_BACKTRACE": "1"
+                    }
+                }
+            },
+            "linux": {
+                "options": {
+                    "env": {
+                        "RUST_BACKTRACE": "1"
+                    }
+                }
+            },
+            "osx": {
+                "options": {
+                    "env": {
+                        "RUST_BACKTRACE": "1"
+                    }
+                }
+            }
+        },
+        {
+            "label": "Docker Compose up",
+            "type": "shell",
+            "command": "docker-compose up",
+            "problemMatcher": []
+        }
+    ]
+}

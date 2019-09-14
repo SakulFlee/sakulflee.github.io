@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import "../sass/bulma/bulma.sass";
-@import "../sass/bulma-tooltips/bulma-tooltips.sass";
+
+@import "./bulma/bulma.sass";
+@import "./bulma-tooltips/bulma-tooltips.sass";
 @import "./icons.scss";
 @import "./start-frame.scss";
+
 .no-font {
     font-size: 0;
 }

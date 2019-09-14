@@ -1,5 +1,5 @@
 [package]
-name = "rust-wasm-dots"
+name = "dots"
 version = "0.0.1"
 authors = ["Lukas Weber | #Sakul6499 <me@sakul6499.de>"]
 edition = "2018"
