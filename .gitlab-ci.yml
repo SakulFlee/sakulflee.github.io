@@ -26,7 +26,7 @@ build:
   stage: build
   image: registry.gitlab.com/docker-arch/rust/wasm-sass/stable:latest
   script:
-    - bash ./build.sh
+    - cargo run
   artifacts:
     paths:
         - out/
