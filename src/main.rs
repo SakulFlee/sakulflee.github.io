@@ -26,14 +26,16 @@ fn handle_sass(ctx: &ApplicationContext) {
     };
 
     // Compile SASS
+    let cmd = format!(
+        "sass --source-map {}/main.scss:{}/main.css",
+        ctx.input.sass, ctx.output.sass
+    );
+
     if cfg!(target_os = "windows") {
         Command::new("cmd")
             .args(&[
                 "/C",
-                &*format!(
-                    "sass --source-map {}/main.scss:{}/main.css",
-                    ctx.input.sass, ctx.output.sass
-                ),
+                &cmd
             ])
             .spawn()
             .expect("Failed to handle SASS!")
@@ -42,10 +44,7 @@ fn handle_sass(ctx: &ApplicationContext) {
     } else {
         Command::new("sh")
             .arg("-c")
-            .arg(&*format!(
-                "sass --source-map {}:{}/main.css",
-                ctx.input.sass, ctx.output.sass
-            ))
+            .arg(&cmd)
             .spawn()
             .expect("Failed to handle SASS!")
             .wait()
