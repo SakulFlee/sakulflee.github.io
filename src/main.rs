@@ -27,7 +27,7 @@ fn handle_sass(ctx: &ApplicationContext) {
 
     // Compile SASS
     let cmd = format!(
-        "sass --source-map {}/main.scss:{}/main.css",
+        "sass {}/main.scss:{}/main.css",
         ctx.input.sass, ctx.output.sass
     );
 
