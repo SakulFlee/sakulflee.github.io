@@ -37,6 +37,8 @@ fn handle_sass(ctx: &ApplicationContext) {
             ])
             .spawn()
             .expect("Failed to handle SASS!")
+            .wait()
+            .expect("Failed to handle SASS!");
     } else {
         Command::new("sh")
             .arg("-c")
@@ -46,6 +48,8 @@ fn handle_sass(ctx: &ApplicationContext) {
             ))
             .spawn()
             .expect("Failed to handle SASS!")
+            .wait()
+            .expect("Failed to handle SASS!");
     };
 }
 
