@@ -19,10 +19,6 @@ export default class Line extends React.Component<LineData, LineData> {
         z-index: 1;
     `;
 
-    constructor(props: LineData) {
-        super(props);
-    }
-
     render(): JSX.Element {
         return (
             <this.line/>
