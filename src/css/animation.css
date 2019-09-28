@@ -1,0 +1,47 @@
+@keyframes pulse {
+    from {
+        transform : scale(1);
+        opacity   : 1;
+    }
+    50% {
+        transform : scale(0.75);
+        opacity   : 0.25;
+    }
+    to {
+        transform : scale(1);
+        opacity   : 1;
+    }
+}
+
+@keyframes glow {
+    from {
+        transform: scale(1);
+        /* box-shadow: 5px 5px 3px #363636; */
+    }
+    50% {
+        transform: scale(1.25);
+        /* box-shadow: 15px 15px 1px #363636; */
+    }
+    to {
+        transform: scale(1);
+        /* box-shadow: 5px 5px 3px #363636; */
+    }
+}
+
+@keyframes hover {
+    from {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(3vw, -2vh);
+    }
+    50% {
+        transform: translate(-3vw, 4vh);
+    }
+    75% {
+        transform: translate(2vw, -8vh);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
