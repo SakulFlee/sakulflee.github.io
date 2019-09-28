@@ -1,5 +1,5 @@
 import React from "react";
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 
 import '../css/animation.css';
 
@@ -33,10 +33,6 @@ export default class Cube extends React.Component<CubeData, CubeData> {
 
     animation: ${this.props.animation};
   `;
-
-  constructor(props: CubeData) {
-    super(props);
-  }
 
   render(): JSX.Element {
     return <this.styled_cube/>;
