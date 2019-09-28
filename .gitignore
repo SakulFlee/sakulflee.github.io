@@ -1,5 +1,6 @@
 # Out
 out/
+build/
 
 # Rust
 target/
@@ -11,6 +12,9 @@ pkg/
 # SASS cache
 .sass-cache/
 
+# VSCode
+.vscode/
+
 # IDEA
 .idea/
 
@@ -21,7 +25,7 @@ pkg/
 *.log
 
 # dependencies
-/node_modules
+node_modules/
 /.pnp
 .pnp.js
 
