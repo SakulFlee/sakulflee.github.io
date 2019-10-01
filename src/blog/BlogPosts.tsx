@@ -116,9 +116,9 @@ class BlogPosts extends React.Component<BlogProperties, BlogState> {
   makeBlogPost(data: ResponseData): JSX.Element {
     let output = (
       <div>
-          <a href="" className="icon" id="icon-home"><MdHome/></a>
-          <a href="" className="icon" id="icon-return"><MdKeyboardReturn/></a>
-          <a href="" className="icon" id="icon-top"><MdVerticalAlignTop/></a>
+          <Link to="" className="icon" id="icon-home"><MdHome/></Link>
+          <Link to="" className="icon" id="icon-return"><MdKeyboardReturn/></Link>
+          <Link to="" className="icon" id="icon-top"><MdVerticalAlignTop/></Link>
         {this.makeBlogPostHeader(data)}
         <div
           className="content"
