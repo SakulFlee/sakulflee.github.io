@@ -8,7 +8,7 @@ class AboutMe extends React.Component {
         <p>AboutMe</p>
 
         <Link to="/">Home</Link>
-        <Link to="/Blog">Blog</Link>
+        <Link to="/blog">Blog</Link>
       </section>
     );
   }
