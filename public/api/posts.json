@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "name": "Test",
+        "description": "This is just a test post!",
+        "path": "test.md",
+        "tags": [
+            "rust",
+            "mathematics"
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Test",
+        "description": "This is just a test post!",
+        "path": "test.md",
+        "published": false,
+        "tags": [
+            "rust",
+            "mathematics"
+        ]
+    }
+]
