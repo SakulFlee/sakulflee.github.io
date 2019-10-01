@@ -20,6 +20,7 @@ pkg/
 
 # Lock files
 *.lock
+*-lock.json
 
 # Logs
 *.log
