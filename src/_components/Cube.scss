@@ -15,16 +15,22 @@
 
 @keyframes glow {
     from {
-        transform: scale(1);
-        /* box-shadow: 5px 5px 3px #363636; */
+        border-radius: 25%;
+        border-width: 5px;
+        border-color: #363636;
+        border-style: solid;
     }
     50% {
-        transform: scale(1.25);
-        /* box-shadow: 15px 15px 1px #363636; */
+        border-radius: 0%;
+        border-width: 5px;
+        border-color: #363636;
+        border-style: solid;
     }
     to {
-        transform: scale(1);
-        /* box-shadow: 5px 5px 3px #363636; */
+        border-radius: 25%;
+        border-width: 5px;
+        border-color: #363636;
+        border-style: solid;
     }
 }
 
@@ -43,5 +49,20 @@
     }
     to {
         transform: translate(0, 0);
+    }
+}
+
+@keyframes color {
+    from {
+        background-color: crimson;
+    }
+    33% {
+        background-color: greenyellow;
+    }
+    66% {
+        background-color: deepskyblue;
+    }
+    to {
+        background-color: crimson;
     }
 }

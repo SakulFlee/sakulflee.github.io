@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import '../css/animation.css';
+import './Cube.scss';
 
 type CubeData = {
+  size: number;
   left: number;
   top: number;
   colour: string;
@@ -17,8 +18,8 @@ export default class Cube extends React.Component<CubeData, CubeData> {
     top: ${this.props.top}%;
     left: ${this.props.left}%;
 
-    width: 64px;
-    height: 64px;
+    width: ${this.props.size}px;
+    height: ${this.props.size}px;
 
     border-radius: 25%;
     border-width: 5px;
