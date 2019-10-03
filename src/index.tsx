@@ -5,7 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // Bulma
-import 'bulma/css/bulma.css';
+import 'bulma/css/bulma.min.css';
+import 'bulma-tooltip/dist/css/bulma-tooltip.min.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
