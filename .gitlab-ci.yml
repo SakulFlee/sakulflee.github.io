@@ -26,8 +26,7 @@ build:
   stage: build
   image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
   script:
-    - npm install
-    - npm run build
+    - yarn build
   artifacts:
     paths:
         - build/
