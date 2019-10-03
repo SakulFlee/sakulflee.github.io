@@ -1,0 +1,16 @@
+$tablet: 768px;
+
+#AboutMe {
+    padding: 16px;
+
+    article {
+        @media screen and (max-width: $tablet) {
+            margin-bottom: 32px;
+            border-bottom: solid black;
+        }
+    
+        @media screen and (min-width: $tablet) {
+            border-left: solid black;
+        }
+    }
+}
