@@ -3,6 +3,10 @@ $tablet: 768px;
 #AboutMe {
     padding: 16px;
 
+    @media screen and (min-width: $tablet) {
+        margin-top: 16px;
+    }
+
     article {
         @media screen and (max-width: $tablet) {
             margin-bottom: 32px;
@@ -10,7 +14,7 @@ $tablet: 768px;
         }
     
         @media screen and (min-width: $tablet) {
-            border-left: solid black;
+            border-right: solid black;
         }
     }
 }
