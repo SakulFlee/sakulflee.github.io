@@ -41,11 +41,11 @@ deploy_staging:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
   script:
-    - ssh deploy@raw.sakul6499.de "mkdir -p /srv/staging/tmp"
-    - rsync -rav -e ssh build/* nginx.conf deploy@raw.sakul6499.de:/srv/staging/tmp
-    - ssh deploy@raw.sakul6499.de "if [ -d '/srv/staging/current' ]; then mv /srv/staging/current /srv/staging/old; fi && mv /srv/staging/tmp /srv/staging/current"
-    - ssh deploy@raw.sakul6499.de "rm -rf /srv/staging/old"
-    - ssh deploy@raw.sakul6499.de 'docker stop web && docker rm -vf web; docker run -d --name web -p 80:80 -v /srv/staging/current:/usr/share/nginx/html/staging:ro -v /srv/master/current:/usr/share/nginx/html/master:ro -v /srv/staging/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
+    - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/staging.sakul6499.de/tmp"
+    - rsync -rav -e ssh build/* nginx.conf deploy@raw.sakul6499.de:/var/www/staging.sakul6499.de/tmp
+    - ssh deploy@raw.sakul6499.de "if [ -d '/var/www/staging.sakul6499.de/current' ]; then mv /var/www/staging.sakul6499.de/current /var/www/staging.sakul6499.de/old; fi && mv /var/www/staging.sakul6499.de/tmp /var/www/staging.sakul6499.de/current"
+    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/staging.sakul6499.de/old"
+    - ssh deploy@raw.sakul6499.de 'docker stop web && docker rm -vf web; docker run -d --name web -p 80:80 -v /var/www/staging.sakul6499.de/current:/usr/share/nginx/html/staging:ro -v /var/www/sakul6499.de/current:/usr/share/nginx/html/master:ro -v /var/www/staging.sakul6499.de/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
   environment:
     name: staging
     url: https://staging.sakul6499.de
@@ -63,11 +63,11 @@ deploy_master:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
   script:
-    - ssh deploy@raw.sakul6499.de "mkdir -p /srv/master/tmp"
-    - rsync -rav -e ssh build/* nginx.conf deploy@raw.sakul6499.de:/srv/master/tmp
-    - ssh deploy@raw.sakul6499.de "if [ -d '/srv/master/current' ]; then mv /srv/master/current /srv/master/old; fi && mv /srv/master/tmp /srv/master/current"
-    - ssh deploy@raw.sakul6499.de "rm -rf /srv/master/old"
-    - ssh deploy@raw.sakul6499.de 'docker stop web && docker rm -vf web; docker run -d --name web -p 80:80 -v /srv/staging/current:/usr/share/nginx/html/staging:ro -v /srv/master/current:/usr/share/nginx/html/master:ro -v /srv/master/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
+    - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/sakul6499.de/tmp"
+    - rsync -rav -e ssh build/* nginx.conf deploy@raw.sakul6499.de:/var/www/sakul6499.de/tmp
+    - ssh deploy@raw.sakul6499.de "if [ -d '/var/www/sakul6499.de/current' ]; then mv /var/www/sakul6499.de/current /var/www/sakul6499.de/old; fi && mv /var/www/sakul6499.de/tmp /var/www/sakul6499.de/current"
+    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/sakul6499.de/old"
+    - ssh deploy@raw.sakul6499.de 'docker stop web && docker rm -vf web; docker run -d --name web -p 80:80 -v /var/www/staging.sakul6499.de/current:/usr/share/nginx/html/staging:ro -v /var/www/sakul6499.de/current:/usr/share/nginx/html/master:ro -v /var/www/sakul6499.de/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
   environment:
     name: master
     url: https://sakul6499.de
