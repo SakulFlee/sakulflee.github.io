@@ -41,11 +41,10 @@ deploy_staging:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
   script:
-    - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/staging.sakul6499.de/tmp"
-    - rsync -rav -e ssh build/* deploy@raw.sakul6499.de:/var/www/staging.sakul6499.de/tmp
-    - ssh deploy@raw.sakul6499.de "find . ! -name 'tmp' -type d -exec rm -rf {} +"
-    - ssh deploy@raw.sakul6499.de "mv /var/www/staging.sakul6499.de/tmp/* /var/www/staging.sakul6499.de/"
-    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/staging.sakul6499.de/tmp"
+    - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/staging.sakul6499.de_tmp/"
+    - rsync -rav -e ssh build/* deploy@raw.sakul6499.de:/var/www/staging.sakul6499.de_tmp/
+    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/staging.sakul6499.de/"
+    - ssh deploy@raw.sakul6499.de "mv /var/www/staging.sakul6499.de_tmp/ /var/www/staging.sakul6499.de/"
   environment:
     name: staging
     url: https://staging.sakul6499.de
@@ -63,11 +62,10 @@ deploy_master:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
   script:
-    - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/sakul6499.de/tmp"
-    - rsync -rav -e ssh build/* deploy@raw.sakul6499.de:/var/www/sakul6499.de/tmp
-    - ssh deploy@raw.sakul6499.de "find . ! -name 'tmp' -type d -exec rm -rf {} +"
-    - ssh deploy@raw.sakul6499.de "mv /var/www/sakul6499.de/tmp/* /var/www/sakul6499.de/"
-    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/sakul6499.de/tmp"
+    - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/sakul6499.de_tmp/"
+    - rsync -rav -e ssh build/* deploy@raw.sakul6499.de:/var/www/sakul6499.de_tmp/
+    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/sakul6499.de/"
+    - ssh deploy@raw.sakul6499.de "mv /var/www/sakul6499.de_tmp/ /var/www/sakul6499.de/"
   environment:
     name: master
     url: https://sakul6499.de
