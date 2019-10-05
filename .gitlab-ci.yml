@@ -42,10 +42,10 @@ deploy_staging:
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
   script:
     - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/staging.sakul6499.de/tmp"
-    - rsync -rav -e ssh build/* nginx.conf deploy@raw.sakul6499.de:/var/www/staging.sakul6499.de/tmp
-    - ssh deploy@raw.sakul6499.de "if [ -d '/var/www/staging.sakul6499.de/current' ]; then mv /var/www/staging.sakul6499.de/current /var/www/staging.sakul6499.de/old; fi && mv /var/www/staging.sakul6499.de/tmp /var/www/staging.sakul6499.de/current"
-    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/staging.sakul6499.de/old"
-    - ssh deploy@raw.sakul6499.de 'docker stop web && docker rm -vf web; docker run -d --name web -p 80:80 -v /var/www/staging.sakul6499.de/current:/usr/share/nginx/html/staging:ro -v /var/www/sakul6499.de/current:/usr/share/nginx/html/master:ro -v /var/www/staging.sakul6499.de/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
+    - rsync -rav -e ssh build/* deploy@raw.sakul6499.de:/var/www/staging.sakul6499.de/tmp
+    - ssh deploy@raw.sakul6499.de "find . ! -name 'tmp' -type d -exec rm -rf {} +"
+    - ssh deploy@raw.sakul6499.de "mv /var/www/staging.sakul6499.de/tmp/* /var/www/staging.sakul6499.de/"
+    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/staging.sakul6499.de/tmp"
   environment:
     name: staging
     url: https://staging.sakul6499.de
@@ -64,10 +64,10 @@ deploy_master:
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
   script:
     - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/sakul6499.de/tmp"
-    - rsync -rav -e ssh build/* nginx.conf deploy@raw.sakul6499.de:/var/www/sakul6499.de/tmp
-    - ssh deploy@raw.sakul6499.de "if [ -d '/var/www/sakul6499.de/current' ]; then mv /var/www/sakul6499.de/current /var/www/sakul6499.de/old; fi && mv /var/www/sakul6499.de/tmp /var/www/sakul6499.de/current"
-    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/sakul6499.de/old"
-    - ssh deploy@raw.sakul6499.de 'docker stop web && docker rm -vf web; docker run -d --name web -p 80:80 -v /var/www/staging.sakul6499.de/current:/usr/share/nginx/html/staging:ro -v /var/www/sakul6499.de/current:/usr/share/nginx/html/master:ro -v /var/www/sakul6499.de/current/nginx.conf:/etc/nginx/nginx.conf:ro nginx'
+    - rsync -rav -e ssh build/* deploy@raw.sakul6499.de:/var/www/sakul6499.de/tmp
+    - ssh deploy@raw.sakul6499.de "find . ! -name 'tmp' -type d -exec rm -rf {} +"
+    - ssh deploy@raw.sakul6499.de "mv /var/www/sakul6499.de/tmp/* /var/www/sakul6499.de/"
+    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/sakul6499.de/tmp"
   environment:
     name: master
     url: https://sakul6499.de
