@@ -39,7 +39,7 @@ deploy_staging:
     - mkdir -p ~/.ssh
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+    - ssh-add <(echo "$PRIVATE_KEY")
   script:
     - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/staging.sakul6499.de_tmp/"
     - rsync -rav -e ssh build/* deploy@raw.sakul6499.de:/var/www/staging.sakul6499.de_tmp/
@@ -60,7 +60,7 @@ deploy_master:
     - mkdir -p ~/.ssh
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+    - ssh-add <(echo "$PRIVATE_KEY")
   script:
     - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/sakul6499.de_tmp/"
     - rsync -rav -e ssh build/* deploy@raw.sakul6499.de:/var/www/sakul6499.de_tmp/
