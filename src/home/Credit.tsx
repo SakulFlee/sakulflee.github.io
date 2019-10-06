@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 import Footer from "./_components/Footer";
 
@@ -33,12 +34,12 @@ export default class Legal extends React.Component {
                   <img src="icons/home.svg" alt="Home" />
                 </td>
                 <td>
-                  <a href="https://fontawesome.com/icons/home?style=solid">
+                  <Link to="https://fontawesome.com/icons/home?style=solid">
                     Font-Awesome
-                  </a>
+                  </Link>
                 </td>
                 <td>
-                  <a href="https://fontawesome.com/license">License</a>
+                  <Link to="https://fontawesome.com/license">License</Link>
                 </td>
                 <td>&#9745;</td>
               </tr>
@@ -73,15 +74,15 @@ export default class Legal extends React.Component {
           <article className="tile is-child notification is-danger">
             <p className="title">Wide tile</p>
             <div className="subtitle no-font">
-              <a className="is-icon-small" href="">
+              <Link className="is-icon-small" to="">
                 <img src="icons/github.svg" alt="GitHub" />
-              </a>
-              <a className="is-icon-small" href="">
+              </Link>
+              <Link className="is-icon-small" to="">
                 <img src="icons/gitlab.svg" alt="GitLab" />
-              </a>
-              <a className="is-icon-small" href="">
+              </Link>
+              <Link className="is-icon-small" to="">
                 <img src="icons/bitbucket.svg" alt="BitBucket" />
-              </a>
+              </Link>
             </div>
             <div className="content">
               <p>... CONTENT ...</p>
