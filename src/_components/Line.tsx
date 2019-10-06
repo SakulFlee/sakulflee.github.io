@@ -8,10 +8,10 @@ type LineData = {
 export default class Line extends React.Component<LineData, LineData> {
     line = styled.div`
         position: absolute;
-        left: 50vw;
-        top: -20vh;
-        width: 60vw;
-        height: 120vh;
+        left: 50%;
+        top: -20%;
+        width: 60%;
+        height: 120%;
     
         background: rgba(25, 25, 25, 100);
         transform: skew(${this.props.degree}deg);
