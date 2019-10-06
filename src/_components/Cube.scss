@@ -1,3 +1,33 @@
+.icon-animation {
+    svg {
+        animation: icon-color-anim 12s infinite;
+    }
+}
+
+@keyframes icon-color-anim {
+    from {
+        color:rgb(0, 0, 0);
+    }
+    16% {
+        color: rgb(255, 0, 0);
+    }
+    32%  {
+        color: rgb(255, 255, 0);
+    }
+    50% {
+        color: rgb(255, 255, 255);
+    }
+    66% {
+        color: rgb(0, 255, 255);
+    }
+    82% {
+        color: rgb(0, 0, 255);
+    }
+    to {
+        color: rgb(0, 0, 0);
+    }
+}
+
 @keyframes pulse {
     from {
         transform : scale(1);

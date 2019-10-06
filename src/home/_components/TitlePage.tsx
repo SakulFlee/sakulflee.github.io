@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import {FaExternalLinkAlt} from 'react-icons/fa';
+import {MdDoneAll, MdWifiTethering, MdSync} from 'react-icons/md';
 
 import Cube from '../../_components/Cube';
 
@@ -12,9 +13,33 @@ class TitlePage extends React.Component<{}> {
       <div>
         <Link to="/blog" id="blog-link">Blog <FaExternalLinkAlt/></Link>
 
-        <Cube size={48} left={80} top={20} colour={"magenta"} animation={"pulse 1s infinite"} />
-        <Cube size={64} left={82} top={44} colour={"yellowgreen"} animation={"color 15s infinite"} />
-        <Cube size={72} left={62} top={30} colour={"orange"} animation={"glow 3s infinite"} />
+        <Cube 
+          size={48} 
+          left={80} 
+          top={20} 
+          colour={"magenta"} 
+          animation={"pulse 1s infinite"} 
+          icon={<MdSync/>} 
+          iconColor={"lime"}
+        />
+        <Cube 
+          size={64} 
+          left={82} 
+          top={44} 
+          colour={"yellowgreen"} 
+          animation={"color 15s infinite"} 
+          icon={<MdWifiTethering/>} 
+          iconColor={"lime"}
+        />
+        <Cube 
+          size={72} 
+          left={62}
+          top={30} 
+          colour={"orange"} 
+          animation={"glow 3s infinite"} 
+          icon={<MdDoneAll/>} 
+          iconColor={"lime"}
+        />
 
         <section className="hero is-dark is-fullheight" id="title-page">
           <div className="hero-body">

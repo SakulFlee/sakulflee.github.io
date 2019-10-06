@@ -9,6 +9,8 @@ type CubeData = {
   top: number;
   colour: string;
   animation: string;
+  icon?: JSX.Element;
+  iconColor?: string;
 };
 
 export default class Cube extends React.Component<CubeData, CubeData> {
@@ -33,9 +35,16 @@ export default class Cube extends React.Component<CubeData, CubeData> {
     box-shadow: 5px 5px 3px #363636;
 
     animation: ${this.props.animation};
-  `;
+    
+    svg {
+        width: ${this.props.size - (this.props.size / 4)}px;
+        height: ${this.props.size - (this.props.size / 4)}px;
+        padding-left: 4px;
+        padding-top: 4px;
+        color: ${this.props.iconColor};
+    }`;
 
   render(): JSX.Element {
-    return <this.styled_cube/>;
+    return <this.styled_cube className="icon-animation">{this.props.icon}</this.styled_cube>;
   }
 }
