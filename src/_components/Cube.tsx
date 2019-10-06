@@ -28,7 +28,7 @@ export default class Cube extends React.Component<CubeData, CubeData> {
 
     background: ${this.props.colour};
 
-    z-index: 2;
+    z-index: 100;
 
     box-shadow: 5px 5px 3px #363636;
 
