@@ -28,6 +28,9 @@ build:
   script:
     - yarn install
     - yarn build
+  cache:
+    paths:
+      - node_modules/
   artifacts:
     paths:
         - build/
