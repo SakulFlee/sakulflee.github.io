@@ -11,6 +11,21 @@ class AboutMe extends React.Component {
       <section className="columns has-text-centered" id="AboutMe">
         <article className="column">
           <u className="is-half is-family-code has-text-underlined">About me</u>
+          <p>Hi there! My name is Lukas Weber.</p>
+          <p>I am a Software Engineer Student.</p>
+          <p>I live in germany, but study in the netherlands.</p>
+          <br/>
+          <p>I work on a lot of projects in my free time.</p>
+          <p>Most of them are public and can be found on my <a href="https://gitlab.com/Sakul6499">GitLab</a>!</p>
+          <p>Older projects are located on my <a href="https://bitbucket.org/%7Be556a531-5d5f-4ab9-a76d-bfc3043af83f%7D/">BitBucket</a>.</p>
+          <p>Finally, my university projects are mostly on <a href="https://github.com/Sakul6499">GitHub</a>, but many of them are not yet fully public.</p>
+          <br/>
+          <p>I am currently trying to organize and clean everything up, this includes finishing old projects and writing <Link to="/blog">blog posts</Link> about them.</p>
+          <p>I also write about other interest on <Link to="/blog">my blog</Link> and use it kind of as a public notebook for myself.</p>
+          <br/>
+          <p>Feel free to contact me at any time!</p>
+          <p>The probably easiest way is by <a href="mailto:me@sakul6499.de">mail</a>.</p>
+          <p>But I am also available on <a href="https://t.me/sakul6499">Telegram</a> and <a href="https://keybase.io/sakul6499">Keybase</a>!</p>
         </article>
         <aside className="column">
           <u
