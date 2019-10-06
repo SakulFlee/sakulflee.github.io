@@ -2,6 +2,7 @@ import React from "react";
 
 import TitlePage from "./_components/TitlePage";
 import AboutMe from "./_components/AboutMe";
+import Footer from "./_components/Footer";
 
 class Home extends React.Component {
   render(): JSX.Element {
@@ -9,6 +10,7 @@ class Home extends React.Component {
       <div>
         <TitlePage />
         <AboutMe />
+        <Footer />
       </div>
     );
   }
