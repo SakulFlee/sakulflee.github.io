@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Tag from "../../_components/Tag";
 
@@ -163,6 +164,301 @@ class AboutMe extends React.Component {
               multiLine={true}
             />
           </section>
+
+          <h1 className="is-size-5 has-text-black">Tools I use:</h1>
+          <section className="column is-mobile is-centered tags">
+            <Tag
+              linkTo="/skills#VCS"
+              colorClass="is-success"
+              tooltipClass="is-tooltip-success"
+              size="is-large"
+              tooltip="Mainly GIT and SVN"
+              text="VCS"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#IDEs-and-Editor"
+              colorClass="is-link"
+              tooltipClass="is-tooltip-link"
+              size="is-large"
+              tooltip="IntelliJ IDEA, Clion, DataGrip, WebStorm, PyCharm, PHPStorm, Rider, ..."
+              text="JetBrains IDEs"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#IDEs-and-Editor"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-medium"
+              tooltip="VisualStudio and VisualStudioCode"
+              text="VisualStudio[Code]"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#IDEs-and-Editor"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-large"
+              tooltip="The classic CLI editor!"
+              text="VIM"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Build-Tools"
+              colorClass="is-warning"
+              tooltipClass="is-tooltip-warning"
+              textColor="has-text-dark"
+              size="is-large"
+              tooltip="CMake, Make, QMake, Gradle, Maven, Ant, ..."
+              text="Build-Tools"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#IDEs-and-Editor"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-medium"
+              tooltip="Oracle's Java IDE"
+              text="NetBeans"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Modelling"
+              colorClass="is-danger"
+              tooltipClass="is-tooltip-danger"
+              textColor="has-text-dark"
+              size="is-small"
+              tooltip="All-in-one modelling and management software"
+              text="VisualParadigm"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Office"
+              colorClass="is-dark"
+              tooltipClass="is-tooltip-dark"
+              size="is-medium"
+              tooltip="Open source and proprietary office product solutions"
+              text="MS/Libre/OpenOffice"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Virtualization"
+              colorClass="is-white"
+              tooltipClass="is-tooltip-white"
+              textColor="has-text-dark"
+              size="is-medium"
+              tooltip="Docker, Vagrant, VirtualBox, VMWare products (Workstation, ESXi), libVirt/QEMU, Kubernetes, ..."
+              text="Virtualization"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#IDEs-and-Editor"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-small"
+              tooltip="Powerful C++ cross-platform IDE and SDK"
+              text="Qt"
+              multiLine={true}
+            />
+          </section>
+
+          <h1 className="is-size-5 has-text-black">
+            Frameworks I am familiar with:
+          </h1>
+          <section className="column is-mobile is-centered tags">
+            <Tag
+              linkTo="/skills#Test-Driven-Development"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-medium"
+              tooltip="Standard unit and integration testing library and suite for Java based languages"
+              text="JUnit"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Test-Driven-Development"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-medium"
+              tooltip="Mockito extends JUnit with useful additions and prevents overhead while testing"
+              text="Mockito"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Test-Driven-Development"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-medium"
+              tooltip="RESTAssured extends JUnit by providing easy ways to test and validate REST API server and clients"
+              text="RESTAssured"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Test-Driven-Development"
+              colorClass="is-success"
+              tooltipClass="is-tooltip-success"
+              size="is-medium"
+              tooltip="Standard unit and integration testing library and suite for C/C++ based languages"
+              text="gTest"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Web"
+              colorClass="is-warning"
+              tooltipClass="is-tooltip-warning"
+              textColor="has-text-dark"
+              size="is-medium"
+              tooltip="An awesome open-source framework for building websites with flex and other tools, which is also highly extendable and modifiable. This website is build with it! Similar to bootstrap."
+              text="Bulma"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Web"
+              colorClass="is-warning"
+              tooltipClass="is-tooltip-warning"
+              textColor="has-text-dark"
+              size="is-medium"
+              tooltip="Responsive, mobile-first, framework for website projects. Similar to Bulma."
+              text="Bootstrap"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Web"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-medium"
+              tooltip="An easy to use, highly optimized, Java WebServer with many possibilities"
+              text="Spring.io"
+              multiLine={true}
+            />
+          </section>
+
+          <h1 className="is-size-5 has-text-black">
+            Operating Systems I work on:
+          </h1>
+          <section className="column is-mobile is-centered tags">
+            <Tag
+              linkTo="/skills#Linux"
+              colorClass="is-link"
+              tooltipClass="is-tooltip-link"
+              size="is-large"
+              tooltip="Mainly ArchLinux/Manjaro but also other distribution like Ubuntu, Alpine, CentOS, Fedora and much more ..."
+              text="Linux"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Hacking"
+              colorClass="is-danger"
+              tooltipClass="is-tooltip-danger"
+              textColor="has-text-dark"
+              size="is-small"
+              tooltip="Linux based distribution, made for security testing and hacking"
+              text="ParrotOS"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Hacking"
+              colorClass="is-danger"
+              tooltipClass="is-tooltip-danger"
+              textColor="has-text-dark"
+              size="is-small"
+              tooltip="Linux based distribution, made for security testing and hacking"
+              text="KaliLinux"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Other-Systems"
+              colorClass="is-warning"
+              tooltipClass="is-tooltip-warning"
+              textColor="has-text-dark"
+              size="is-medium"
+              tooltip="Microsoft's operating system. While not being a huge fan of it I still use it often."
+              text="Windows"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Other-Systems"
+              colorClass="is-warning"
+              tooltipClass="is-tooltip-warning"
+              textColor="has-text-dark"
+              size="is-small"
+              tooltip="Apple's operating system. Very similar to Linux; sometimes porting applications there."
+              text="Mac OS X"
+              multiLine={true}
+            />
+          </section>
+
+          <h1 className="is-size-5 has-text-black">
+            Other topics I am interested in:
+          </h1>
+          <section className="column is-mobile is-centered tags">
+            <Tag
+              linkTo="/skills#Hacking"
+              colorClass="is-danger"
+              tooltipClass="is-tooltip-danger"
+              textColor="has-text-dark"
+              size="is-large"
+              tooltip="I like to find bugs and security problems in existing and still developing systems to then fix or report them. Activities include Pen-Testing and CTFs."
+              text="Hacking"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#IoT"
+              colorClass="is-success"
+              tooltipClass="is-tooltip-success"
+              size="is-large"
+              tooltip="'Internet of Things' devices are electronics that are connected with the internet"
+              text="IoT"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Games"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-large"
+              tooltip="I really enjoy having no creative limits and simply create something others might like. Sadly I haven't finished any game yet ..."
+              text="Game Development"
+              multiLine={true}
+            />
+
+            <Tag
+              linkTo="/skills#Graphics"
+              colorClass="is-info"
+              tooltipClass="is-tooltip-info"
+              size="is-large"
+              tooltip="Being creative is one of my"
+              text="3D Modelling / Design"
+              multiLine={true}
+            />
+          </section>
+
+          <div
+            className="has-text-grey tooltip is-tooltip-danger"
+            data-tooltip="Click to see more!"
+          >
+            <Link to="/skills">And much more ...</Link>
+          </div>
         </aside>
       </section>
     );

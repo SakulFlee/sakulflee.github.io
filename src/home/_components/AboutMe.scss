@@ -1,6 +1,7 @@
 $tablet: 768px;
 
 #AboutMe {
+    background-color: whitesmoke;
     padding: 16px;
 
     @media screen and (min-width: $tablet) {
