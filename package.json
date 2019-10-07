@@ -19,6 +19,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.1.2",
     "styled-components": "^4.4.0",
+    "trianglify": "^2.0.0",
     "tslint": "^5.20.0",
     "tslint-react": "^4.1.0",
     "typescript": "^3.6.3"
