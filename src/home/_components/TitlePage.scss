@@ -1,5 +1,16 @@
 #title-text {
+    position: absolute;
+    top: 64px;
+    left: 32px;
     z-index: 3;
+
+    padding: 10px;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #191919;
+    border-width: 2px;
+
+    background-color: #202020;
 }
 
 #blog-link {
@@ -27,11 +38,16 @@
 }
 
 #binary {
-    margin-top: 150px; 
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    z-index: 3;
 
     font-size: 2em;
     letter-spacing: 4px;
+    text-align: right;
     overflow: hidden;
+
     background: linear-gradient(90deg, #000, #fff, #000);
     background-repeat: no-repeat;
     background-size: 80%;
@@ -40,8 +56,6 @@
     -moz-background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
-
-    z-index: 0;
 }
   
 @keyframes animate {
