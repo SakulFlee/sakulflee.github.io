@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaBold, FaGitlab, FaGithub, FaBitbucket } from "react-icons/fa";
 import { MdDoneAll, MdWifiTethering, MdSync } from "react-icons/md";
 import {FiChevronDown} from 'react-icons/fi';
 
@@ -15,10 +15,6 @@ class TitlePage extends React.Component<{}> {
       <div>
         <Header />
 
-        <Link to="/blog" id="blog-link">
-          Blog <FaExternalLinkAlt />
-        </Link>
-
         <Cube
           size={48}
           left={80}
@@ -28,6 +24,7 @@ class TitlePage extends React.Component<{}> {
           icon={<MdSync />}
           iconColor={"lime"}
         />
+
         <Cube
           size={64}
           left={82}
@@ -37,6 +34,7 @@ class TitlePage extends React.Component<{}> {
           icon={<MdWifiTethering />}
           iconColor={"lime"}
         />
+
         <Cube
           size={72}
           left={62}
@@ -53,6 +51,21 @@ class TitlePage extends React.Component<{}> {
           </h1>
           <h2 className="has-text-white subtitle">I am Lukas Weber | @Sakul6499.</h2>
           <p className="has-text-white is-family-code">Software Engineer Student</p>
+        </div>
+
+        <div id="icons">
+          <Link to="/blog">
+            <FaBold />
+          </Link>
+          <Link to="/blog">
+            <FaGitlab />
+          </Link>
+          <Link to="/blog">
+            <FaGithub />
+          </Link>
+          <Link to="/blog">
+            <FaBitbucket />
+          </Link>
         </div>
 
         <div id="binary">
