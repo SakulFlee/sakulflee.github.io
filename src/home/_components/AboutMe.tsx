@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Tag from "../../_components/Tag";
-import TimeLine from "../../_components/TimeLine";
+import TimeLine from "./TimeLine";
 
 import "./AboutMe.scss";
 
@@ -22,7 +22,7 @@ class AboutMe extends React.Component {
             Skills
           </u>
 
-          <h1 className="is-size-5 has-text-black">Languages I speak:</h1>
+          <h1 className="is-size-5 has-text-black">Languages I 'speak':</h1>
           <section className="column is-mobile is-centered tags">
             <Tag
               linkTo="/skills#Languages"
@@ -47,7 +47,7 @@ class AboutMe extends React.Component {
               color="link"
               size="is-large"
               tooltip="JVM languages and tools like Java, Kotlin, Maven and Gradle"
-              text="JVM"
+              text="Java"
               multiLine={true}
             />
 
@@ -97,15 +97,6 @@ class AboutMe extends React.Component {
             />
 
             <Tag
-              linkTo="/skills#Modelling"
-              color="warning"
-              size="is-small"
-              tooltip="UML, Graphviz/Dot, ..."
-              text="Modelling languages"
-              multiLine={true}
-            />
-
-            <Tag
               linkTo="/skills#Languages"
               color="success"
               size="is-small"
@@ -124,29 +115,11 @@ class AboutMe extends React.Component {
             />
 
             <Tag
-              linkTo="/skills#Languages"
-              color="success"
-              size="is-small"
-              tooltip="Third language learned in school. Absolutely not fluent but I understand it on a basic level."
-              text="Spanish"
-              multiLine={true}
-            />
-
-            <Tag
               linkTo="/skills#JVM-and-similar"
               color="info"
               size="is-small"
               tooltip="VC++, C#, F#, VB"
               text=".NET"
-              multiLine={true}
-            />
-
-            <Tag
-              linkTo="/skills#Native"
-              color="info"
-              size="is-small"
-              tooltip="Mainly GAS (intel; gcc output) and NASM"
-              text="Assembly"
               multiLine={true}
             />
           </section>
@@ -157,8 +130,8 @@ class AboutMe extends React.Component {
               linkTo="/skills#VCS"
               color="success"
               size="is-large"
-              tooltip="Mainly GIT and SVN"
-              text="VCS"
+              tooltip="GIT, SVN and other VCS"
+              text="GIT"
               multiLine={true}
             />
 
@@ -175,7 +148,7 @@ class AboutMe extends React.Component {
               linkTo="/skills#IDEs-and-Editor"
               color="info"
               size="is-medium"
-              tooltip="VisualStudio and VisualStudioCode"
+              tooltip="Mainly VisualStudioCode, but also VisualStudio"
               text="VisualStudio[Code]"
               multiLine={true}
             />
@@ -183,7 +156,7 @@ class AboutMe extends React.Component {
             <Tag
               linkTo="/skills#IDEs-and-Editor"
               color="info"
-              size="is-large"
+              size="is-normal"
               tooltip="The classic CLI editor!"
               text="VIM"
               multiLine={true}
@@ -193,7 +166,7 @@ class AboutMe extends React.Component {
               linkTo="/skills#Build-Tools"
               color="warning"
               size="is-large"
-              tooltip="CMake, Make, QMake, Gradle, Maven, Ant, ..."
+              tooltip="CMake, Make, QMake, Gradle, Maven, Ant, and more!"
               text="Build-Tools"
               multiLine={true}
             />
@@ -233,15 +206,6 @@ class AboutMe extends React.Component {
               text="Virtualization"
               multiLine={true}
             />
-
-            <Tag
-              linkTo="/skills#IDEs-and-Editor"
-              color="info"
-              size="is-small"
-              tooltip="Powerful C++ cross-platform IDE and SDK"
-              text="Qt"
-              multiLine={true}
-            />
           </section>
 
           <h1 className="is-size-5 has-text-black">
@@ -260,7 +224,7 @@ class AboutMe extends React.Component {
             <Tag
               linkTo="/skills#Test-Driven-Development"
               color="info"
-              size="is-medium"
+              size="is-normal"
               tooltip="Mockito extends JUnit with useful additions and prevents overhead while testing"
               text="Mockito"
               multiLine={true}
@@ -269,7 +233,7 @@ class AboutMe extends React.Component {
             <Tag
               linkTo="/skills#Test-Driven-Development"
               color="info"
-              size="is-medium"
+              size="is-normal"
               tooltip="RESTAssured extends JUnit by providing easy ways to test and validate REST API server and clients"
               text="RESTAssured"
               multiLine={true}
@@ -277,17 +241,17 @@ class AboutMe extends React.Component {
 
             <Tag
               linkTo="/skills#Test-Driven-Development"
-              color="success"
-              size="is-medium"
+              color="info"
+              size="is-small"
               tooltip="Standard unit and integration testing library and suite for C/C++ based languages"
-              text="gTest"
+              text="GTest"
               multiLine={true}
             />
 
             <Tag
               linkTo="/skills#Web"
               color="warning"
-              size="is-medium"
+              size="is-large"
               tooltip="An awesome open-source framework for building websites with flex and other tools, which is also highly extendable and modifiable. This website is build with it! Similar to bootstrap."
               text="Bulma"
               multiLine={true}
@@ -304,10 +268,28 @@ class AboutMe extends React.Component {
 
             <Tag
               linkTo="/skills#Web"
-              color="info"
+              color="primary"
               size="is-medium"
               tooltip="An easy to use, highly optimized, Java WebServer with many possibilities"
               text="Spring.io"
+              multiLine={true}
+            />
+
+<Tag
+              linkTo="/skills#WEB"
+              color="success"
+              size="is-large"
+              tooltip="Single page websites!"
+              text="ReactJS"
+              multiLine={true}
+            />
+
+<Tag
+              linkTo="/skills#WEB"
+              color="success"
+              size="is-large"
+              tooltip="NodeJS"
+              text="NPM"
               multiLine={true}
             />
           </section>
@@ -316,21 +298,30 @@ class AboutMe extends React.Component {
             Operating Systems I work on:
           </h1>
           <section className="column is-mobile is-centered tags">
-            <Tag
+          <Tag
               linkTo="/skills#Linux"
               color="link"
               size="is-large"
-              tooltip="Mainly ArchLinux/Manjaro but also other distribution like Ubuntu, Alpine, CentOS, Fedora and much more ..."
-              text="Linux"
+              tooltip="My primary operating system! Mainly Manjaro but also self-installed arch."
+              text="ArchLinux"
               multiLine={true}
             />
 
-            <Tag
-              linkTo="/skills#Hacking"
-              color="danger"
-              size="is-small"
-              tooltip="Linux based distribution, made for security testing and hacking"
-              text="ParrotOS"
+<Tag
+              linkTo="/skills#Linux"
+              color="link"
+              size="is-medium"
+              tooltip="Ubuntu and other Debian based distros!"
+              text="Ubuntu"
+              multiLine={true}
+            />
+
+<Tag
+              linkTo="/skills#Linux"
+              color="link"
+              size="is-medium"
+              tooltip="OpenSource version of RedHat's Enterprise Linux"
+              text="CentOS"
               multiLine={true}
             />
 
@@ -354,7 +345,7 @@ class AboutMe extends React.Component {
 
             <Tag
               linkTo="/skills#Other-Systems"
-              color="warning"
+              color="primary"
               size="is-small"
               tooltip="Apple's operating system. Very similar to Linux; sometimes porting applications there."
               text="Mac OS X"
@@ -366,10 +357,19 @@ class AboutMe extends React.Component {
             Other topics I am interested in:
           </h1>
           <section className="column is-mobile is-centered tags">
+          <Tag
+              linkTo="/skills#AI"
+              color="success"
+              size="is-large"
+              tooltip="I think brains are mysterious and so interesting. AI tries to reverse-engineer that! How can one not be interested in AI?"
+              text="AI"
+              multiLine={true}
+            />
+
             <Tag
               linkTo="/skills#Hacking"
               color="danger"
-              size="is-large"
+              size="is-medium"
               tooltip="I like to find bugs and security problems in existing and still developing systems to then fix or report them. Activities include Pen-Testing and CTFs."
               text="Hacking"
               multiLine={true}
@@ -377,8 +377,8 @@ class AboutMe extends React.Component {
 
             <Tag
               linkTo="/skills#IoT"
-              color="success"
-              size="is-large"
+              color="warning"
+              size="is-normal"
               tooltip="'Internet of Things' devices are electronics that are connected with the internet"
               text="IoT"
               multiLine={true}
