@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { MdDoneAll, MdWifiTethering, MdSync } from "react-icons/md";
+import {FiChevronDown} from 'react-icons/fi';
 
 import Header from "./Header";
 import Cube from "../../_components/Cube";
@@ -62,6 +63,11 @@ class TitlePage extends React.Component<{}> {
             00100000 01110111 01101111 01110010 01101100 01100100
           </p>
           <p className="has-text-right has-text-grey">00100001</p>
+        </div>
+
+        <div id="down-icon">
+          <FiChevronDown />
+          <p>Scroll me!</p>
         </div>
       </div>
     );

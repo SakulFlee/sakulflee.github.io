@@ -66,3 +66,26 @@
       background-position: 500%;
     }
 }
+
+#down-icon {
+    position: relative;
+    top: -106px;
+    left: calc(50% - 32px);
+
+    color: whitesmoke;
+    animation: icon-color-anim 5s infinite, bounce 5s infinite 5s;
+
+    svg {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+@keyframes bounce {
+    0%, 10%, 100% {
+        top: -106px;
+    }
+    5% {
+        top: -128px;
+    }
+}
