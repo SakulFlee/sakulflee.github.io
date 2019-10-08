@@ -47,6 +47,7 @@ export default class TimeLine extends React.Component {
     render(): JSX.Element {
         return (
             <this.timeline id="timeline">
+                <u className="is-half is-family-code has-text-underlined">Timeline</u>
                 <this.entry>
                     <this.date>2018</this.date>
                     <this.texts>
