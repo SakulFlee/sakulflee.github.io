@@ -81,8 +81,8 @@
 }
 
 #down-icon {
-  position: relative;
-  top: -106px;
+  position: absolute;
+  top: calc(100% - 106px);
   left: calc(50% - 32px);
 
   color: whitesmoke;
@@ -98,9 +98,9 @@
   0%,
   10%,
   100% {
-    top: -106px;
+    top: calc(100% - 106px);
   }
   5% {
-    top: -128px;
+    top: calc(100% - 128px);
   }
 }
