@@ -1,9 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import Tag from "../../_components/Tag";
 import TimeLine from "./TimeLine";
-
 import Skills from './Skills';
 
 import "./AboutMe.scss";
