@@ -268,7 +268,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#WEB"
+            linkTo="/skills#Web"
             color="success"
             size="is-large"
             tooltip="Single page websites!"
@@ -277,7 +277,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#WEB"
+            linkTo="/skills#Web"
             color="success"
             size="is-large"
             tooltip="NodeJS"
