@@ -24,7 +24,7 @@ class AboutMe extends React.Component {
           <br/>
           <p>
             Interested?
-            Send me a <a href="mailto:me@sakul6499.de">message</a>!
+            Send me an <a href="mailto:me@sakul6499.de">e-mail</a>!
           </p>
           <p>
             I can also be found on <a href="https://keybase.io/sakul6499">KeyBase</a> Telegram <a href="https://t.me/sakul6499">telegram</a>.
