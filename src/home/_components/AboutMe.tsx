@@ -17,7 +17,7 @@ class AboutMe extends React.Component {
           <u className="is-half is-family-code has-text-underlined">About me</u>
           <p>
             Hello there!
-            My name is Lukas Weber, and I am {years} years old.
+            My name is Lukas Weber and I am {years} years old.
             Currently, I live in Germany, but I study <i>Software Engineering</i> in the Netherlands.
             I am interested in a lot of topics, mainly IT related, which is also why I taught myself a lot of skills and am constantly learning new things!
           </p>
