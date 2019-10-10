@@ -62,7 +62,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Rust"
+            linkTo="/skills#Native"
             color="info"
             size="is-medium"
             tooltip="Rust focuses on security, while maintaining speeds similar or sometimes even better than C/C++/Native solutions!"
@@ -110,8 +110,17 @@ export default class Skills extends React.Component {
             linkTo="/skills#JVM-and-similar"
             color="info"
             size="is-small"
-            tooltip="VC++, C#, F#, VB"
-            text=".NET"
+            tooltip=".NET's main language"
+            text="C#"
+            multiLine={true}
+          />
+
+          <Tag
+            linkTo="/skills#JVM-and-similar"
+            color="link"
+            size="is-medium"
+            tooltip="A Java based language!"
+            text="Kotlin"
             multiLine={true}
           />
         </section>
@@ -140,7 +149,7 @@ export default class Skills extends React.Component {
             linkTo="/skills#IDEs-and-Editor"
             color="info"
             size="is-medium"
-            tooltip="Mainly VisualStudioCode, but also VisualStudio"
+            tooltip="Mainly Visual Studio Code, but also Visual Studio"
             text="VisualStudio[Code]"
             multiLine={true}
           />
@@ -291,7 +300,7 @@ export default class Skills extends React.Component {
         </h1>
         <section className="column is-mobile is-centered tags">
           <Tag
-            linkTo="/skills#Linux"
+            linkTo="/skills#OperatingSystems"
             color="link"
             size="is-large"
             tooltip="My primary operating system! Mainly Manjaro but also self-installed arch."
@@ -300,7 +309,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Linux"
+            linkTo="/skills#OperatingSystems"
             color="link"
             size="is-medium"
             tooltip="Ubuntu and other Debian based distros!"
@@ -309,7 +318,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Linux"
+            linkTo="/skills#OperatingSystems"
             color="link"
             size="is-medium"
             tooltip="OpenSource version of RedHat's Enterprise Linux"
@@ -327,7 +336,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Other-Systems"
+            linkTo="/skills#OperatingSystems"
             color="warning"
             size="is-medium"
             tooltip="Microsoft's operating system. While not being a huge fan of it I still use it often."
@@ -336,7 +345,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Other-Systems"
+            linkTo="/skills#OperatingSystems"
             color="primary"
             size="is-small"
             tooltip="Apple's operating system. Very similar to Linux; sometimes porting applications there."
