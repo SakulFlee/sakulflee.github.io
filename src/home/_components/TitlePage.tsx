@@ -5,7 +5,6 @@ import { MdDoneAll, MdWifiTethering, MdSync } from "react-icons/md";
 import {FiChevronDown} from 'react-icons/fi';
 
 import Header from "./Header";
-import Cube from "../../_components/Cube";
 
 import "./TitlePage.scss";
 
@@ -14,36 +13,6 @@ class TitlePage extends React.Component<{}> {
     return (
       <div>
         <Header />
-
-        <Cube
-          size={48}
-          left={80}
-          top={20}
-          colour={"magenta"}
-          animation={"pulse 1s infinite"}
-          icon={<MdSync />}
-          iconColor={"lime"}
-        />
-
-        <Cube
-          size={64}
-          left={82}
-          top={44}
-          colour={"yellowgreen"}
-          animation={"color 15s infinite"}
-          icon={<MdWifiTethering />}
-          iconColor={"lime"}
-        />
-
-        <Cube
-          size={72}
-          left={62}
-          top={30}
-          colour={"orange"}
-          animation={"glow 3s infinite"}
-          icon={<MdDoneAll />}
-          iconColor={"lime"}
-        />
 
         <div id="title-text">
           <h1 className="title has-text-danger is-family-code">

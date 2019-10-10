@@ -1,5 +1,7 @@
 import React from "react";
 
+import Tag from '../_components/Tag';
+
 export default class Skills extends React.Component {
   render(): JSX.Element {
     return (
@@ -12,6 +14,231 @@ export default class Skills extends React.Component {
             </div>
           </div>
         </section>
+         
+         <section>
+         <h1 className="is-size-5 has-text-black">On this page:</h1>
+        <section className="column is-mobile is-centered tags">
+          <Tag
+            linkTo="/skills#Languages"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="German"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Languages"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Languages"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Native"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Native"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Web"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Web"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Rust"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Rust"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Office"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Office"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Languages"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Languages"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="JVMsimilar"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="JVMsimilar"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="VCS"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="VCS"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="IDEsEditor"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="IDEsEditor"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Tools"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Tools"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Modelling"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Modelling"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Office"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Office"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Virtualization"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Virtualization"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="TestDevelopment"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="TestDevelopment"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Linux"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Linux"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Systems"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Systems"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Hacking"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Hacking"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="AI"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="AI"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="IoT"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="IoT"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Games"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Games"
+            multiLine={true}
+          />
+
+<Tag
+            linkTo="Graphics"
+            color="success"
+            size="is-large"
+            tooltip="My primary language."
+            text="Graphics"
+            multiLine={true}
+          />
+
+          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </section>
 
         <article className="columns">
         <div className="tile is-parent no-padding-bottom column">
