@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaBold, FaGitlab, FaGithub, FaBitbucket } from "react-icons/fa";
-import { MdDoneAll, MdWifiTethering, MdSync } from "react-icons/md";
 import {FiChevronDown} from 'react-icons/fi';
 
 import Header from "./Header";
