@@ -164,7 +164,7 @@ export default class TimeLine extends React.Component {
           <this.date>2020</this.date>
           <this.texts>
             <this.timelinePoint
-              color="info"
+              color="white"
               text="Internship"
               tooltip="Hopefully a fantastic experience!"
             />
@@ -172,10 +172,10 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.spacing />
         <this.entry>
-          <this.date>2020</this.date>
+          <this.date>2021</this.date>
           <this.texts>
             <this.timelinePoint
-              color="info"
+              color="white"
               text="Minor"
               tooltip="Not yet sure what ..."
             />
@@ -186,7 +186,7 @@ export default class TimeLine extends React.Component {
           <this.date>2022</this.date>
           <this.texts>
             <this.timelinePoint
-              color="info"
+              color="white"
               text="International study"
               tooltip="[2018-2022] Software engineering study, abroad in the Netherlands. To be completed with a bachelor of science degree."
             />
