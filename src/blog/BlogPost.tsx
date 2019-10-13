@@ -109,16 +109,18 @@ export default class BlogPosts extends React.Component<
         </progress>
       );
 
+    const unfinishedMessage = (
+      <div className="notification is-warning" id="warning">
+        This post is not yet marked as finished. Thus it may be incomplete,
+        wrong or broken.
+        <br />
+        Come back some time later!
+      </div>
+    );
+
     return (
       <div>
-        {this.state.data.finished ? (
-          <div className="notification is-warning" id="warning">
-            This part of the website is still under development. You may
-            encounter bugs, be warned!
-          </div>
-        ) : (
-          ""
-        )}
+        {this.state.data.finished ? null : unfinishedMessage}
         {this.makePost(this.state.data)}
         <Footer />
       </div>
