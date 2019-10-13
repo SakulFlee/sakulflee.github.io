@@ -35,16 +35,16 @@ export default class Tag extends React.Component<TagProperties, TagState> {
         : "has-text-white";
 
     let classes = `is-half is-family-code tooltip ${textColor} is-${this.props.color} is-tooltip-${this.props.color} ${this.props.size}`;
-    if (this.props.tooltipOnly) classes += "tag";
-    if (this.props.underline) classes += "has-text-underlined";
-    if (this.props.multiLine) classes += "is-tooltip-multiline";
-    if (this.props.active) classes += "is-tooltip-active";
+    if (!this.props.tooltipOnly) classes += " tag";
+    if (this.props.underline) classes += " has-text-underlined";
+    if (this.props.multiLine) classes += " is-tooltip-multiline";
+    if (this.props.active) classes += " is-tooltip-active";
 
     if (this.props.linkTo == null) {
-      return <div>{this.props.text}</div>;
+      return <div className={classes}>{this.props.text}</div>;
     } else {
       return (
-        <Link to={this.props.linkTo} className={textColor}>
+        <Link to={this.props.linkTo} className={`${textColor} ${classes}`}>
           {this.props.text}
         </Link>
       );
