@@ -22,18 +22,14 @@ export default class Footer extends React.Component {
               </p>
               <p>
                 <small>
-                  <Link to="https://gitlab.com/sakul6499.de/sakul6499.de">Source code</Link> made with &hearts; and licensed under <Link to="http://opensource.org/licenses/mit-license.php">MIT</Link>
+                  <Link to="https://gitlab.com/sakul6499.de/sakul6499.de">
+                    Source code
+                  </Link>{" "}
+                  build with &hearts; and licensed under{" "}
+                  <Link to="http://opensource.org/licenses/mit-license.php">
+                    MIT
+                  </Link>
                 </small>
-              </p>
-              <p>
-                <Link to="http://bulma.io">
-                  <img
-                    src="/icons/made-with-bulma.png"
-                    alt="Made with Bulma"
-                    width="128"
-                    height="24"
-                  />
-                </Link>
               </p>
             </div>
           </div>
