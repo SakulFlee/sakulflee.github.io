@@ -33,7 +33,7 @@ export default class BlogPostData {
   }
 
   static async FetchByID(id: number): Promise<BlogPostData> {
-    const response = await fetch("/api/posts.json");
+    const response = await fetch("/api/blog/posts.json");
     const json = await response.json();
     return BlogPostData.FetchByIDWithData(id, json);
   }
