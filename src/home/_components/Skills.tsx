@@ -71,7 +71,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Office"
+            linkTo="/skills#LaTeX"
             color="dark"
             size="is-medium"
             tooltip="Focus on writing instead of designing office documents"
@@ -80,11 +80,11 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Scripting-Languages"
+            linkTo="/skills#Script-Languages"
             color="warning"
             size="is-small"
             tooltip="[Z|Ba]SH, Python, Ruby, ..."
-            text="Scripting languages"
+            text="Script languages"
             multiLine={true}
           />
 
@@ -250,7 +250,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Web"
+            linkTo="/skills#WEB-Frameworks"
             color="warning"
             size="is-large"
             tooltip="An awesome open-source framework for building websites with flex and other tools, which is also highly extendable and modifiable. This website is build with it! Similar to bootstrap."
@@ -259,7 +259,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Web"
+            linkTo="/skills#WEB-Frameworks"
             color="warning"
             size="is-medium"
             tooltip="Responsive, mobile-first, framework for website projects. Similar to Bulma."
@@ -268,7 +268,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Web"
+            linkTo="/skills#WEB-Frameworks"
             color="primary"
             size="is-medium"
             tooltip="An easy to use, highly optimized, Java WebServer with many possibilities"
@@ -277,7 +277,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Web"
+            linkTo="/skills#WEB-Frameworks"
             color="success"
             size="is-large"
             tooltip="Single page websites!"
@@ -286,7 +286,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Web"
+            linkTo="/skills#WEB-Frameworks"
             color="success"
             size="is-large"
             tooltip="NodeJS"
@@ -398,7 +398,7 @@ export default class Skills extends React.Component {
             linkTo="/skills#Graphics"
             color="info"
             size="is-large"
-            tooltip="Being creative is one of my"
+            tooltip="Being creative is one of my biggest interests"
             text="3D Modelling / Design"
             multiLine={true}
           />
