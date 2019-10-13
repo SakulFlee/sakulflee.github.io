@@ -1,146 +1,113 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { MdHome, MdKeyboardReturn, MdVerticalAlignTop } from 'react-icons/md';
+import {Link} from 'react-router-dom';
+
+import BlogPostData from './BlogPostData';
 
 import './BlogPosts.scss';
 
-const markdown = require("markdown").markdown;
+type BlogPostsProperties = {
+    search?: string,
+}
 
-type ResponseData = {
-  id: number;
-  name: string;
-  description: string;
-  tags: string[];
-  path: string;
-  data?: string;
+type BlogPostsState = {
+    data: BlogPostData[];
 };
 
-type BlogProperties = {
-  match: {
-    params: {
-      id?: number;
-    };
-  };
-};
+export default class BlogPosts extends React.Component<BlogPostsProperties, BlogPostsState> {
+    async componentDidMount(): Promise<void> {
+        try {
+            const response = await fetch("/api/posts.json");
+            const json = await response.json();
 
-type BlogState = {
-  data: ResponseData[];
-  isSingle: boolean;
-};
-
-class BlogPosts extends React.Component<BlogProperties, BlogState> {
-  async componentDidMount(): Promise<void> {
-    try {
-      const postsResponse = await fetch("/api/posts.json");
-      const postsJSON = await postsResponse.json();
-      const postData: BlogState = {
-        data: postsJSON,
-        isSingle: false
-      };
-
-      if (this.props.match.params.id == null) {
-        this.setState(postData);
-      } else {
-        let data = postData.data.filter(
-          it => it.id === this.props.match.params.id
-        );
-
-        const mdResponse = await fetch("/api/blog/" + data[0].path);
-        mdResponse.text().then(md => {
-          console.log(md);
-          if (md.includes("!DOCTYPE html")) {
-            data[0] = {
-              id: 0,
-              name: "Invalid or not found!",
-              description:
-                "Either this post doesn't exist or an error happened in our backend.",
-              tags: [],
-              path: "",
-              data:
-                "Either this post doesn't exist or an error happened in our backend."
-            };
-          } else {
-            var html = markdown.toHTML(md);
-            data[0].data = html;
-          }
-
-          this.setState({
-            data: data,
-            isSingle: true
-          });
-        });
-      }
-    } catch (error) {
-      console.log(error);
+            let data: BlogPostData[] = json;
+            this.setState({
+                data: data.sort((a, b) => a.id < b.id ? 1 : -1)
+            });
+        } catch(error) {
+            console.log(error);
+        }
     }
-  }
 
-  makeTagList(data: ResponseData): JSX.Element {
-    var listElements = data.tags.map((tag, index) => (
-      <li key={index} className="tag is-light">
-        {tag}
-      </li>
-    ));
-    return (
-      <ul className="column is-mobile is-centered tags">{listElements}</ul>
-    );
-  }
+    makePost(postData: BlogPostData): JSX.Element {
+        return(
+            <Link to={`/blog/${postData.id}`} className="column">
+            <article className="message is-dark">
+                <div className="message-header">
+                    <p>{postData.title}</p>
+                </div>
+                <div className="message-body">{postData.description}</div>
+            </article>
+            </Link>
+        );
+    }
 
-  makePostHeader(data: ResponseData, link: boolean = true): JSX.Element {
-    return (
-      <div key={data.id}>
-        <h1>
-          {data.id} - {data.name}
-        </h1>
-        <p>{data.description}</p>
-        {link ? <Link to={`/blog/${data.id.toString()}`}>Link</Link> : ""}
-        {this.makeTagList(data)}
-      </div>
-    );
-  }
+    makePostRows(postData: BlogPostData[], size: number): JSX.Element {
+        let rows: JSX.Element[] = [];
+        let posts: JSX.Element[] = [];
+        let counter = 0;
+        for (let i = 0; i < postData.length; i++) {
+            let data = postData[i];
+            let match = false;
+            if(this.props.search !== null) {
+                let search = this.props.search!.toLowerCase();
+                if(data.title.toLowerCase().includes(search)) {
+                    match = true;
+                }
 
-  makeBlogPostHeader(data: ResponseData): JSX.Element {
-    return (
-      <section className="hero is-medium is-dark is-bold">
-        <div className="hero-body">
-          <div className="container">
-            <h1 className="title">{data.name}</h1>
-            <h2 className="subtitle">{data.description}</h2>
-            {this.makeTagList(data)}
-          </div>
-        </div>
-      </section>
-    );
-  }
+                if(data.description.toLowerCase().includes(search)) {
+                    match = true;
+                }
+                
+                if(data.tags
+                    .map(it => it.toLowerCase())
+                    .filter(it => it.includes(search))
+                    .length > 0) {
+                    match = true;
+                }
+            }
 
-  makeBlogPost(data: ResponseData): JSX.Element {
-    let output = (
-      <div>
-          <Link to="" className="icon" id="icon-home"><MdHome/></Link>
-          <Link to="" className="icon" id="icon-return"><MdKeyboardReturn/></Link>
-          <Link to="" className="icon" id="icon-top"><MdVerticalAlignTop/></Link>
-        {this.makeBlogPostHeader(data)}
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: data.data! }}
-        />
-      </div>
-    );
-    console.log(output);
-    return output;
-  }
+            if(!match) continue;
+
+            counter++;
+            if(counter === size - 1) {
+                rows.push(
+                    <section className="columns">
+                        {posts}
+                    </section>
+                );
+                posts = [];
+                counter = 0;
+            }
+
+            let postJSX = this.makePost(data);
+            posts.push(postJSX);
+        }
+
+        // Handle rest/leftovers
+        if(posts.length !== 0) {
+            rows.push(
+                <section className="columns">
+                    {posts}
+                </section>
+            );
+            posts = [];
+        }
+
+        // Handle no rows (=no posts)
+        if(rows.length === 0) {
+            return <div>{this.makePost(new BlogPostData(0, "No results!", "There are currently no posts available or the search didn't yield any result.", [], "", ""))}</div>;
+        } else {
+            return <div>{rows}</div>;
+        }
+    }
 
   render(): JSX.Element {
-    if (this.state == null) return <p>Loading ...</p>;
+    if(this.state == null) return <progress className="progress is-large is-info" max="100">Loading ...</progress>;
 
-    if (this.state.isSingle) {
-      return this.makeBlogPost(this.state.data[0]);
-    } else {
-      var elements = this.state.data.map((data, index) => (
-        <div key={index}>{this.makePostHeader(data)}</div>
-      ));
-      return <div>{elements}</div>;
-    }
+    return (
+      <div id="posts">
+          {this.makePostRows(this.state.data, 3)}
+      </div>
+    );
   }
 }
-export default BlogPosts;
