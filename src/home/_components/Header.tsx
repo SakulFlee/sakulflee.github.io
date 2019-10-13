@@ -2,16 +2,25 @@ import React from "react";
 
 const Trianglify = require('trianglify');
 
+type HeaderProperties = {
+    maxHeightInPercent: number,
+};
+
 type HeaderState = {
     width: number,
     height: number,
 };
 
-export default class Header extends React.Component<{}, HeaderState> {
+export default class Header extends React.Component<HeaderProperties, HeaderState> {
+    static defaultProps: HeaderProperties = {
+        maxHeightInPercent: 100,
+    };
+
     updateDimensions = () => {
+        let maxHeight = window.innerHeight * (this.props.maxHeightInPercent / 100);
         this.setState({
             width: window.innerWidth,
-            height: window.innerHeight
+            height: maxHeight
         });
     };
 
