@@ -7,6 +7,7 @@ export default class BlogPostData {
   tags: string[];
   path: string;
   markdownData: string;
+  finished: boolean;
   htmlData?: string;
 
   static async FetchByIDWithData(
@@ -28,6 +29,7 @@ export default class BlogPostData {
       post.description,
       post.tags,
       post.path,
+      post.finished,
       markdownData
     );
   }
@@ -45,6 +47,7 @@ export default class BlogPostData {
       "Either this post doesn't exist or an error happened in our backend.",
       [],
       "",
+      true,
       ""
     );
   }
@@ -55,6 +58,7 @@ export default class BlogPostData {
     description: string,
     tags: string[],
     path: string,
+    finished: boolean,
     markdownData: string
   ) {
     this.id = id;
@@ -62,6 +66,7 @@ export default class BlogPostData {
     this.description = description;
     this.tags = tags;
     this.path = path;
+    this.finished = finished;
     this.markdownData = markdownData;
 
     // HTML

@@ -111,10 +111,14 @@ export default class BlogPosts extends React.Component<
 
     return (
       <div>
-        <div className="notification is-warning" id="warning">
-          This part of the website is still under development. You may encounter
-          bugs, be warned!
-        </div>
+        {this.state.data.finished ? (
+          <div className="notification is-warning" id="warning">
+            This part of the website is still under development. You may
+            encounter bugs, be warned!
+          </div>
+        ) : (
+          ""
+        )}
         {this.makePost(this.state.data)}
         <Footer />
       </div>
