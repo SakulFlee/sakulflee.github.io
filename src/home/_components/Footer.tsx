@@ -10,7 +10,7 @@ export default class Footer extends React.Component {
             <div className="column is-8-desktop is-offset-2-desktop">
               <p>
                 <strong className="has-text-weight-semibold">
-                  <Link to="/credits">Credits</Link>
+                  <Link to="/credit">Credits</Link>
                 </strong>
               </p>
               <p>
