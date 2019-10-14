@@ -1,38 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 
+import "./TimeLine.scss";
+
 export default class TimeLine extends React.Component {
-  lineWidth = 4;
-  timeline = styled.div`
-    width: 100%;
-    padding-top: 16px;
-  `;
-  date = styled.div`
-    width: 25%;
-    display: inline-block;
-  `;
-  texts = styled.div`
-    width: 75%;
-    display: inline-block;
+  timeline(props: React.PropsWithChildren<{}>): JSX.Element {
+    return <div id="timeline">{props.children}</div>;
+  }
 
-    border-left: solid magenta ${this.lineWidth}px;
-  `;
-  entry = styled.div`
-    width: 100%;
-    display: inline-block;
-  `;
-  dotted = styled.div`
-    width: 25.8%;
-    height: 32px;
+  date(props: { date: string }): JSX.Element {
+    return <div className="date">{props.date}</div>;
+  }
 
-    border-right: dotted magenta ${this.lineWidth}px;
-  `;
-  spacing = styled.div`
-    padding-top: 16px;
-    width: 25.8%;
+  entry(props: React.PropsWithChildren<{}>): JSX.Element {
+    return <div className="entry">{props.children}</div>;
+  }
 
-    border-right: solid magenta ${this.lineWidth}px;
-  `;
+  texts(props: React.PropsWithChildren<{}>): JSX.Element {
+    return <div className="texts">{props.children}</div>;
+  }
+
+  dotted(props: React.PropsWithChildren<{}>): JSX.Element {
+    return <div className="dotted">{props.children}</div>;
+  }
+
+  spacing(props: React.PropsWithChildren<{}>): JSX.Element {
+    return <div className="spacing">{props.children}</div>;
+  }
 
   timelinePoint(props: {
     color: string;
@@ -56,10 +50,10 @@ export default class TimeLine extends React.Component {
 
   render(): JSX.Element {
     return (
-      <this.timeline id="timeline">
+      <this.timeline>
         <u className="is-half is-family-code has-text-underlined">Timeline</u>
         <this.entry>
-          <this.date>2005</this.date>
+          <this.date date="2005" />
           <this.texts>
             <this.timelinePoint
               color="dark"
@@ -70,7 +64,7 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.dotted />
         <this.entry>
-          <this.date>2009</this.date>
+          <this.date date="2009" />
           <this.texts>
             <this.timelinePoint
               color="warning"
@@ -86,7 +80,7 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.dotted />
         <this.entry>
-          <this.date>2012</this.date>
+          <this.date date="2012" />
           <this.texts>
             <this.timelinePoint
               color="warning"
@@ -102,7 +96,7 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.dotted />
         <this.entry>
-          <this.date>2014</this.date>
+          <this.date date="2014" />
           <this.texts>
             <this.timelinePoint
               color="link"
@@ -113,7 +107,7 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.spacing />
         <this.entry>
-          <this.date>2015</this.date>
+          <this.date date="2015" />
           <this.texts>
             <this.timelinePoint
               color="info"
@@ -124,7 +118,7 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.dotted />
         <this.entry>
-          <this.date>2018</this.date>
+          <this.date date="2018" />
           <this.texts>
             <this.timelinePoint
               color="info"
@@ -145,7 +139,7 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.spacing />
         <this.entry>
-          <this.date>2019</this.date>
+          <this.date date="2019" />
           <this.texts>
             <this.timelinePoint
               color="warning"
@@ -161,7 +155,7 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.spacing />
         <this.entry>
-          <this.date>2020</this.date>
+          <this.date date="2020" />
           <this.texts>
             <this.timelinePoint
               color="white"
@@ -172,7 +166,7 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.spacing />
         <this.entry>
-          <this.date>2021</this.date>
+          <this.date date="2021" />
           <this.texts>
             <this.timelinePoint
               color="white"
@@ -183,7 +177,7 @@ export default class TimeLine extends React.Component {
         </this.entry>
         <this.spacing />
         <this.entry>
-          <this.date>2022</this.date>
+          <this.date date="2022" />
           <this.texts>
             <this.timelinePoint
               color="white"
