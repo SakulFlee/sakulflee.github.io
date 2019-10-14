@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaBold, FaGitlab, FaGithub, FaBitbucket } from "react-icons/fa";
-import {FiChevronDown} from 'react-icons/fi';
+import { FiChevronDown } from "react-icons/fi";
+import { BrowserView } from "react-device-detect";
 
 import Header from "./Header";
 
@@ -17,8 +18,12 @@ class TitlePage extends React.Component<{}> {
           <h1 className="title has-text-danger is-family-code">
             Hello, world!
           </h1>
-          <h2 className="has-text-white subtitle">I am Lukas Weber | @Sakul6499.</h2>
-          <p className="has-text-white is-family-code">Software Engineer Student</p>
+          <h2 className="has-text-white subtitle">
+            I am Lukas Weber | @Sakul6499.
+          </h2>
+          <p className="has-text-white is-family-code">
+            Software Engineer Student
+          </p>
         </div>
 
         <div id="icons">
@@ -36,15 +41,17 @@ class TitlePage extends React.Component<{}> {
           </Link>
         </div>
 
-        <div id="binary">
-          <p className="has-text-right has-text-grey">
-            01001000 01100101 01101100 01101100 01101111 00101100
-          </p>
-          <p className="has-text-right has-text-grey">
-            00100000 01110111 01101111 01110010 01101100 01100100
-          </p>
-          <p className="has-text-right has-text-grey">00100001</p>
-        </div>
+        <BrowserView>
+          <div id="binary">
+            <p className="has-text-right has-text-grey">
+              01001000 01100101 01101100 01101100 01101111 00101100
+            </p>
+            <p className="has-text-right has-text-grey">
+              00100000 01110111 01101111 01110010 01101100 01100100
+            </p>
+            <p className="has-text-right has-text-grey">00100001</p>
+          </div>
+        </BrowserView>
 
         <div id="down-icon">
           <FiChevronDown />
