@@ -21,7 +21,7 @@ $tablet: 768px;
 
       div {
         @media screen and (max-width: $tablet) {
-          font-size: 1rem;
+          font-size: 0.8rem;
         }
         @media screen and (min-width: $tablet) {
           font-size: 1.25rem;
