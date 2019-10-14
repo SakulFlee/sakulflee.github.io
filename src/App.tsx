@@ -20,6 +20,7 @@ const App: React.FC = () => {
         />
         <Route exact={true} path="/blog" component={BlogHome} />
         <Route exact={false} path="/blog/:id" component={BlogPosts} />
+        <Route component={Home} />
       </Switch>
     </Router>
   );
