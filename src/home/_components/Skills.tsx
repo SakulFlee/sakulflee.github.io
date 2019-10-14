@@ -17,7 +17,7 @@ export default class Skills extends React.Component {
         <h1 className="is-size-5 has-text-black">Languages I 'speak':</h1>
         <section className="column is-mobile is-centered tags">
           <Tag
-            linkTo="/skills#Languages"
+            linkTo="/blog/9"
             color="success"
             size="is-large"
             tooltip="My primary language."
@@ -26,7 +26,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Languages"
+            linkTo="/blog/9"
             color="success"
             size="is-large"
             tooltip="My secondary language! B1 LCCI Business Certificate/B2 school english"
@@ -35,7 +35,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Languages"
+            linkTo="/blog/9"
             color="link"
             size="is-large"
             tooltip="JVM languages and tools like Java, Kotlin, Maven and Gradle"
@@ -44,7 +44,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Native"
+            linkTo="/blog/12"
             color="info"
             size="is-large"
             tooltip="The classic native tools"
@@ -53,7 +53,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Web"
+            linkTo="/blog/21"
             color="link"
             size="is-large"
             tooltip="HTML5, CSS4, JS9, PHP, Ruby, ..."
@@ -62,7 +62,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Native"
+            linkTo="/blog/12"
             color="info"
             size="is-medium"
             tooltip="Rust focuses on security, while maintaining speeds similar or sometimes even better than C/C++/Native solutions!"
@@ -71,7 +71,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#LaTeX"
+            linkTo="/blog/10"
             color="dark"
             size="is-medium"
             tooltip="Focus on writing instead of designing office documents"
@@ -80,7 +80,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Script-Languages"
+            linkTo="/blog/15"
             color="warning"
             size="is-small"
             tooltip="[Z|Ba]SH, Python, Ruby, ..."
@@ -89,7 +89,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Languages"
+            linkTo="/blog/9"
             color="success"
             size="is-small"
             tooltip="I am studying in the netherlands! Basic dutch is a must, although I mainly only understand ..."
@@ -98,7 +98,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Languages"
+            linkTo="/blog/9"
             color="success"
             size="is-small"
             tooltip="Not fluent but and very interesting and different language!"
@@ -107,7 +107,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#JVM-and-similar"
+            linkTo="/blog/8"
             color="info"
             size="is-small"
             tooltip=".NET's main language"
@@ -116,7 +116,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#JVM-and-similar"
+            linkTo="/blog/8"
             color="link"
             size="is-medium"
             tooltip="A Java based language!"
@@ -128,7 +128,7 @@ export default class Skills extends React.Component {
         <h1 className="is-size-5 has-text-black">Tools I use:</h1>
         <section className="column is-mobile is-centered tags">
           <Tag
-            linkTo="/skills#VCS"
+            linkTo="/blog/18"
             color="success"
             size="is-large"
             tooltip="GIT, SVN and other VCS"
@@ -137,7 +137,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#IDEs-and-Editor"
+            linkTo="/blog/6"
             color="link"
             size="is-large"
             tooltip="IntelliJ IDEA, Clion, DataGrip, WebStorm, PyCharm, PHPStorm, Rider, ..."
@@ -146,7 +146,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#IDEs-and-Editor"
+            linkTo="/blog/6"
             color="info"
             size="is-medium"
             tooltip="Mainly Visual Studio Code, but also Visual Studio"
@@ -155,7 +155,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#IDEs-and-Editor"
+            linkTo="/blog/6"
             color="info"
             size="is-normal"
             tooltip="The classic CLI editor!"
@@ -164,7 +164,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Build-Tools"
+            linkTo="/blog/3"
             color="warning"
             size="is-large"
             tooltip="CMake, Make, QMake, Gradle, Maven, Ant, and more!"
@@ -173,7 +173,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#IDEs-and-Editor"
+            linkTo="/blog/6"
             color="info"
             size="is-medium"
             tooltip="Oracle's Java IDE"
@@ -182,7 +182,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Modelling"
+            linkTo="/blog/1"
             color="danger"
             size="is-small"
             tooltip="All-in-one modelling and management software"
@@ -191,7 +191,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Office"
+            linkTo="/blog/13"
             color="dark"
             size="is-medium"
             tooltip="Open source and proprietary office product solutions"
@@ -200,7 +200,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Virtualization"
+            linkTo="/blog/19"
             color="white"
             size="is-medium"
             tooltip="Docker, Vagrant, VirtualBox, VMWare products (Workstation, ESXi), libVirt/QEMU, Kubernetes, ..."
@@ -214,7 +214,7 @@ export default class Skills extends React.Component {
         </h1>
         <section className="column is-mobile is-centered tags">
           <Tag
-            linkTo="/skills#Test-Driven-Development"
+            linkTo="/blog/17"
             color="info"
             size="is-medium"
             tooltip="Standard unit and integration testing library and suite for Java based languages"
@@ -223,7 +223,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Test-Driven-Development"
+            linkTo="/blog/17"
             color="info"
             size="is-normal"
             tooltip="Mockito extends JUnit with useful additions and prevents overhead while testing"
@@ -232,7 +232,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Test-Driven-Development"
+            linkTo="/blog/17"
             color="info"
             size="is-normal"
             tooltip="RESTAssured extends JUnit by providing easy ways to test and validate REST API server and clients"
@@ -241,7 +241,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Test-Driven-Development"
+            linkTo="/blog/17"
             color="info"
             size="is-small"
             tooltip="Standard unit and integration testing library and suite for C/C++ based languages"
@@ -250,7 +250,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#WEB-Frameworks"
+            linkTo="/blog/21"
             color="warning"
             size="is-large"
             tooltip="An awesome open-source framework for building websites with flex and other tools, which is also highly extendable and modifiable. This website is build with it! Similar to bootstrap."
@@ -259,7 +259,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#WEB-Frameworks"
+            linkTo="/blog/21"
             color="warning"
             size="is-medium"
             tooltip="Responsive, mobile-first, framework for website projects. Similar to Bulma."
@@ -268,7 +268,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#WEB-Frameworks"
+            linkTo="/blog/21"
             color="primary"
             size="is-medium"
             tooltip="An easy to use, highly optimized, Java WebServer with many possibilities"
@@ -277,7 +277,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#WEB-Frameworks"
+            linkTo="/blog/21"
             color="success"
             size="is-large"
             tooltip="Single page websites!"
@@ -286,7 +286,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#WEB-Frameworks"
+            linkTo="/blog/21"
             color="success"
             size="is-large"
             tooltip="NodeJS"
@@ -300,7 +300,7 @@ export default class Skills extends React.Component {
         </h1>
         <section className="column is-mobile is-centered tags">
           <Tag
-            linkTo="/skills#OperatingSystems"
+            linkTo="/blog/11"
             color="link"
             size="is-large"
             tooltip="My primary operating system! Mainly Manjaro but also self-installed arch."
@@ -309,7 +309,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#OperatingSystems"
+            linkTo="/blog/11"
             color="link"
             size="is-medium"
             tooltip="Ubuntu and other Debian based distros!"
@@ -318,7 +318,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#OperatingSystems"
+            linkTo="/blog/11"
             color="link"
             size="is-medium"
             tooltip="OpenSource version of RedHat's Enterprise Linux"
@@ -327,7 +327,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Hacking"
+            linkTo="/blog/5"
             color="danger"
             size="is-small"
             tooltip="Linux based distribution, made for security testing and hacking"
@@ -336,7 +336,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#OperatingSystems"
+            linkTo="/blog/22"
             color="warning"
             size="is-medium"
             tooltip="Microsoft's operating system. While not being a huge fan of it I still use it often."
@@ -345,7 +345,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#OperatingSystems"
+            linkTo="/blog/11"
             color="primary"
             size="is-small"
             tooltip="Apple's operating system. Very similar to Linux; sometimes porting applications there."
@@ -359,7 +359,7 @@ export default class Skills extends React.Component {
         </h1>
         <section className="column is-mobile is-centered tags">
           <Tag
-            linkTo="/skills#AI"
+            linkTo="/blog/2"
             color="success"
             size="is-large"
             tooltip="I think brains are mysterious and so interesting. AI tries to reverse-engineer that! How can one not be interested in AI?"
@@ -368,7 +368,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Hacking"
+            linkTo="/blog/5"
             color="danger"
             size="is-medium"
             tooltip="I like to find bugs and security problems in existing and still developing systems to then fix or report them. Activities include Pen-Testing and CTFs."
@@ -377,7 +377,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#IoT"
+            linkTo="/blog/7"
             color="warning"
             size="is-normal"
             tooltip="'Internet of Things' devices are electronics that are connected with the internet"
@@ -386,7 +386,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Games"
+            linkTo="/blog/4"
             color="info"
             size="is-large"
             tooltip="I really enjoy having no creative limits and simply create something others might like. Sadly I haven't finished any game yet ..."
@@ -395,7 +395,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/skills#Graphics"
+            linkTo="/1"
             color="info"
             size="is-large"
             tooltip="Being creative is one of my biggest interests"
