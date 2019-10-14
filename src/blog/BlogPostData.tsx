@@ -19,7 +19,7 @@ export default class BlogPostData {
       return this.CreateInvalidPost();
     }
 
-    const markdownResponse = await fetch("/api/blog/" + post.path);
+    const markdownResponse = await fetch("/api/blog/posts/" + post.path);
     let markdownData = await markdownResponse.text();
 
     // Create new object to get a fully-qualified object, instead of a pseudo-anonymous class
