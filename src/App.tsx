@@ -10,7 +10,6 @@ import Legal from "./home/Legal";
 const App: React.FC = () => {
   return (
     <Router>
-      <Route exact={true} path="/" component={Home} />
       <Route exact={true} path="/credit" component={Credit} />
       <Route
         exact={true}
@@ -19,6 +18,7 @@ const App: React.FC = () => {
       />
       <Route exact={true} path="/blog" component={BlogHome} />
       <Route exact={false} path="/blog/:id" component={BlogPosts} />
+      <Route exact={false} path="/" component={Home} />
     </Router>
   );
 };
