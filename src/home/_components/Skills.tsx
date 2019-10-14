@@ -408,7 +408,7 @@ export default class Skills extends React.Component {
           className="has-text-grey tooltip is-tooltip-danger"
           data-tooltip="Click to see more!"
         >
-          <Link to="/skills">And much more ...</Link>
+          <Link to="/blog">And much more on my blog ...</Link>
         </div>
       </aside>
     );
