@@ -41,10 +41,18 @@ export default class Tag extends React.Component<TagProperties, TagState> {
     if (this.props.active) classes += " is-tooltip-active";
 
     if (this.props.linkTo == null) {
-      return <div className={classes}>{this.props.text}</div>;
+      return (
+        <div className={classes} data-tooltip={this.props.tooltip}>
+          {this.props.text}
+        </div>
+      );
     } else {
       return (
-        <Link to={this.props.linkTo} className={`${textColor} ${classes}`}>
+        <Link
+          to={this.props.linkTo}
+          className={`${textColor} ${classes}`}
+          data-tooltip={this.props.tooltip}
+        >
           {this.props.text}
         </Link>
       );
