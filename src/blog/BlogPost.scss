@@ -1,3 +1,15 @@
+$tablet: 768px;
+
+.icon {
+  opacity: 25%;
+
+  &:hover,
+  &:active,
+  &:focus {
+    opacity: 100%;
+  }
+}
+
 #icon-home {
   position: fixed;
 
@@ -75,8 +87,13 @@
 }
 
 #warning {
-  width: auto;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  @media screen and (max-width: $tablet) {
+    margin: 4px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
