@@ -29,9 +29,9 @@ export default class BlogHome extends React.Component {
           <a href="https://github.com/Sakul6499">
             <FaGithub />
           </a>
-          <Link to="/blog">
+          <a href="https://bitbucket.org/%7Be556a531-5d5f-4ab9-a76d-bfc3043af83f%7D/">
             <FaBitbucket />
-          </Link>
+          </a>
           <a href="https://www.linkedin.com/in/lukaswebersakul6499">
             <FaLinkedinIn />
           </a>
