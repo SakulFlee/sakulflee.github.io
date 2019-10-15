@@ -23,12 +23,12 @@ export default class BlogHome extends React.Component {
           <Link to="/">
             <FaHome />
           </Link>
-          <Link to="/blog">
+          <a href="https://gitlab.com/Sakul6499">
             <FaGitlab />
-          </Link>
-          <Link to="/blog">
+          </a>
+          <a href="https://github.com/Sakul6499">
             <FaGithub />
-          </Link>
+          </a>
           <Link to="/blog">
             <FaBitbucket />
           </Link>

@@ -39,9 +39,9 @@ class TitlePage extends React.Component<{}> {
           <a href="https://gitlab.com/Sakul6499">
             <FaGitlab />
           </a>
-          <Link to="/blog">
+          <a href="https://github.com/Sakul6499">
             <FaGithub />
-          </Link>
+          </a>
           <Link to="/blog">
             <FaBitbucket />
           </Link>
