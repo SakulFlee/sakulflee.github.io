@@ -37,6 +37,9 @@ $tablet: 768px;
     @media screen and (min-width: $tablet) {
       width: calc(100% / 3.88);
     }
+    @media screen and (min-width: 1024px) {
+      width: calc(100% / 3.92);
+    }
     height: 32px;
 
     border-right: dotted magenta 4px;
@@ -48,6 +51,9 @@ $tablet: 768px;
     }
     @media screen and (min-width: $tablet) {
       width: calc(100% / 3.88);
+    }
+    @media screen and (min-width: 1024px) {
+      width: calc(100% / 3.92);
     }
 
     padding-top: 16px;
