@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdSearch } from "react-icons/md";
-import { FaHome, FaGitlab, FaGithub, FaBitbucket } from "react-icons/fa";
+import {
+  FaHome,
+  FaGitlab,
+  FaGithub,
+  FaBitbucket,
+  FaLinkedinIn
+} from "react-icons/fa";
 
 import Header from "../home/_components/Header";
 
@@ -26,6 +32,9 @@ export default class BlogHome extends React.Component {
           <Link to="/blog">
             <FaBitbucket />
           </Link>
+          <a href="https://www.linkedin.com/in/lukaswebersakul6499">
+            <FaLinkedinIn />
+          </a>
         </div>
 
         <div id="container">

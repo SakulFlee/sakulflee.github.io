@@ -66,8 +66,14 @@ $tablet: 768px;
     width: 32px;
     height: 32px;
 
-    margin-left: 16px;
-    margin-right: 16px;
+    @media screen and (max-width: $tablet) {
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+    @media screen and (min-width: $tablet) {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
 
     z-index: 4;
 
