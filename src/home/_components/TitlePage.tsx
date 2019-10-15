@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaBold, FaGitlab, FaGithub, FaBitbucket } from "react-icons/fa";
+import {
+  FaBold,
+  FaGitlab,
+  FaGithub,
+  FaBitbucket,
+  FaLinkedinIn
+} from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
 import { BrowserView } from "react-device-detect";
 
@@ -39,6 +45,9 @@ class TitlePage extends React.Component<{}> {
           <Link to="/blog">
             <FaBitbucket />
           </Link>
+          <a href="https://www.linkedin.com/in/lukaswebersakul6499">
+            <FaLinkedinIn />
+          </a>
         </div>
 
         <BrowserView>
