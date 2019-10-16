@@ -8,7 +8,7 @@ export default class Skills extends React.Component {
     return (
       <aside className="column">
         <u
-          className="is-half is-family-code has-text-underlined tooltip is-tooltip-multiline is-tooltip-active is-tooltip-info"
+          className="is-half is-family-code has-text-underlined tooltip is-tooltip-active is-tooltip-info"
           data-tooltip="Hover over my tags!"
         >
           Skills
