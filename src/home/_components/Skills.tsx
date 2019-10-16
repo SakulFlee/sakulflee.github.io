@@ -271,7 +271,7 @@ export default class Skills extends React.Component {
             linkTo="/blog/21"
             color="primary"
             size="is-medium"
-            tooltip="An easy to use, highly optimized, Java WebServer with many possibilities"
+            tooltip="An easy to use and highly optimized Java WebServer with many possibilities"
             text="Spring.io"
             multiLine={true}
           />
