@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import BlogPostData from "./BlogPostData";
+import BlogPostJSONData from "./BlogPostJSONData";
 
 import "./BlogPosts.scss";
 
@@ -10,7 +10,7 @@ type BlogPostsProperties = {
 };
 
 type BlogPostsState = {
-  data: BlogPostData[];
+  data: BlogPostJSONData[];
 };
 
 export default class BlogPosts extends React.Component<
@@ -22,21 +22,26 @@ export default class BlogPosts extends React.Component<
       const response = await fetch("/api/blog/posts.json");
       const json = await response.json();
 
-      let data: BlogPostData[] = json;
+      let oldDate: BlogPostJSONData[] = json;
+      let newData: BlogPostJSONData[] = [];
+      for (let old of oldDate) {
+        let fetchedPost = await BlogPostJSONData.FullFetch(old);
+        newData.push(fetchedPost);
+      }
       this.setState({
-        data: data.sort((a, b) => (a.id < b.id ? 1 : -1))
+        data: newData.sort((a, b) => (a.id < b.id ? 1 : -1))
       });
     } catch (error) {
       console.log(error);
     }
   }
 
-  makePost(postData: BlogPostData): JSX.Element {
+  makePost(postData: BlogPostJSONData): JSX.Element {
     return (
       <Link to={`/blog/${postData.id}`} className="column">
         <article className="message is-dark">
           <div className="message-header">
-            <p>{postData.title}</p>
+            <p>{BlogPostJSONData.GetTitle(postData)}</p>
           </div>
           <div className="message-body">{postData.description}</div>
         </article>
@@ -44,7 +49,7 @@ export default class BlogPosts extends React.Component<
     );
   }
 
-  makePostRows(postData: BlogPostData[], size: number): JSX.Element {
+  makePostRows(postData: BlogPostJSONData[], size: number): JSX.Element {
     let rows: JSX.Element[] = [];
     let posts: JSX.Element[] = [];
     let counter = 0;
@@ -53,7 +58,11 @@ export default class BlogPosts extends React.Component<
       let match = false;
       if (this.props.search !== null) {
         let search = this.props.search!.toLowerCase();
-        if (data.title.toLowerCase().includes(search)) {
+        if (
+          BlogPostJSONData.GetTitle(data)
+            .toLowerCase()
+            .includes(search)
+        ) {
           match = true;
         }
 
@@ -91,17 +100,7 @@ export default class BlogPosts extends React.Component<
 
     // Handle no rows (=no posts)
     if (rows.length === 0) {
-      let post = this.makePost(
-        new BlogPostData(
-          0,
-          "No results!",
-          "There are currently no posts available or the search didn't yield any result.",
-          [],
-          "",
-          false,
-          ""
-        )
-      );
+      let post = this.makePost(BlogPostJSONData.CreateNothingFoundPost());
       return <div>{post}</div>;
     } else {
       return <div>{rows}</div>;

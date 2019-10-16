@@ -1,5 +1,6 @@
-My mother language is german and I also speak english
-fluently. Additionally, I learned basic dutch in university
+# My mother language is german and I also speak english fluently
+
+Additionally, I learned basic dutch in university
 and taught myself basic japanese a few years back. Though, it
 has gotten a bit rusty over the years.
 
