@@ -1,0 +1,99 @@
+$tablet: 768px;
+
+.icon {
+  opacity: 25%;
+
+  &:hover,
+  &:active,
+  &:focus {
+    opacity: 100%;
+  }
+}
+
+#icon-home {
+  position: fixed;
+
+  z-index: 100;
+
+  color: #363636;
+  background-color: whitesmoke;
+
+  border-color: #363636;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 150px;
+  padding: 4px;
+
+  top: 8px;
+  left: 8px;
+
+  &,
+  * {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+#icon-return {
+  position: fixed;
+
+  z-index: 100;
+
+  color: #363636;
+  background-color: whitesmoke;
+
+  border-color: #363636;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 150px;
+  padding: 4px;
+
+  top: 8px;
+  left: 72px;
+
+  &,
+  * {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+#icon-top {
+  position: fixed;
+
+  z-index: 100;
+
+  color: #363636;
+  background-color: whitesmoke;
+
+  border-color: #363636;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 150px;
+  padding: 4px;
+
+  bottom: 8px;
+  right: 8px;
+
+  &,
+  * {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+.fake-link {
+  cursor: pointer;
+}
+
+#warning {
+  @media screen and (max-width: $tablet) {
+    margin: 4px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

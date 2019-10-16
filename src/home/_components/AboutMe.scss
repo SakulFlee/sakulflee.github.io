@@ -1,0 +1,25 @@
+$tablet: 768px;
+
+#AboutMe {
+    padding: 16px;
+
+    @media screen and (min-width: $tablet) {
+        margin-top: 16px;
+    }
+
+    article {
+        a {
+            color: magenta;
+            text-decoration: underline;
+        }
+        
+        @media screen and (max-width: $tablet) {
+            margin-bottom: 32px;
+            border-bottom: solid black;
+        }
+    
+        @media screen and (min-width: $tablet) {
+            border-right: solid black;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+$tablet: 768px;
+
+#timeline {
+  width: 100%;
+  padding-top: 16px;
+
+  .entry {
+    width: 100%;
+    display: inline-block;
+
+    .date {
+      width: 25%;
+      display: inline-block;
+    }
+
+    .texts {
+      width: 75%;
+      display: inline-block;
+
+      border-left: solid magenta 4px;
+
+      div {
+        @media screen and (max-width: $tablet) {
+          font-size: 0.8rem;
+        }
+        @media screen and (min-width: $tablet) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+
+  .dotted {
+    @media screen and (max-width: $tablet) {
+      width: calc(100% / 3.8);
+    }
+    @media screen and (min-width: $tablet) {
+      width: calc(100% / 3.88);
+    }
+    @media screen and (min-width: 1024px) {
+      width: calc(100% / 3.92);
+    }
+    height: 32px;
+
+    border-right: dotted magenta 4px;
+  }
+
+  .spacing {
+    @media screen and (max-width: $tablet) {
+      width: calc(100% / 3.8);
+    }
+    @media screen and (min-width: $tablet) {
+      width: calc(100% / 3.88);
+    }
+    @media screen and (min-width: 1024px) {
+      width: calc(100% / 3.92);
+    }
+
+    padding-top: 16px;
+
+    border-right: solid magenta 4px;
+  }
+}

@@ -1,0 +1,178 @@
+[
+  {
+    "id": "1",
+    "title": "Skill: 3d_modelling & graphics",
+    "description": "TODO",
+    "path": "skills/3d_modelling.md",
+    "finished": false,
+    "tags": ["Skill", "3D", "Modelling"]
+  },
+  {
+    "id": "2",
+    "title": "Skill: AI",
+    "description": "TODO",
+    "path": "skills/AI.md",
+    "finished": false,
+    "tags": ["Skill", "AI"]
+  },
+  {
+    "id": "3",
+    "title": "Skill: Build_tools",
+    "description": "TODO",
+    "path": "skills/Build_tools.md",
+    "finished": false,
+    "tags": ["Skill", "Build", "Tools"]
+  },
+  {
+    "id": "4",
+    "title": "Skill: Game_development",
+    "description": "TODO",
+    "path": "skills/Game_development.md",
+    "finished": false,
+    "tags": ["Skill", "Game", "Development"]
+  },
+  {
+    "id": "5",
+    "title": "Skill: Hacking",
+    "description": "TODO",
+    "path": "skills/Hacking.md",
+    "finished": false,
+    "tags": ["Skill", "Hacking"]
+  },
+  {
+    "id": "6",
+    "title": "Skill: IDEs_and_editors",
+    "description": "TODO",
+    "path": "skills/IDEs_and_editors.md",
+    "finished": false,
+    "tags": ["Skill", "IDE", "Editor"]
+  },
+  {
+    "id": "7",
+    "title": "Skill: IoT",
+    "description": "TODO",
+    "path": "skills/IoT.md",
+    "finished": false,
+    "tags": ["Skill", "IoT"]
+  },
+  {
+    "id": "8",
+    "title": "Skill: Java_and_similar",
+    "description": "TODO",
+    "path": "skills/Java_and_similar.md",
+    "finished": false,
+    "tags": ["Skill", "Java", "Kotlin", "JVM", "C#"]
+  },
+  {
+    "id": "9",
+    "title": "Skill: Languages",
+    "description": "TODO",
+    "path": "skills/Languages.md",
+    "finished": false,
+    "tags": ["Skill", "Languages"]
+  },
+  {
+    "id": "10",
+    "title": "Skill: LaTeX",
+    "description": "TODO",
+    "path": "skills/LaTeX.md",
+    "finished": false,
+    "tags": ["Skill", "LaTeX"]
+  },
+  {
+    "id": "11",
+    "title": "Skill: Linux_and_UNIX",
+    "description": "TODO",
+    "path": "skills/Linux_and_UNIX.md",
+    "finished": false,
+    "tags": ["Skill", "Linux_and_UNIX"]
+  },
+  {
+    "id": "12",
+    "title": "Skill: Native",
+    "description": "TODO",
+    "path": "skills/Native.md",
+    "finished": false,
+    "tags": ["Skill", "Native"]
+  },
+  {
+    "id": "13",
+    "title": "Skill: Office",
+    "description": "TODO",
+    "path": "skills/Office.md",
+    "finished": false,
+    "tags": ["Skill", "Office"]
+  },
+  {
+    "id": "14",
+    "title": "Skill: Rust",
+    "description": "TODO",
+    "path": "skills/Rust.md",
+    "finished": false,
+    "tags": ["Skill", "Rust"]
+  },
+  {
+    "id": "15",
+    "title": "Skill: Script_languages",
+    "description": "TODO",
+    "path": "skills/Script_languages.md",
+    "finished": false,
+    "tags": ["Skill", "Script_languages"]
+  },
+  {
+    "id": "16",
+    "title": "Skill: SpringIO",
+    "description": "TODO",
+    "path": "skills/SpringIO.md",
+    "finished": false,
+    "tags": ["Skill", "SpringIO"]
+  },
+  {
+    "id": "17",
+    "title": "Skill: Test_Driven_Development",
+    "description": "TODO",
+    "path": "skills/Test_Driven_Development.md",
+    "finished": false,
+    "tags": ["Skill", "Test_Driven_Development"]
+  },
+  {
+    "id": "18",
+    "title": "Skill: VCS",
+    "description": "TODO",
+    "path": "skills/VCS.md",
+    "finished": false,
+    "tags": ["Skill", "VCS"]
+  },
+  {
+    "id": "19",
+    "title": "Skill: Virtualization",
+    "description": "TODO",
+    "path": "skills/Virtualization.md",
+    "finished": false,
+    "tags": ["Skill", "Virtualization", "VM"]
+  },
+  {
+    "id": "20",
+    "title": "Skill: Visual_Paradigm",
+    "description": "TODO",
+    "path": "skills/Visual_Paradigm.md",
+    "finished": false,
+    "tags": ["Skill", "Visual Paradigm"]
+  },
+  {
+    "id": "21",
+    "title": "Skill: WEB",
+    "description": "TODO",
+    "path": "skills/WEB.md",
+    "finished": false,
+    "tags": ["Skill", "WEB"]
+  },
+  {
+    "id": "22",
+    "title": "Skill: Windows",
+    "description": "TODO",
+    "path": "skills/Windows.md",
+    "finished": false,
+    "tags": ["Skill", "Windows"]
+  }
+]
