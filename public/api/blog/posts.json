@@ -1,9 +1,9 @@
 [
   {
     "id": "1",
-    "title": "Skill: 3d_modelling & graphics",
+    "title": "Skill: Creative work",
     "description": "TODO",
-    "path": "skills/3d_modelling.md",
+    "path": "skills/Creative.md",
     "finished": false,
     "tags": ["Skill", "3D", "Modelling"]
   },
@@ -66,10 +66,10 @@
   {
     "id": "9",
     "title": "Skill: Languages",
-    "description": "TODO",
+    "description": "Language I can speak, read and write in!",
     "path": "skills/Languages.md",
     "finished": false,
-    "tags": ["Skill", "Languages"]
+    "tags": ["Skill", "Languages", "English", "German", "Dutch", "Japanese"]
   },
   {
     "id": "10",
