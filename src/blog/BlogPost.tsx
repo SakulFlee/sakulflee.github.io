@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MdHome, MdKeyboardReturn, MdVerticalAlignTop } from "react-icons/md";
 
-import BlogPostData from "./BlogPostData";
+import BlogPostJSONData from "./BlogPostJSONData";
 import Footer from "../home/_components/Footer";
 
 import "./BlogPost.scss";
@@ -16,7 +16,7 @@ type BlogProperties = {
 };
 
 type BlogState = {
-  data: BlogPostData;
+  data: BlogPostJSONData;
 };
 
 export default class BlogPosts extends React.Component<
@@ -25,7 +25,7 @@ export default class BlogPosts extends React.Component<
 > {
   async componentDidMount(): Promise<void> {
     if (this.props.match.params.id == null) return;
-    let blogPostData = await BlogPostData.FetchByID(
+    let blogPostData = await BlogPostJSONData.FetchByID(
       this.props.match.params.id!
     );
     this.setState({
@@ -33,7 +33,7 @@ export default class BlogPosts extends React.Component<
     });
   }
 
-  makePost(data: BlogPostData): JSX.Element {
+  makePost(data: BlogPostJSONData): JSX.Element {
     return (
       <div>
         {this.makeButtons()}
@@ -43,12 +43,12 @@ export default class BlogPosts extends React.Component<
     );
   }
 
-  makePostHeader(data: BlogPostData): JSX.Element {
+  makePostHeader(data: BlogPostJSONData): JSX.Element {
     return (
       <section className="hero is-medium is-dark is-bold">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title">{data.title}</h1>
+            <h1 className="title">{BlogPostJSONData.GetTitle(data)}</h1>
             <h2 className="subtitle">{data.description}</h2>
             {this.makeTagList(data)}
           </div>
@@ -57,16 +57,16 @@ export default class BlogPosts extends React.Component<
     );
   }
 
-  makePostBody(data: BlogPostData): JSX.Element {
+  makePostBody(data: BlogPostJSONData): JSX.Element {
     return (
       <div
         className="content"
-        dangerouslySetInnerHTML={{ __html: data.htmlData! }}
+        dangerouslySetInnerHTML={{ __html: BlogPostJSONData.getHTMLData(data) }}
       />
     );
   }
 
-  makeTagList(data: BlogPostData): JSX.Element {
+  makeTagList(data: BlogPostJSONData): JSX.Element {
     var listElements = data.tags.map((tag, index) => (
       <li key={index} className="tag is-light">
         {tag}
