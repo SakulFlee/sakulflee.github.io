@@ -57,9 +57,9 @@
   },
   {
     "id": "9",
-    "description": "Language I can speak, read and write in!",
+    "description": "Language I speak, read and write!",
     "path": "skills/Languages.md",
-    "finished": false,
+    "finished": true,
     "tags": ["Skill", "Languages", "English", "German", "Dutch", "Japanese"]
   },
   {
