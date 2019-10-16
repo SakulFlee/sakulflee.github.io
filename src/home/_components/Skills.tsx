@@ -20,7 +20,7 @@ export default class Skills extends React.Component {
             linkTo="/blog/9"
             color="success"
             size="is-large"
-            tooltip="My primary language."
+            tooltip="My native language."
             text="German"
             multiLine={true}
           />
@@ -101,7 +101,7 @@ export default class Skills extends React.Component {
             linkTo="/blog/9"
             color="success"
             size="is-small"
-            tooltip="Not fluent but and very interesting and different language!"
+            tooltip="Not fluent but an very interesting and different language!"
             text="Japanese"
             multiLine={true}
           />
@@ -389,7 +389,7 @@ export default class Skills extends React.Component {
             linkTo="/blog/4"
             color="info"
             size="is-large"
-            tooltip="I really enjoy having no creative limits and simply create something others might like. Sadly I haven't finished any game yet ..."
+            tooltip="I really enjoy having no creative limits and simply create something others might like. Sadly I haven't finished any games yet ..."
             text="Game Development"
             multiLine={true}
           />
