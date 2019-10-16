@@ -1,4 +1,4 @@
-# Skill: Languages I learned
+# Skill: Languages
 
 ## German
 
