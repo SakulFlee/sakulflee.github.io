@@ -50,10 +50,10 @@
   },
   {
     "id": "8",
-    "description": "TODO",
+    "description": "My experience with Java, how Java helped me to get into programming and other connected or similar languages",
     "path": "skills/Java_and_similar.md",
-    "finished": false,
-    "tags": ["Skill", "Java", "Kotlin", "JVM", "C#"]
+    "finished": true,
+    "tags": ["Skill", "Java", "Kotlin", "JVM", "C#", "OOP", "Object-Oriented"]
   },
   {
     "id": "9",
