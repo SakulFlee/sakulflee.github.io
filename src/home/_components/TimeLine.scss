@@ -31,33 +31,19 @@ $tablet: 768px;
   }
 
   .dotted {
-    @media screen and (max-width: $tablet) {
-      width: calc(100% / 3.8);
-    }
-    @media screen and (min-width: $tablet) {
-      width: calc(100% / 3.88);
-    }
-    @media screen and (min-width: 1024px) {
-      width: calc(100% / 3.92);
-    }
+    width: 75%;
+    margin-left: 25%;
     height: 32px;
 
-    border-right: dotted magenta 4px;
+    border-left: dotted magenta 4px;
   }
 
   .spacing {
-    @media screen and (max-width: $tablet) {
-      width: calc(100% / 3.8);
-    }
-    @media screen and (min-width: $tablet) {
-      width: calc(100% / 3.88);
-    }
-    @media screen and (min-width: 1024px) {
-      width: calc(100% / 3.92);
-    }
+    width: 75%;
+    margin-left: 25%;
 
     padding-top: 16px;
 
-    border-right: solid magenta 4px;
+    border-left: solid magenta 4px;
   }
 }
