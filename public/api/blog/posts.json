@@ -105,13 +105,6 @@
     "tags": ["Skill", "Script_languages"]
   },
   {
-    "id": "16",
-    "description": "TODO",
-    "path": "skills/SpringIO.md",
-    "finished": false,
-    "tags": ["Skill", "SpringIO"]
-  },
-  {
     "id": "17",
     "description": "TODO",
     "path": "skills/Test_Driven_Development.md",
@@ -141,10 +134,19 @@
   },
   {
     "id": "21",
-    "description": "TODO",
-    "path": "skills/WEB.md",
-    "finished": false,
-    "tags": ["Skill", "WEB"]
+    "description": "Web-Development; languages, frameworks, APIs and Servers I work(ed) with",
+    "path": "skills/Web.md",
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Web",
+      "HTML",
+      "CSS",
+      "JavaScript (JS)",
+      "TypeScript (TS)",
+      "Spring.IO",
+      "REST"
+    ]
   },
   {
     "id": "22",
