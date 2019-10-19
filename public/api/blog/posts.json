@@ -105,35 +105,35 @@
     "tags": ["Skill", "Script_languages"]
   },
   {
-    "id": "17",
+    "id": "16",
     "description": "TODO",
     "path": "skills/Test_Driven_Development.md",
     "finished": false,
     "tags": ["Skill", "Test_Driven_Development"]
   },
   {
-    "id": "18",
+    "id": "17",
     "description": "TODO",
     "path": "skills/VCS.md",
     "finished": false,
     "tags": ["Skill", "VCS"]
   },
   {
-    "id": "19",
+    "id": "18",
     "description": "TODO",
     "path": "skills/Virtualization.md",
     "finished": false,
     "tags": ["Skill", "Virtualization", "VM"]
   },
   {
-    "id": "20",
+    "id": "19",
     "description": "TODO",
     "path": "skills/Visual_Paradigm.md",
     "finished": false,
     "tags": ["Skill", "Visual Paradigm"]
   },
   {
-    "id": "21",
+    "id": "20",
     "description": "Web-Development; languages, frameworks, APIs and Servers I work(ed) with",
     "path": "skills/Web.md",
     "finished": true,
@@ -149,7 +149,7 @@
     ]
   },
   {
-    "id": "22",
+    "id": "21",
     "description": "TODO",
     "path": "skills/Windows.md",
     "finished": false,
