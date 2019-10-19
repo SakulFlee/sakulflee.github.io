@@ -15,10 +15,25 @@
   },
   {
     "id": "3",
-    "description": "TODO",
+    "description": "Build tools I use(d)",
     "path": "skills/Build_tools.md",
-    "finished": false,
-    "tags": ["Skill", "Build", "Tools"]
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Build",
+      "Tools",
+      "Maven",
+      "Gradle",
+      "Ninja",
+      "CMake",
+      "Make",
+      "NodeJS",
+      "Cargo",
+      "Rust",
+      "Java",
+      "Native",
+      "C/C++"
+    ]
   },
   {
     "id": "4",
