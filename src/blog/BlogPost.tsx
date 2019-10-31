@@ -60,8 +60,8 @@ export default class BlogPosts extends React.Component<
   makePostBody(data: BlogPostJSONData): JSX.Element {
     return (
       <div
-        className="content"
-        dangerouslySetInnerHTML={{ __html: BlogPostJSONData.getHTMLData(data) }}
+          className="content blog-body"
+          dangerouslySetInnerHTML={{ __html: BlogPostJSONData.getHTMLData(data) }}
       />
     );
   }
