@@ -8,7 +8,8 @@
   },
   {
     "id": "2",
-    "description": "My interest in the development of AI and ML",
+    "shortDescription": "My interest in the development and techniques of AI and ML",
+    "description": "Ever thought about AI or ML as 'reverse engineering' a (human) brain? It is! ... in some way or another.",
     "path": "skills/AI.md",
     "finished": true,
     "tags": ["Interest", "AI", "ML"]
