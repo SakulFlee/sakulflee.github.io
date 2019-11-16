@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { MdHome, MdKeyboardReturn, MdVerticalAlignTop } from "react-icons/md";
+import {Link} from "react-router-dom";
+import {MdHome, MdKeyboardReturn, MdVerticalAlignTop} from "react-icons/md";
 
 import BlogPostJSONData from "./BlogPostJSONData";
-import Footer from "../home/_components/Footer";
+import Footer from "../shared/Footer";
 
 import "./BlogPost.scss";
 
@@ -49,7 +49,7 @@ export default class BlogPosts extends React.Component<
         <div className="hero-body">
           <div className="container">
             <h1 className="title">{BlogPostJSONData.GetTitle(data)}</h1>
-            <h2 className="subtitle">{data.description}</h2>
+              <h2 className="subtitle">{data.shortDescription}</h2>
             {this.makeTagList(data)}
           </div>
         </div>
@@ -60,8 +60,8 @@ export default class BlogPosts extends React.Component<
   makePostBody(data: BlogPostJSONData): JSX.Element {
     return (
       <div
-        className="content"
-        dangerouslySetInnerHTML={{ __html: BlogPostJSONData.getHTMLData(data) }}
+          className="content blog-body"
+          dangerouslySetInnerHTML={{ __html: BlogPostJSONData.getHTMLData(data) }}
       />
     );
   }

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import Tag from "../../_components/Tag";
+import Tag from "../../shared/Tag";
 
 export default class Skills extends React.Component {
   render(): JSX.Element {
@@ -53,7 +53,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/21"
+            linkTo="/blog/20"
             color="link"
             size="is-large"
             tooltip="HTML5, CSS4, JS9, PHP, Ruby, ..."
@@ -128,7 +128,7 @@ export default class Skills extends React.Component {
         <h1 className="is-size-5 has-text-black">Tools I use:</h1>
         <section className="column is-mobile is-centered tags">
           <Tag
-            linkTo="/blog/18"
+            linkTo="/blog/17"
             color="success"
             size="is-large"
             tooltip="GIT, SVN and other VCS"
@@ -182,7 +182,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/1"
+            linkTo="/blog/19"
             color="danger"
             size="is-small"
             tooltip="All-in-one modelling and management software"
@@ -200,7 +200,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/19"
+            linkTo="/blog/18"
             color="white"
             size="is-medium"
             tooltip="Docker, Vagrant, VirtualBox, VMWare products (Workstation, ESXi), libVirt/QEMU, Kubernetes, ..."
@@ -214,7 +214,7 @@ export default class Skills extends React.Component {
         </h1>
         <section className="column is-mobile is-centered tags">
           <Tag
-            linkTo="/blog/17"
+            linkTo="/blog/16"
             color="info"
             size="is-medium"
             tooltip="Standard unit and integration testing library and suite for Java based languages"
@@ -223,7 +223,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/17"
+            linkTo="/blog/16"
             color="info"
             size="is-normal"
             tooltip="Mockito extends JUnit with useful additions and prevents overhead while testing"
@@ -232,7 +232,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/17"
+            linkTo="/blog/16"
             color="info"
             size="is-normal"
             tooltip="RESTAssured extends JUnit by providing easy ways to test and validate REST API server and clients"
@@ -241,7 +241,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/17"
+            linkTo="/blog/16"
             color="info"
             size="is-small"
             tooltip="Standard unit and integration testing library and suite for C/C++ based languages"
@@ -250,7 +250,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/21"
+            linkTo="/blog/20"
             color="warning"
             size="is-large"
             tooltip="An awesome open-source framework for building websites with flex and other tools, which is also highly extendable and modifiable. This website is build with it! Similar to bootstrap."
@@ -259,7 +259,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/21"
+            linkTo="/blog/20"
             color="warning"
             size="is-medium"
             tooltip="Responsive, mobile-first, framework for website projects. Similar to Bulma."
@@ -268,7 +268,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/21"
+            linkTo="/blog/20"
             color="primary"
             size="is-medium"
             tooltip="An easy to use and highly optimized Java WebServer with many possibilities"
@@ -277,7 +277,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/21"
+            linkTo="/blog/20"
             color="success"
             size="is-large"
             tooltip="Single page websites!"
@@ -286,7 +286,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/21"
+            linkTo="/blog/20"
             color="success"
             size="is-large"
             tooltip="NodeJS"
@@ -336,7 +336,7 @@ export default class Skills extends React.Component {
           />
 
           <Tag
-            linkTo="/blog/22"
+            linkTo="/blog/21"
             color="warning"
             size="is-medium"
             tooltip="Microsoft's operating system. While not being a huge fan of it I still use it often."

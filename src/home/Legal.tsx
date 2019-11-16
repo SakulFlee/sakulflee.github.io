@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Footer from './_components/Footer';
+import Footer from '../shared/Footer';
 
 import './Legal.scss';
 

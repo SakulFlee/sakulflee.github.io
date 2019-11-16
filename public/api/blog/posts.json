@@ -4,153 +4,253 @@
     "description": "TODO",
     "path": "skills/Creative.md",
     "finished": false,
-    "tags": ["Skill", "3D", "Modelling"]
+    "tags": [
+      "Skill",
+      "3D",
+      "Modelling"
+    ]
   },
   {
     "id": "2",
-    "description": "TODO",
+    "shortDescription": "My interest in the development and techniques of AI and ML",
+    "description": "Ever thought about AI or ML as 'reverse engineering' a (human) brain? It is! ... in some way or another.",
     "path": "skills/AI.md",
-    "finished": false,
-    "tags": ["Skill", "AI"]
+    "finished": true,
+    "tags": [
+      "Interest",
+      "AI",
+      "ML"
+    ]
   },
   {
     "id": "3",
-    "description": "TODO",
+    "description": "Build tools I use(d)",
     "path": "skills/Build_tools.md",
-    "finished": false,
-    "tags": ["Skill", "Build", "Tools"]
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Build",
+      "Tools",
+      "Maven",
+      "Gradle",
+      "Ninja",
+      "CMake",
+      "Make",
+      "NodeJS",
+      "Cargo",
+      "Rust",
+      "Java",
+      "Native",
+      "C/C++"
+    ]
   },
   {
     "id": "4",
-    "description": "TODO",
+    "shortDescription": "Skills I have acquired while modding and creating games",
+    "description": "I love games! Not only playing them but actually creating games can be such a creative freedom. This article talks about my experience so far with different Game-Development related topics.",
     "path": "skills/Game_development.md",
-    "finished": false,
-    "tags": ["Skill", "Game", "Development"]
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Games",
+      "Game Development",
+      "OpenGL",
+      "Vulkan",
+      "DX11",
+      "DX12",
+      "Metal",
+      "DirectX",
+      "Unreal Engine",
+      "Unity",
+      "Godot Engine",
+      "Modding"
+    ]
   },
   {
     "id": "5",
     "description": "TODO",
     "path": "skills/Hacking.md",
     "finished": false,
-    "tags": ["Skill", "Hacking"]
+    "tags": [
+      "Skill",
+      "Hacking"
+    ]
   },
   {
     "id": "6",
     "description": "TODO",
     "path": "skills/IDEs_and_editors.md",
     "finished": false,
-    "tags": ["Skill", "IDE", "Editor"]
+    "tags": [
+      "Skill",
+      "IDE",
+      "Editor"
+    ]
   },
   {
     "id": "7",
     "description": "TODO",
     "path": "skills/IoT.md",
     "finished": false,
-    "tags": ["Skill", "IoT"]
+    "tags": [
+      "Skill",
+      "IoT"
+    ]
   },
   {
     "id": "8",
     "description": "My experience with Java, how Java helped me to get into programming and other connected or similar languages",
     "path": "skills/Java_and_similar.md",
     "finished": true,
-    "tags": ["Skill", "Java", "Kotlin", "JVM", "C#", "OOP", "Object-Oriented"]
+    "tags": [
+      "Skill",
+      "Java",
+      "Kotlin",
+      "JVM",
+      "C#",
+      "OOP",
+      "Object-Oriented"
+    ]
   },
   {
     "id": "9",
     "description": "Language I speak, read and write!",
     "path": "skills/Languages.md",
     "finished": true,
-    "tags": ["Skill", "Languages", "English", "German", "Dutch", "Japanese"]
+    "tags": [
+      "Skill",
+      "Languages",
+      "English",
+      "German",
+      "Dutch",
+      "Japanese"
+    ]
   },
   {
     "id": "10",
     "description": "TODO",
     "path": "skills/LaTeX.md",
     "finished": false,
-    "tags": ["Skill", "LaTeX"]
+    "tags": [
+      "Skill",
+      "LaTeX"
+    ]
   },
   {
     "id": "11",
     "description": "TODO",
     "path": "skills/Linux_and_UNIX.md",
     "finished": false,
-    "tags": ["Skill", "Linux_and_UNIX"]
+    "tags": [
+      "Skill",
+      "Linux_and_UNIX"
+    ]
   },
   {
     "id": "12",
     "description": "TODO",
     "path": "skills/Native.md",
     "finished": false,
-    "tags": ["Skill", "Native"]
+    "tags": [
+      "Skill",
+      "Native"
+    ]
   },
   {
     "id": "13",
     "description": "TODO",
     "path": "skills/Office.md",
     "finished": false,
-    "tags": ["Skill", "Office"]
+    "tags": [
+      "Skill",
+      "Office"
+    ]
   },
   {
     "id": "14",
     "description": "TODO",
     "path": "skills/Rust.md",
     "finished": false,
-    "tags": ["Skill", "Rust"]
+    "tags": [
+      "Skill",
+      "Rust"
+    ]
   },
   {
     "id": "15",
     "description": "TODO",
     "path": "skills/Script_languages.md",
     "finished": false,
-    "tags": ["Skill", "Script_languages"]
+    "tags": [
+      "Skill",
+      "Script_languages"
+    ]
   },
   {
     "id": "16",
     "description": "TODO",
-    "path": "skills/SpringIO.md",
+    "path": "skills/Test_Driven_Development.md",
     "finished": false,
-    "tags": ["Skill", "SpringIO"]
+    "tags": [
+      "Skill",
+      "Test_Driven_Development"
+    ]
   },
   {
     "id": "17",
     "description": "TODO",
-    "path": "skills/Test_Driven_Development.md",
+    "path": "skills/VCS.md",
     "finished": false,
-    "tags": ["Skill", "Test_Driven_Development"]
+    "tags": [
+      "Skill",
+      "VCS"
+    ]
   },
   {
     "id": "18",
     "description": "TODO",
-    "path": "skills/VCS.md",
+    "path": "skills/Virtualization.md",
     "finished": false,
-    "tags": ["Skill", "VCS"]
+    "tags": [
+      "Skill",
+      "Virtualization",
+      "VM"
+    ]
   },
   {
     "id": "19",
     "description": "TODO",
-    "path": "skills/Virtualization.md",
+    "path": "skills/Visual_Paradigm.md",
     "finished": false,
-    "tags": ["Skill", "Virtualization", "VM"]
+    "tags": [
+      "Skill",
+      "Visual Paradigm"
+    ]
   },
   {
     "id": "20",
-    "description": "TODO",
-    "path": "skills/Visual_Paradigm.md",
-    "finished": false,
-    "tags": ["Skill", "Visual Paradigm"]
+    "description": "Web-Development; languages, frameworks, APIs and Servers I work(ed) with",
+    "path": "skills/Web.md",
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Web",
+      "HTML",
+      "CSS",
+      "JavaScript (JS)",
+      "TypeScript (TS)",
+      "Spring.IO",
+      "REST"
+    ]
   },
   {
     "id": "21",
     "description": "TODO",
-    "path": "skills/WEB.md",
-    "finished": false,
-    "tags": ["Skill", "WEB"]
-  },
-  {
-    "id": "22",
-    "description": "TODO",
     "path": "skills/Windows.md",
     "finished": false,
-    "tags": ["Skill", "Windows"]
+    "tags": [
+      "Skill",
+      "Windows"
+    ]
   }
 ]

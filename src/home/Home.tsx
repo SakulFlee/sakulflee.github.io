@@ -2,7 +2,7 @@ import React from "react";
 
 import TitlePage from "./_components/TitlePage";
 import AboutMe from "./_components/AboutMe";
-import Footer from "./_components/Footer";
+import Footer from "../shared/Footer";
 
 class Home extends React.Component {
   render(): JSX.Element {
