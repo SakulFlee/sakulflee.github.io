@@ -4,7 +4,7 @@ import {FaBitbucket, FaBold, FaGithub, FaGitlab, FaLinkedinIn} from "react-icons
 import {FiChevronDown} from "react-icons/fi";
 import {BrowserView} from "react-device-detect";
 
-import Header from "../../../shared/Header";
+import Header from "../../shared/Header";
 
 import "./TitlePage.scss";
 

@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {MdHome, MdKeyboardReturn, MdVerticalAlignTop} from "react-icons/md";
 
 import BlogPostJSONData from "./BlogPostJSONData";
-import Footer from "../../shared/Footer";
+import Footer from "../shared/Footer";
 
 import "./BlogPost.scss";
 

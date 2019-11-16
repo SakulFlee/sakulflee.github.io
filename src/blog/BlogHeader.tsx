@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {MdSearch} from "react-icons/md";
 import {FaBitbucket, FaGithub, FaGitlab, FaHome, FaLinkedinIn} from "react-icons/fa";
 
-import Header from "../../shared/Header";
+import Header from "../shared/Header";
 
 import "./BlogHeader.scss";
 
