@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import BlogPostJSONData from "./BlogPostJSONData";
 
@@ -55,6 +55,8 @@ export default class BlogPosts extends React.Component<
     let counter = 0;
     for (let i = 0; i < postData.length; i++) {
       let data = postData[i];
+        if (!data.finished) continue;
+
       let match = false;
       if (this.props.search !== null) {
         let search = this.props.search!.toLowerCase();
