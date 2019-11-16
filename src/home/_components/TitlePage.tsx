@@ -1,16 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {
-  FaBold,
-  FaGitlab,
-  FaGithub,
-  FaBitbucket,
-  FaLinkedinIn
-} from "react-icons/fa";
-import { FiChevronDown } from "react-icons/fi";
-import { BrowserView } from "react-device-detect";
+import {Link} from "react-router-dom";
+import {FaBitbucket, FaBold, FaGithub, FaGitlab, FaLinkedinIn} from "react-icons/fa";
+import {FiChevronDown} from "react-icons/fi";
+import {BrowserView} from "react-device-detect";
 
-import Header from "./Header";
+import Header from "../../../shared/Header";
 
 import "./TitlePage.scss";
 
