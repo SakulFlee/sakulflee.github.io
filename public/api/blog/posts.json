@@ -257,7 +257,7 @@
     "id": "22",
     "description": "Definition and explanation of the strategy design pattern",
     "path": "notes/design_pattern/strategy_pattern/Strategy_Pattern.md",
-    "finished": false,
+    "finished": true,
     "tags": [
       "Notes",
       "Design Pattern",
