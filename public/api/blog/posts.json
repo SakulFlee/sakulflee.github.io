@@ -252,5 +252,16 @@
       "Skill",
       "Windows"
     ]
+  },
+  {
+    "id": "22",
+    "description": "Definition and explanation of the strategy design pattern",
+    "path": "notes/design_pattern/strategy_pattern/Strategy_Pattern.md",
+    "finished": false,
+    "tags": [
+      "Notes",
+      "Design Pattern",
+      "Strategy Pattern"
+    ]
   }
 ]
