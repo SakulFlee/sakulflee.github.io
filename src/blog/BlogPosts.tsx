@@ -20,9 +20,7 @@ export default class BlogPosts extends React.Component<
   async componentDidMount(): Promise<void> {
     try {
       const response = await fetch("/api/blog/posts.json");
-      const json = await response.json();
-
-      let oldDate: BlogPostJSONData[] = json;
+        let oldDate: BlogPostJSONData[] = await response.json();
       let newData: BlogPostJSONData[] = [];
       for (let old of oldDate) {
         let fetchedPost = await BlogPostJSONData.FullFetch(old);
@@ -97,7 +95,6 @@ export default class BlogPosts extends React.Component<
     // Handle rest/leftovers
     if (posts.length !== 0) {
       rows.push(<section className="columns">{posts}</section>);
-      posts = [];
     }
 
     // Handle no rows (=no posts)
