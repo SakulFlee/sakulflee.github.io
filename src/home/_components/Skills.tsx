@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import Tag from "../../_components/Tag";
+import Tag from "../../../shared/Tag";
 
 export default class Skills extends React.Component {
   render(): JSX.Element {
