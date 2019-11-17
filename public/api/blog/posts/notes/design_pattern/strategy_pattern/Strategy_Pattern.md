@@ -26,7 +26,7 @@ Doing this, provides the option to switch the current *strategy* with another on
 
 ### Example
 
-![](/api/blog/posts/notes/design_pattern/strategy_pattern/class_diagram.png)  
+![](https://sakul6499.de/api/blog/posts/notes/design_pattern/strategy_pattern/class_diagram.png)  
   
 In our example we define an interface called **Strategy** as the common structure.
 Our interface has a `doSomething()` method.
@@ -43,16 +43,15 @@ Thus, depending on the used *strategy*, the outcome will be different.
 
 One step further would be to say that if *something* happens, the behavior will be switched to another one.
 
-### Real-World Example
+### Real-World Examples
 
-A *strategy pattern* can be applied to nearly everything that is more or less the same object, but behaves differently.
-// TODO  
-For example animal behavior.
-Many animals prefer to hide from predators, others actively engage into a fight.  
+In the real world, a *strategy pattern* can be applied to nearly everything, that is somewhat similar but behaves differently.  
+
+An excellent example would be animal behaviors.
+Some animals prefer to hide from predators, others are the predators.
+Many, if not all, also change their behavior depending on their situation.
+  
 Even something simple as animal sounds can be expressed with a *strategy pattern*.  
 Some dogs tend to bark, others rather howl. But most of them can also growl!
 
-For each slight modification or difference of similar things, a *strategy pattern* may can be used.  
-For animal behavior there would be one *behavior* for hiding and one for attacking.  
-Dogs would have three.
-Two to differentiate between barking and howling and one that is almost always exchangeable: growling.
+For each slight modification or difference of similar things, a *strategy pattern* may be used.
