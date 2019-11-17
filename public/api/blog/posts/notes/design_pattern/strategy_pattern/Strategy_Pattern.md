@@ -26,7 +26,7 @@ Doing this, provides the option to switch the current *strategy* with another on
 
 ### Example
 
-![](https://sakul6499.de/api/blog/posts/notes/design_pattern/strategy_pattern/class_diagram.png)  
+![](https://sakul6499.de/api/blog/posts/notes/design_pattern/strategy_pattern/Strategy_Pattern.png)  
   
 In our example we define an interface called **Strategy** as the common structure.
 Our interface has a `doSomething()` method.
