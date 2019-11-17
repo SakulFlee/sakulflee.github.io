@@ -13,14 +13,12 @@ type BlogPostsState = {
   data: BlogPostJSONData[];
 };
 
-export default class BlogPosts extends React.Component<
-  BlogPostsProperties,
-  BlogPostsState
-> {
+export default class BlogPosts extends React.Component<BlogPostsProperties,
+    BlogPostsState> {
   async componentDidMount(): Promise<void> {
     try {
       const response = await fetch("/api/blog/posts.json");
-        let oldDate: BlogPostJSONData[] = await response.json();
+      let oldDate: BlogPostJSONData[] = await response.json();
       let newData: BlogPostJSONData[] = [];
       for (let old of oldDate) {
         let fetchedPost = await BlogPostJSONData.FullFetch(old);
@@ -36,32 +34,42 @@ export default class BlogPosts extends React.Component<
 
   makePost(postData: BlogPostJSONData): JSX.Element {
     return (
-      <Link to={`/blog/${postData.id}`} className="column">
-        <article className="message is-dark">
-          <div className="message-header">
-            <p>{BlogPostJSONData.GetTitle(postData)}</p>
-          </div>
-          <div className="message-body">{postData.description}</div>
-        </article>
-      </Link>
+        <Link key={`postID-${postData.id}`} to={`/blog/${postData.id}`} className="column">
+          <article className="message is-dark">
+            <div className="message-header">
+              <p>{BlogPostJSONData.GetTitle(postData)}</p>
+            </div>
+            <div className="message-body">{postData.description}</div>
+          </article>
+        </Link>
     );
   }
 
   makePostRows(postData: BlogPostJSONData[], size: number): JSX.Element {
+    postData.sort(function (a, b) {
+      if (a.id > b.id) {
+        return 1;
+      } else if (a.id < b.id) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+
     let rows: JSX.Element[] = [];
     let posts: JSX.Element[] = [];
     let counter = 0;
-    for (let i = 0; i < postData.length; i++) {
+    for (let i = postData.length; i >= 0; i--) {
       let data = postData[i];
-        if (!data.finished) continue;
+      if (data === null || data === undefined || !data.finished) continue;
 
       let match = false;
       if (this.props.search !== null) {
         let search = this.props.search!.toLowerCase();
         if (
-          BlogPostJSONData.GetTitle(data)
-            .toLowerCase()
-            .includes(search)
+            BlogPostJSONData.GetTitle(data)
+                .toLowerCase()
+                .includes(search)
         ) {
           match = true;
         }
@@ -71,9 +79,9 @@ export default class BlogPosts extends React.Component<
         }
 
         if (
-          data.tags
-            .map(it => it.toLowerCase())
-            .filter(it => it.includes(search)).length > 0
+            data.tags
+                .map(it => it.toLowerCase())
+                .filter(it => it.includes(search)).length > 0
         ) {
           match = true;
         }
@@ -83,7 +91,7 @@ export default class BlogPosts extends React.Component<
 
       counter++;
       if (counter === size - 1) {
-        rows.push(<section className="columns">{posts}</section>);
+        rows.push(<section key={`row-${rows.length}`} className="columns">{posts}</section>);
         posts = [];
         counter = 0;
       }
@@ -94,7 +102,7 @@ export default class BlogPosts extends React.Component<
 
     // Handle rest/leftovers
     if (posts.length !== 0) {
-      rows.push(<section className="columns">{posts}</section>);
+      rows.push(<section key={`row-${rows.length}`} className="columns">{posts}</section>);
     }
 
     // Handle no rows (=no posts)
@@ -109,9 +117,9 @@ export default class BlogPosts extends React.Component<
   render(): JSX.Element {
     if (this.state == null)
       return (
-        <progress className="progress is-large is-info" max="100">
-          Loading ...
-        </progress>
+          <progress className="progress is-large is-info" max="100">
+            Loading ...
+          </progress>
       );
 
     return <div id="posts">{this.makePostRows(this.state.data, 3)}</div>;
