@@ -26,7 +26,7 @@ Doing this, provides the option to switch the current *strategy* with another on
 
 ### Example
 
-![](./class_diagram.svg)  
+![](/api/blog/posts/notes/design_pattern/strategy_pattern/class_diagram.png)  
   
 In our example we define an interface called **Strategy** as the common structure.
 Our interface has a `doSomething()` method.
@@ -45,7 +45,8 @@ One step further would be to say that if *something* happens, the behavior will 
 
 ### Real-World Example
 
-A *strategy pattern* can be applied to many different constructs.  
+A *strategy pattern* can be applied to nearly everything that is more or less the same object, but behaves differently.
+// TODO  
 For example animal behavior.
 Many animals prefer to hide from predators, others actively engage into a fight.  
 Even something simple as animal sounds can be expressed with a *strategy pattern*.  
