@@ -33,7 +33,7 @@ build:
       - node_modules/
   artifacts:
     paths:
-        - build/
+      - build/
 
 deploy_staging:
   stage: deploy
@@ -45,7 +45,7 @@ deploy_staging:
     - ssh-add <(echo "$PRIVATE_KEY")
   script:
     - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/staging.sakul6499.de_tmp/"
-    - rsync -rav -O -e ssh build/* deploy@raw.sakul6499.de:/var/www/staging.sakul6499.de_tmp/
+    - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh build/* deploy@raw.sakul6499.de:/var/www/staging.sakul6499.de_tmp/
     - ssh deploy@raw.sakul6499.de "rm -rf /var/www/staging.sakul6499.de/"
     - ssh deploy@raw.sakul6499.de "mv /var/www/staging.sakul6499.de_tmp/ /var/www/staging.sakul6499.de/"
   environment:
