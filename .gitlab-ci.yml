@@ -2,6 +2,7 @@ stages:
   - docker
   - build
   - deploy
+  - test
 
 docker_image:
   stage: docker
@@ -79,9 +80,18 @@ deploy_master:
 
 include:
   template: Dependency-Scanning.gitlab-ci.yml
+  
+dependency_scanning:
+  stage: test
 
 include:
   template: Container-Scanning.gitlab-ci.yml
-
+  
+container_scanning:
+  stage: test
+  
 include:
   template: SAST.gitlab-ci.yml
+  
+sast:
+  stage: test
