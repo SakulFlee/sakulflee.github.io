@@ -1,8 +1,6 @@
 stages:
-  - docker
   - build
   - deploy
-  - security
 
 docker_image:
   stage: docker
