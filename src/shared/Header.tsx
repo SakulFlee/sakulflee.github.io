@@ -30,7 +30,16 @@ export default class Header extends React.Component<
       this.state.height === maxHeight
     )
       return;
-    console.log("TRIGGER");
+    console.log(
+      "TRIGGER [" +
+        (this.state == null
+          ? "NULL"
+          : this.state.width + " " + this.state.height) +
+        " <-> " +
+        maxWidth +
+        " " +
+        maxHeight
+    );
 
     let pattern = Trianglify({
       width: maxWidth,
