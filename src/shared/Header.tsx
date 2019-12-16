@@ -4,12 +4,12 @@ const Trianglify = require("trianglify");
 
 type HeaderProperties = {
   maxHeightInPercent: number;
+  pattern: any;
 };
 
 type HeaderState = {
   width: number;
   height: number;
-  pattern: any;
 };
 
 export default class Header extends React.Component<
@@ -17,7 +17,10 @@ export default class Header extends React.Component<
   HeaderState
 > {
   static defaultProps: HeaderProperties = {
-    maxHeightInPercent: 100
+    maxHeightInPercent: 100,
+    pattern: Trianglify({
+      cell_size: 30 + Math.random() * 100
+    })
   };
 
   updateDimensions = () => {
@@ -41,16 +44,9 @@ export default class Header extends React.Component<
         maxHeight
     );
 
-    let pattern = Trianglify({
-      width: maxWidth,
-      height: maxHeight,
-      cell_size: 30 + Math.random() * 100
-    });
-
     this.setState({
       width: maxWidth,
-      height: maxHeight,
-      pattern: pattern.svg().innerHTML
+      height: maxHeight
     });
   };
 
@@ -77,7 +73,8 @@ export default class Header extends React.Component<
     return (
       <svg
         style={style}
-        dangerouslySetInnerHTML={{ __html: this.state.pattern }}
+        viewBox={`0 0 ${this.state.width / 2} ${this.state.height / 2}`}
+        dangerouslySetInnerHTML={{ __html: this.props.pattern.svg().innerHTML }}
       />
     );
   }
