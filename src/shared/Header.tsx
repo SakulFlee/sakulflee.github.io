@@ -24,6 +24,10 @@ export default class Header extends React.Component<
     let maxHeight = window.innerHeight * (this.props.maxHeightInPercent / 100);
     let maxWidth = window.innerWidth;
 
+    if (this.state.width === maxWidth && this.state.height === maxHeight)
+      return;
+    console.log("TRIGGER");
+
     let pattern = Trianglify({
       width: maxWidth,
       height: maxHeight,
