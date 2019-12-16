@@ -24,7 +24,11 @@ export default class Header extends React.Component<
     let maxHeight = window.innerHeight * (this.props.maxHeightInPercent / 100);
     let maxWidth = window.innerWidth;
 
-    if (this.state.width === maxWidth && this.state.height === maxHeight)
+    if (
+      this.state != null &&
+      this.state.width === maxWidth &&
+      this.state.height === maxHeight
+    )
       return;
     console.log("TRIGGER");
 
