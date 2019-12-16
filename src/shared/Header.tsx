@@ -27,27 +27,32 @@ export default class Header extends React.Component<
     let maxHeight = window.innerHeight * (this.props.maxHeightInPercent / 100);
     let maxWidth = window.innerWidth;
 
+    // Note:
+    // If the state is null, it will be set.
+    // Otherwise, this function only updates if both sizes (width and height) are unequal the previous settings.
+    // This is extremely unlikely!
+    // Usually, both sizes are changed together or non.
+    // Thus, the "mobile resize on scroll"-bug should be fixed by this.
     if (
-      this.state != null &&
-      this.state.width === maxWidth &&
-      this.state.height === maxHeight
-    )
-      return;
-    console.log(
-      "TRIGGER [" +
-        (this.state == null
-          ? "NULL"
-          : this.state.width + " " + this.state.height) +
-        " <-> " +
-        maxWidth +
-        " " +
-        maxHeight
-    );
+      this.state == null ||
+      (this.state.width !== maxWidth && this.state.height !== maxHeight)
+    ) {
+      console.log(
+        "TRIGGER [" +
+          (this.state == null
+            ? "NULL"
+            : this.state.width + " " + this.state.height) +
+          " <-> " +
+          maxWidth +
+          " " +
+          maxHeight
+      );
 
-    this.setState({
-      width: maxWidth,
-      height: maxHeight
-    });
+      this.setState({
+        width: maxWidth,
+        height: maxHeight
+      });
+    }
   };
 
   componentDidMount() {
