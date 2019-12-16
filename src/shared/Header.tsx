@@ -33,7 +33,7 @@ export default class Header extends React.Component<
     this.setState({
       width: maxWidth,
       height: maxHeight,
-      pattern: pattern
+      pattern: pattern.svg().innerHTML
     });
   };
 
@@ -60,7 +60,7 @@ export default class Header extends React.Component<
     return (
       <svg
         style={style}
-        dangerouslySetInnerHTML={{ __html: this.state.pattern.svg().innerHTML }}
+        dangerouslySetInnerHTML={{ __html: this.state.pattern }}
       />
     );
   }
