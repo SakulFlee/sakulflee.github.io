@@ -4,12 +4,12 @@ const Trianglify = require("trianglify");
 
 type HeaderProperties = {
   maxHeightInPercent: number;
+  pattern: any;
 };
 
 type HeaderState = {
   width: number;
   height: number;
-  pattern: any;
 };
 
 export default class Header extends React.Component<
@@ -17,24 +17,42 @@ export default class Header extends React.Component<
   HeaderState
 > {
   static defaultProps: HeaderProperties = {
-    maxHeightInPercent: 100
+    maxHeightInPercent: 100,
+    pattern: Trianglify({
+      cell_size: 30 + Math.random() * 100
+    })
   };
 
   updateDimensions = () => {
     let maxHeight = window.innerHeight * (this.props.maxHeightInPercent / 100);
     let maxWidth = window.innerWidth;
 
-    let pattern = Trianglify({
-      width: maxWidth,
-      height: maxHeight,
-      cell_size: 30 + Math.random() * 100
-    });
+    // Note:
+    // If the state is null, it will be set.
+    // Otherwise, this function only updates if both sizes (width and height) are unequal the previous settings.
+    // This is extremely unlikely!
+    // Usually, both sizes are changed together or non.
+    // Thus, the "mobile resize on scroll"-bug should be fixed by this.
+    if (
+      this.state == null ||
+      (this.state.width !== maxWidth && this.state.height !== maxHeight)
+    ) {
+      console.log(
+        "TRIGGER [" +
+          (this.state == null
+            ? "NULL"
+            : this.state.width + " " + this.state.height) +
+          " <-> " +
+          maxWidth +
+          " " +
+          maxHeight
+      );
 
-    this.setState({
-      width: maxWidth,
-      height: maxHeight,
-      pattern: pattern
-    });
+      this.setState({
+        width: maxWidth,
+        height: maxHeight
+      });
+    }
   };
 
   componentDidMount() {
@@ -60,7 +78,8 @@ export default class Header extends React.Component<
     return (
       <svg
         style={style}
-        dangerouslySetInnerHTML={{ __html: this.state.pattern.svg().innerHTML }}
+        viewBox={`0 0 ${this.state.width / 2} ${this.state.height / 2}`}
+        dangerouslySetInnerHTML={{ __html: this.props.pattern.svg().innerHTML }}
       />
     );
   }
