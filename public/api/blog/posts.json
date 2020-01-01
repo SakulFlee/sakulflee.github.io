@@ -263,5 +263,16 @@
       "Design Pattern",
       "Strategy Pattern"
     ]
+  },
+  {
+    "id": "0023",
+    "description": "New year: 2020; Let's look back!",
+    "path": "recap/new_year_2020.md",
+    "finished": true,
+    "tags": [
+      "New Year 2020",
+      "Recap",
+      "Resolution"
+    ]
   }
 ]
