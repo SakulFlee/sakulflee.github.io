@@ -34,6 +34,14 @@ build:
   artifacts:
     paths:
       - build/
+  only:
+    - api
+    - pipelines
+    - pushes
+    - schedule
+    - triggers
+    - web
+    - merge_requests
 
 deploy_staging:
   stage: deploy
