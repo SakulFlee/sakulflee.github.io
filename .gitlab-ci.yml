@@ -53,14 +53,6 @@ deploy_staging:
     url: https://staging.sakul6499.de
   only:
     - staging
-    - api
-    - pipelines
-    - pushes
-    - schedule
-    - triggers
-    - web
-    - merge_requests
-
   needs:
     - build
 
