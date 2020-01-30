@@ -1,4 +1,4 @@
-VERSION="sakul6499-$(git branch --show-current)"
+VERSION="sakul6499-$(git rev-parse --abbrev-ref HEAD)"
 echo "Version: $VERSION"
 
 if [ "$VERSION" == "sakul6499-staging" ]; then
