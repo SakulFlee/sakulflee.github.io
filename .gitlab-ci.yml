@@ -20,7 +20,7 @@ docker_build_image:
     - docker push $IMAGE_NAME:latest
   only:
     changes:
-      - "Dockerfile"
+      - "build.docker"
 
 build:
   stage: build
