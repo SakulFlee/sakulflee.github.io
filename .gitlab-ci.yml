@@ -3,7 +3,7 @@ stages:
   - build
   - deploy
 
-docker_image:
+docker_build_image:
   stage: docker
   image: docker
   services:
@@ -16,11 +16,11 @@ docker_image:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -f Dockerfile -t $IMAGE_NAME -t $IMAGE_NAME:latest .
+    - docker build -f build.docker -t $IMAGE_NAME -t $IMAGE_NAME:latest .
     - docker push $IMAGE_NAME:latest
   only:
     changes:
-      - "Dockerfile"
+      - "build.docker"
 
 build:
   stage: build
@@ -42,45 +42,3 @@ build:
     - triggers
     - web
     - merge_requests
-
-deploy_staging:
-  stage: deploy
-  image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
-  before_script:
-    - mkdir -p ~/.ssh
-    - eval $(ssh-agent -s)
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - ssh-add <(echo "$PRIVATE_KEY")
-  script:
-    - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/staging.sakul6499.de_tmp/"
-    - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh build/* deploy@raw.sakul6499.de:/var/www/staging.sakul6499.de_tmp/
-    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/staging.sakul6499.de/"
-    - ssh deploy@raw.sakul6499.de "mv /var/www/staging.sakul6499.de_tmp/ /var/www/staging.sakul6499.de/"
-  environment:
-    name: staging
-    url: https://staging.sakul6499.de
-  only:
-    - staging
-  needs:
-    - build
-
-deploy_master:
-  stage: deploy
-  image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
-  before_script:
-    - mkdir -p ~/.ssh
-    - eval $(ssh-agent -s)
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - ssh-add <(echo "$PRIVATE_KEY")
-  script:
-    - ssh deploy@raw.sakul6499.de "mkdir -p /var/www/sakul6499.de_tmp/"
-    - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh build/* deploy@raw.sakul6499.de:/var/www/sakul6499.de_tmp/
-    - ssh deploy@raw.sakul6499.de "rm -rf /var/www/sakul6499.de/"
-    - ssh deploy@raw.sakul6499.de "mv /var/www/sakul6499.de_tmp/ /var/www/sakul6499.de/"
-  environment:
-    name: master
-    url: https://sakul6499.de
-  only:
-    - master
-  needs:
-    - build
