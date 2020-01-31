@@ -4,16 +4,16 @@
   "private": true,
   "homepage": "https://sakul6499.de/",
   "dependencies": {
-    "@types/jest": "24.0.25",
-    "@types/node": "12.12.22",
+    "@types/jest": "25.1.1",
+    "@types/node": "12.12.24",
     "@types/react": "16.9.17",
-    "@types/react-dom": "16.9.4",
+    "@types/react-dom": "16.9.5",
     "@types/react-router-dom": "5.1.3",
     "@types/styled-components": "4.4.1",
     "bulma": "0.7.5",
     "bulma-tooltip": "3.0.2",
     "markdown": "0.5.0",
-    "node-sass": "4.13.0",
+    "node-sass": "4.13.1",
     "react": "16.12.0",
     "react-device-detect": "1.11.14",
     "react-dom": "16.12.0",
@@ -24,7 +24,7 @@
     "trianglify": "2.0.0",
     "tslint": "5.20.1",
     "tslint-react": "4.1.0",
-    "typescript": "3.7.4"
+    "typescript": "3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
