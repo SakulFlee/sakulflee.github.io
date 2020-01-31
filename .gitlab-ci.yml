@@ -16,7 +16,7 @@ docker_build_image:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -f Dockerfile -t $IMAGE_NAME -t $IMAGE_NAME:latest .
+    - docker build -f build.docker -t $IMAGE_NAME -t $IMAGE_NAME:latest .
     - docker push $IMAGE_NAME:latest
   only:
     changes:
