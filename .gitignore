@@ -27,14 +27,14 @@ pkg/
 
 # dependencies
 node_modules/
-/.pnp
+.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage
 
 # production
-/build
+build
 
 # misc
 .DS_Store
@@ -52,3 +52,9 @@ yarn-error.log*
 
 # Temp files
 *~
+
+# Mongo settings file
+mongo_settings.prop
+
+# Gradle
+.gradle/
