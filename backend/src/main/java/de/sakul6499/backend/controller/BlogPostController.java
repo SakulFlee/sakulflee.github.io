@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class BlogPostController {
-    @GetMapping("/blog/post")
+    @GetMapping("/api/blog/post")
     public BlogPost callback(@RequestParam(value = "id") long id) {
         return BlogPost.FromID(id);
     }

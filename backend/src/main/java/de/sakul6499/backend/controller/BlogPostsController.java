@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BlogPostsController {
-    @GetMapping("/blog/posts")
+    @GetMapping("/api/blog/posts")
     public BlogPosts callback() {
         return BlogPosts.Query();
     }
