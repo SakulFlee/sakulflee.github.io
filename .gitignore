@@ -17,6 +17,7 @@ pkg/
 
 # IDEA
 .idea/
+*.iml
 
 # Lock files
 *.lock
