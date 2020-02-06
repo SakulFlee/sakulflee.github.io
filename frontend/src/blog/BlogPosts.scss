@@ -1,0 +1,28 @@
+$tablet: 768px;
+
+#posts {
+  position: absolute;
+
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 80%;
+    left: 10%;
+  }
+
+  .columns {
+    @media screen and (max-width: $tablet) {
+      margin: 0px !important;
+    }
+  }
+  .column {
+    @media screen and (max-width: $tablet) {
+      padding: 0px !important;
+    }
+  }
+
+  .message {
+    margin: 10px;
+  }
+}

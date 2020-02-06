@@ -1,0 +1,267 @@
+[
+  {
+    "id": "0001",
+    "description": "TODO",
+    "path": "skills/Creative.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "3D",
+      "Modelling"
+    ]
+  },
+  {
+    "id": "0002",
+    "shortDescription": "My interest in the development and techniques of AI and ML",
+    "description": "Ever thought about AI or ML as 'reverse engineering' a (human) brain? It is! ... in some way or another.",
+    "path": "interests/AI.md",
+    "finished": true,
+    "tags": [
+      "Interest",
+      "AI",
+      "ML"
+    ]
+  },
+  {
+    "id": "0003",
+    "description": "Build tools I use(d)",
+    "path": "skills/Build_tools.md",
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Build",
+      "Tools",
+      "Maven",
+      "Gradle",
+      "Ninja",
+      "CMake",
+      "Make",
+      "NodeJS",
+      "Cargo",
+      "Rust",
+      "Java",
+      "Native",
+      "C/C++"
+    ]
+  },
+  {
+    "id": "0004",
+    "shortDescription": "Skills I have acquired while modding and creating games",
+    "description": "I love games! Not only playing them but actually creating games can be such a creative freedom. This article talks about my experience so far with different Game-Development related topics.",
+    "path": "skills/Game_development.md",
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Games",
+      "Game Development",
+      "OpenGL",
+      "Vulkan",
+      "DX11",
+      "DX12",
+      "Metal",
+      "DirectX",
+      "Unreal Engine",
+      "Unity",
+      "Godot Engine",
+      "Modding"
+    ]
+  },
+  {
+    "id": "0005",
+    "description": "TODO",
+    "path": "skills/Hacking.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Hacking"
+    ]
+  },
+  {
+    "id": "0006",
+    "description": "TODO",
+    "path": "skills/IDEs_and_editors.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "IDE",
+      "Editor"
+    ]
+  },
+  {
+    "id": "0007",
+    "description": "TODO",
+    "path": "skills/IoT.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "IoT"
+    ]
+  },
+  {
+    "id": "0008",
+    "description": "My experience with Java, how Java helped me to get into programming and other connected or similar languages",
+    "path": "skills/Java_and_similar.md",
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Java",
+      "Kotlin",
+      "JVM",
+      "C#",
+      "OOP",
+      "Object-Oriented"
+    ]
+  },
+  {
+    "id": "0009",
+    "description": "Language I speak, read and write!",
+    "path": "skills/Languages.md",
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Languages",
+      "English",
+      "German",
+      "Dutch",
+      "Japanese"
+    ]
+  },
+  {
+    "id": "0010",
+    "description": "TODO",
+    "path": "skills/LaTeX.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "LaTeX"
+    ]
+  },
+  {
+    "id": "0011",
+    "description": "TODO",
+    "path": "skills/Linux_and_UNIX.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Linux_and_UNIX"
+    ]
+  },
+  {
+    "id": "0012",
+    "description": "TODO",
+    "path": "skills/Native.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Native"
+    ]
+  },
+  {
+    "id": "0013",
+    "description": "TODO",
+    "path": "skills/Office.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Office"
+    ]
+  },
+  {
+    "id": "0014",
+    "description": "TODO",
+    "path": "skills/Rust.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Rust"
+    ]
+  },
+  {
+    "id": "0015",
+    "description": "TODO",
+    "path": "skills/Script_languages.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Script_languages"
+    ]
+  },
+  {
+    "id": "0016",
+    "description": "TODO",
+    "path": "skills/Test_Driven_Development.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Test_Driven_Development"
+    ]
+  },
+  {
+    "id": "0017",
+    "description": "TODO",
+    "path": "skills/VCS.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "VCS"
+    ]
+  },
+  {
+    "id": "0018",
+    "description": "TODO",
+    "path": "skills/Virtualization.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Virtualization",
+      "VM"
+    ]
+  },
+  {
+    "id": "0019",
+    "description": "TODO",
+    "path": "skills/Visual_Paradigm.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Visual Paradigm"
+    ]
+  },
+  {
+    "id": "0020",
+    "description": "Web-Development; languages, frameworks, APIs and Servers I work(ed) with",
+    "path": "skills/Web_Development.md",
+    "finished": true,
+    "tags": [
+      "Skill",
+      "Web",
+      "HTML",
+      "CSS",
+      "JavaScript (JS)",
+      "TypeScript (TS)",
+      "Spring.IO",
+      "REST"
+    ]
+  },
+  {
+    "id": "0021",
+    "description": "TODO",
+    "path": "skills/Windows.md",
+    "finished": false,
+    "tags": [
+      "Skill",
+      "Windows"
+    ]
+  },
+  {
+    "id": "0022",
+    "description": "Definition and explanation of the strategy design pattern",
+    "path": "notes/design_pattern/strategy_pattern/Strategy_Pattern.md",
+    "finished": true,
+    "tags": [
+      "Notes",
+      "Design Pattern",
+      "Strategy Pattern"
+    ]
+  }
+]
