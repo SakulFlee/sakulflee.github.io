@@ -4,6 +4,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import de.sakul6499.backend.Backend;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class BlogPost {
@@ -14,21 +15,71 @@ public class BlogPost {
     private final List<String> tags;
     private final String content;
 
+    public static BlogPost FromDBObject(DBObject dbObject) {
+        long id;
+        Object idObject = dbObject.get("_id");
+        if(idObject == null) {
+            System.err.println("[BlogPost] Empty or null '_id'!");
+            id = 0;
+        } else {
+            id = ((Integer) idObject).longValue();
+        }
+
+        String description;
+        Object descriptionObject = dbObject.get("description");
+        if(descriptionObject == null) {
+            System.err.println("[BlogPost] Empty or null 'description'!");
+            description = "";
+        } else {
+            description = (String) descriptionObject;
+        }
+
+        boolean finished;
+        Object finishedObject = dbObject.get("finished");
+        if(finishedObject == null) {
+            System.err.println("[BlogPost] Empty or null 'finished'!");
+            finished = false;
+        } else {
+            finished = (boolean) finishedObject;
+        }
+
+        List<String> tags = new LinkedList<>();
+        Object tagsObject = dbObject.get("tags");
+        if(tagsObject == null) {
+            System.err.println("[BlogPost] Empty or null 'tags'!");
+        } else {
+            List<?> tagsList = (List<?>) tagsObject;
+            for(Object t : tagsList) {
+                tags.add(t.toString());
+            }
+        }
+
+        String content;
+        Object contentObject = dbObject.get("content");
+        if(contentObject == null) {
+            System.err.println("[BlogPost] Empty or null 'content'!");
+            content = "";
+        } else {
+            content = (String) contentObject;
+        }
+
+        return new BlogPost(
+                id,
+                description,
+                finished,
+                tags,
+                content
+        );
+    }
+
     public static BlogPost FromID(long id) {
         DBObject obj = Backend
                 .MONGO_SETTINGS
                 .makeDatabase()
                 .getCollection("posts")
                 .findOne(new BasicDBObject("_id", id));
-        System.out.println(obj);
 
-        return new BlogPost(
-                ((Integer) obj.get("_id")).longValue(),
-                (String) obj.get("description"),
-                (boolean) obj.get("finished"),
-                (List<String>) obj.get("tags"),
-                (String) obj.get("content")
-        );
+        return FromDBObject(obj);
     }
 
     public BlogPost(long id, String description, boolean finished, List<String> tags, String content) {
