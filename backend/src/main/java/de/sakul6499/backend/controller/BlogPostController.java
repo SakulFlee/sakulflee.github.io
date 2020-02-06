@@ -7,13 +7,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class BlogPostController {
-    
-    private final AtomicLong counter = new AtomicLong();
-
     @GetMapping("/blog/post")
-    public BlogPost greeting(@RequestParam(value = "id") long id) {
-//        return new BlogPost(counter.incrementAndGet(), String.format(template, name));
-//        return new BlogPost(0, "A", true, new LinkedList<>(), "ABC");
+    public BlogPost callback(@RequestParam(value = "id") long id) {
         return BlogPost.FromID(id);
     }
 }
