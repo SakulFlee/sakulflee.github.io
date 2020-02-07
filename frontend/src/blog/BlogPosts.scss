@@ -13,12 +13,13 @@ $tablet: 768px;
 
   .columns {
     @media screen and (max-width: $tablet) {
-      margin: 0px !important;
+      margin: 0 !important;
     }
   }
+
   .column {
     @media screen and (max-width: $tablet) {
-      padding: 0px !important;
+      padding: 0 !important;
     }
   }
 
