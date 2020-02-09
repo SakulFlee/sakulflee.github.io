@@ -52,6 +52,19 @@ export default class BlogPostData {
         return post;
     }
 
+    public static FromShadowed(shadowedBlogPost: BlogPostData): BlogPostData {
+        return new BlogPostData(
+            shadowedBlogPost._id,
+            shadowedBlogPost.shortDescription,
+            shadowedBlogPost.description,
+            shadowedBlogPost.finished,
+            shadowedBlogPost.tags,
+            shadowedBlogPost.content,
+            shadowedBlogPost.publishDate,
+            shadowedBlogPost.lastUpdatedOn,
+        );
+    }
+
     constructor(
         _id: number,
         shortDescription: string,
