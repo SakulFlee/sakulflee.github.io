@@ -6,14 +6,13 @@ plugins {
 
 group = 'de.sakul6499'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	compile 'org.mongodb:mongo-java-driver:2.12.3'
+	compile 'org.mongodb:mongo-java-driver:3.6.0'
 
 	compileOnly 'org.projectlombok:lombok:1.18.10'
 	annotationProcessor 'org.projectlombok:lombok:1.18.10'
