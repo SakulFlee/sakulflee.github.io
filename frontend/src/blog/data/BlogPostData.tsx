@@ -1,3 +1,5 @@
+import getURL from "../../Env";
+
 const Markdown = require("markdown").markdown;
 
 export default class BlogPostData {
@@ -15,31 +17,9 @@ export default class BlogPostData {
     private compiledHTML: string | null = null;
 
     public static async FetchByID(id: number): Promise<BlogPostData> {
-        let response;
-        try {
-            response = await fetch(`http://localhost:8081/api/blog/post/${id}`);
-        } catch (err1) {
-            try {
-                response = await fetch(`https://api.sakul6499.de/api/blog/post/${id}`);
-            } catch (err2) {
-                console.error("Failed to retrieve blog post information from backends! [" + err1 + "; " + err2 + "]");
-                return Promise.reject("Failed to retrieve blog post information from backends!");
-            }
-        }
-
-        let post: BlogPostData;
-        if (!response) {
-            console.error("Got unknown response!");
-            post = BlogPostData.CreateInvalidPost();
-        } else {
-            console.log("!!!");
-            let tmp = await response;
-            console.log(tmp);
-            let json = await tmp.json();
-            console.log(json);
-            post = await json as BlogPostData;
-        }
-        return post;
+        let response = await fetch(`${getURL()}/api/blog/post/${id}`);
+        let json = await response.json();
+        return json as BlogPostData;
     }
 
     public static CreateInvalidPost(): BlogPostData {
