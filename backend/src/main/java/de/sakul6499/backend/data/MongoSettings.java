@@ -3,6 +3,7 @@ package de.sakul6499.backend.data;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import com.mongodb.client.MongoDatabase;
 import lombok.SneakyThrows;
 
 import javax.validation.constraints.NotNull;
@@ -14,17 +15,40 @@ import java.util.Properties;
 public class MongoSettings {
 
     private final static File CONFIG_LOCATION = new File("./mongo_settings.prop");
+    @NotNull
+    private final String hostname;
+    @NotNull
+    private final String port;
+    @NotNull
+    private final String database;
+    @Null
+    private final String username;
+    @Null
+    private final String password;
+    @NotNull
+    private boolean srv = false;
+    public MongoSettings(@NotNull String hostname, @NotNull String port, @NotNull String database, @Null String username, @Null String password) {
+        this.hostname = hostname;
+        this.port = port;
+        this.database = database;
+        this.username = username;
+        this.password = password;
+    }
+    public MongoSettings(@NotNull boolean srv, @NotNull String hostname, @NotNull String port, @NotNull String database, @Null String username, @Null String password) {
+        this(hostname, port, database, username, password);
+        this.srv = srv;
+    }
 
     @lombok.SneakyThrows
     public static MongoSettings AutoConfig() {
-        if(!CONFIG_LOCATION.exists()) {
-            if(!CONFIG_LOCATION.getParentFile().exists()) {
+        if (!CONFIG_LOCATION.exists()) {
+            if (!CONFIG_LOCATION.getParentFile().exists()) {
                 if (!CONFIG_LOCATION.getParentFile().mkdirs()) {
                     System.err.println("Failed to create parent directory '" + CONFIG_LOCATION.getParentFile().getAbsolutePath() + "'!");
                 }
             }
 
-            if(!CONFIG_LOCATION.createNewFile()) {
+            if (!CONFIG_LOCATION.createNewFile()) {
                 System.err.println("Failed to create config file at '" + CONFIG_LOCATION.getAbsolutePath() + "'!");
             }
 
@@ -52,9 +76,9 @@ public class MongoSettings {
         if (propSRV == null) {
             srv = false;
             System.err.println("Missing 'srv' value!");
-        } else if(propSRV.equals("true")) {
+        } else if (propSRV.equals("true")) {
             srv = true;
-        } else if(propSRV.equals("false")) {
+        } else if (propSRV.equals("false")) {
             srv = false;
         } else {
             srv = false;
@@ -62,7 +86,7 @@ public class MongoSettings {
         }
 
         String propHostname = properties.getProperty("hostname");
-        if(propHostname == null) {
+        if (propHostname == null) {
             gotAll = false;
             System.err.println("Missing 'hostname' value!");
         } else {
@@ -70,7 +94,7 @@ public class MongoSettings {
         }
 
         String propPort = properties.getProperty("port");
-        if(propPort == null) {
+        if (propPort == null) {
             gotAll = false;
             System.err.println("Missing 'port' value!");
         } else {
@@ -78,51 +102,31 @@ public class MongoSettings {
         }
 
         String propDatabase = properties.getProperty("database");
-        if(propDatabase == null) {
+        if (propDatabase == null) {
             System.err.println("Missing 'database' value!");
         } else {
             database = propDatabase;
         }
 
         String propUsername = properties.getProperty("username");
-        if(propUsername == null) {
+        if (propUsername == null) {
             System.err.println("Missing 'username' value!");
         } else {
             username = propUsername;
         }
 
         String propPassword = properties.getProperty("password");
-        if(propPassword == null) {
+        if (propPassword == null) {
             System.err.println("Missing 'password' value!");
         } else {
             password = propPassword;
         }
 
-        if(gotAll) {
+        if (gotAll) {
             return new MongoSettings(srv, hostname, port, database, username, password);
         } else {
             throw new RuntimeException("Config has missing values!");
         }
-    }
-
-    @NotNull private boolean srv = false;
-    @NotNull  private final String hostname;
-    @NotNull private final String port;
-    @NotNull private final String database;
-    @Null private final String username;
-    @Null private final String password;
-
-    public MongoSettings(@NotNull String hostname, @NotNull String port, @NotNull String database, @Null String username, @Null String password) {
-        this.hostname = hostname;
-        this.port = port;
-        this.database = database;
-        this.username = username;
-        this.password = password;
-    }
-
-    public MongoSettings(@NotNull boolean srv, @NotNull String hostname, @NotNull String port, @NotNull String database, @Null String username, @Null String password) {
-        this(hostname, port, database, username, password);
-        this.srv = srv;
     }
 
     @SneakyThrows
@@ -131,9 +135,9 @@ public class MongoSettings {
         return new MongoClient(clientURI);
     }
 
-    public DB makeDatabase() {
+    public MongoDatabase makeDatabase() {
         final MongoClient client = makeClient();
-        return client.getDB(database);
+        return client.getDatabase(database);
     }
 
     public @NotNull boolean isSRV() {
@@ -190,17 +194,17 @@ public class MongoSettings {
         String base = "mongodb" + ((isSRV()) ? "+srv" : "") + "://";
         boolean needsAt = false;
 
-        if(getUsername() != null && !getUsername().isEmpty()) {
+        if (getUsername() != null && !getUsername().isEmpty()) {
             needsAt = true;
             base += getUsername();
         }
 
-        if(getPassword() != null && !getPassword().isEmpty()) {
+        if (getPassword() != null && !getPassword().isEmpty()) {
             needsAt = true;
             base += getPassword();
         }
 
-        if(needsAt) {
+        if (needsAt) {
             base += "@";
         }
 
