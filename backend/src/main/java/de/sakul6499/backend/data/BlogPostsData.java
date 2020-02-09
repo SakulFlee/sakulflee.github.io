@@ -1,6 +1,8 @@
 package de.sakul6499.backend.data;
 
-import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Sorts;
 import de.sakul6499.backend.Backend;
 import org.bson.Document;
 
@@ -14,22 +16,26 @@ public class BlogPostsData {
     public static BlogPostsData QueryRecent(int limit) {
         if (limit <= 0) throw new IllegalArgumentException("Query recent limit must not be zero or less than zero!");
 
-        final FindIterable<Document> cursor = Backend
+        final MongoCursor<Document> cursor = Backend
                 .MONGO_SETTINGS
                 .makeDatabase()
                 .getCollection("posts")
-                .find()
-                .limit(limit);
+                .find(Filters.eq("finished", true))
+                .sort(Sorts.ascending("publishDate"))
+                .limit(limit)
+                .iterator();
 
         return cursorToBlogPosts(cursor);
     }
 
     public static BlogPostsData Search(String search) {
-        final FindIterable<Document> cursor = Backend
+        final MongoCursor<Document> cursor = Backend
                 .MONGO_SETTINGS
                 .makeDatabase()
                 .getCollection("posts")
-                .find();
+                .find(Filters.eq("finished", true))
+                .sort(Sorts.ascending("publishDate"))
+                .iterator();
 
         BlogPostsData posts = cursorToBlogPosts(cursor);
         List<BlogPostData> matchedPosts = posts.blogPostData
@@ -46,9 +52,12 @@ public class BlogPostsData {
         return new BlogPostsData(matchedPosts);
     }
 
-    private static BlogPostsData cursorToBlogPosts(FindIterable<Document> cursor) {
+    private static BlogPostsData cursorToBlogPosts(MongoCursor<Document> cursor) {
         List<BlogPostData> blogPostData = new LinkedList<>();
-        for(Document doc : cursor) {
+        Document doc;
+        while (cursor.hasNext()) {
+            doc = cursor.next();
+            System.out.println(doc);
             BlogPostData post = BlogPostData.FromDocument(doc);
             blogPostData.add(post);
         }
