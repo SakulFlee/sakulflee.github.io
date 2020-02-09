@@ -24,8 +24,7 @@
     "trianglify": "^2.0.0",
     "tslint": "^5.20.0",
     "tslint-react": "^4.1.0",
-    "typescript": "^3.7.0",
-    "url-exists": "^1.0.3"
+    "typescript": "^3.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
