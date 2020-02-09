@@ -1,13 +1,40 @@
 [
   {
     "_id": 1,
+    "shortDescription": "TODO",
     "description": "TODO",
-    "finished": false,
+    "finished": true,
     "tags": [
       "Skill",
       "3D",
       "Modelling"
     ],
-    "content": "# Test Post\n\nThis is a test post.\n"
+    "content": "# Test Post\n\nThis is a test post.\n",
+    "publishDate": { "$date":  "2016-05-18T16:00:00Z" },
+    "lastUpdatedOn": { "$date": "2014-01-22T14:56:59.301Z" }
+  },
+  {
+    "_id": 2,
+    "shortDescription": "TODO",
+    "description": "TODO",
+    "finished": true,
+    "tags": [
+      "Skill"
+    ],
+    "content": "2",
+    "publishDate": { "$date":   "2016-05-18T16:00:00Z" },
+    "lastUpdatedOn": { "$date": "2014-01-22T14:56:59.301Z" }
+  },
+  {
+    "_id": 3,
+    "shortDescription": "TODO",
+    "description": "TODO",
+    "finished": false,
+    "tags": [
+      "BLA"
+    ],
+    "content": "3",
+    "publishDate": { "$date":   "2016-05-18T16:00:00Z" },
+    "lastUpdatedOn": { "$date": "2014-01-22T14:56:59.301Z" }
   }
 ]
