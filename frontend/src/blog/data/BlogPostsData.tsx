@@ -29,10 +29,33 @@ export default class BlogPostsData {
     }
 
     constructor(blogPosts: BlogPostData[]) {
-        this.blogPosts = blogPosts;
+        this.blogPostData = blogPosts;
+    }
+
+    private static DefaultSortFn(lhs: BlogPostData, rhs: BlogPostData): number {
+        if (lhs === null || lhs === undefined || rhs === null || rhs === undefined) return 0;
+
+        let lhsD = Date.parse(lhs.getPublishDate);
+        let rhsD = Date.parse(rhs.getPublishDate);
+
+        if (lhsD > rhsD) {
+            return 1;
+        } else if (lhsD < rhsD) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    public sort(compareFn: (lhs: BlogPostData, rhs: BlogPostData) => number = BlogPostsData.DefaultSortFn): BlogPostsData {
+        // Skip sort if no entries are found
+        if (this.blogPostData.length === 0) return this;
+
+        let sortedBlogPosts = this.blogPostData.sort(compareFn);
+        return new BlogPostsData(sortedBlogPosts);
     }
 
     get getBlogPosts(): BlogPostData[] {
-        return this.blogPosts;
+        return this.blogPostData;
     }
 }
