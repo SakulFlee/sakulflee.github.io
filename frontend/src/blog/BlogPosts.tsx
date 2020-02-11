@@ -27,7 +27,6 @@ export default class BlogPosts extends React.Component<
   }
 
   makePost(postData: BlogPostData): JSX.Element {
-    console.log(postData);
     return (
       <Link
         key={`postID-${postData.getID}`}
