@@ -1,6 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import {MdHome, MdKeyboardReturn, MdVerticalAlignTop} from "react-icons/md";
+import { Link } from "react-router-dom";
+import { MdHome, MdKeyboardReturn, MdVerticalAlignTop } from "react-icons/md";
 
 import BlogPostData from "./data/BlogPostData";
 import Footer from "../shared/Footer";
@@ -8,120 +8,122 @@ import Footer from "../shared/Footer";
 import "./BlogPost.scss";
 
 type BlogProperties = {
-    match: {
-        params: {
-            id?: number;
-        };
+  match: {
+    params: {
+      id?: number;
     };
+  };
 };
 
 type BlogState = {
-    data: BlogPostData;
+  data: BlogPostData;
 };
 
-export default class BlogPosts extends React.Component<BlogProperties,
-    BlogState> {
-    async componentDidMount(): Promise<void> {
-        if (this.props.match.params.id == null) return;
-        let blogPostData = await BlogPostData.FetchByID(
-            this.props.match.params.id!
-        );
-        this.setState({
-            data: blogPostData
-        });
-    }
+export default class BlogPosts extends React.Component<
+  BlogProperties,
+  BlogState
+> {
+  async componentDidMount(): Promise<void> {
+    if (this.props.match.params.id == null) return;
+    let blogPostData = await BlogPostData.FetchByID(
+      this.props.match.params.id!
+    );
+    this.setState({
+      data: blogPostData
+    });
+  }
 
-    makePost(data: BlogPostData): JSX.Element {
-        return (
-            <div>
-                {this.makeButtons()}
-                {this.makePostHeader(data)}
-                {this.makePostBody(data)}
-            </div>
-        );
-    }
+  makePost(data: BlogPostData): JSX.Element {
+    return (
+      <div>
+        {this.makeButtons()}
+        {this.makePostHeader(data)}
+        {this.makePostBody(data)}
+      </div>
+    );
+  }
 
-    makePostHeader(data: BlogPostData): JSX.Element {
-        return (
-            <section className="hero is-medium is-dark is-bold">
-                <div className="hero-body">
-                    <div className="container">
-                        <h1 className="title">{data.getCompiledTitle!}</h1>
-                        <h2 className="subtitle">{data.getShortDescription}</h2>
-                        {this.makeTagList(data)}
-                    </div>
-                </div>
-            </section>
-        );
-    }
+  makePostHeader(data: BlogPostData): JSX.Element {
+    return (
+      <section className="hero is-medium is-dark is-bold">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title">{data.getCompiledTitle!}</h1>
+            <h2 className="subtitle">{data.getShortDescription}</h2>
+            {this.makeTagList(data)}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
-    makePostBody(data: BlogPostData): JSX.Element {
-        return (
-            <div
-                className="content blog-body"
-                dangerouslySetInnerHTML={{__html: data.getCompiledHTML!}}
-            />
-        );
-    }
+  makePostBody(data: BlogPostData): JSX.Element {
+    return (
+      <div
+        className="content blog-body"
+        dangerouslySetInnerHTML={{ __html: data.getCompiledHTML! }}
+      />
+    );
+  }
 
-    makeTagList(data: BlogPostData): JSX.Element {
-        const listElements = data.getTags.map((tag, index) => (
-            <li key={index} className="tag is-light">
-                {tag}
-            </li>
-        ));
-        return (
-            <ul className="column is-mobile is-centered tags">{listElements}</ul>
-        );
-    }
+  makeTagList(data: BlogPostData): JSX.Element {
+    const listElements = data.getTags.map((tag, index) => (
+      <li key={index} className="tag is-light">
+        {tag}
+      </li>
+    ));
+    return (
+      <ul className="column is-mobile is-centered tags">{listElements}</ul>
+    );
+  }
 
-    makeButtons(): JSX.Element {
-        return (
-            <div>
-                <Link to="" className="icon" id="icon-home">
-                    <MdHome/>
-                </Link>
-                <div
-                    className="icon fake-link"
-                    id="icon-return"
-                    onClick={_ => window.history.back()}
-                >
-                    <MdKeyboardReturn/>
-                </div>
-                <div
-                    className="icon fake-link"
-                    id="icon-top"
-                    onClick={_ => window.scrollTo(0, 0)}
-                >
-                    <MdVerticalAlignTop/>
-                </div>
-            </div>
-        );
-    }
+  makeButtons(): JSX.Element {
+    return (
+      <div>
+        <Link to="" className="icon" id="icon-home">
+          <MdHome />
+        </Link>
+        <div
+          className="icon fake-link"
+          id="icon-return"
+          onClick={_ => window.history.back()}
+        >
+          <MdKeyboardReturn />
+        </div>
+        <div
+          className="icon fake-link"
+          id="icon-top"
+          onClick={_ => window.scrollTo(0, 0)}
+        >
+          <MdVerticalAlignTop />
+        </div>
+      </div>
+    );
+  }
 
-    render(): JSX.Element {
-        if (this.state == null)
-            return (
-                <progress className="progress is-large is-info" max="100">
-                    Loading ...
-                </progress>
-            );
+  render(): JSX.Element {
+    if (this.state == null)
+      return (
+        <progress className="progress is-large is-info" max="100">
+          Loading ...
+        </progress>
+      );
 
-        const unfinishedMessage = (
+    return (
+      <div>
+        {this.state.data.isFinished ? null : (
+          <>
             <div className="notification is-warning" id="warning">
-                This post is not yet marked as finished. Thus it may be incomplete,
-                wrong or broken.
-                <br/>
-                Come back some time later!
+              This post is not yet marked as finished. Thus it may be
+              incomplete, wrong or broken.
+              <br />
+              Come back some time later!
             </div>
-        );
-
-        return (
-            <div>
-                {this.state.data.isFinished ? null : unfinishedMessage}
-                {this.makePost(this.state.data)}
-                <Footer/>
-            </div>
-        );
-    }
+          </>
+        )}
+        {this.makePost(this.state.data)}
+        <Footer />
+      </div>
+    );
+  }
 }
