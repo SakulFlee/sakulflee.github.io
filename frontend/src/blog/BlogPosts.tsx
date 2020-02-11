@@ -37,7 +37,7 @@ export default class BlogPosts extends React.Component<
           <div className="message-header">
             <p>{postData.getCompiledTitle!}</p>
           </div>
-          <div className="message-body">{postData.getShortDescription}</div>
+          <div className="message-body">{postData.getDescription}</div>
           <div
             className="is-half has-text-right has-text-black"
             style={{ paddingRight: "8px" }}
