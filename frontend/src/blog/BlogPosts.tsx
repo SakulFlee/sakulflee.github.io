@@ -39,8 +39,11 @@ export default class BlogPosts extends React.Component<
             <p>{postData.getCompiledTitle!}</p>
           </div>
           <div className="message-body">{postData.getShortDescription}</div>
-          <div className="is-half has-text-right has-text-black" style={{paddingRight: '8px'}}>
-            Updated on: {postData.getPublishDate}
+          <div
+            className="is-half has-text-right has-text-black"
+            style={{ paddingRight: "8px" }}
+          >
+            Last updated on {new Date(postData.getPublishDate).toUTCString()}
           </div>
         </article>
       </Link>
