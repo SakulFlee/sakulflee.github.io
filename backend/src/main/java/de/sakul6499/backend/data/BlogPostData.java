@@ -81,7 +81,6 @@ public class BlogPostData {
                 id,
                 shortDescription,
                 description,
-                finished,
                 tags,
                 content,
                 publishDate,
