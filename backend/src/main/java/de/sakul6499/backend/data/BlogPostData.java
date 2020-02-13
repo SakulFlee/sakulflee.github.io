@@ -39,15 +39,6 @@ public class BlogPostData {
             description = (String) descriptionObject;
         }
 
-        boolean finished;
-        Object finishedObject = doc.get("finished");
-        if (finishedObject == null) {
-            System.err.println("[BlogPost] Empty or null 'finished'!");
-            finished = false;
-        } else {
-            finished = (boolean) finishedObject;
-        }
-
         List<String> tags = new LinkedList<>();
         Object tagsObject = doc.get("tags");
         if (tagsObject == null) {
@@ -115,17 +106,15 @@ public class BlogPostData {
     private final long id;
     private final String shortDescription;
     private final String description;
-    private final boolean finished;
     private final List<String> tags;
     private final String content;
     private final Date publishDate;
     private final Date lastUpdatedOn;
 
-    public BlogPostData(long id, String shortDescription, String description, boolean finished, List<String> tags, String content, Date publishDate, Date lastUpdatedOn) {
+    public BlogPostData(long id, String shortDescription, String description, List<String> tags, String content, Date publishDate, Date lastUpdatedOn) {
         this.id = id;
         this.shortDescription = shortDescription;
         this.description = description;
-        this.finished = finished;
         this.tags = tags;
         this.content = content;
         this.publishDate = publishDate;
@@ -142,10 +131,6 @@ public class BlogPostData {
 
     public String getDescription() {
         return description;
-    }
-
-    public boolean isFinished() {
-        return finished;
     }
 
     public List<String> getTags() {
@@ -170,7 +155,6 @@ public class BlogPostData {
                 "id=" + id +
                 ", shortDescription='" + shortDescription + '\'' +
                 ", description='" + description + '\'' +
-                ", finished=" + finished +
                 ", tags=" + tags +
                 ", content='" + content + '\'' +
                 ", publishDate=" + publishDate +
@@ -186,7 +170,6 @@ public class BlogPostData {
         BlogPostData blogPostData = (BlogPostData) o;
 
         if (getId() != blogPostData.getId()) return false;
-        if (isFinished() != blogPostData.isFinished()) return false;
         if (!getShortDescription().equals(blogPostData.getShortDescription())) return false;
         if (!getDescription().equals(blogPostData.getDescription())) return false;
         if (!getTags().equals(blogPostData.getTags())) return false;
@@ -200,7 +183,6 @@ public class BlogPostData {
         int result = (int) (getId() ^ (getId() >>> 32));
         result = 31 * result + getShortDescription().hashCode();
         result = 31 * result + getDescription().hashCode();
-        result = 31 * result + (isFinished() ? 1 : 0);
         result = 31 * result + getTags().hashCode();
         result = 31 * result + getContent().hashCode();
         result = 31 * result + getPublishDate().hashCode();
