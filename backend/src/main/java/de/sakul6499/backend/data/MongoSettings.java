@@ -14,31 +14,6 @@ import java.util.Properties;
 
 public class MongoSettings {
 
-    private final static File CONFIG_LOCATION = new File("./mongo_settings.prop");
-    @NotNull
-    private final String hostname;
-    @NotNull
-    private final String port;
-    @NotNull
-    private final String database;
-    @Null
-    private final String username;
-    @Null
-    private final String password;
-    @NotNull
-    private boolean srv = false;
-    public MongoSettings(@NotNull String hostname, @NotNull String port, @NotNull String database, @Null String username, @Null String password) {
-        this.hostname = hostname;
-        this.port = port;
-        this.database = database;
-        this.username = username;
-        this.password = password;
-    }
-    public MongoSettings(@NotNull boolean srv, @NotNull String hostname, @NotNull String port, @NotNull String database, @Null String username, @Null String password) {
-        this(hostname, port, database, username, password);
-        this.srv = srv;
-    }
-
     @lombok.SneakyThrows
     public static MongoSettings AutoConfig() {
         if (!CONFIG_LOCATION.exists()) {
@@ -129,10 +104,44 @@ public class MongoSettings {
         }
     }
 
-    @SneakyThrows
+    // ---
+
+    private static MongoClient MONGO_CLIENT;
+    private final static File CONFIG_LOCATION = new File("./mongo_settings.prop");
+
+    @NotNull
+    private final String hostname;
+    @NotNull
+    private final String port;
+    @NotNull
+    private final String database;
+    @Null
+    private final String username;
+    @Null
+    private final String password;
+    @NotNull
+    private final boolean srv;
+
+    public MongoSettings(@NotNull boolean srv, @NotNull String hostname, @NotNull String port, @NotNull String database, @Null String username, @Null String password) {
+        this.hostname = hostname;
+        this.port = port;
+        this.database = database;
+        this.username = username;
+        this.password = password;
+        this.srv = srv;
+    }
+
+    public MongoSettings(@NotNull String hostname, @NotNull String port, @NotNull String database, @Null String username, @Null String password) {
+        this(false, hostname, port, database, username, password);
+    }
+
     public MongoClient makeClient() {
-        final MongoClientURI clientURI = new MongoClientURI(toString());
-        return new MongoClient(clientURI);
+        if(MONGO_CLIENT == null) {
+            final MongoClientURI clientURI = new MongoClientURI(toString());
+            MONGO_CLIENT = new MongoClient(clientURI);
+        }
+
+        return MONGO_CLIENT;
     }
 
     public MongoDatabase makeDatabase() {
