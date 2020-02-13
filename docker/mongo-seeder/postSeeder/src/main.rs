@@ -50,7 +50,7 @@ fn process_file_content(content: &String) -> Document {
     Document { json, markdown }
 }
 
-fn main() -> std::io::Result<()> {
+fn main() {
     let args: Vec<String> = env::args().collect();
     let _path = args.get(1);
     let path = if _path.is_none() {
@@ -80,6 +80,11 @@ fn main() -> std::io::Result<()> {
             let doc = process_file_content(&content);
             println!("JSON:\n{}\n\nMD:\n{}", doc.json, doc.markdown);
 
+            if doc.json.is_empty() || doc.markdown.is_empty() {
+                println!("Found post with empty JSON or MD part! Skipping...");
+                continue;
+            }
+
             let mut parsed = json::parse(&doc.json).unwrap();
             parsed["content"] = doc.markdown.into();
             println!("Compiled to:\n{}", parsed.dump());
@@ -97,7 +102,8 @@ fn main() -> std::io::Result<()> {
         "Failed to create or open output file! [{}]",
         &output_file_path.to_owned()
     ));
-    output_file.write_all(json_array.dump().as_bytes())?;
-
-    Ok(())
+    match output_file.write_all(json_array.dump().as_bytes()) {
+        Ok(_) => (),
+        Err(e) => println!("Failed to write to file '{}' [{}]!", &output_file_path, e),
+    }
 }
