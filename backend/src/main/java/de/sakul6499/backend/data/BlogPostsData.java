@@ -3,10 +3,15 @@ package de.sakul6499.backend.data;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
+import com.mongodb.client.model.Updates;
 import de.sakul6499.backend.Backend;
 import org.bson.Document;
+import org.springframework.format.datetime.DateTimeFormatAnnotationFormatterFactory;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,7 +25,7 @@ public class BlogPostsData {
                 .MONGO_SETTINGS
                 .makeDatabase()
                 .getCollection("posts")
-                .find(Filters.eq("finished", true))
+                .find(Filters.lte("publishDate", Date.from(Instant.now())))
                 .sort(Sorts.ascending("publishDate"))
                 .limit(limit)
                 .iterator();
@@ -33,7 +38,7 @@ public class BlogPostsData {
                 .MONGO_SETTINGS
                 .makeDatabase()
                 .getCollection("posts")
-                .find(Filters.eq("finished", true))
+                .find(Filters.lte("publishDate", Date.from(Instant.now())))
                 .sort(Sorts.ascending("publishDate"))
                 .iterator();
 
