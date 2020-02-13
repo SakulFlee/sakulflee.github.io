@@ -1,11 +1,11 @@
 ---
 {
-    "_id": 1,
+    "_id": 2,
     "shortDescription": "Definition and explanation of the strategy design pattern",
     "description": "This post is about the strategy design pattern.\nIt goes into detail and provides examples for implementing and using such a pattern.",
-    "tags": ["Skill", "3D", "Modelling"],
-    "publishDate": { "$date": "2016-05-18T16:00:00Z" },
-    "lastUpdatedOn": { "$date": "2014-01-22T14:56:59.301Z" }
+    "tags": ["Design Pattern", "Strategy Pattern", "Policy Pattern", "Modelling", "UML"],
+    "publishDate": { "$date": "2019-11-25T00:00:00Z" },
+    "lastUpdatedOn": { "$date": "2020-02-13T00:00:00Z" }
 }
 ---
 # Strategy Pattern
