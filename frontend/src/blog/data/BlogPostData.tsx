@@ -6,7 +6,6 @@ export default class BlogPostData {
   private readonly id: number;
   private readonly shortDescription: string;
   private readonly description: string;
-  private readonly finished: boolean;
   private readonly tags: string[];
   private readonly content: string;
   private readonly publishDate: string;
@@ -26,7 +25,6 @@ export default class BlogPostData {
       0,
       "Either this post doesn't exist or an error happened in our backend.",
       "Either this post doesn't exist or an error happened in our backend.",
-      true,
       [],
       "Either this post doesn't exist or an error happened in our backend.",
       Date.now().toString(),
@@ -41,7 +39,6 @@ export default class BlogPostData {
       0,
       "There are currently no posts available or the search didn't yield any result.",
       "There are currently no posts available or the search didn't yield any result.",
-      true,
       [],
       "Either this post doesn't exist or an error happened in our backend.",
       Date.now().toString(),
@@ -56,7 +53,6 @@ export default class BlogPostData {
       shadowedBlogPost.id,
       shadowedBlogPost.shortDescription,
       shadowedBlogPost.description,
-      shadowedBlogPost.finished,
       shadowedBlogPost.tags,
       shadowedBlogPost.content,
       shadowedBlogPost.publishDate,
@@ -68,7 +64,6 @@ export default class BlogPostData {
     id: number,
     shortDescription: string,
     description: string,
-    finished: boolean,
     tags: string[],
     content: string,
     publishDate: string,
@@ -77,7 +72,6 @@ export default class BlogPostData {
     this.id = id;
     this.shortDescription = shortDescription;
     this.description = description;
-    this.finished = finished;
     this.tags = tags;
     this.content = content;
     this.publishDate = publishDate;
@@ -97,7 +91,7 @@ export default class BlogPostData {
   }
 
   get isFinished(): boolean {
-    return this.finished;
+    return Date.now() >= new Date(this.getPublishDate).getTime();
   }
 
   get getTags(): string[] {
