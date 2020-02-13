@@ -6,8 +6,8 @@ services:
         ports:
             - 27017:27017
 
-    mongo-seed:
-        build: docker/mongo-seed/.
+    mongo-seeder:
+        build: docker/mongo-seeder/.
         links:
             - mongodb
 
