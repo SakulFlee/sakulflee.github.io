@@ -58,6 +58,12 @@ export default class BlogPosts extends React.Component<
                         <h1 className="title">{data.getCompiledTitle!}</h1>
                         <h2 className="subtitle">{data.getShortDescription}</h2>
                         {this.makeTagList(data)}
+                        <div
+                            className="is-half has-text-right has-text-white"
+                            style={{ paddingRight: "8px" }}
+                        >
+                            Last updated on {new Date(data.getPublishDate).toUTCString()}
+                        </div>
                     </div>
                 </div>
             </section>
