@@ -5,11 +5,19 @@ services:
         command: mongod
         ports:
             - 27017:27017
+        deploy:
+            replicas: 1
+            placement:
+                constraints: [node == homelab]
 
     mongo-seeder:
         build: docker/mongo-seeder/.
         links:
             - mongodb
+        deploy:
+            replicas: 1
+            placement:
+                constraints: [node == homelab]
 
     backend:
         build: backend/.
@@ -17,6 +25,8 @@ services:
             - mongodb
         ports:
             - 8081:8081
+        deploy:
+            replicas: 1
 
     frontend:
         build: frontend/.
@@ -24,3 +34,5 @@ services:
             - backend
         ports:
             - 8080:80
+        deploy:
+            mode: global
