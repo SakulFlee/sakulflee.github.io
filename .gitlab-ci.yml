@@ -5,7 +5,7 @@ stages:
 
 build_frontend:
   stage: build
-  image: docker
+  image: docker/compose
   services:
     - docker:dind
   variables:
@@ -19,7 +19,7 @@ build_frontend:
 
 build_backend:
   stage: build
-  image: docker
+  image: docker/compose
   services:
     - docker:dind
   variables:
@@ -33,7 +33,7 @@ build_backend:
 
 build_mongo-seeder:
   stage: build
-  image: docker
+  image: docker/compose
   services:
     - docker:dind
   variables:
