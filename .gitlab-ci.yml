@@ -17,6 +17,8 @@ build_frontend:
   script:
     - sh make_docker_files.sh
     - docker-compose -f docker-compose.yml.out build frontend
+    - docker tag sakul6499de_frontend registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:x86
+    - docker push registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:x86
   only:
     - branches
     - tags
@@ -43,6 +45,8 @@ build_backend:
   script:
     - sh make_docker_files.sh
     - docker-compose -f docker-compose.yml.out build backend
+    - docker tag sakul6499de_backend registry.gitlab.com/sakul6499.de/sakul6499.de/backend:x86
+    - docker push registry.gitlab.com/sakul6499.de/sakul6499.de/backend:x86
   only:
     - branches
     - tags
@@ -69,6 +73,8 @@ build_mongo-seeder:
   script:
     - sh make_docker_files.sh
     - docker-compose -f docker-compose.yml.out build mongo-seeder
+    - docker tag sakul6499de_mongo-seeder registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:x86
+    - docker push registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:x86
   only:
     - branches
     - tags
@@ -91,10 +97,16 @@ build_remote:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$PRIVATE_KEY")
   script:
-    - sh make_docker_files.sh
     - ssh deploy@raw.sakul6499.de "rm -rf website; mkdir -p website"
     - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh * deploy@raw.sakul6499.de:/home/deploy/website/
-    - ssh deploy@raw.sakul6499.de "cd website; docker-compose build && docker-compose push"
+    - ssh deploy@raw.sakul6499.de "cd website && sh make_docker_files.sh"
+    - ssh deploy@raw.sakul6499.de "cd website && docker-compose -f docker-compose.yml.out build"
+    - ssh deploy@raw.sakul6499.de "cd website && docker tag sakul6499de_frontend registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:arm"
+    - ssh deploy@raw.sakul6499.de "cd website && docker tag sakul6499de_backend registry.gitlab.com/sakul6499.de/sakul6499.de/backend:arm"
+    - ssh deploy@raw.sakul6499.de "cd website && docker tag sakul6499de_mongo-seeder registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:arm"
+    - ssh deploy@raw.sakul6499.de "cd website && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:arm"
+    - ssh deploy@raw.sakul6499.de "cd website && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/backend:arm"
+    - ssh deploy@raw.sakul6499.de "cd website && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:arm"
   only:
       - master
 
