@@ -7,7 +7,7 @@ COPY posts /posts
 WORKDIR /
 RUN /postSeeder/target/release/post_seeder
 
-FROM mongo
+FROM @MONGODB@
 COPY --from=postSeeder /posts.json /posts.json
 WORKDIR /
 CMD mongoimport         \

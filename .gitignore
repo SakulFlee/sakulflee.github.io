@@ -1,6 +1,7 @@
 # Out
 out/
 build/
+*.out
 
 # Generated files
 posts.json

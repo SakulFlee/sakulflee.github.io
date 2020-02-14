@@ -1,7 +1,7 @@
 version: '3'
 services:
     mongodb:
-        image: mongo
+        image: @MONGODB@
         command: mongod
         ports:
             - 27017:27017
@@ -11,7 +11,9 @@ services:
                 constraints: [node == homelab]
 
     mongo-seeder:
-        build: docker/mongo-seeder/.
+        build:
+            context: docker/mongo-seeder
+            dockerfile: Dockerfile.out
         links:
             - mongodb
         deploy:
@@ -20,7 +22,9 @@ services:
                 constraints: [node == homelab]
 
     backend:
-        build: backend/.
+        build:
+            context: backend
+            dockerfile: Dockerfile.out
         links:
             - mongodb
         ports:
@@ -29,7 +33,9 @@ services:
             replicas: 1
 
     frontend:
-        build: frontend/.
+        build:
+            context: frontend
+            dockerfile: Dockerfile.out
         links:
             - backend
         ports:
