@@ -1,44 +1,75 @@
 stages:
-  - docker
   - build
+  - build_remote
   - deploy
 
-docker_build_image:
-  stage: docker
+build_frontend:
+  stage: build
   image: docker
   services:
     - docker:dind
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVE: overlay2
-    IMAGE_NAME: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
   before_script:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -f build.docker -t $IMAGE_NAME -t $IMAGE_NAME:latest .
-    - docker push $IMAGE_NAME:latest
-  only:
-    changes:
-      - "build.docker"
+    - docker-compose build frontend
 
-build:
+build_backend:
   stage: build
-  image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
+  image: docker
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVE: overlay2
+  before_script:
+    - docker info
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - yarn install
-    - yarn build
-  cache:
-    paths:
-      - node_modules/
-  artifacts:
-    paths:
-      - build/
-  only:
-    - api
-    - pipelines
-    - pushes
-    - schedule
-    - triggers
-    - web
-    - merge_requests
+    - docker-compose build backend
+
+build_mongo-seeder:
+  stage: build
+  image: docker
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVE: overlay2
+  before_script:
+    - docker info
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker-compose build mongo-seeder
+
+build_remote:
+  stage: build_remote
+  image: ubuntu
+  before_script:
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-add <(echo "$PRIVATE_KEY")
+  script:
+    - ssh deploy@raw.sakul6499.de "rm -rf website; mkdir -p website"
+    - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh * deploy@raw.sakul6499.de:/home/deploy/website/
+    - ssh deploy@raw.sakul6499.de "cd website; docker-compose build && docker-compose push"
+
+    # build_remote:
+    #   stage: build_remote
+    #   image: ubuntu
+    #   before_script:
+    #     - mkdir -p ~/.ssh
+    #     - eval $(ssh-agent -s)
+    #     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    #     - ssh-add <(echo "$PRIVATE_KEY")
+    #   script:
+    #     - ssh deploy@raw.sakul6499.de "rm -rf website; mkdir -p website"
+    #     - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh * deploy@raw.sakul6499.de:/home/deploy/website/
+    #     - ssh deploy@raw.sakul6499.de "cd website; docker-compose build && docker-compose push"
+    #   environment:
+    #     name: master
+    #     url: https://sakul6499.de
