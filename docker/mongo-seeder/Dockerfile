@@ -1,16 +1,14 @@
-FROM rust as postSeederBuild
+FROM rust as postSeeder
 COPY postSeeder /postSeeder
 WORKDIR /postSeeder
 RUN cargo build --release 
 
-FROM ubuntu as postSeederGen
-COPY --from=postSeederBuild /postSeeder/target/release/post_seeder /bin/post_seeder
 COPY posts /posts
 WORKDIR /
-RUN /bin/post_seeder
+RUN /postSeeder/target/release/post_seeder
 
 FROM mongo
-COPY --from=postSeederGen /posts.json /posts.json
+COPY --from=postSeeder /posts.json /posts.json
 WORKDIR /
 CMD mongoimport         \
     --drop              \
