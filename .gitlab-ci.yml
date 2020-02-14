@@ -47,8 +47,9 @@ build_mongo-seeder:
 
 build_remote:
   stage: build_remote
-  image: ubuntu
+  image: ubuntu:latest
   before_script:
+    - apt update && apt install -y ssh rsync
     - mkdir -p ~/.ssh
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
@@ -73,3 +74,5 @@ build_remote:
     #   environment:
     #     name: master
     #     url: https://sakul6499.de
+    #   only:
+    #     - master
