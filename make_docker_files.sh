@@ -6,7 +6,7 @@ shopt -s nocasematch
 # Match architecture
 case "$(uname -m)" in
     "x86_64" ) echo "> Using x86_64 images!"; MONGODB="mongo" ;;
-    "armv7l" ) echo "> Using ARM (armv7l) images!"; MONGODB="mongodb-arm" ;;
+    "armv7l" ) echo "> Using ARM (armv7l) images!"; MONGODB="mangoraft/mongodb-arm" ;;
     *) echo "! Unsupported architecture!"; exit -1;;
 esac
 
