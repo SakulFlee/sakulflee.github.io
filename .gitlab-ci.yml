@@ -15,7 +15,7 @@ build_frontend:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - bash make_docker_files.sh
+    - sh make_docker_files.sh
     - docker-compose -f docker-compose.yml.out build frontend
   only:
     - branches
@@ -41,7 +41,7 @@ build_backend:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - bash make_docker_files.sh
+    - sh make_docker_files.sh
     - docker-compose -f docker-compose.yml.out build backend
   only:
     - branches
@@ -67,7 +67,7 @@ build_mongo-seeder:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - bash make_docker_files.sh
+    - sh make_docker_files.sh
     - docker-compose -f docker-compose.yml.out build mongo-seeder
   only:
     - branches
@@ -91,7 +91,7 @@ build_remote:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh-add <(echo "$PRIVATE_KEY")
   script:
-    - bash make_docker_files.sh
+    - sh make_docker_files.sh
     - ssh deploy@raw.sakul6499.de "rm -rf website; mkdir -p website"
     - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh * deploy@raw.sakul6499.de:/home/deploy/website/
     - ssh deploy@raw.sakul6499.de "cd website; docker-compose build && docker-compose push"
