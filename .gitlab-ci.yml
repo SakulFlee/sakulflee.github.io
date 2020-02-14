@@ -16,6 +16,17 @@ build_frontend:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
     - docker-compose build frontend
+  only:
+    - branches
+    - tags
+    - api
+    - external
+    - pipelines
+    - pushes
+    - schedule
+    - triggers
+    - web
+    - merge_requests
 
 build_backend:
   stage: build
@@ -30,6 +41,17 @@ build_backend:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
     - docker-compose build backend
+  only:
+    - branches
+    - tags
+    - api
+    - external
+    - pipelines
+    - pushes
+    - schedule
+    - triggers
+    - web
+    - merge_requests
 
 build_mongo-seeder:
   stage: build
@@ -44,6 +66,17 @@ build_mongo-seeder:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
     - docker-compose build mongo-seeder
+  only:
+    - branches
+    - tags
+    - api
+    - external
+    - pipelines
+    - pushes
+    - schedule
+    - triggers
+    - web
+    - merge_requests
 
 build_remote:
   stage: build_remote
