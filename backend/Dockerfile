@@ -1,5 +1,5 @@
 FROM alpine AS build
-RUN apk update && apk add openjdk11 gradle
+RUN apk update && apk add openjdk8 gradle
 WORKDIR /home/gradle/project
 COPY . .
 RUN gradle build
