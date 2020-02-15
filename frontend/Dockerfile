@@ -1,14 +1,9 @@
-FROM ubuntu:latest AS build
-RUN apt-get update                                                             \
- && apt-get upgrade -y                                                         \
- && apt-get install -y nodejs npm ssh rsync
-RUN npm install -g npm@latest yarn
+FROM alpine:latest AS build
+RUN apk update && apk add nodejs npm yarn openssh rsync
 
 WORKDIR /project
 COPY . .
 RUN yarn install && yarn build
-
-# ---
 
 FROM nginx:latest
 COPY --from=build /project/build/ /usr/share/nginx/html/
