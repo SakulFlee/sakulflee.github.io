@@ -12,5 +12,5 @@ esac
 
 for f in $(/usr/bin/find . -maxdepth 3 -type f \( -name "Dockerfile" -or -name "docker-compose.yml" \)); do
     echo ">>> $f"
-    cat "$f" | sed "s/@MONGODB@/$MONGODB/g" > "$f.out"
+    cat "$f" | sed "s,@MONGODB@,$MONGODB,g" > "$f.out"
 done
