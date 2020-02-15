@@ -1,9 +1,10 @@
-FROM gradle AS build
+FROM alpine AS build
+RUN apk update && apk add openjdk11 gradle
 WORKDIR /home/gradle/project
 COPY . .
 RUN gradle build
 
-FROM openjdk:11
+FROM @JDK@
 COPY --from=build /home/gradle/project/build/libs/backend-0.0.1-SNAPSHOT.jar /opt/app/backend-0.0.1-SNAPSHOT.jar
 COPY mongo_settings.docker-compose.prop /opt/app/mongo_settings.prop
 WORKDIR /opt/app
