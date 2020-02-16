@@ -104,9 +104,9 @@ build_remote:
     - ssh deploy@raw.sakul6499.de "cd website && docker tag website_frontend registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:arm"
     - ssh deploy@raw.sakul6499.de "cd website && docker tag website_backend registry.gitlab.com/sakul6499.de/sakul6499.de/backend:arm"
     - ssh deploy@raw.sakul6499.de "cd website && docker tag website_mongo-seeder registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:arm"
-    - ssh deploy@raw.sakul6499.de "cd website && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:arm"
-    - ssh deploy@raw.sakul6499.de "cd website && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/backend:arm"
-    - ssh deploy@raw.sakul6499.de "cd website && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:arm"
+    - ssh deploy@raw.sakul6499.de "cd website && docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:arm"
+    - ssh deploy@raw.sakul6499.de "cd website && docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/backend:arm"
+    - ssh deploy@raw.sakul6499.de "cd website && docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:arm"
   only:
       - master
 
