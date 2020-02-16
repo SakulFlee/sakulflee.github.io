@@ -1,5 +1,5 @@
 FROM alpine:latest AS build
-RUN apk update && apk add nodejs npm yarn openssh rsync python3
+RUN apk update && apk add nodejs npm yarn openssh rsync python python3
 
 WORKDIR /project
 COPY . .
