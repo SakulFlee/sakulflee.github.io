@@ -39,5 +39,5 @@ esac
 
 for f in $(/usr/bin/find . -maxdepth 3 -type f \( -name "Dockerfile" -or -name "docker-compose.yml" \)); do
     echo ">>> $f"
-    cat "$f" | sed "s,@MONGODB@,$MONGODB,g" | sed "s,@JDK@,$JDK,g" | sed "s,@FRONTEND@,$FRONTEND,g" | sed "s,@BACKEND@,$BACKEND,g" | sed "s,@MONGO_SEEDER@,$MONGO_SEEDER,g" > "$f.out"
+    cat "$f" | sed "s,@MONGODB@,$MONGODB,g" | sed "s,@JDK@,$JDK,g" | sed "s,@FRONTEND@,$FRONTEND,g" | sed "s,@BACKEND@,$BACKEND,g" | sed "s,@MONGO_SEEDER@,$MONGO_SEEDER,g" | sed "s,\t,    ,g" > "$f.out"
 done
