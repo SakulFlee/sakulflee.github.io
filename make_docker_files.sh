@@ -9,7 +9,7 @@ else
     DEPLOY=0
     FRONTEND="build:\n\t\t\tcontext: frontend\n\t\t\tdockerfile: Dockerfile.out"
     BACKEND="build:\n\t\t\tcontext: backend\n\t\t\tdockerfile: Dockerfile.out"
-    MONGO_SEEDER="build:\n\t\t\tcontext: mongo-seeder\n\t\t\tdockerfile: Dockerfile.out"
+    MONGO_SEEDER="build:\n\t\t\tcontext: docker/mongo-seeder\n\t\t\tdockerfile: Dockerfile.out"
 fi
 
 # Match architecture
