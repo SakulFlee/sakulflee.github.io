@@ -123,7 +123,7 @@ deploy:
     - ssh deploy@raw.sakul6499.de "rm -rf website; mkdir -p website"
     - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh * deploy@raw.sakul6499.de:/home/deploy/website/
     - ssh deploy@raw.sakul6499.de "cd website && bash make_docker_files.sh deploy"
-    - ssh deploy@raw.sakul6499.de "cd website && docker-compose -f docker-compose.yml.out up -d"
+    - ssh deploy@raw.sakul6499.de "cd website && docker stack deploy --compose-file docker-compose.yml.out website"
   environment:
     name: master
     url: https://sakul6499.de
