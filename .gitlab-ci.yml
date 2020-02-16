@@ -110,20 +110,22 @@ build_remote:
   only:
       - master
 
-    # build_remote:
-    #   stage: build_remote
-    #   image: ubuntu
-    #   before_script:
-    #     - mkdir -p ~/.ssh
-    #     - eval $(ssh-agent -s)
-    #     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    #     - ssh-add <(echo "$PRIVATE_KEY")
-    #   script:
-    #     - ssh deploy@raw.sakul6499.de "rm -rf website; mkdir -p website"
-    #     - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh * deploy@raw.sakul6499.de:/home/deploy/website/
-    #     - ssh deploy@raw.sakul6499.de "cd website; docker-compose build && docker-compose push"
-    #   environment:
-    #     name: master
-    #     url: https://sakul6499.de
-    #   only:
-    #     - master
+deploy:
+  stage: deploy
+  image: ubuntu:latest
+  before_script:
+    - apt update && apt install -y ssh rsync
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-add <(echo "$PRIVATE_KEY")
+  script:
+    - ssh deploy@raw.sakul6499.de "rm -rf website; mkdir -p website"
+    - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh * deploy@raw.sakul6499.de:/home/deploy/website/
+    - ssh deploy@raw.sakul6499.de "cd website && bash make_docker_files.sh deploy"
+    - ssh deploy@raw.sakul6499.de "cd website && docker-compose -f docker-compose.yml.out up -d"
+  environment:
+    name: master
+    url: https://sakul6499.de
+  only:
+    - master
