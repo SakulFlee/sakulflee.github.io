@@ -9,7 +9,7 @@ services:
             replicas: 1
             placement:
                 constraints: 
-                    - node == node3
+                    - node.labels.name==node3
 
     mongo-seeder:
         @MONGO_SEEDER@
@@ -19,7 +19,7 @@ services:
             replicas: 1
             placement:
                 constraints: 
-                    - node == node3
+                    - node.labels.name==node3
 
     backend:
         @BACKEND@
@@ -31,7 +31,7 @@ services:
             replicas: 1
             placement:
                 constraints: 
-                    - node == node2
+                    - node.labels.name==node2
 
     frontend:
         @FRONTEND@
@@ -43,4 +43,4 @@ services:
             replicas: 3
             placement:
                 constraints: 
-                    - node != homelab
+                    - node.labels.name!=homelab
