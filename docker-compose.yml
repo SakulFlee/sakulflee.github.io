@@ -8,7 +8,8 @@ services:
         deploy:
             replicas: 1
             placement:
-                constraints: [node == homelab]
+                constraints: 
+                    - node == node3
 
     mongo-seeder:
         @MONGO_SEEDER@
@@ -17,7 +18,8 @@ services:
         deploy:
             replicas: 1
             placement:
-                constraints: [node == homelab]
+                constraints: 
+                    - node == node3
 
     backend:
         @BACKEND@
@@ -27,6 +29,9 @@ services:
             - 4001:8081
         deploy:
             replicas: 1
+            placement:
+                constraints: 
+                    - node == node2
 
     frontend:
         @FRONTEND@
@@ -35,4 +40,7 @@ services:
         ports:
             - 4000:80
         deploy:
-            mode: global
+            replicas: 3
+            placement:
+                constraints: 
+                    - node != homelab
