@@ -15,7 +15,7 @@ type HeaderState = {
 export default class Header extends React.Component<
   HeaderProperties,
   HeaderState
-> {
+  > {
   static defaultProps: HeaderProperties = {
     maxHeightInPercent: 100,
     pattern: Trianglify({
@@ -37,17 +37,6 @@ export default class Header extends React.Component<
       this.state == null ||
       (this.state.width !== maxWidth && this.state.height !== maxHeight)
     ) {
-      console.log(
-        "TRIGGER [" +
-          (this.state == null
-            ? "NULL"
-            : this.state.width + " " + this.state.height) +
-          " <-> " +
-          maxWidth +
-          " " +
-          maxHeight
-      );
-
       this.setState({
         width: maxWidth,
         height: maxHeight
