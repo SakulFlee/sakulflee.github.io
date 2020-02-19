@@ -126,7 +126,7 @@ deploy:
     - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh * deploy@raw.sakul6499.de:/home/deploy/website/
     - ssh deploy@raw.sakul6499.de "cd website && bash make_docker_files.sh deploy"
     - ssh deploy@raw.sakul6499.de "cd website && docker stack rm website"
-    - ssh deploy@raw.sakul6499.de "cd website && docker network rm website_default"
+    - ssh deploy@raw.sakul6499.de "cd website && docker network rm website_default || true"
     - ssh deploy@raw.sakul6499.de "cd website && docker stack deploy --compose-file docker-compose.yml.out website"
   environment:
     name: master
