@@ -67,7 +67,7 @@ export default class Header extends React.Component<
     return (
       <svg
         style={style}
-        viewBox={`0 0 ${this.state.width / 2} ${this.state.height / 2}`}
+        viewBox={`0 0 ${this.state.width / 3} ${this.state.height / 3}`}
         dangerouslySetInnerHTML={{ __html: this.props.pattern.svg().innerHTML }}
       />
     );
