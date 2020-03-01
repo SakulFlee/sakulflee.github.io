@@ -11,3 +11,5 @@
 # Website - Docker
 
 TODO
+TODO: Rename to deployment?
+ -> docker service create --name loadbalancer --mount type=bind,source=/config/loadbalancer,target=/etc/nginx/conf.d --publish 80:80 --constraint node.labels.name==node0 nginx
