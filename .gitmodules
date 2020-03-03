@@ -7,3 +7,6 @@
 [submodule "redirects/sakul6499.bitbucket.io"]
 	path = redirects/sakul6499.bitbucket.io
 	url = git@bitbucket.org:sakul6499/sakul6499.bitbucket.io.git
+[submodule "frontend"]
+	path = frontend
+	url = git@gitlab.com:sakul6499.de/frontend.git
