@@ -1,11 +1,11 @@
 stages:
-  - pre
+  - pre_init
   - build
   - build_remote
   - deploy
 
-pre:
-  stage: build
+pre_init:
+  stage: pre_init
   image: ubuntu
   script:
     - git submodule update --init --recursive
@@ -39,7 +39,7 @@ build_frontend:
     - web
     - merge_requests
   needs:
-    - pre
+    - pre_init
 
 build_backend:
   stage: build
@@ -69,7 +69,7 @@ build_backend:
     - web
     - merge_requests
   needs:
-    - pre
+    - pre_init
 
 build_mongo-seeder:
   stage: build
@@ -99,7 +99,7 @@ build_mongo-seeder:
     - web
     - merge_requests
   needs:
-    - pre
+    - pre_init
 
 build_remote:
   stage: build_remote
