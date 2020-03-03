@@ -17,7 +17,7 @@ export function isProductionEnv(): boolean {
 }
 
 export function getDevelopmentURL(): string {
-    return 'http://localhost:8081';
+    return 'http://localhost:4001';
 }
 
 export function getProductionURL(): string {
