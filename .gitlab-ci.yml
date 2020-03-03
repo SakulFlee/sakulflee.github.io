@@ -6,7 +6,7 @@ stages:
 
 pre_init:
   stage: pre_init
-  image: ubuntu
+  image: alpine/git
   script:
     - git submodule update --init --recursive
     - git submodule update --recursive --remote
