@@ -1,10 +1,15 @@
 stages:
+  - pre
   - build
   - build_remote
   - deploy
 
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
+pre:
+  stage: build
+  image: ubuntu
+  script:
+    - git submodule update --init --recursive
+    - git submodule update --recursive --remote
 
 build_frontend:
   stage: build
@@ -33,6 +38,8 @@ build_frontend:
     - triggers
     - web
     - merge_requests
+  needs:
+    - pre
 
 build_backend:
   stage: build
@@ -61,6 +68,8 @@ build_backend:
     - triggers
     - web
     - merge_requests
+  needs:
+    - pre
 
 build_mongo-seeder:
   stage: build
@@ -89,6 +98,8 @@ build_mongo-seeder:
     - triggers
     - web
     - merge_requests
+  needs:
+    - pre
 
 build_remote:
   stage: build_remote
