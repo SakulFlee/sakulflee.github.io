@@ -6,7 +6,9 @@ stages:
 
 pre_init:
   stage: pre_init
-  image: alpine/git
+  image: alpine
+  before_script:
+    - apk update && apk add git
   script:
     - git submodule update --init --recursive
     - git submodule update --recursive --remote
