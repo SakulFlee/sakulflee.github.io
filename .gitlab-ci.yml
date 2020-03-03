@@ -75,7 +75,7 @@ build_mongo-seeder:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
     - sh make_docker_files.sh
-    - docker build -t sakul6499de_mongo-seeder -f docker/mongo-seeder/Dockerfile.out docker/mongo-seeder
+    - docker build -t sakul6499de_mongo-seeder -f mongo-seeder/Dockerfile.out mongo-seeder
     - docker tag sakul6499de_mongo-seeder registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:x86
     - docker push registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:x86
   only:
