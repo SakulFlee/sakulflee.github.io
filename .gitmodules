@@ -1,9 +1,3 @@
-[submodule "redirects/sakul6499.github.io"]
-	path = redirects/sakul6499.github.io
-	url = git@github.com:Sakul6499/sakul6499.github.io.git
-[submodule "redirects/sakul6499.gitlab.io"]
-	path = redirects/sakul6499.gitlab.io
-	url = git@gitlab.com:Sakul6499/sakul6499.gitlab.io.git
-[submodule "redirects/sakul6499.bitbucket.io"]
-	path = redirects/sakul6499.bitbucket.io
-	url = git@bitbucket.org:sakul6499/sakul6499.bitbucket.io.git
+[submodule "frontend"]
+	path = frontend
+	url = https://gitlab.com/sakul6499.de/frontend.git
