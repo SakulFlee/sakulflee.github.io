@@ -10,6 +10,17 @@ pre_init:
   script:
     - git submodule update --init --recursive
     - git submodule update --recursive --remote
+  only:
+    - branches
+    - tags
+    - api
+    - external
+    - pipelines
+    - pushes
+    - schedule
+    - triggers
+    - web
+    - merge_requests
 
 build_frontend:
   stage: build
