@@ -3,6 +3,9 @@ stages:
   - build_remote
   - deploy
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 build_frontend:
   stage: build
   image: docker/compose

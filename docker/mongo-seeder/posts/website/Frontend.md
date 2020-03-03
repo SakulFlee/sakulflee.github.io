@@ -10,4 +10,14 @@
 ---
 # Website - Frontend
 
-TODO
+<article class="message is-warning">
+  <div class="message-header">
+    <p>Post Series - Warning</p>
+  </div>
+  <div class="message-body">
+    This post is part of a <strong>series</strong>.
+    It is strongly adviced that you start with the first (introductory) post and read the posts in order.
+    The introductory post can be found [here](https://sakul6499.de/blog/1).
+  </div>
+</article>
+
