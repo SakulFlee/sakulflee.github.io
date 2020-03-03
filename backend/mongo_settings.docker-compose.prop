@@ -1,4 +1,0 @@
-srv = false
-hostname = mongodb
-port = 27017
-database = blog
