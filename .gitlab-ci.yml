@@ -105,7 +105,7 @@ build_remote:
     - ssh deploy@raw.sakul6499.de "cd website && bash make_docker_files.sh"
     - ssh deploy@raw.sakul6499.de "cd website && docker build -t sakul6499de_frontend -f frontend/Dockerfile.out frontend"
     - ssh deploy@raw.sakul6499.de "cd website && docker build -t sakul6499de_backend -f backend/Dockerfile.out backend"
-    - ssh deploy@raw.sakul6499.de "cd website && docker build -t sakul6499de_mongo-seeder -f docker/mongo-seeder/Dockerfile.out docker/mongo-seeder"
+    - ssh deploy@raw.sakul6499.de "cd website && docker build -t sakul6499de_mongo-seeder -f mongo-seeder/Dockerfile.out mongo-seeder"
     - ssh deploy@raw.sakul6499.de "cd website && docker tag sakul6499de_frontend registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:arm"
     - ssh deploy@raw.sakul6499.de "cd website && docker tag sakul6499de_backend registry.gitlab.com/sakul6499.de/sakul6499.de/backend:arm"
     - ssh deploy@raw.sakul6499.de "cd website && docker tag sakul6499de_mongo-seeder registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:arm"
