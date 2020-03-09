@@ -14,14 +14,14 @@ build_frontend:
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVE: overlay2
+    IMAGE_NAME: registry.gitlab.com/sakul6499.de/website/frontend:x86
   before_script:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
     - sh make_docker_files.sh
-    - docker build -t sakul6499de_frontend -f frontend/Dockerfile.out frontend
-    - docker tag sakul6499de_frontend registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:x86
-    - docker push registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:x86
+    - docker build -t $IMAGE_NAME -f frontend/Dockerfile.out frontend
+    - docker push $IMAGE_NAME
   only:
     - branches
     - tags
@@ -42,14 +42,14 @@ build_backend:
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVE: overlay2
+    IMAGE_NAME: registry.gitlab.com/sakul6499.de/website/backend:x86
   before_script:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
     - sh make_docker_files.sh
-    - docker build -t sakul6499de_backend -f backend/Dockerfile.out backend
-    - docker tag sakul6499de_backend registry.gitlab.com/sakul6499.de/sakul6499.de/backend:x86
-    - docker push registry.gitlab.com/sakul6499.de/sakul6499.de/backend:x86
+    - docker build -t $IMAGE_NAME -f backend/Dockerfile.out backend
+    - docker push $IMAGE_NAME
   only:
     - branches
     - tags
@@ -70,14 +70,14 @@ build_mongo-seeder:
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVE: overlay2
+    IMAGE_NAME: registry.gitlab.com/sakul6499.de/website/mongo-seeder:x86
   before_script:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
     - sh make_docker_files.sh
-    - docker build -t sakul6499de_mongo-seeder -f mongo-seeder/Dockerfile.out mongo-seeder
-    - docker tag sakul6499de_mongo-seeder registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:x86
-    - docker push registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:x86
+    - docker build -t $IMAGE_NAME -f mongo-seeder/Dockerfile.out mongo-seeder
+    - docker push $IMAGE_NAME
   only:
     - branches
     - tags
@@ -93,6 +93,10 @@ build_mongo-seeder:
 build_remote:
   stage: build_remote
   image: ubuntu:latest
+  variables:
+    IMAGE_NAME_FRONTEND: registry.gitlab.com/sakul6499.de/website/frontend:arm
+    IMAGE_NAME_BACKEND: registry.gitlab.com/sakul6499.de/website/backend:arm
+    IMAGE_NAME_MONGO: registry.gitlab.com/sakul6499.de/website/mongo-seeder:arm
   before_script:
     - apt update && apt install -y ssh rsync
     - mkdir -p ~/.ssh
@@ -103,15 +107,12 @@ build_remote:
     - ssh deploy@raw.sakul6499.de "rm -rf website; mkdir -p website"
     - rsync -ravz -I -O --no-perms --no-owner --no-group --delete -e ssh * deploy@raw.sakul6499.de:/home/deploy/website/
     - ssh deploy@raw.sakul6499.de "cd website && bash make_docker_files.sh"
-    - ssh deploy@raw.sakul6499.de "cd website && docker build -t sakul6499de_frontend -f frontend/Dockerfile.out frontend"
-    - ssh deploy@raw.sakul6499.de "cd website && docker build -t sakul6499de_backend -f backend/Dockerfile.out backend"
-    - ssh deploy@raw.sakul6499.de "cd website && docker build -t sakul6499de_mongo-seeder -f mongo-seeder/Dockerfile.out mongo-seeder"
-    - ssh deploy@raw.sakul6499.de "cd website && docker tag sakul6499de_frontend registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:arm"
-    - ssh deploy@raw.sakul6499.de "cd website && docker tag sakul6499de_backend registry.gitlab.com/sakul6499.de/sakul6499.de/backend:arm"
-    - ssh deploy@raw.sakul6499.de "cd website && docker tag sakul6499de_mongo-seeder registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:arm"
-    - ssh deploy@raw.sakul6499.de "cd website && docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:arm"
-    - ssh deploy@raw.sakul6499.de "cd website && docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/backend:arm"
-    - ssh deploy@raw.sakul6499.de "cd website && docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY && docker push registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:arm"
+    - ssh deploy@raw.sakul6499.de "cd website && docker build -t $IMAGE_NAME_FRONTEND -f frontend/Dockerfile.out frontend"
+    - ssh deploy@raw.sakul6499.de "cd website && docker build -t $IMAGE_NAME_BACKEND -f backend/Dockerfile.out backend"
+    - ssh deploy@raw.sakul6499.de "cd website && docker build -t $IMAGE_NAME_MONGO -f mongo-seeder/Dockerfile.out mongo-seeder"
+    - ssh deploy@raw.sakul6499.de "cd website && docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY && docker push $IMAGE_NAME_FRONTEND"
+    - ssh deploy@raw.sakul6499.de "cd website && docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY && docker push $IMAGE_NAME_BACKEND"
+    - ssh deploy@raw.sakul6499.de "cd website && docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY && docker push $IMAGE_NAME_MONGO"
   only:
       - master
 
