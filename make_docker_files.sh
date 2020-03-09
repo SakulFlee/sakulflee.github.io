@@ -19,9 +19,9 @@ case "$(uname -m)" in
         MONGODB="mongo";
         JDK="openjdk:11";
         if [ $DEPLOY -eq 1 ]; then
-            FRONTEND="image: registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:x86";
-            BACKEND="image: registry.gitlab.com/sakul6499.de/sakul6499.de/backend:x86";
-            MONGO_SEEDER="image: registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:x86";
+            FRONTEND="image: registry.gitlab.com/sakul6499.de/website/frontend:x86";
+            BACKEND="image: registry.gitlab.com/sakul6499.de/website/backend:x86";
+            MONGO_SEEDER="image: registry.gitlab.com/sakul6499.de/website/mongo-seeder:x86";
         fi
         ;;
     "armv7l" ) 
@@ -29,9 +29,9 @@ case "$(uname -m)" in
         MONGODB="mangoraft/mongodb-arm";
         JDK="arm32v7/openjdk:11";
         if [ $DEPLOY -eq 1 ]; then
-            FRONTEND="image: registry.gitlab.com/sakul6499.de/sakul6499.de/frontend:arm";
-            BACKEND="image: registry.gitlab.com/sakul6499.de/sakul6499.de/backend:arm";
-            MONGO_SEEDER="image: registry.gitlab.com/sakul6499.de/sakul6499.de/mongo-seeder:arm";
+            FRONTEND="image: registry.gitlab.com/sakul6499.de/website/frontend:arm";
+            BACKEND="image: registry.gitlab.com/sakul6499.de/website/backend:arm";
+            MONGO_SEEDER="image: registry.gitlab.com/sakul6499.de/website/mongo-seeder:arm";
         fi
         ;;
     *) echo "! Unsupported architecture!"; exit -1;;
