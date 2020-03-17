@@ -1,18 +1,36 @@
-image: node:10.15.3
+stages:
+  - merge
+  - build
 
-cache:
-  paths:
-    - node_modules/
-
-before_script:
-  - yarn install
-  - yarn global add hexo-cli
-
-pages:
-  script:
-    - hexo generate
-  artifacts:
+build:
+  stage: build
+  image: node:10.15.3
+  cache:
     paths:
-      - public
+      - node_modules/
+  before_script:
+    - yarn install
+    - yarn global add hexo-cli
+  pages:
+    script:
+      - hexo generate
+    artifacts:
+      paths:
+        - public
+    only:
+      - master
+
+merge:
+  stage: merge
+  image: node:10.15.3
+  cache:
+    paths:
+      - node_modules/
+  before_script:
+    - yarn install
+    - yarn global add hexo-cli
+  script:
+    - yarn audit
+    - hexo generate
   only:
-    - master
+    - merge_requests
