@@ -1,7 +1,7 @@
 stages:
-  - merge
   - build
-
+  - merge
+  
 build:
   stage: build
   image: node:10.15.3
@@ -11,14 +11,13 @@ build:
   before_script:
     - yarn install
     - yarn global add hexo-cli
-  pages:
-    script:
-      - hexo generate
-    artifacts:
-      paths:
-        - public
-    only:
-      - master
+  script:
+    - hexo generate
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
 
 merge:
   stage: merge
@@ -32,5 +31,8 @@ merge:
   script:
     - yarn audit
     - hexo generate
+  artifacts:
+    paths:
+      - public
   only:
     - merge_requests
