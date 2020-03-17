@@ -1,0 +1,36 @@
+@charset "utf-8"
+@import "../../node_modules/bulma/bulma.sass"
+
+.hero
+    .hero-head 
+        .navbar-burger
+            color: white
+    .hero-body
+        .icon
+            &
+                padding-top: 16vh
+            &, + .icon
+                @media screen and (max-width: $desktop)
+                    padding-left: 8vw
+                    padding-right: 8vw
+                @media screen and (min-width: $desktop)
+                    padding-left: 4vw
+                    padding-right: 4vw
+            a
+                svg 
+                    width: 8vh
+                    height: 8vh
+                    color: white
+        #down-arrow
+            &
+                padding-top: 24vh
+                animation: bounce 5s infinite 5s
+            svg
+                width: 6vh
+                height: 6vh
+
+@keyframes bounce
+    0%, 10%, 100%
+        top: 0vh
+    5%
+        top: 4vh

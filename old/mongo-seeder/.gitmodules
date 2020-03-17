@@ -1,0 +1,3 @@
+[submodule "posts"]
+	path = posts
+	url = https://gitlab.com/sakul6499.de/posts.git

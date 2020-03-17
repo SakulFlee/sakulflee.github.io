@@ -1,0 +1,32 @@
+<section class="hero is-dark is-fullheight">
+  <div class="hero-head">
+    <%- partial('_partial/navbar') %>
+  </div>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div id="title-text">
+        <h1 class="title has-text-danger is-family-code">
+          Hello, world!
+        </h1>
+        <h2 class="has-text-white subtitle">
+          I am <%=config.author%>.
+        </h2>
+        <p class="has-text-white is-family-code">
+          <%=config.job_title%>
+        </p>
+      </div>
+
+      <ul>
+        <% for(var link in theme.profile){ %>
+          <li class="icon">
+            <%- partial('_svg/' + link) %>
+          </li>
+        <% } %>
+      </ul>
+
+      <div class="container" id="down-arrow">
+        <%- partial('_svg/down_arrow') %>
+        <p>Scroll down!</p>
+      </div>
+    </div>
+</section>

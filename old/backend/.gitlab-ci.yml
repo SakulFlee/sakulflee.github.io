@@ -1,0 +1,35 @@
+stages:
+  - build
+
+build:
+  stage: build
+  image: docker/compose
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVE: overlay2
+    MASTER_REGISTRY: registry.gitlab.com/sakul6499.de/sakul6499.de
+    MASTER_REGISTRY_IMAGE: $MASTER_REGISTRY/backend:x86
+  before_script:
+    - docker info
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker login -u me@sakul6499.de -p $MASTER_CI_JOB_TOKEN $MASTER_REGISTRY
+  script:
+    - sh make_docker_file.sh
+    - docker build -t sakul6499de_backend -f Dockerfile.out .
+    - docker tag sakul6499de_backend $MASTER_REGISTRY_IMAGE
+    - docker tag sakul6499de_backend $CI_REGISTRY_IMAGE
+    - docker push $MASTER_REGISTRY_IMAGE
+    - docker push $CI_REGISTRY_IMAGE
+  only:
+    - branches
+    - tags
+    - api
+    - external
+    - pipelines
+    - pushes
+    - schedule
+    - triggers
+    - web
+    - merge_requests

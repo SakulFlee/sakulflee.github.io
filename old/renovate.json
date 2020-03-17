@@ -1,0 +1,6 @@
+{
+  "extends": ["config:base"],
+  "automerge": true,
+  "assignAutomerge": true,
+  "assignees": ["@sakul6499"]
+}
