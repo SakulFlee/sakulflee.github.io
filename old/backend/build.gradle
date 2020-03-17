@@ -1,0 +1,32 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'de.sakul6499'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.mongodb:mongo-java-driver:3.12.1'
+
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.10'
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testCompile 'com.jayway.jsonpath:json-path'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+
+	compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.10.3'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.3'
+}
+
+test {
+	useJUnitPlatform()
+}
