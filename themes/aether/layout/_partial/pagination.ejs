@@ -1,0 +1,24 @@
+<%=/* Paginator */%>
+<%=/* Used to switch between pages of blog posts */%>
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    <a href="<%- config.root %><%- page.prev_link %>" class="pagination-link pagination-previous" aria-label="previous page" <%if (!page.prev) { %>disabled<% } %>>Previous page</a>
+    <a href="<%- config.root %><%- page.next_link %>" class="pagination-link pagination-next" aria-label="next page" <%if (!page.next){ %>disabled<% } %>>Next page</a>
+
+    <ul class="pagination-list">
+      <li>
+        <a href="/" class="pagination-link" aria-label="Goto page 1" <%if (page.current == 1) { %>disabled<% } %>>1</a>
+      </li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li>
+          <a href="/page/<%=page.current%>/" class="pagination-link is-current" aria-label="Page <%= page.current %>" aria-current="page"><%= page.current %></a>
+      </li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>  
+      <li>
+        <a href="/page/<%=page.total%>/" class="pagination-link" aria-label="Goto page <%= page.total %>" <%if (page.current == page.total) { %>disabled<% } %>><%=page.total%></a>
+      </li>
+    </ul>
+</nav>

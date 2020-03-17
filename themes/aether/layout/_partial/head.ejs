@@ -1,0 +1,48 @@
+<head>
+  <meta charset="utf-8">
+  <%
+  var title = page.title;
+
+  if (is_archive()){
+    title = __('archive_a');
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = __('category') + ': ' + page.category;
+  } else if (is_tag()){
+    title = __('tag') + ': ' + page.tag;
+  }
+  %>
+
+  <%# Title %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  
+  <%# Viewport %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <%# Styles %>
+  <%- css('sass/style') %>
+
+  <%# RSS %>
+  <% if (theme.rss){ %>
+    <link rel="alternate" href="<%= url_for(theme.rss) %>" title="<%= config.title %>" type="application/atom+xml">
+  <% } %>
+
+  <%# Favicon %>
+  <% if (theme.favicon){ %>
+    <link rel="icon" href="<%- theme.favicon %>">
+  <% } %>
+
+  <%# Fonts %>
+  <% if (config.highlight.enable){ %>
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <% } %>
+
+  <%# JavaScript %>
+  <%- partial('mod/analytics') %>
+  <%- js('js/bulma-menu') %>
+</head>

@@ -1,0 +1,9 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://gitlab.com/sakul6499.de/frontend.git
+[submodule "backend"]
+	path = backend
+	url = https://gitlab.com/sakul6499.de/backend.git
+[submodule "mongo-seeder"]
+	path = mongo-seeder
+	url = https://gitlab.com/sakul6499.de/mongo-seeder.git
