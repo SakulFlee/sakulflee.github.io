@@ -1,0 +1,38 @@
+<%=/* Main Page */%>
+<%=/* A list of posts should be displayed here to further navigate */%>
+<%=/* (Idea: A sort of archive-page/component could be used here AND in the archive */%>
+
+<% page.posts.each(function(item){ %>
+    <%- partial('_partial/article-excerpt', {item: item}) %>
+<% }); %>
+<%- partial('_partial/pagination') %>
+
+<!-- Previous content: -->
+
+<!-- <div class='row text-center'>
+    <h1><%= config.author %></h1>
+       <p><%= config.subtitle %></p>
+   
+   </div>
+   <div class='row'>
+    <ul>
+    <% page.posts.each(function(post){ %>
+        <li>
+         <h3>
+                   <a href="<%- url_for(post.path) %>">
+              <%= post.title %>
+             </a>
+               </h3>
+               <div class='text-muted'>
+                   <%= date(post.date, config.date_format) %> 
+               </div>
+               
+               <% if(post.excerpt) { %>
+                   <p>
+                       <%- post.excerpt %>
+                   </p>
+               <% } %>
+        </li>
+      <% }) %>
+    </ul>
+   </div> -->
