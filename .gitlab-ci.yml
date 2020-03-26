@@ -2,7 +2,7 @@ stages:
   - build
   - merge
   
-build:
+pages:
   stage: build
   image: node:10.15.3
   cache:
