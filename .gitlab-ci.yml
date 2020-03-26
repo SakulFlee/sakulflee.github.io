@@ -9,9 +9,12 @@ pages:
     paths:
       - node_modules/
   before_script:
-    - yarn install
     - yarn global add hexo-cli
   script:
+    - cd themes/aether
+    - yarn install
+    - cd ../..
+    - yarn install
     - hexo generate
   artifacts:
     paths:
