@@ -1,5 +1,10 @@
 <!-- Disqus Comments -->
-<% if (theme.disqus_shortname){ %>
+<%=/* Disqus */%>
+<%=/* Disqus integration script to use disqus. */%>
+<%=/* Does not include the thread/comment section! Check `disqus_comment.ejs`. */%>
+<%=/* Only includes if 'page.comments' is set. */%>
+
+<% if (page.comments && theme.disqus_shortname){ %>
     <script type="text/javascript">
         var disqus_shortname = '<%= theme.disqus_shortname %>';
         (function(){
