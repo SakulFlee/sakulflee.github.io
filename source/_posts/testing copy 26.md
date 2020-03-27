@@ -1,4 +1,4 @@
 ---
-title: Testing
+title: This is a test.
 ---
 This is just a test.

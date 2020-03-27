@@ -1,18 +1,16 @@
 <%=/* Article excerpt */%>
 <%=/* Creates a little overview over a post. */%>
 
-<a href="<%- config.root %><%- item.path %>"></a>
-    <article class="message">
-        <div class="message-header">
-            <%- item.title %>
-        </div>
-        <p>
-            <%- item.excerpt || item.content %>
-        </p>
-        <p>
-            <a href="<%- config.root %><%- item.path %>">
-                <%= theme.excerpt_link %>
-            </a>
-        </p>
-    </article>
-</a>
+<article class="message">
+    <div class="message-header">
+        <a href="<%- config.root %><%- item.path %>">
+            <%= item.title %>
+        </a>
+        <span>
+            <%- list_categories(item.categories, {style: 'category-list', show_count: false, separator: ' ', depth: 0}) %>
+        </span>
+    </div>
+    <%- item.excerpt || item.content %>
+    <br/>
+    <div>Posted on: <%- date(item.date) %> | Updated on: <%- date(item.updated) %> | <a href="<%- config.root %><%- item.path %>" class="excerpt_link"><%= theme.excerpt_link %></a></div>
+</article>
