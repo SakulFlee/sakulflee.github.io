@@ -26,7 +26,7 @@ archive_type: 'monthly'
 show_count: false
 
 # Favicon
-favicon: /favicon.png
+favicon: /favicon.ico
 
 # SASS to CSS compilation
 node_sass:
