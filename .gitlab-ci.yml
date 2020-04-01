@@ -32,7 +32,7 @@ merge:
     - yarn install
     - yarn global add hexo-cli
   script:
-    - yarn audit
+    - yarn audit || true
     - hexo generate
   artifacts:
     paths:
