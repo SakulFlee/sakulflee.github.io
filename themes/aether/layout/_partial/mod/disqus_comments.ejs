@@ -1,7 +1,7 @@
 <%=/* Disqus comment integration */%>
 <%=/* Integrates the disqus comment thread/section on a page that has 'page.comments' enabled. */%>
 
-<% if(page.comments && theme.disqus_shortname){ %>
+<% if(is_post() && page.comments && theme.disqus_shortname) { %>
     <div>
         <h3>Comments:</h3>
         <div id="disqus_thread">

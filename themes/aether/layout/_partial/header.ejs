@@ -1,6 +1,7 @@
 <%=/* Header */%>
 <%=/* Includes the navbar and creates a full-height box as a greeting. */%>
 
+<% if(is_home()) { %>
 <section class="hero is-dark is-fullheight">
   <div class="hero-head">
     <%- partial('_partial/navbar') %>
@@ -33,3 +34,10 @@
       </div>
     </div>
 </section>
+<% } else { %>
+  <section class="hero is-dark">
+    <div class="hero-head">
+      <%- partial('_partial/navbar') %>
+    </div>
+  </section>
+<% } %>
