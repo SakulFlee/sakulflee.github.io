@@ -1,6 +1,8 @@
 @charset "utf-8"
 @import "../../node_modules/bulma/bulma.sass"
 
+$page-margin: 32px
+
 .hero
     .hero-head 
         .navbar-burger
@@ -64,3 +66,16 @@
 .heart
     color: red
     font-size: 2.5vw
+
+#blog-post
+    .blog-tags-container,
+    .blog-categories-container
+        a
+            color: whitesmoke
+    #content
+        margin-left: $page-margin
+        margin-right: $page-margin
+
+#disqus_thread
+    margin-left: $page-margin
+    margin-right: $page-margin
