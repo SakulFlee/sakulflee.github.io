@@ -1,23 +1,27 @@
-<div class="blog-post">
-    <!-- Title -->
-    <h2 class="blog-post-title">
-        <a href="<%- config.root %><%- item.path %>">
-            <%- item.title || item.link%>
-        </a>
-    </h2>
-    <!-- Date and Author -->
-    <p class="blog-post-meta">
-        <%= item.date.format(config.date_format) %>
-        <% if(item.author) { %>
-            by <%- item.author %>
-        <% } %>
-    </p>
-    <!-- Content -->
-    <%- item.content %>
-    <hr />
-    <!-- Tags and Categories links -->
-    <%- partial('article-tags', {item: item}) %>
-    <%- partial('article-categories', {item: item}) %>
+<%=/* Article Full */%> 
+<%=/* Shown when a post is clicked on. */%> 
+<%=/* Shows the full post. */%>
 
-    <%- partial('mod/disqus_comments') %>
+<div id="blog-post">
+  <section class="hero is-info is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          <%- item.title || item.link%>
+        </h1>
+        <h2 class="subtitle">
+          <%= item.date.format(config.date_format) %>
+        </h2>
+
+        <%- partial('article-categories', {item: item}) %> <%-
+        partial('article-tags', {item: item}) %>
+      </div>
+    </div>
+  </section>
+
+  <div id="content">
+    <%- item.content %>
+  </div>
+
+  <%- partial('mod/disqus_comments') %>
 </div>
