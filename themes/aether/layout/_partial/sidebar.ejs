@@ -1,7 +1,5 @@
 <%=/* Sidebar */%>
 
-<% for(var widget in theme.widgets){ %>
-    <%- partial('widget/' + widget) %>
-
-    <%- tagcloud() %>
-<% }; %>
+<%- partial('widget/about') %>
+<hr/>
+<%- partial('widget/tags') %>
