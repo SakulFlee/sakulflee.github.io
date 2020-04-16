@@ -1,0 +1,28 @@
+<%# About-Me page %>
+
+<section class="columns has-text-centered" id="AboutMe">
+  <article class="column">
+    <div>
+      <u class="is-half is-family-code has-text-underlined">
+        About me
+      </u>
+      <p>
+        Hello there! My name is Lukas Weber and I am <%= new
+        Date().getFullYear() - new Date("1999-04-06").getFullYear() %> years
+        old. Currently, I live in Germany, but I am studying
+        <i>Software Engineering</i> in the Netherlands. I am interested in a lot
+        of topics, mainly IT related, which is also why I taught myself a lot of
+        skills already and am continually learning new things!
+      </p>
+      <br />
+      <p>I am currently also in need of an internship.</p>
+      <p>
+        Interested? Contact me via <a href="mailto:me@sakul6499.de">Email</a>,
+        <a href="https://t.me/sakul6499">Telegram</a> or
+        <a href="https://keybase.io/sakul6499">KeyBase</a>.
+      </p>
+    </div>
+    <%- partial('_partial/timeline.ejs') %>
+  </article>
+  <%- partial('_partial/skills.ejs') %>
+</section>
