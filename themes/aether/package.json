@@ -12,6 +12,6 @@
     "node-sass": "4.13.1"
   },
   "dependencies": {
-    "bulma-tooltip": "^3.0.2"
+    "bulma-tooltip": "3.0.2"
   }
 }
