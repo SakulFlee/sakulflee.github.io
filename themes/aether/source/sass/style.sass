@@ -1,5 +1,6 @@
 @charset "utf-8"
 @import "../../node_modules/bulma/bulma.sass"
+@import "../../node_modules/bulma-tooltip/src/sass/index.sass"
 
 $page-margin: 32px
 $footer-spacing: 4%
@@ -100,3 +101,46 @@ $footer-spacing: 4%
 #disqus_thread
     margin-left: $page-margin
     margin-right: $page-margin
+
+#AboutMe 
+  padding: 16px
+  @media screen and (min-width: $tablet) 
+    margin-top: 16px
+  article 
+    a 
+      color: magenta
+      text-decoration: underline
+    @media screen and (max-width: $tablet) 
+      margin-bottom: 32px
+      border-bottom: solid black
+    @media screen and (min-width: $tablet) 
+      border-right: solid black
+
+#timeline 
+  width: 100%
+  padding-top: 16px
+  .entry 
+    width: 100%
+    display: inline-block
+    .date 
+      width: 25%
+      display: inline-block
+    .texts 
+      width: 75%
+      display: inline-block
+      border-left: solid magenta 4px
+      div 
+        @media screen and (max-width: $tablet) 
+          font-size: 0.8rem
+        @media screen and (min-width: $tablet) 
+          font-size: 1.25rem
+  .dotted 
+    width: 75%
+    margin-left: 25%
+    height: 32px
+    border-left: dotted magenta 4px
+  .spacing 
+    width: 75%
+    margin-left: 25%
+    padding-top: 16px
+    border-left: solid magenta 4px
