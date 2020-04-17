@@ -5,13 +5,6 @@ menu:
 
 # Content
 excerpt_link: Read More
-fancybox: true
-
-# Sidebar
-widgets:
-  about: This blog is a test ... BLA
-  tags: true
-  search: true
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:
