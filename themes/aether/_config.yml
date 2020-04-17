@@ -1,28 +1,16 @@
-# Header
+# Links in NavBar
 menu:
   Home: /
   About: /about
-rss: /atom.xml
 
 # Content
 excerpt_link: Read More
-fancybox: true
 
-# Sidebar
+# Enabled widgets
 widgets:
-  about: This blog is a test ... BLA
+  about: true
   tags: true
   search: true
-
-# display widgets at the bottom of index pages (pagination == 2)
-index_widgets:
-# - category
-# - tagcloud
-# - archive
-
-# widget behavior
-archive_type: 'monthly'
-show_count: false
 
 # Favicon
 favicon: /favicon.ico
@@ -39,12 +27,7 @@ disqus_shortname: sakul6499
 # Google Analytics
 google_analytics: UA-160626331-1
 
-# Search
-search:
-  path: search.xml
-  field: post
-  content: true
-
+# Profile links
 profile:
   gitlab: https://gitlab.com/Sakul6499
   github: https://github.com/Sakul6499
