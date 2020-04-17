@@ -1,8 +1,7 @@
-# Header
+# Links in NavBar
 menu:
   Home: /
   About: /about
-rss: /atom.xml
 
 # Content
 excerpt_link: Read More
