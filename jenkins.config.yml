@@ -6,7 +6,7 @@
 - script: >
     pipelineJob('sakul6499/website') {
         triggers {
-            scm('*/15 * * * *')
+            scm('*/5 * * * *')
         }
         definition {
             cpsScm {
