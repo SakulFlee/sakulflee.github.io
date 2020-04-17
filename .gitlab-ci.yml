@@ -1,6 +1,7 @@
 stages:
   - build
   - merge
+  - trigger
   
 pages:
   stage: build
@@ -39,3 +40,10 @@ merge:
       - public
   only:
     - merge_requests
+
+trigger_config:
+  stage: trigger
+  only:
+    - jenkins.config.yml
+    - Jenkinsfile
+  trigger: sakul6499.de/jenkins-configuration
