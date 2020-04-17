@@ -6,41 +6,57 @@ pipeline {
         timeout(time: 1, unit: 'HOURS') 
     }
     stages {
-        stage('NodeJS Latest') {
-            agent {
-                docker { image 'node:latest' }
+        try {
+            stage('NodeJS Latest') {
+                agent {
+                    docker { image 'node:latest' }
+                }
+                steps {
+                    sh 'node --version'
+                    sh 'uname -a'
+                }
             }
-            steps {
-                sh 'node --version'
-                sh 'uname -a'
-            }
+        } catch (Exception e) {
+            echo "Stage failed; others may continue."  
         }
-        stage('NodeJS Current') {
-            agent {
-                docker { image 'node:current' }
+        try {
+            stage('NodeJS Current') {
+                agent {
+                    docker { image 'node:current' }
+                }
+                steps {
+                    sh 'node --version'
+                    sh 'uname -a'
+                }
             }
-            steps {
-                sh 'node --version'
-                sh 'uname -a'
-            }
+        } catch (Exception e) {
+            echo "Stage failed; others may continue."  
         }
-        stage('NodeJS LTS') {
-            agent {
-                docker { image 'node:lts' }
+        try {
+            stage('NodeJS LTS') {
+                agent {
+                    docker { image 'node:lts' }
+                }
+                steps {
+                    sh 'node --version'
+                    sh 'uname -a'
+                }
             }
-            steps {
-                sh 'node --version'
-                sh 'uname -a'
-            }
+        } catch (Exception e) {
+            echo "Stage failed; others may continue."  
         }
-        stage('NodeJS LTS Alpine') {
-            agent {
-                docker { image 'node:lts-alpine' }
+        try {
+            stage('NodeJS LTS Alpine') {
+                agent {
+                    docker { image 'node:lts-alpine' }
+                }
+                steps {
+                    sh 'node --version'
+                    sh 'uname -a'
+                }
             }
-            steps {
-                sh 'node --version'
-                sh 'uname -a'
-            }
+        } catch (Exception e) {
+            echo "Stage failed; others may continue."  
         }
     }
 }
