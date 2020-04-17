@@ -1,0 +1,22 @@
+- script: >
+    folder('sakul6499') {
+        displayName('Sakul6499`s Projects')
+        description('Folder for Sakul6499`s Projects')
+    }
+- script: >
+    pipelineJob('sakul6499/website') {
+        triggers {
+            pollSCM('*/15 * * * *')
+        }
+        definition {
+            cpsScm {
+                scm {
+                    git {
+                        remote {
+                            url 'https://gitlab.com/sakul6499.de/website.git'
+                        }
+                    }
+                }
+            }
+        }
+    }
