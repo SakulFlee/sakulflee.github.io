@@ -6,57 +6,49 @@ pipeline {
         timeout(time: 1, unit: 'HOURS') 
     }
     stages {
-        try {
-            stage('NodeJS Latest') {
-                agent {
-                    docker { image 'node:latest' }
-                }
-                steps {
+        stage('NodeJS Latest') {
+            agent {
+                docker { image 'node:latest' }
+            }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh 'node --version'
                     sh 'uname -a'
                 }
             }
-        } catch (Exception e) {
-            echo "Stage failed; others may continue."  
         }
-        try {
-            stage('NodeJS Current') {
-                agent {
-                    docker { image 'node:current' }
-                }
-                steps {
+        stage('NodeJS Current') {
+            agent {
+                docker { image 'node:current' }
+            }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh 'node --version'
                     sh 'uname -a'
                 }
             }
-        } catch (Exception e) {
-            echo "Stage failed; others may continue."  
         }
-        try {
-            stage('NodeJS LTS') {
-                agent {
-                    docker { image 'node:lts' }
-                }
-                steps {
+        stage('NodeJS LTS') {
+            agent {
+                docker { image 'node:lts' }
+            }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh 'node --version'
                     sh 'uname -a'
                 }
             }
-        } catch (Exception e) {
-            echo "Stage failed; others may continue."  
         }
-        try {
-            stage('NodeJS LTS Alpine') {
-                agent {
-                    docker { image 'node:lts-alpine' }
-                }
-                steps {
+        stage('NodeJS LTS Alpine') {
+            agent {
+                docker { image 'node:lts-alpine' }
+            }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh 'node --version'
                     sh 'uname -a'
                 }
             }
-        } catch (Exception e) {
-            echo "Stage failed; others may continue."  
         }
     }
 }
