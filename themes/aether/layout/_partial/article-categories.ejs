@@ -1,13 +1,15 @@
+<%=/* Article - Categories */%>
+<%=/* Renders categories on pages where categories are included. */%>
 
 <% if (item.categories && item.categories.length){ %>
-    <%
+<%
         var categories = [];
         item.categories.forEach(function(category){
             categories.push('<a href="' + config.root + category.path + '">' + category.name + '</a>');
         });
     %>
-    <div class="blog-categories-container">
-        <span class="glyphicon glyphicon-folder-open"></span>
-        <%- categories.join(' / ') %>
-    </div>
-    <% } %>
+<div class="blog-categories-container">
+    <span class="glyphicon glyphicon-folder-open"></span>
+    <%- categories.join(' / ') %>
+</div>
+<% } %>
