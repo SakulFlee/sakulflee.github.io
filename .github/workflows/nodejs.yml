@@ -1,0 +1,31 @@
+name: Hexo build CI
+
+on:
+  push:
+    branches: [  ]
+  pull_request:
+    branches: [  ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: NPM install theme
+      run: npm install
+      working-directory: ./themes/aether/
+    - name: NPM install root
+      run: npm install
+      working-directory: ./
+    - run: npm run build
+      env:
+        CI: true
