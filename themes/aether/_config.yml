@@ -6,6 +6,12 @@ menu:
 # Content
 excerpt_link: Read More
 
+# Enabled widgets
+widgets:
+  about: true
+  tags: true
+  search: true
+
 # Favicon
 favicon: /favicon.ico
 
