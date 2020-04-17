@@ -44,6 +44,7 @@ merge:
 trigger_config:
   stage: trigger
   only:
-    - jenkins.config.yml
-    - Jenkinsfile
+    changes:
+      - jenkins.config.yml
+      - Jenkinsfile
   trigger: sakul6499.de/jenkins-configuration
