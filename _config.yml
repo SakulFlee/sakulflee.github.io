@@ -3,24 +3,25 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "@Sakul6499 | Lukas Weber"
+title: '@Sakul6499 | Lukas Weber'
 subtitle: 'Website and Blog'
 description: 'Blog and website of myself. Interesting findings and notes.'
 keywords: blog, website, portfolio, sakul6499, it, technology, computer, science, programming, coding
-author: "@Sakul6499 | Lukas Weber"
+author: '@Sakul6499 | Lukas Weber'
 language: en
 timezone: 'Europe/Berlin'
-job_title: "Software Engineer Student"
+job_title: 'Software Engineer Student'
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://sakul6499.de
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: false # Set to false to remove trailing '.html' from permalinks
+  # Set to false to remove trailing 'index.html' from permalinks
+  trailing_index: false
+  # Set to false to remove trailing '.html' from permalinks 
+  trailing_html: false 
 
 # Directory
 source_dir: source
@@ -100,9 +101,3 @@ theme: aether
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: ''
-
-# Search
-search:
-  path: search.xml
-  field: post
-  content: true
