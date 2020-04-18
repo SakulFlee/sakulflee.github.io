@@ -8,7 +8,10 @@ pipeline {
     stages {
         stage('NodeJS Latest') {
             agent {
-                docker { image 'node:latest' }
+                docker { 
+                    label 'docker'
+                    image 'node:latest' 
+                }
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -19,7 +22,10 @@ pipeline {
         }
         stage('NodeJS Current') {
             agent {
-                docker { image 'node:current' }
+                docker { 
+                    label 'docker'
+                    image 'node:current' 
+                }
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -30,7 +36,10 @@ pipeline {
         }
         stage('NodeJS LTS') {
             agent {
-                docker { image 'node:lts' }
+                docker { 
+                    label 'docker'
+                    image 'node:lts' 
+                }
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -41,7 +50,10 @@ pipeline {
         }
         stage('NodeJS LTS Alpine') {
             agent {
-                docker { image 'node:lts-alpine' }
+                docker { 
+                    label 'docker'
+                    image 'node:lts-alpine' 
+                }
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
