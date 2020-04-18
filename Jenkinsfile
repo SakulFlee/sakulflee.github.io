@@ -20,10 +20,10 @@ pipeline {
                         uname -a
                         
                         cd themes/aether/
-                        npm install
+                        npm ci
                         
                         cd ../../
-                        npm install
+                        npm ci
                     
                         npm run build
                     '''
@@ -44,10 +44,10 @@ pipeline {
                         uname -a
                         
                         cd themes/aether/
-                        npm install
+                        npm ci
                         
                         cd ../../
-                        npm install
+                        npm ci
                     
                         npm run build
                     '''
@@ -68,10 +68,10 @@ pipeline {
                         uname -a
                         
                         cd themes/aether/
-                        npm install
+                        npm ci
                         
                         cd ../../
-                        npm install
+                        npm ci
                     
                         npm run build
                     '''
@@ -92,10 +92,10 @@ pipeline {
                         uname -a
                         
                         cd themes/aether/
-                        npm install
+                        npm ci
                         
                         cd ../../
-                        npm install
+                        npm ci
                     
                         npm run build
                     '''
