@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('NodeJS Latest') {
             agent {
+                label 'docker'
                 docker { image 'node:latest' }
             }
             steps {
@@ -19,6 +20,7 @@ pipeline {
         }
         stage('NodeJS Current') {
             agent {
+                label 'docker'
                 docker { image 'node:current' }
             }
             steps {
@@ -30,6 +32,7 @@ pipeline {
         }
         stage('NodeJS LTS') {
             agent {
+                label 'docker'
                 docker { image 'node:lts' }
             }
             steps {
@@ -41,6 +44,7 @@ pipeline {
         }
         stage('NodeJS LTS Alpine') {
             agent {
+                label 'docker'
                 docker { image 'node:lts-alpine' }
             }
             steps {
