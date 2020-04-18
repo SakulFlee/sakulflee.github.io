@@ -15,16 +15,18 @@ pipeline {
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh 'node --version'
-                    sh 'uname -a'
+                    sh '''
+                        node --version'
+                        uname -a
+                        
+                        cd themes/aether/
+                        npm install
+                        
+                        cd ../../
+                        npm install
                     
-                    sh 'cd themes/aether/'
-                    sh 'npm install'
-                    
-                    sh 'cd ../../'
-                    sh 'npm install'
-                    
-                    sh 'npm run build'
+                        npm run build
+                    '''
                 }
             }
         }
@@ -37,16 +39,18 @@ pipeline {
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh 'node --version'
-                    sh 'uname -a'
+                    sh '''
+                        node --version'
+                        uname -a
+                        
+                        cd themes/aether/
+                        npm install
+                        
+                        cd ../../
+                        npm install
                     
-                    sh 'cd themes/aether/'
-                    sh 'npm install'
-                    
-                    sh 'cd ../../'
-                    sh 'npm install'
-                    
-                    sh 'npm run build'
+                        npm run build
+                    '''
                 }
             }
         }
@@ -59,16 +63,18 @@ pipeline {
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh 'node --version'
-                    sh 'uname -a'
+                    sh '''
+                        node --version'
+                        uname -a
+                        
+                        cd themes/aether/
+                        npm install
+                        
+                        cd ../../
+                        npm install
                     
-                    sh 'cd themes/aether/'
-                    sh 'npm install'
-                    
-                    sh 'cd ../../'
-                    sh 'npm install'
-                    
-                    sh 'npm run build'
+                        npm run build
+                    '''
                 }
             }
         }
@@ -81,16 +87,18 @@ pipeline {
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh 'node --version'
-                    sh 'uname -a'
+                    sh '''
+                        node --version'
+                        uname -a
+                        
+                        cd themes/aether/
+                        npm install
+                        
+                        cd ../../
+                        npm install
                     
-                    sh 'cd themes/aether/'
-                    sh 'npm install'
-                    
-                    sh 'cd ../../'
-                    sh 'npm install'
-                    
-                    sh 'npm run build'
+                        npm run build
+                    '''
                 }
             }
         }
