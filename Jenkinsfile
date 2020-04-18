@@ -15,8 +15,17 @@ pipeline {
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    # Check versions
                     sh 'node --version'
                     sh 'uname -a'
+                    # NPM Install theme
+                    sh 'cd themes/aether/'
+                    sh 'npm install'
+                    # NPM Install root
+                    sh 'cd ../../'
+                    sh 'npm install'
+                    # Hexo Build
+                    sh 'npm run build'
                 }
             }
         }
@@ -29,8 +38,17 @@ pipeline {
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    # Check versions
                     sh 'node --version'
                     sh 'uname -a'
+                    # NPM Install theme
+                    sh 'cd themes/aether/'
+                    sh 'npm install'
+                    # NPM Install root
+                    sh 'cd ../../'
+                    sh 'npm install'
+                    # Hexo Build
+                    sh 'npm run build'
                 }
             }
         }
@@ -43,8 +61,17 @@ pipeline {
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    # Check versions
                     sh 'node --version'
                     sh 'uname -a'
+                    # NPM Install theme
+                    sh 'cd themes/aether/'
+                    sh 'npm install'
+                    # NPM Install root
+                    sh 'cd ../../'
+                    sh 'npm install'
+                    # Hexo Build
+                    sh 'npm run build'
                 }
             }
         }
@@ -57,8 +84,17 @@ pipeline {
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    # Check versions
                     sh 'node --version'
                     sh 'uname -a'
+                    # NPM Install theme
+                    sh 'cd themes/aether/'
+                    sh 'npm install'
+                    # NPM Install root
+                    sh 'cd ../../'
+                    sh 'npm install'
+                    # Hexo Build
+                    sh 'npm run build'
                 }
             }
         }
