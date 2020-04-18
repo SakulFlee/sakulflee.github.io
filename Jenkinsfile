@@ -16,7 +16,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh '''
-                        node --version'
+                        node --version
                         uname -a
                         
                         cd themes/aether/
@@ -40,7 +40,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh '''
-                        node --version'
+                        node --version
                         uname -a
                         
                         cd themes/aether/
@@ -64,7 +64,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh '''
-                        node --version'
+                        node --version
                         uname -a
                         
                         cd themes/aether/
@@ -88,7 +88,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh '''
-                        node --version'
+                        node --version
                         uname -a
                         
                         cd themes/aether/
