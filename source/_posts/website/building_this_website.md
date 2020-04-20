@@ -2,7 +2,8 @@
 title: Building this website
 comments: true
 categories:
-  - website
+  - [website]
+  - hexo
 tags:
   - hexo
   - blog
@@ -67,7 +68,8 @@ It should already be clear that the project is split into two:
 First of all, the root project which holds the content of the website/blog, second the theme that defines the look-and-feel.  
 
 But there is more to the project structure!  
-| Folder | Description | 
+
+| Folder | Description |
 | ------ | ----------- |
 | /public/ | The generated website goes here when running `hexo generate`. This folders content is to be deployed, nothing else. |
 | /scaffolds/ | Scaffolds are like templates for different layouts. By default there is a `page`, `draft` and `post`. `Page` is for non-post pages like the index-page. `Draft` is for post-drafts that are not yet published. `Post` is like drafts, but published. You can define more layouts here if wanted, although we generally don't need to. |
@@ -113,6 +115,78 @@ In case your generated website doesn't look like it should try running it and fo
 > Generate the files (`hexo generate`) and serve the `public/` directory with a webserver of your choice.
 
 All commands can be found [here](https://hexo.io/docs/commands).
+
+### Hexo posts
+
+One last important must-known fact about [hexo]:  
+Most of [hexo] is written in Markdown.
+Each page is following at least the default scaffolding layout.  
+Especially blog posts and drafts use markdown for the content.
+
+Each markdown file has something called a `frontmatter`.  
+It is started at the beginning of a markdown file with three dashes (`---`) and later ended with the same.
+Within these dashes various variables can be set.  
+For example this post uses:
+
+```markdown
+---
+title: Building this website
+comments: true
+categories:
+  - [website]
+  - hexo
+tags:
+  - hexo
+  - blog
+date: 2020-04-19 17:26:16
+updated: 2020-04-19 17:26:16
+---
+```
+
+| field name | type | description |
+| ---------- | ---- | ----------- |
+| title      | string | Title/Name of this page |
+| categories | array | Categories this page (post) belongs to. Put `[]` around it to make it a **major** category, every category below that, without `[]`, will be a **minor** category of the **major** category. |
+| tags | array | Tags this page (post) belongs to. |
+| date | date+time | When this page was created |
+| updated | date+time | When this page was last updated |
+
+> Note: `comments` is a variable defined by me to indicate that a page should use/include the disqus frame at the bottom.
+
+It's important to note here that non of these should be required at all, but the theme you are using (or developing) is using those and might require it to make your page look the way it should be.
+
+---
+
+Another nice feature are excerpts.  
+[Hexo] will look for `<!-- more -->` in your markdown file.
+If found, only the content above the tag is used for excerpts.
+These excerpts are, for example, displayed when showing a preview of a post.
+
+A full markdown example (this post):
+
+```markdown
+---
+title: Building this website
+comments: true
+categories:
+  - [website]
+  - hexo
+tags:
+  - hexo
+  - blog
+date: 2020-04-19 17:26:16
+updated: 2020-04-19 17:26:16
+---
+This post goes above the details of building this website.  
+Furthermore, it discusses how [hexo] is working.
+
+<!-- more -->
+
+## Welcome
+
+... go on here ...
+```
+
 
 [hexo]: https://hexo.io/
 [#hexo-tag]: /tags/hexo/
