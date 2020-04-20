@@ -94,9 +94,12 @@ $footer-spacing: 4%
         a
             color: whitesmoke
     #content
+        @extend .content
         margin-top: $page-margin
         margin-left: $page-margin
         margin-right: $page-margin
+        .gutter
+            width: 5%
 
 #disqus_thread
     margin-left: $page-margin
