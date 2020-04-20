@@ -1,0 +1,3 @@
+[submodule ".\\redirects\\GitLab"]
+	path = .\\redirects\\GitLab
+	url = https://gitlab.com/Sakul6499/sakul6499.gitlab.io.git
