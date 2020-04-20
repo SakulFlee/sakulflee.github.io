@@ -10,6 +10,9 @@ My website can be found at [sakul6499.de](https://sakul6499.de/)
  - [NodeJS](https://nodejs.org/)
  - [GitLab + GitLab-CI](https://gitlab.com/)
  - [Netlify](https://www.netlify.com/)
+ - [Azure DevOps](https://azure.microsoft.com/de-de/services/devops/)
+ - [GitHub Actions](https://github.com/features/actions)
+ - [Jenkins](https://jenkins.io/)
 
 ## Pipeline status
 
