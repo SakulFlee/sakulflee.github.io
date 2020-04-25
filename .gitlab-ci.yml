@@ -29,13 +29,13 @@ merge:
     paths:
       - node_modules/
   before_script:
-    - yarn install
     - yarn global add hexo-cli
   script:
-    - yarn audit || true
+    - cd themes/aether
+    - yarn install
+    - cd ../..
+    - yarn install
     - hexo generate
   artifacts:
     paths:
       - public
-  only:
-    - merge_requests
