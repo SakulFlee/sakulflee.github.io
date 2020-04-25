@@ -1,11 +1,9 @@
 stages:
   - build
-  - merge
-  - trigger
   
 pages:
   stage: build
-  image: node:10.15.3
+  image: node:latest
   cache:
     paths:
       - node_modules/
@@ -24,27 +22,18 @@ pages:
     - master
 
 merge:
-  stage: merge
-  image: node:10.15.3
+  stage: build
+  image: node:latest
   cache:
     paths:
       - node_modules/
   before_script:
-    - yarn install
     - yarn global add hexo-cli
   script:
-    - yarn audit || true
+    - cd themes/aether
+    - yarn install
+    - cd ../..
+    - yarn install
     - hexo generate
-  artifacts:
-    paths:
-      - public
   only:
     - merge_requests
-
-trigger_config:
-  stage: trigger
-  only:
-    changes:
-      - jenkins.config.yml
-      - Jenkinsfile
-  trigger: sakul6499.de/jenkins-configuration
