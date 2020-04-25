@@ -35,3 +35,5 @@ merge:
     - cd ../..
     - yarn install
     - hexo generate
+  only:
+    - merge_requests
