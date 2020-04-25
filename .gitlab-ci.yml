@@ -1,6 +1,5 @@
 stages:
   - build
-  - merge
   
 pages:
   stage: build
@@ -23,7 +22,7 @@ pages:
     - master
 
 merge:
-  stage: merge
+  stage: build
   image: node:latest
   cache:
     paths:
