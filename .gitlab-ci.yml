@@ -1,7 +1,6 @@
 stages:
   - build
   - merge
-  - trigger
   
 pages:
   stage: build
