@@ -35,6 +35,3 @@ merge:
     - cd ../..
     - yarn install
     - hexo generate
-  artifacts:
-    paths:
-      - public
