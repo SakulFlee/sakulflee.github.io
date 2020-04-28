@@ -3,15 +3,73 @@
 This is the source code of my (@sakul6499) website.  
 My website can be found at [sakul6499.de](https://sakul6499.de/)
 
+## Building
+
+Building this repository is slightly more complicated than just running `npm install` and `npm run build`.  
+The reason for this is the theme, which also needs to build.  
+Thus, to build this repository you need to:  
+
+1. Run `npm install` in `themes/aether/`
+2. Run `npm run build` in `themes/aether/`
+3. Run `npm install` in `./`
+4. Run `npm run build` in `./`
+
+Optionally, `hexo generate` and `hexo server` can be used to building and serving this website.
+
+> `hexo server` should only used for testing and staging, but never for production!
+
+Full script:  
+
+``` bash
+# Build theme
+cd themes/aether/
+npm install
+npm run build
+
+# Build website
+cd ../../
+npm install
+npm run build
+
+# Optional
+hexo generate
+hexo server
+```  
+
+Alternatively, `yarn` can be used to simplify the process a little:  
+
+1. Run `yarn install` in `themes/aether/`
+2. Run `yarn build` in `themes/aether/`
+3. Run `yarn install` in `./`
+4. Run `yarn build` in `./`
+
+Full script:  
+
+``` bash
+# Build theme
+cd themes/aether/
+yarn install
+yarn build
+
+# Build website
+cd ../../
+yarn install
+yarn build
+
+# Optional
+hexo generate
+hexo server
+```  
+
 ## Technologies used
 
- - [Hexo](https://hexo.io/)
- - [Bulma](https://bulma.io/)
- - [NodeJS](https://nodejs.org/)
- - [GitLab + GitLab-CI](https://gitlab.com/)
- - [Azure DevOps](https://azure.microsoft.com/de-de/services/devops/)
- - [GitHub Actions](https://github.com/features/actions)
- - [Jenkins](https://jenkins.io/)
+- [Hexo](https://hexo.io/)
+- [Bulma](https://bulma.io/)
+- [NodeJS](https://nodejs.org/)
+- [GitLab + GitLab-CI](https://gitlab.com/)
+- [Azure DevOps](https://azure.microsoft.com/de-de/services/devops/)
+- [GitHub Actions](https://github.com/features/actions)
+- [Jenkins](https://jenkins.io/)
 
 ## Pipeline status
 
