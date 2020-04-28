@@ -10,7 +10,6 @@ The reason for this is the theme, which also needs to build.
 Thus, to build this repository you need to:  
 
 1. Run `npm install` in `themes/aether/`
-2. Run `npm run build` in `themes/aether/`
 3. Run `npm install` in `./`
 4. Run `npm run build` in `./`
 
@@ -24,7 +23,6 @@ Full script:
 # Build theme
 cd themes/aether/
 npm install
-npm run build
 
 # Build website
 cd ../../
@@ -39,7 +37,6 @@ hexo server
 Alternatively, `yarn` can be used to simplify the process a little:  
 
 1. Run `yarn install` in `themes/aether/`
-2. Run `yarn build` in `themes/aether/`
 3. Run `yarn install` in `./`
 4. Run `yarn build` in `./`
 
@@ -49,7 +46,6 @@ Full script:
 # Build theme
 cd themes/aether/
 yarn install
-yarn build
 
 # Build website
 cd ../../
