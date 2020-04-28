@@ -4,6 +4,7 @@ comments: true
 categories:
   - [Jenkins]
   - Jenkinsfile
+  - Credentials
 tags:
   - JCasC
   - Declarative Pipelines
