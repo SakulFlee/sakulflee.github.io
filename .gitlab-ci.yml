@@ -18,8 +18,6 @@ build:
   artifacts:
     paths:
       - public
-  only:
-    - master
 
 merge:
   stage: build
