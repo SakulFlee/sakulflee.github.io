@@ -12,3 +12,7 @@ yarn.lock
 # Hexo
 public/
 db.json
+
+# Temp files
+.tmp
+*~
