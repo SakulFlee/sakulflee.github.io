@@ -9,6 +9,7 @@ categories:
 tags:
   - JCasC
   - Declarative Pipelines
+  - Jenkins
 date: 2020-04-28 16:08:12
 updated: 2020-04-28 20:28:00
 ---
