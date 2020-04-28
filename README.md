@@ -1,5 +1,7 @@
 # Website
 
+![Badge](https://gitlab.com/sakul6499_de/sakul6499_de.gitlab.io/badges/master/pipeline.svg)
+
 This is the source code of my (@sakul6499) website.  
 My website can be found at [sakul6499.de](https://sakul6499.de/)
 
