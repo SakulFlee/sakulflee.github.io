@@ -16,12 +16,13 @@ updated: 2020-04-28 21:30:00
 Each [jenkins] instance generates an encryption key on first-start.
 This key is used to encrypt **and** decrypt secrets.
 It is commonly named `master.key`.  
+
+<!-- more -->
+
 More details can be found in [Secret`s JavaDoc](https://javadoc.jenkins-ci.org/hudson/util/Secret.html).
 
 When using the Web-UI, [jenkins] automatically encrypt and decrypt secrets.
 However, when using [JCasC] ([Jenkins Configuration-as-Code]) or just out of interest, we can manually en- and decrypt secrets.
-
-<!-- more -->
 
 ## Open Script Console
 
