@@ -8,6 +8,9 @@ categories:
   - JCasC
 tags:
   - JCasC
+  - Script Console
+  - Groovy
+  - Jenkins
 date: 2020-04-28 21:30:00
 updated: 2020-04-28 21:30:00
 ---
