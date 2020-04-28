@@ -7,14 +7,10 @@ pages:
   cache:
     paths:
       - node_modules/
-  before_script:
-    - yarn global add hexo-cli
   script:
-    - cd themes/aether
-    - yarn install
-    - cd ../..
-    - yarn install
-    - hexo generate
+    - cd themes/aether && npm install
+    - npm install
+    - npm run build
   artifacts:
     paths:
       - public
@@ -27,14 +23,10 @@ merge:
   cache:
     paths:
       - node_modules/
-  before_script:
-    - yarn global add hexo-cli
   script:
-    - cd themes/aether
-    - yarn install
-    - cd ../..
-    - yarn install
-    - hexo generate
+    - cd themes/aether && npm install
+    - npm install
+    - npm run build
   artifacts:
     paths:
       - public
