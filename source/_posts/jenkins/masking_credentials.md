@@ -5,6 +5,7 @@ categories:
   - [Jenkins]
   - Jenkinsfile
   - Credentials
+  - JCasC
 tags:
   - JCasC
   - Declarative Pipelines
