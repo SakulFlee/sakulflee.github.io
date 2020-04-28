@@ -144,9 +144,26 @@ Once done, update [Jenkins] with the [JCasC] config and everything should be up 
 Follow these steps:  
 
 1. Go to your [Jenkins] instance and login
-2. Click on `Manage Jenkins` -> `Configure Credentials`
+2. Click on `Credentials`
 
-![Configure credentials](https://sakul6499.de/images/jenkins/masked_credentials/configure_credentials.png)
+![Credentials](https://sakul6499.de/images/jenkins/masked_credentials/configure_credentials.png)
+
+3. Select (or create) the group/namespace your credential should be stored at
+
+![Select group](https://sakul6499.de/images/jenkins/masked_credentials/select_group.png)
+
+4. Click on `Add Credentials`
+
+![Add credential](https://sakul6499.de/images/jenkins/masked_credentials/add_credentials.png)
+
+5. Enter your credentials. 
+    For the example above you should choose `Username with password`, but other options for e.g. secret token/texts are also available.  
+    It is important that the `ID` matches the `credentials('<name>')` from above.
+
+![Select group](https://sakul6499.de/images/jenkins/masked_credentials/enter_credentials.png)
+
+Everything should be setup now.  
+Try running the pipeline and see your secrets masked!
 
 [jenkins]: https://www.jenkins.io/
 [ibm cloud]: https://cloud.ibm.com/
