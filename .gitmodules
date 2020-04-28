@@ -1,9 +1,9 @@
-[submodule ".\\redirects\\GitLab"]
-	path = .\\redirects\\GitLab
+[submodule "redirects/GitLab"]
+	path = redirects/GitLab
 	url = https://gitlab.com/Sakul6499/sakul6499.gitlab.io.git
-[submodule ".\\redirects\\GitHub"]
-	path = .\\redirects\\GitHub
+[submodule "redirects/GitHub"]
+	path = redirects/GitHub
 	url = https://github.com/Sakul6499/sakul6499.github.io.git
-[submodule ".\\redirects\\BitBucket"]
-	path = .\\redirects\\BitBucket
+[submodule "redirects/BitBucket"]
+	path = redirects/BitBucket
 	url = https://sakul6499@bitbucket.org/sakul6499/sakul6499.bitbucket.io.git
