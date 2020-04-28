@@ -146,8 +146,7 @@ Follow these steps:
 1. Go to your [Jenkins] instance and login
 2. Click on `Manage Jenkins` -> `Configure Credentials`
 
-![Manage Jenkins](/images/jenkins/masked_credentials/configure_credentials.png)
-![ ](../../images/jenkins/masked_credentials/configure_credentials.png)
+![Configure credentials](https://sakul6499.de/images/jenkins/masked_credentials/configure_credentials.png)
 
 [jenkins]: https://www.jenkins.io/
 [ibm cloud]: https://cloud.ibm.com/
