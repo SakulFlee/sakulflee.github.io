@@ -1,36 +1,17 @@
-stages:
-  - build
-  
+image: node:10-alpine # use nodejs v10 LTS
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - npm install hexo-cli -g
+  - npm install
+
 pages:
-  stage: build
-  image: node:latest
-  cache:
-    paths:
-      - node_modules/
   script:
-    - cd themes/aether/
-    - npm install
-    - cd ../../
-    - npm install
-    - npm run build
+    - hexo generate
   artifacts:
     paths:
       - public
   only:
     - master
-
-merge:
-  stage: build
-  image: node:latest
-  cache:
-    paths:
-      - node_modules/
-  script:
-    - cd themes/aether && npm install
-    - npm install
-    - npm run build
-  artifacts:
-    paths:
-      - public
-  only:
-    - merge_requests
