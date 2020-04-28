@@ -5,7 +5,8 @@ cache:
 
 before_script:
   - npm install hexo-cli -g
-  - npm install
+  - cd themes/aether && npm install
+  - cd ../.. && npm install
 
 pages:
   script:
