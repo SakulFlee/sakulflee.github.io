@@ -148,7 +148,7 @@ Follow these steps:
 
 ![Credentials](https://sakul6499.de/images/jenkins/masked_credentials/configure_credentials.png)
 
-3. Select (or create) the group/namespace your credential should be stored at
+3. Select (or create) the domain/namespace your credential should be stored at
 
 ![Select group](https://sakul6499.de/images/jenkins/masked_credentials/select_group.png)
 
