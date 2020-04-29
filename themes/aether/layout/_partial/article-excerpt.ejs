@@ -7,7 +7,7 @@
             <%= item.title %>
         </a>
         <span>
-            <%- list_categories(item.categories, {style: 'category-list', show_count: false, separator: ' ', depth: 0}) %>
+            <%- partial('article-categories', {item: item}) %>
         </span>
     </div>
     <%- item.excerpt || item.content %>
