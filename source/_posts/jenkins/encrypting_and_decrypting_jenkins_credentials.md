@@ -4,13 +4,12 @@ comments: true
 categories:
   - [Jenkins]
   - Security
-  - Credentials
-  - JCasC
 tags:
   - JCasC
   - Script Console
   - Groovy
   - Jenkins
+  - Credentials
 date: 2020-04-28 21:30:00
 updated: 2020-04-28 21:30:00
 ---

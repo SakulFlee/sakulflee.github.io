@@ -3,10 +3,12 @@ title: 'Mass removing builds'
 comments: true
 categories:
   - [Jenkins]
+  - Scripts
 tags:
   - Script Console
   - Groovy
   - Jenkins
+  - Mass removing
 date: 2020-04-28 23:45:00
 updated: 2020-04-28 23:45:00
 ---

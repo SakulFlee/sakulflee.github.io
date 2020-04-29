@@ -3,13 +3,12 @@ title: 'Masking credentials and secrets in Jenkinsfile`s'
 comments: true
 categories:
   - [Jenkins]
-  - Jenkinsfile
   - Credentials
-  - JCasC
 tags:
   - JCasC
   - Declarative Pipelines
   - Jenkins
+  - Jenkinsfile
 date: 2020-04-28 16:08:12
 updated: 2020-04-28 20:28:00
 ---

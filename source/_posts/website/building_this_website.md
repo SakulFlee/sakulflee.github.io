@@ -2,8 +2,7 @@
 title: Building this website
 comments: true
 categories:
-  - [website]
-  - hexo
+  - [Website]
 tags:
   - hexo
   - blog
