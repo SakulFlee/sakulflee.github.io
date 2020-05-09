@@ -95,9 +95,15 @@ $footer-spacing: 4%
             color: whitesmoke
     #content
         @extend .content
-        margin-top: $page-margin
-        margin-left: $page-margin
-        margin-right: $page-margin
+        @media screen and (max-width: $widescreen) 
+            margin-top: $page-margin
+            margin-left: $page-margin
+            margin-right: $page-margin
+        @media screen and (min-width: $widescreen) 
+            min-width: 60%
+            max-width: 60%
+            margin-top: $page-margin
+            margin: auto
         .gutter
             width: 5%
 
