@@ -10,11 +10,11 @@ tags:
   - Strategy Pattern
   - Behavior
 date: 2019-11-25 00:00:00
-updated: 2020-04-28 23:00:00
+updated: 2020-05-09 15:47:00
 ---
 
 The **strategy pattern** is a *behavioral software design pattern*.
-It is also knows as a **policy pattern**.
+It is also known as a **policy pattern**.
 
 The main advantage of this pattern is to have one common interface that defines one or multiple methods, which then gets inherited.
 Each inheritance implements these methods differently and thus changing the behavior of that strategy.  
