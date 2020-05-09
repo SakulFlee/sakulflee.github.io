@@ -4,7 +4,6 @@ comments: true
 categories:
   - [Design Pattern]
   - Behavioral Design Pattern
-  - Strategy Pattern
 tags:
   - Design Pattern
   - Strategy Pattern
