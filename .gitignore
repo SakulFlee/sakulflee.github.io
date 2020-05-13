@@ -16,3 +16,6 @@ db.json
 # Temp files
 .tmp
 *~
+
+# VSCode
+.vscode/
