@@ -1,0 +1,3 @@
+[global.databases]
+sqlite_logs = { url = "logs.sqlite" }
+postgres_postgres = { url = "postgres://postgres:postgres@localhost:5432/postgres" }
