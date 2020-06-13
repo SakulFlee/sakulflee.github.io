@@ -1,4 +1,4 @@
-# Engineering a website / blog
+# Engineering a website + blog: Introduction
 
 First of all welcome to my new website.
 If you are reading this, this means my new website is at least partially online.
