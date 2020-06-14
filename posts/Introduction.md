@@ -103,10 +103,10 @@ I will be writing more about this website **while building it**.
 Here is a list with (hopefully soon) links to them:
 
 - Introduction: (this post)
-- Data-Layer / Database: ...
-- Backend: ...
-- Frontend: ...
-- Docker: ...
+- Data-Layer / Database: TODO
+- Backend: TODO
+- Frontend: TODO
+- Docker: TODO
 
 [rust]: https://www.rust-lang.org
 [postgresql]: https://www.postgresql.org
