@@ -15,11 +15,14 @@ Additionally, we won't have to convert SQL queries to objects/classes/structs ou
 First of all, we need a new project:
 
 ```bash
-# If we want a library
+# If we want a library ...
 cargo new --lib our_project_name
-# If we want a binary
+# ... or if we want a binary
 cargo new our_project_name
 ```
+
+> I am using a binary here. You can use a library however and build a library for such tasks.
+> It is also possible to put each query in a library function and then call them from a binary.
 
 Next, we need to add the diesel dependencies to `Cargo.toml`:
 
