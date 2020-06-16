@@ -1,0 +1,10 @@
+{% extends "base" %}
+
+{% block content %}
+  {% if published %}
+    <h1>{{ title }}</h1>
+    <div>{{ body }}</div>
+  {% else %}
+    <p>I am sorry, but this post is not yet published.</p>
+  {% endif %}
+{% endblock content %}
