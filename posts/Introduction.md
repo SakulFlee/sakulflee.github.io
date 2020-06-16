@@ -105,6 +105,7 @@ Here is a list with (hopefully soon) links to them:
 - Introduction: (this post)
 - Data-Layer / Database: TODO
 - Backend: TODO
+- Backend Optimization: TODO
 - Frontend: TODO
 - Docker: TODO
 
