@@ -1,6 +1,6 @@
 use crate::schema::posts;
 
-#[derive(Queryable, Serialize, Deserialize)]
+#[derive(Queryable, Serialize, Deserialize, Clone)]
 pub struct Post {
     pub id: i32,
     pub title: String,
@@ -8,7 +8,7 @@ pub struct Post {
     pub published: bool,
 }
 
-#[derive(Insertable, Deserialize)]
+#[derive(Insertable, Deserialize, Clone)]
 #[table_name = "posts"]
 pub struct NewPost {
     pub title: String,
