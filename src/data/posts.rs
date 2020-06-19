@@ -1,4 +1,4 @@
-use crate::establish_connection;
+use crate::database::connection::establish_connection;
 use crate::models::Post;
 use crate::models::*;
 use crate::schema::posts::dsl::*;
