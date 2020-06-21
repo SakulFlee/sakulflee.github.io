@@ -14,6 +14,14 @@ pub struct NewPost {
 }
 
 impl NewPost {
+    pub fn new(title: String, body: String, published: bool) -> Self {
+        Self {
+            title: title,
+            body: body,
+            published: published,
+        }
+    }
+
     pub fn parse(input: String) -> Option<NewPost> {
         if input.is_empty() {
             return None;
@@ -41,14 +49,12 @@ impl NewPost {
         println!("{}: {} ({})", title, markdown.len(), markdown_split.len());
 
         let html = NewPost::markdown_to_html(&markdown);
-        println!("HTML: {}", html);
 
-        // TODO: Construct new post (use constructors!)
-        Some(NewPost {
-            title: String::from("TODO"),
-            body: input,
-            published: false,
-        })
+        Some(NewPost::new(
+            title,
+            html,
+            preface.published.unwrap_or(false),
+        ))
     }
 
     fn markdown_to_html(markdown_input: &str) -> String {
