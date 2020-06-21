@@ -1,6 +1,9 @@
 use crate::models::context::Context;
 use crate::models::preface::Preface;
 use crate::schema::posts;
+use pulldown_cmark::html;
+use pulldown_cmark::Options;
+use pulldown_cmark::Parser;
 
 #[derive(Insertable, Deserialize, Clone)]
 #[table_name = "posts"]
@@ -37,12 +40,26 @@ impl NewPost {
         let title = title_fragment.get(0).unwrap().replace("# ", "");
         println!("{}: {} ({})", title, markdown.len(), markdown_split.len());
 
-        // TODO: Compile Markdown
+        let html = NewPost::markdown_to_html(&markdown);
+        println!("HTML: {}", html);
+
         // TODO: Construct new post (use constructors!)
         Some(NewPost {
             title: String::from("TODO"),
             body: input,
             published: false,
         })
+    }
+
+    fn markdown_to_html(markdown_input: &str) -> String {
+        // Setup parser with special options
+        let mut options = Options::empty();
+        options.insert(Options::ENABLE_STRIKETHROUGH);
+        let parser = Parser::new_ext(markdown_input, options);
+
+        // Convert markdown to html
+        let mut html_output = String::new();
+        html::push_html(&mut html_output, parser);
+        html_output
     }
 }
