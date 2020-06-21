@@ -7,24 +7,11 @@ extern crate rocket;
 extern crate rocket_contrib;
 
 #[macro_use]
-extern crate diesel;
-
-#[macro_use]
-extern crate diesel_migrations;
-
-#[macro_use]
-extern crate serde_derive;
-
-#[macro_use]
 extern crate log;
 
-pub mod data;
-pub mod database;
 pub mod endpoints;
-pub mod models;
-pub mod schema;
 
-use crate::database::migration::run_db_migrations;
+use data::database::migration::run_db_migrations;
 use rocket::fairing::AdHoc;
 use rocket_contrib::helmet::SpaceHelmet;
 use rocket_contrib::serve::StaticFiles;

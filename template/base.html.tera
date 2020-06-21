@@ -6,7 +6,15 @@
         <meta name="author" content="@Sakul6499 | Lukas Weber">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@Sakul6499 | Lukas Weber</title>
+        <title>
+            {% if title %}
+                {{ title }}
+            {% elif post %}
+                {{ post.title }}
+            {% else %}
+                @Sakul6499 | Lukas Weber
+            {% endif %}
+        </title>
     </head>
     <body>
         {% block content %}{% endblock content %}

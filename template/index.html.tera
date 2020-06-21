@@ -1,0 +1,13 @@
+{% extends "base" %}
+
+{% block content %}
+    {% if post %}
+        <p>Post:</p>
+        <p>id: {{ post.id }}</p>
+        <p>title: {{ post.title }}</p>
+        <p>body: {{ post.body }}</p>
+        <p>published: {{ post.published }}</p>
+    {% else %}
+        <p>Post: NONE</p>
+    {% endif %}
+{% endblock content %}

@@ -1,5 +1,5 @@
 [global]
-template_dir = "template"
+template_dir = "../template"
 
 [global.databases]
 postgres_postgres = { url = "postgres://postgres:postgres@localhost:5432/postgres" }
