@@ -3,9 +3,18 @@ use diesel::prelude::*;
 use dotenv::dotenv;
 use std::env;
 
-pub fn establish_connection() -> PgConnection {
+fn raw_connection() -> ConnectionResult<PgConnection> {
+    // Initialize dotenv
     dotenv().ok();
 
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-    PgConnection::establish(&database_url).expect(&format!("Error connecting to {}", database_url))
+    PgConnection::establish(&database_url)
+}
+
+pub fn establish_connection() -> PgConnection {
+    raw_connection().unwrap()
+}
+
+pub fn connection_valid() -> bool {
+    raw_connection().is_ok()
 }
