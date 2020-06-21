@@ -47,7 +47,12 @@ pub fn update(x: i32, new_post: Post) -> QueryResult<Post> {
         .get_result(&connection)
 }
 
-pub fn delete(x: i32) -> std::result::Result<usize, Error> {
+pub fn delete(x: i32) -> Result<usize, Error> {
     let connection = establish_connection();
     diesel::delete(posts.filter(id.eq(x))).execute(&connection)
+}
+
+pub fn delete_all() -> Result<usize, Error> {
+    let connection = establish_connection();
+    diesel::delete(posts).execute(&connection)
 }
