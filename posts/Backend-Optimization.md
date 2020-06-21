@@ -299,6 +299,12 @@ fn main() {
 }
 ```
 
+## Database related functions
+
+I did the same as above for all database functions.  
+I.e. created a `database` module and added two models (`connection` & `migration`) and put the last two methods from our `main.rs` file into each module.
+Now, `main.rs` only has one function left: `main()`.
+
 ## Last addition
 
 One last addition I made was replacing the `GET /` controller.
