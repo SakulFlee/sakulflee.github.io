@@ -1,23 +1,39 @@
-use crate::models::context::Context;
 use crate::models::preface::Preface;
 use crate::schema::posts;
+use chrono::DateTime;
+use chrono::FixedOffset;
+use chrono::NaiveDateTime;
+use chrono::Utc;
 use pulldown_cmark::html;
 use pulldown_cmark::Options;
 use pulldown_cmark::Parser;
 
-#[derive(Insertable, Deserialize, Clone)]
+#[derive(Insertable, Serialize, Deserialize, Clone)]
 #[table_name = "posts"]
 pub struct NewPost {
     pub title: String,
     pub body: String,
+    pub categories: String,
+    pub tags: String,
+    pub date: NaiveDateTime,
     pub published: bool,
 }
 
 impl NewPost {
-    pub fn new(title: String, body: String, published: bool) -> Self {
+    pub fn new(
+        title: String,
+        body: String,
+        categories: String,
+        tags: String,
+        date: NaiveDateTime,
+        published: bool,
+    ) -> Self {
         Self {
             title: title,
             body: body,
+            categories: categories,
+            tags: tags,
+            date: date,
             published: published,
         }
     }
@@ -50,9 +66,17 @@ impl NewPost {
 
         let html = NewPost::markdown_to_html(&markdown);
 
+        let date = match preface.date() {
+            Some(date) => date,
+            None => Utc::now().naive_utc(),
+        };
+
         Some(NewPost::new(
             title,
             html,
+            preface.categories(),
+            preface.tags(),
+            date,
             preface.published.unwrap_or(false),
         ))
     }
