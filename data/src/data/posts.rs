@@ -2,6 +2,7 @@ use crate::database::connection::establish_connection;
 use crate::models::Post;
 use crate::models::*;
 use crate::schema::posts::dsl::*;
+use diesel::dsl::now;
 use diesel::prelude::*;
 use diesel::result::Error;
 
@@ -42,7 +43,10 @@ pub fn update(x: i32, new_post: Post) -> QueryResult<Post> {
         .set((
             title.eq(new_post.title),
             body.eq(new_post.body),
+            categories.eq(new_post.categories),
+            tags.eq(new_post.tags),
             published.eq(new_post.published),
+            date.eq(new_post.date),
         ))
         .get_result(&connection)
 }
@@ -55,4 +59,9 @@ pub fn delete(x: i32) -> Result<usize, Error> {
 pub fn delete_all() -> Result<usize, Error> {
     let connection = establish_connection();
     diesel::delete(posts).execute(&connection)
+}
+
+pub fn reset_counter() -> QueryResult<usize> {
+    let connection = establish_connection();
+    connection.execute("ALTER SEQUENCE posts_id_seq RESTART WITH 1")
 }
