@@ -10,7 +10,11 @@ use std::path::PathBuf;
 use walkdir::WalkDir;
 
 fn clean_database() {
+    println!("> Cleaning database");
+    println!("Warning: All posts will be removed from the database and posts found locally will be processed and uploaded.");
+
     data::data::posts::delete_all().expect("Failed to clean database");
+    data::data::posts::reset_counter().expect("Failed to reset counter");
 }
 
 fn get_posts_path() -> PathBuf {
@@ -63,7 +67,6 @@ fn process_posts(path: PathBuf) {
 
 fn main() {
     println!("### Blog post importer ###");
-    println!("Warning: All posts will be removed from the database and posts found locally will be processed and uploaded.");
 
     let posts_path = get_posts_path();
 
