@@ -1,3 +1,10 @@
+---
+categories = ["Website"]
+tags = ["Rust"]
+date = "2020-06-16 18:00:00"
+published = true
+---
+
 # Engineering a website + blog: Data-Layer / Database
 
 This part of the series will deal with the _data-layer_ / _database_.  

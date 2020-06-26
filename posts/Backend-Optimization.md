@@ -1,3 +1,10 @@
+---
+categories = ["Website"]
+tags = ["Rust"]
+date = "2020-06-18 18:00:00"
+published = true
+---
+
 # Engineering a website + blog: Backend Optimization
 
 This post originally was not planned, however, I want to cleanup and optimize the backend a little bit before diving into the [Frontend](TODO).

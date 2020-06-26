@@ -1,3 +1,10 @@
+---
+categories = ["Website"]
+tags = ["Rust"]
+date = "2020-06-15 18:00:00"
+published = true
+---
+
 # Engineering a website + blog: Introduction
 
 First of all welcome to my new website.

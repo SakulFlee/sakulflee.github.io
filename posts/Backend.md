@@ -1,7 +1,7 @@
 ---
-categories = ["asd", "cba"]
-tags = ["A", "B", "C"]
-date = "2020-06-15 18:00:00"
+categories = ["Website"]
+tags = ["Rust"]
+date = "2020-06-17 18:00:00"
 published = true
 ---
 
