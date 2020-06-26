@@ -1,7 +1,5 @@
 use crate::models::preface::Preface;
 use crate::schema::posts;
-use chrono::DateTime;
-use chrono::FixedOffset;
 use chrono::NaiveDateTime;
 use chrono::Utc;
 use pulldown_cmark::html;
