@@ -2,7 +2,6 @@ use crate::database::connection::establish_connection;
 use crate::models::Post;
 use crate::models::*;
 use crate::schema::posts::dsl::*;
-use diesel::dsl::now;
 use diesel::prelude::*;
 use diesel::result::Error;
 
