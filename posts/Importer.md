@@ -294,10 +294,10 @@ let parts: Vec<&str> = input.split("---").collect();
 let preface_part = parts.get(1).unwrap();
 ```
 
-The `split("---")` will give us (in case the preface is correct) **three\* results:  
-The first (index `0`) is just the `"---"`.  
+The `split("---")` will give us (in case the preface is correct) **three** results:  
+The first (index `0`) is just the `---`.  
 The second (index `1`) is our whole **preface**, excluding both **delimiters**.  
-And finally the third (index `2`) is the **delimiter** with the rest of the **markdown\*\* _blog post_.
+And finally the third (index `2`) is the **delimiter** with the rest of the **markdown** _blog post_.
 
 All now left to do for our **preface** is to parse it.  
 First, we have to include the `toml` crate:
