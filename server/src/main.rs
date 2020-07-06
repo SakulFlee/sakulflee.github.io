@@ -12,12 +12,17 @@ extern crate log;
 pub mod endpoints;
 
 use data::database::migration::run_db_migrations;
+use dotenv::dotenv;
 use rocket::fairing::AdHoc;
 use rocket_contrib::helmet::SpaceHelmet;
 use rocket_contrib::serve::StaticFiles;
 use rocket_contrib::templates::Template;
+use std::env;
 
 fn main() {
+    dotenv().ok();
+    let static_path = env::var("STATIC_PATH").unwrap_or(String::from("static/"));
+
     rocket::ignite()
         .attach(AdHoc::on_attach("Database Migrations", run_db_migrations))
         .register(catchers![endpoints::catch::not_found])
@@ -36,6 +41,6 @@ fn main() {
                 endpoints::page::index_htm,
             ],
         )
-        .mount("/", StaticFiles::from("static/"))
+        .mount("/", StaticFiles::from(static_path))
         .launch();
 }
