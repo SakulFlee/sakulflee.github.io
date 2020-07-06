@@ -4,6 +4,16 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Build SASS",
+      "type": "shell",
+      "command": "sass style.sass style.css",
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}/static"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Build Workspace",
       "type": "shell",
       "command": "cargo build --workspace",
