@@ -20,20 +20,6 @@
         </div>
 
         <div class="is-vcentered">
-          <div class="buttons columns">
-            <button class="button mr-4 mt-6 is-large is-white is-outlined column">
-              <span class="icon is-large">
-                <i class="fas fa-book"></i>
-              </span>
-              <span>Blog</span>
-            </button>
-            <button class="button ml-4 mt-6 is-large is-white is-outlined column">
-              <span class="icon is-large">
-                <i class="fas fa-code-branch"></i>
-              </span>
-              <span>Projects</span>
-            </button>
-          </div>
           <ul>
             <li class="icon p-icon">
               {% include "components/svg/gitea" %}       
@@ -64,6 +50,20 @@
               {% include "components/svg/mail" %}   
             </li>
           </ul>
+          <div class="buttons columns">
+            <button class="button mr-4 mt-6 is-large is-white is-outlined column">
+              <span class="icon is-large">
+                <i class="fas fa-book"></i>
+              </span>
+              <span>Blog</span>
+            </button>
+            <button class="button ml-4 mt-6 is-large is-white is-outlined column">
+              <span class="icon is-large">
+                <i class="fas fa-code-branch"></i>
+              </span>
+              <span>Projects</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
