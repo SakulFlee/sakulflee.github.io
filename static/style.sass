@@ -10,16 +10,12 @@ $footer-spacing: 4%
         .navbar-burger
             color: white
     .hero-body
-        .icon
+        .p-icon
             &
-                padding-top: 16vh
-            &, + .icon
-                @media screen and (max-width: $desktop)
-                    padding-left: 8vw
-                    padding-right: 8vw
-                @media screen and (min-width: $desktop)
-                    padding-left: 4vw
-                    padding-right: 4vw
+                padding-top: 12vh
+            &, + .p-icon
+                padding-left: 8vw
+                padding-right: 8vw
             a
                 svg
                     width: 8vh
@@ -63,6 +59,7 @@ $footer-spacing: 4%
                 color: blue
 
 #footer
+    padding-top: 32px
     padding-bottom: 32px
     span
         padding-left: $footer-spacing
@@ -174,3 +171,6 @@ $footer-spacing: 4%
         & + .tag
             margin-top: 8px
             margin-bottom: 8px
+
+#index-hero
+    max-height: calc(100vh - 3.25rem)
