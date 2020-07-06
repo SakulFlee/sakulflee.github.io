@@ -1,4 +1,4 @@
 pub mod blog;
 pub mod catch;
-pub mod page;
+pub mod index;
 pub mod posts;
