@@ -20,7 +20,11 @@ db.json
 # VSCode
 .vscode/
 
-
 #Added by cargo
 target/
 *.lock
+
+# SASS output
+*.css
+*.css.map
+*.sassc
