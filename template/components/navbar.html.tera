@@ -1,33 +1,29 @@
-<section class="hero is-dark is-fullheight">
-  <div class="hero-head">
-    <div class="container">
-      <nav class="blog-nav">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-              <span class="title is-5">@Sakul6499 | Lukas Weber</span>
-            </a>
-            <a
-              role="button"
-              class="navbar-burger burger"
-              aria-label="menu"
-              aria-expanded="false"
-              data-target="navbarBasicExample"
-            >
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
-          <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-              <a class="navbar-item" href="/">Home</a>
-              <a class="navbar-item" href="/blog">Blog</a>
-              <a class="navbar-item" href="/projects">Projects</a>
-            </div>
+<div class="container">
+  <nav class="blog-nav">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <span class="title is-5">@Sakul6499 | Lukas Weber</span>
+        </a>
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">Home</a>
+          <a class="navbar-item" href="/blog">Blog</a>
+          <a class="navbar-item" href="/projects">Projects</a>
         </div>
-      </nav>
+      </div>
     </nav>
-  </div>
-{% block hero %}{% endblock hero %}
-</section>
+  </nav>
+</div>
