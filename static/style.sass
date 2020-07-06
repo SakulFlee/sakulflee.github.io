@@ -1,0 +1,176 @@
+@charset "utf-8"
+@import "./bulma/bulma.sass"
+@import "./bulma-tooltip/src/sass/index.sass"
+
+$page-margin: 32px
+$footer-spacing: 4%
+
+.hero
+    .hero-head
+        .navbar-burger
+            color: white
+    .hero-body
+        .icon
+            &
+                padding-top: 16vh
+            &, + .icon
+                @media screen and (max-width: $desktop)
+                    padding-left: 8vw
+                    padding-right: 8vw
+                @media screen and (min-width: $desktop)
+                    padding-left: 4vw
+                    padding-right: 4vw
+            a
+                svg
+                    width: 8vh
+                    height: 8vh
+                    color: white
+        #down-arrow
+            &
+                padding-top: 24vh
+                animation: bounce 5s infinite 5s
+            svg
+                width: 6vh
+                height: 6vh
+
+@keyframes bounce
+    0%, 10%, 100%
+        top: 0vh
+    5%
+        top: 4vh
+
+#index
+    margin-top: 8px
+    #sidebar
+        padding-right: 16px
+    #excerpts
+        .message
+            padding-left: 8px
+            .message-header
+                &, *
+                    text-decoration: none
+                    color: white
+                span
+                    *
+                        text-decoration: none
+                    *:hover
+                        text-decoration: underline
+        *
+            text-decoration: none
+            color: black
+            .excerpt_link
+                text-decoration: underline
+                color: blue
+
+#footer
+    padding-bottom: 32px
+    span
+        padding-left: $footer-spacing
+        padding-right: $footer-spacing
+    a
+        margin-left: $footer-spacing
+        margin-right: $footer-spacing
+        background-color: whitesmoke
+        font-weight: bold
+        border-radius: 8%
+        border-width: 1px
+        border-color: whitesmoke
+        border-style: solid
+        color: black
+        padding: 0
+        padding-top: 10px
+        height: 48px
+    a:hover
+        color: white
+        background-color: black
+
+.heart
+    color: red
+    font-size: 2.5vw
+
+#blog-post
+    .blog-tags-container,
+    .blog-categories-container
+        a
+            color: whitesmoke
+    #content
+        @extend .content
+        @media screen and (max-width: $widescreen)
+            margin-top: $page-margin
+            margin-left: $page-margin
+            margin-right: $page-margin
+        @media screen and (min-width: $widescreen)
+            min-width: 60%
+            max-width: 60%
+            margin-top: $page-margin
+            margin: auto
+        .gutter
+            width: 5%
+        .highlight
+            overflow: auto
+            .title
+                font-size: 1em
+            .keyword
+                color: blue
+            .comment
+                color: green
+            .params
+                color: black
+            .title
+                color: black
+                font-weight: bold
+            .string
+                color: salmon
+
+#disqus_thread
+    margin-left: $page-margin
+    margin-right: $page-margin
+
+#AboutMe
+    padding: 16px
+    @media screen and (min-width: $tablet)
+        margin-top: 16px
+    article
+        a
+            color: magenta
+            text-decoration: underline
+            @media screen and (max-width: $tablet)
+                margin-bottom: 32px
+                border-bottom: solid black
+            @media screen and (min-width: $tablet)
+                border-right: solid black
+
+#timeline
+    width: 100%
+    padding-top: 16px
+    .entry
+        width: 100%
+        display: inline-block
+        .date
+            width: 25%
+            display: inline-block
+        .texts
+            width: 75%
+            display: inline-block
+            div
+                @media screen and (max-width: $tablet)
+                    font-size: 0.8rem
+                @media screen and (min-width: $tablet)
+                    font-size: 1.25rem
+        .tag
+            margin-top: 8px
+            margin-bottom: 8px
+    .solid-line
+        height: 32px
+        margin-left: 50%
+        border-left: solid magenta 4px
+        & + .tag
+            margin-top: 8px
+            margin-bottom: 8px
+    .dotted-line
+        height: 32px
+        margin-left: 50%
+        border-left: dotted magenta 4px
+        & + .tag
+            margin-top: 8px
+            margin-bottom: 8px
