@@ -28,3 +28,4 @@ target/
 *.css
 *.css.map
 *.sassc
+*.scssc
