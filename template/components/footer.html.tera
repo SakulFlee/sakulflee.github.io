@@ -1,8 +1,25 @@
-<hr>
-<div class="container has-text-centered" id="footer">
-    <div class="columns">
-        <a href="/credit" class="column">Credits</a>
-        <span>Made with <span class="heart">&hearts;</span> by @Sakul6499</span>
-        <a href="/legal" class="column">Legal</a>
+<section id="footer">
+    <div class="buttons columns mr-4 ml-4 is-centered">
+        <button class="button is-large">
+            <span class="icon is-medium">
+                <i class="fas fa-address-card"></i>
+            </span>
+            <span>Contact</span>
+        </button>
+        <button class="button is-large">
+            <span class="icon is-medium">
+                <i class="fas fa-star"></i>
+            </span>
+            <span>Credits</span>
+        </button>
+        <button class="button is-large">
+            <span class="icon is-medium">
+                <i class="fas fa-balance-scale"></i>
+            </span>
+            <span>Legal</span>
+        </button>
     </div>
-</div>
+    <p class="has-text-centered">
+        Made with <span class="icon has-text-danger"><i class="fas fa-heart"></i></span> by @Sakul6499
+    </p>
+</section>
