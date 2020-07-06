@@ -75,6 +75,24 @@ data = { path = "../data" }
 Important note here: I chose to keep the `templates` folder at root level (`/template`).
 If you wish to do the same, change `template_dir` to `"../template"` (instead of `"template"`)
 
+The same applies for `static/`.  
+However, this one is not managed by [Rocket] directly.
+We can use `dotenv` here again:
+
+```rust
+fn main() {
+    dotenv().ok();
+    let static_path = env::var("STATIC_PATH").unwrap_or(String::from("static/"));
+
+    rocket::ignite()
+        // ...
+        .mount("/", StaticFiles::from(static_path))
+        .launch();
+}
+```
+
+We simply try to read the variable and if it is not set, we default to `static/`.
+
 We also need to update all `use` statements.
 Previously, we had e.g. `use crate::data::posts;`, now we have `use data::data::posts;`.
 The first `data` is the project name, the second `data` is the module withing the `data` project.
