@@ -5,12 +5,10 @@ use chrono::Utc;
 use pulldown_cmark::html;
 use pulldown_cmark::Options;
 use pulldown_cmark::Parser;
-use rocket::http::uri::Uri;
 
 #[derive(Insertable, Serialize, Deserialize, Clone)]
 #[table_name = "posts"]
 pub struct NewPost {
-    pub url: String,
     pub title: String,
     pub body: String,
     pub categories: String,
@@ -21,7 +19,6 @@ pub struct NewPost {
 
 impl NewPost {
     pub fn new(
-        url: String,
         title: String,
         body: String,
         categories: String,
@@ -30,7 +27,6 @@ impl NewPost {
         published: bool,
     ) -> Self {
         Self {
-            url,
             title,
             body,
             categories,
@@ -66,9 +62,6 @@ impl NewPost {
         let title = title_fragment.get(0).unwrap().replace("# ", "");
         println!("Title: {}", title);
 
-        let url = Uri::percent_encode(&title).as_ref().to_owned();
-        println!("URL: {}", url);
-
         let html = NewPost::markdown_to_html(&markdown);
 
         let date = match preface.date() {
@@ -77,7 +70,6 @@ impl NewPost {
         };
 
         Some(NewPost::new(
-            url,
             title,
             html,
             preface.categories(),
