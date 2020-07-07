@@ -29,6 +29,22 @@ pub fn get_by_id(x: i32) -> Result<Post, Error> {
     }
 }
 
+pub fn get_by_url(x: String) -> Result<Post, Error> {
+    let connection = establish_connection();
+    match posts
+        .filter(published.eq(true))
+        .filter(url.eq(x))
+        .limit(1)
+        .load::<Post>(&connection)
+    {
+        Ok(v) => match v.get(0) {
+            Some(p) => Ok(p.clone()),
+            None => Err(Error::NotFound),
+        },
+        Err(e) => Err(e),
+    }
+}
+
 pub fn create(new_post: NewPost) -> QueryResult<Post> {
     let connection = establish_connection();
     diesel::insert_into(posts)
