@@ -29,11 +29,11 @@ pub fn get_by_id(x: i32) -> Result<Post, Error> {
     }
 }
 
-pub fn get_by_url(x: String) -> Result<Post, Error> {
+pub fn get_by_title(x: String) -> Result<Post, Error> {
     let connection = establish_connection();
     match posts
         .filter(published.eq(true))
-        .filter(url.eq(x))
+        .filter(title.eq(x))
         .limit(1)
         .load::<Post>(&connection)
     {
