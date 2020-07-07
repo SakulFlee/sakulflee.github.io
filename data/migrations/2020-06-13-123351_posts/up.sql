@@ -1,7 +1,6 @@
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
-    url TEXT NOT NULL UNIQUE,
-    title TEXT NOT NULL,
+    title TEXT NOT NULL UNIQUE,
     body TEXT NOT NULL,
     categories TEXT NOT NULL,
     tags TEXT NOT NULL,
