@@ -2,20 +2,20 @@ use crate::models::Post;
 use chrono::NaiveDateTime;
 use rocket::http::uri::Uri;
 
-pub const POSTS_PER_PAGE: usize = 6;
+pub const POSTS_PER_PAGE: i64 = 6;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Context {
-    page: usize,
-    posts_per_page: usize,
+    page: i64,
+    posts_per_page: i64,
     pages: i32,
     posts: Vec<ContextPost>,
-    total_posts: usize,
+    total_posts: i64,
 }
 
 impl Context {
-    pub fn new(page: usize, posts: Vec<ContextPost>, total_posts: Option<usize>) -> Self {
-        let total_posts = total_posts.unwrap_or(posts.len());
+    pub fn new(page: i64, posts: Vec<ContextPost>, total_posts: Option<i64>) -> Self {
+        let total_posts = total_posts.unwrap_or(posts.len() as i64);
         Self {
             page,
             posts_per_page: POSTS_PER_PAGE,
