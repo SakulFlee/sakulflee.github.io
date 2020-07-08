@@ -21,11 +21,11 @@ pub fn get_ordered_range(start: usize, range: usize) -> Result<(usize, Vec<Post>
         .load::<Post>(&connection)?;
 
     let mut end = start + range - 1;
-    if end > v.len() - 1 {
+    if end > v.len() {
         end = v.len() - 1;
     }
 
-    if end <= start {
+    if end < start {
         Ok((v.len(), vec![]))
     } else {
         Ok((v.len(), v[start..=end].to_vec()))
