@@ -25,14 +25,12 @@ fn main() {
         .mount(
             "/",
             routes![
+                endpoints::index::main_page,
+                endpoints::blog::view::blog_view_post,
+                endpoints::blog::blog::blog_view_posts,
                 endpoints::posts::get_posts,
                 endpoints::posts::get_posts_by_id,
-                endpoints::posts::post_posts,
-                endpoints::blog::page_view_post,
-                endpoints::index::main_page,
-                endpoints::index::index,
-                endpoints::index::index_html,
-                endpoints::index::index_htm,
+                endpoints::posts::post_posts
             ],
         )
         .mount("/", StaticFiles::from(static_path))
