@@ -62,7 +62,7 @@
           <div class="columns">
             <span class="column has-text-left">
               <i class="fas fa-link"></i>
-              <a href="">Read more ...</a>
+              <a href="/blog/view/{{ post.uri }}">Read more ...</a>
             </span>
             <span class="column has-text-right">
               <b>Posted on</b>: {{ post.date | date }} | <b>Words</b>: {{ post.body | wordcount }}
