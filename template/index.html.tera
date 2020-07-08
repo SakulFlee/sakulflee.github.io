@@ -51,18 +51,18 @@
             </li>
           </ul>
           <div class="buttons columns">
-            <button class="button mr-4 mt-6 is-large is-white is-outlined column">
+            <a href="/blog" class="button mr-4 mt-6 is-large is-white is-outlined column">
               <span class="icon is-large">
                 <i class="fas fa-book"></i>
               </span>
               <span>Blog</span>
-            </button>
-            <button class="button ml-4 mt-6 is-large is-white is-outlined column">
+            </a>
+            <a href="/projects" class="button ml-4 mt-6 is-large is-white is-outlined column">
               <span class="icon is-large">
                 <i class="fas fa-code-branch"></i>
               </span>
               <span>Projects</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
