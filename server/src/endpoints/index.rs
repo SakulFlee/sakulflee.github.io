@@ -1,4 +1,4 @@
-use data::models::Context;
+use data::models::context::Context;
 use rocket_contrib::templates::Template;
 
 #[get("/")]
