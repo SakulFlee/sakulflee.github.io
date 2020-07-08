@@ -1,0 +1,7 @@
+{% extends "components/base" %}
+
+{% block content %}
+<section>
+  ASD
+</section>
+{% endblock content %}
