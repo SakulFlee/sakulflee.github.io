@@ -29,3 +29,4 @@ target/
 *.css.map
 *.sassc
 *.scssc
+.sass-cache/
