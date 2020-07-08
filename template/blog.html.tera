@@ -1,7 +1,78 @@
 {% extends "components/base" %}
 
 {% block content %}
-<section>
-  ASD
+<section class="mx-4">
+  {% if posts | length == 0 %}
+    <div class="container has-text-centered my-6">
+      <h1>Out of bounce!</h1>
+      <h2>There are no posts here.</h2>
+      <br/>
+      <br/>
+      <br/>
+      <div class="buttons is-centered">
+        <a href="/blog">
+          <button class="button mr-4 mt-6 is-dark">
+            <span class="icon is-large">
+              <i class="fas fa-book"></i>
+            </span>
+            <span>Go back to blog</span>
+          </button>
+        </a>
+        <a href="/">
+          <button class="button mr-4 mt-6 is-dark">
+            <span class="icon is-large">
+              <i class="fas fa-home"></i>
+            </span>
+            <span>Go back to home</span>
+          </button>
+        </a>
+      </div>
+    </div>
+  {% else %}
+    {% for post in posts %}
+      <article class="message">
+        <div class="message-header">
+          <span>
+            <i class="fas fa-link"></i>
+            <a href="/blog/view/{{ post.uri }}" class="no-link">
+              {{ post.title }}
+            </a>
+          </span>
+          {% if post.categories != "['']"%}
+            <span>
+              <i class="fas fa-link"></i>
+              {% set categories = post.categories | replace(from="'", to="") | replace(from="[", to="") | replace(from="]", to="") | split(pat=", ") %}
+              {% set categories_size = categories | length %}
+              {% for category in categories %}
+                <a href="/blog/category/{{ category }}" class="no-link">
+                  {{ category }}
+                </a>
+                {% if loop.index != categories_size %}
+                  ,
+                {% endif %}
+              {% endfor %}
+            </span>
+          {% endif %}
+        </div>
+        <section class="px-2">
+          <span>
+            {{ post.excerpt | safe }}
+          </span>
+          <br/>
+          <div class="columns">
+            <span class="column has-text-left">
+              <i class="fas fa-link"></i>
+              <a href="">Read more ...</a>
+            </span>
+            <span class="column has-text-right">
+              <b>Posted on</b>: {{ post.date | date }} | <b>Words</b>: {{ post.body | wordcount }}
+            </span>
+          </div>
+        </section>
+      </article>
+    {% endfor %}
+  {% endif %}
+
+  {% include "components/paginator" %}
 </section>
 {% endblock content %}
