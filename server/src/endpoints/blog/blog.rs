@@ -16,13 +16,12 @@ pub fn blog_no_page_var() -> Redirect {
 }
 
 #[get("/blog/page/<page>")]
-pub fn blog_posts(page: usize) -> Template {
+pub fn blog_posts(page: i64) -> Template {
+    let total_posts = posts::count().expect("Failed to count posts");
+
     let post_base = (page - 1) * POSTS_PER_PAGE;
-    let post_range =
-        posts::get_ordered_range(post_base, POSTS_PER_PAGE).expect("Failed to retrieve post range");
-    let total_posts = post_range.0;
-    let posts = post_range
-        .1
+    let posts = posts::get_ordered_range(post_base, POSTS_PER_PAGE)
+        .expect("Failed to get post range")
         .iter()
         .map(|x| BlogContextPost::new(x.to_owned()))
         .collect();
