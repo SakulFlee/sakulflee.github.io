@@ -10,6 +10,7 @@ use pulldown_cmark::Parser;
 #[table_name = "posts"]
 pub struct NewPost {
     pub title: String,
+    pub excerpt: String,
     pub body: String,
     pub categories: String,
     pub tags: String,
@@ -20,6 +21,7 @@ pub struct NewPost {
 impl NewPost {
     pub fn new(
         title: String,
+        excerpt: String,
         body: String,
         categories: String,
         tags: String,
@@ -28,6 +30,7 @@ impl NewPost {
     ) -> Self {
         Self {
             title,
+            excerpt,
             body,
             categories,
             tags,
@@ -62,6 +65,16 @@ impl NewPost {
         let title = title_fragment.get(0).unwrap().replace("# ", "");
         println!("Title: {}", title);
 
+        let excerpt_fragment = markdown_split
+            .get(0)
+            .unwrap()
+            .split("\n\n")
+            .collect::<Vec<&str>>();
+        let excerpt_markdown = excerpt_fragment.get(1).unwrap().to_string();
+        println!("Excerpt (MD): {}", excerpt_markdown);
+        let excerpt = NewPost::markdown_to_html(&excerpt_markdown);
+        println!("Excerpt (HTML): {}", excerpt);
+
         let html = NewPost::markdown_to_html(&markdown);
 
         let date = match preface.date() {
@@ -71,6 +84,7 @@ impl NewPost {
 
         Some(NewPost::new(
             title,
+            excerpt,
             html,
             preface.categories(),
             preface.tags(),

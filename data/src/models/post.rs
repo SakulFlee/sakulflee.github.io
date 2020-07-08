@@ -4,6 +4,7 @@ use chrono::NaiveDateTime;
 pub struct Post {
     pub id: i32,
     pub title: String,
+    pub excerpt: String,
     pub body: String,
     pub categories: String,
     pub tags: String,
