@@ -13,6 +13,25 @@ pub fn get_all(limit: i64) -> Result<Vec<Post>, Error> {
         .load::<Post>(&connection)
 }
 
+pub fn get_ordered_range(start: usize, range: usize) -> Result<(usize, Vec<Post>), Error> {
+    let connection = establish_connection();
+    let v = posts
+        .filter(published.eq(true))
+        .order(date.desc())
+        .load::<Post>(&connection)?;
+
+    let mut end = start + range - 1;
+    if end > v.len() - 1 {
+        end = v.len() - 1;
+    }
+
+    if end <= start {
+        Ok((v.len(), vec![]))
+    } else {
+        Ok((v.len(), v[start..=end].to_vec()))
+    }
+}
+
 pub fn get_by_id(x: i32) -> Result<Post, Error> {
     let connection = establish_connection();
     match posts
