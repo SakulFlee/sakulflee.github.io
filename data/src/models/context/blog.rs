@@ -2,7 +2,7 @@ use crate::models::Post;
 use chrono::NaiveDateTime;
 use rocket::http::uri::Uri;
 
-pub const POSTS_PER_PAGE: usize = 10;
+pub const POSTS_PER_PAGE: usize = 6;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Context {
@@ -29,6 +29,7 @@ impl Context {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ContextPost {
     title: String,
+    excerpt: String,
     body: String,
     categories: String,
     tags: String,
@@ -43,6 +44,7 @@ impl ContextPost {
 
         Self {
             title: post.title,
+            excerpt: post.excerpt,
             body: post.body,
             categories: post.categories,
             tags: post.tags,
