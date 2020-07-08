@@ -30,7 +30,9 @@ fn main() {
                 endpoints::blog::blog::blog_view_posts,
                 endpoints::posts::get_posts,
                 endpoints::posts::get_posts_by_id,
-                endpoints::posts::post_posts
+                endpoints::posts::post_posts,
+                endpoints::blog::blog::blog_no_page_var,
+                endpoints::blog::blog::blog_posts,
             ],
         )
         .mount("/", StaticFiles::from(static_path))

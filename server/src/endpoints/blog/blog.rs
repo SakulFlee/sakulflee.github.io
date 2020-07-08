@@ -1,47 +1,33 @@
 use data::data::posts;
-use data::models::Post;
-use rocket::http::uri::Uri;
+use data::models::blog::POSTS_PER_PAGE;
+use data::models::context::{BlogContext, BlogContextPost};
+use rocket::response::Redirect;
 use rocket_contrib::templates::Template;
-use serde_derive::{Deserialize, Serialize};
-
-#[derive(Debug, Serialize, Deserialize)]
-struct Context {
-    posts: Vec<ContextPost>,
-}
-
-impl Context {
-    pub fn new(posts: Vec<ContextPost>) -> Self {
-        Self { posts }
-    }
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-struct ContextPost {
-    post: Post,
-    uri: String,
-}
-
-impl ContextPost {
-    pub fn new(post: Post) -> Self {
-        let uri: String = Uri::percent_encode(&post.title).to_string();
-
-        Self { post, uri }
-    }
-}
 
 #[get("/blog")]
-pub fn blog_view_posts() -> Template {
-    let context = Context::new(
-        posts::get_all(5)
-            .unwrap()
-            .iter()
-            .map(|x| ContextPost::new(x.to_owned()))
-            .collect(),
-    );
+pub fn blog_view_posts() -> Redirect {
+    Redirect::to("/blog/page/1")
+}
 
-    for e in &context.posts {
-        println!("{:?}: {:?}", e.post, e.uri);
-    }
+/// If no page VARIABLE was given, we redirect to the FIRST page.
+#[get("/blog/page")]
+pub fn blog_no_page_var() -> Redirect {
+    Redirect::to("/blog/page/1")
+}
+
+#[get("/blog/page/<page>")]
+pub fn blog_posts(page: usize) -> Template {
+    let post_base = (page - 1) * POSTS_PER_PAGE;
+    let post_range =
+        posts::get_ordered_range(post_base, POSTS_PER_PAGE).expect("Failed to retrieve post range");
+    let total_posts = post_range.0;
+    let posts = post_range
+        .1
+        .iter()
+        .map(|x| BlogContextPost::new(x.to_owned()))
+        .collect();
+
+    let context = BlogContext::new(page, posts, Some(total_posts));
 
     Template::render("blog", &context)
 }
