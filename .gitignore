@@ -19,6 +19,8 @@ db.json
 
 # VSCode
 .vscode/
+!.vscode/tasks.json
+!.vscode/launch.json
 
 #Added by cargo
 target/
