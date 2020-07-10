@@ -47,6 +47,9 @@
               {% include "components/svg/telegram" %}   
             </li>
             <li class="icon p-icon">
+              {% include "components/svg/twitter" %}   
+            </li>
+            <li class="icon p-icon">
               {% include "components/svg/mail" %}   
             </li>
           </ul>
