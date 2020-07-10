@@ -75,4 +75,5 @@
 
   {% include "components/paginator" %}
 </section>
+<hr/>
 {% endblock content %}
