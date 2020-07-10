@@ -95,9 +95,7 @@ impl NewPost {
 
     fn markdown_to_html(markdown_input: &str) -> String {
         // Setup parser with special options
-        let mut options = Options::empty();
-        options.insert(Options::ENABLE_STRIKETHROUGH);
-        let parser = Parser::new_ext(markdown_input, options);
+        let parser = Parser::new_ext(markdown_input, Options::all());
 
         // Convert markdown to html
         let mut html_output = String::new();
