@@ -75,7 +75,7 @@ fn process_import(mut input: &str) -> Cow<str> {
 
 fn process_comments(mut input: &str) -> Cow<str> {
     lazy_static! {
-        static ref RE: Regex = RegexBuilder::new(r"(//.*)")
+        static ref RE: Regex = RegexBuilder::new(r"(//|#.*)")
             .multi_line(true)
             .case_insensitive(true)
             .build()
