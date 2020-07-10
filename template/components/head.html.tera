@@ -9,6 +9,14 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <script defer src="/bulma-menu.js"></script>
 
+<script type="module">
+import init from '/client_lib/client_lib.js';
+async function run() {
+    await init();
+}
+run();
+</script>
+
 <link rel="icon" href="/favicon.ico">
 
 <title>
