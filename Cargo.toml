@@ -3,4 +3,5 @@ members = [
     "data",
     "server",
     "import",
+    "client_lib"
 ]
