@@ -50,6 +50,17 @@ pipeline {
                 sh 'cargo test'
             }
         }
+        stage('Build SASS') {
+            agent {
+                dockerfile { 
+                    label 'docker'
+                    filename 'docker/build/Dockerfile'
+                }
+            }
+            steps {
+                sh 'sass static/style.sass'
+            }
+        }
     }
     post {
         success {
