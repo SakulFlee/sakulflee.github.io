@@ -136,6 +136,11 @@ fn process_derive(mut input: &str) -> Cow<str> {
 }
 
 fn process_add_line_numbers(input: &str) -> String {
+    if !input.contains("\n") {
+        // Skip code blocks if they are just one line
+        return input.to_string();
+    }
+
     let mut result = String::new();
     let mut number = 0;
     for line in input.split("\n") {
