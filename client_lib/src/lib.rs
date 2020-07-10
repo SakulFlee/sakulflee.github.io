@@ -64,7 +64,7 @@ fn process_code_block(elem: &HtmlElement) {
 fn process_import(mut input: &str) -> Cow<str> {
     lazy_static! {
         static ref RE: Regex = RegexBuilder::new(
-            r"(^mod|^use|^imports?|(pub\s)?fn|(static\s)?ref|let|mut|extern\scrate)\w*"
+            r"(^(pub\s)?mod|^use|^imports?|(pub\s)?fn|(static\s)?ref|let|mut|extern\scrate)(\s)"
         )
         .multi_line(true)
         .case_insensitive(true)
@@ -72,7 +72,7 @@ fn process_import(mut input: &str) -> Cow<str> {
         .unwrap();
     }
 
-    RE.replace_all(&mut input, "<span style=\"color: Purple\">$1</span>")
+    RE.replace_all(&mut input, "<span style=\"color: Purple\">$1</span> ")
 }
 
 fn process_comments(mut input: &str) -> Cow<str> {
