@@ -73,9 +73,11 @@
               <span>Projects</span>
             </a>
           </div>
+          {% include 'components/scroll-down' %}
         </div>
       </div>
     </div>
   </div>
 </section>
+{% include 'about_me' %}
 {% endblock content %}

@@ -1,6 +1,6 @@
-<%# About-Me page %>
-<%# Displays a page that reflects me, my skills and interests. %>
+{# {% extends "components/base" %}
 
+{% block content %} #}
 <section class="columns has-text-centered" id="AboutMe">
   <article class="column">
     <div>
@@ -23,7 +23,8 @@
         <a href="https://keybase.io/sakul6499">KeyBase</a>.
       </p>
     </div>
-    <%- partial('_partial/timeline.ejs') %>
+    {% include "components/timeline" %}       
   </article>
-  <%- partial('_partial/skills.ejs') %>
+  {% include "components/skills" %}       
 </section>
+{# {% endblock content %} #}
