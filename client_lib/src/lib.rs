@@ -136,19 +136,28 @@ fn process_derive(mut input: &str) -> Cow<str> {
 }
 
 fn process_add_line_numbers(input: &str) -> String {
-    if !input.contains("\n") {
-        // Skip code blocks if they are just one line
+    let lines: Vec<&str> = input.split("\n").collect();
+    let line_count = lines.len();
+
+    if line_count <= 1 {
         return input.to_string();
     }
 
     let mut result = String::new();
-    let mut number = 0;
-    for line in input.split("\n") {
-        number = number + 1;
+    let mut line;
+    for i in 0..line_count {
+        line = lines[i];
+
+        if i == line_count - 1 {
+            console_log!("Line: {}", line);
+            continue; // skip
+        }
+
         result = format!(
             "{}<span class=\"code-line\"><span class=\"code-line-number\">{}</span><span class=\"code-line-text\">{}</span></span>",
-            result, number, line
+            result, i + 1, line
         );
     }
+
     result
 }
