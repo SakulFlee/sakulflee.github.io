@@ -3,23 +3,23 @@
         Made with <span class="icon has-text-danger"><i class="fas fa-heart fas fa-2x"></i></span> by @Sakul6499
     </p>
     <div class="buttons columns mt-4 is-centered">
-        <button class="button is-normal mr-4 ml-4">
+        <a href="/contact" class="button is-normal mr-4 ml-4">
             <span class="icon is-medium">
                 <i class="fas fa-address-card"></i>
             </span>
             <span>Contact</span>
-        </button>
-        <button class="button is-normal mr-4 ml-4">
+        </a>
+        <a href="/credits" class="button is-normal mr-4 ml-4">
             <span class="icon is-medium">
                 <i class="fas fa-star"></i>
             </span>
             <span>Credits</span>
-        </button>
-        <button class="button is-normal mr-4 ml-4">
+        </a>
+        <a href="/legal" class="button is-normal mr-4 ml-4">
             <span class="icon is-medium">
                 <i class="fas fa-balance-scale"></i>
             </span>
             <span>Legal</span>
-        </button>
+        </a>
     </div>
 </section>
