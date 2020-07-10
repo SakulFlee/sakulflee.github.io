@@ -35,8 +35,6 @@ pub fn run() -> Result<(), JsValue> {
     let window = web_sys::window().expect("no global `window` exists");
     let document = window.document().expect("should have a document on window");
 
-    console_log!("Testing");
-
     let node_list = document.query_selector_all("code")?;
     for i in 0..node_list.length() {
         match node_list.get(i) {
@@ -149,7 +147,6 @@ fn process_add_line_numbers(input: &str) -> String {
         line = lines[i];
 
         if i == line_count - 1 {
-            console_log!("Line: {}", line);
             continue; // skip
         }
 
