@@ -6,100 +6,48 @@ pipeline {
         timeout(time: 1, unit: 'HOURS') 
     }
     stages {
-        stage('NodeJS Latest') {
+        stage('Check') {
             agent {
                 docker { 
                     label 'docker'
-                    image 'node:latest' 
+                    image 'rust:latest' 
                 }
             }
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh '''
-                        node --version
-                        uname -a
-                        
-                        cd themes/aether/
-                        npm install
-                        
-                        cd ../../
-                        npm install
-                    
-                        npm run build
-                    '''
-                }
+                sh 'cargo check'
             }
         }
-        stage('NodeJS Current') {
+        stage('Build') {
             agent {
                 docker { 
                     label 'docker'
-                    image 'node:current' 
+                    image 'rust:latest' 
                 }
             }
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh '''
-                        node --version
-                        uname -a
-                        
-                        cd themes/aether/
-                        npm install
-                        
-                        cd ../../
-                        npm install
-                    
-                        npm run build
-                    '''
-                }
+                sh 'cargo build'
             }
         }
-        stage('NodeJS LTS') {
+        stage('Build Docs') {
             agent {
                 docker { 
                     label 'docker'
-                    image 'node:lts' 
+                    image 'rust:latest' 
                 }
             }
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh '''
-                        node --version
-                        uname -a
-                        
-                        cd themes/aether/
-                        npm install
-                        
-                        cd ../../
-                        npm install
-                    
-                        npm run build
-                    '''
-                }
+                sh 'cargo doc'
             }
         }
-        stage('NodeJS LTS Alpine') {
+        stage('Test') {
             agent {
                 docker { 
                     label 'docker'
-                    image 'node:lts-alpine' 
+                    image 'rust:latest' 
                 }
             }
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh '''
-                        node --version
-                        uname -a
-                        
-                        cd themes/aether/
-                        npm install
-                        
-                        cd ../../
-                        npm install
-                    
-                        npm run build
-                    '''
-                }
+                sh 'cargo test'
             }
         }
     }
