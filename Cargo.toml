@@ -5,3 +5,7 @@ members = [
     "import",
     "client_lib"
 ]
+
+[profile.release.package.client_lib]
+# Tell `rustc` to optimize for small code size.
+opt-level = "s"
