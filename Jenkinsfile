@@ -8,9 +8,9 @@ pipeline {
     stages {
         stage('Check') {
             agent {
-                docker { 
+                dockerfile { 
                     label 'docker'
-                    image 'rust:latest' 
+                    filename 'docker/build/Dockerfile'
                 }
             }
             steps {
@@ -19,9 +19,9 @@ pipeline {
         }
         stage('Build') {
             agent {
-                docker { 
+                dockerfile { 
                     label 'docker'
-                    image 'rust:latest' 
+                    filename 'docker/build/Dockerfile'
                 }
             }
             steps {
@@ -30,9 +30,9 @@ pipeline {
         }
         stage('Build Docs') {
             agent {
-                docker { 
+                dockerfile { 
                     label 'docker'
-                    image 'rust:latest' 
+                    filename 'docker/build/Dockerfile'
                 }
             }
             steps {
@@ -41,9 +41,9 @@ pipeline {
         }
         stage('Test') {
             agent {
-                docker { 
+                dockerfile { 
                     label 'docker'
-                    image 'rust:latest' 
+                    filename 'docker/build/Dockerfile'
                 }
             }
             steps {
