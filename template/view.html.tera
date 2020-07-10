@@ -1,5 +1,28 @@
 {% extends "components/base" %}
 
 {% block content %}
-  {{ body | safe }}
+<article id="blog-post">
+  <section class="hero is-info is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          {# <%- item.title || item.link%> #}
+          {{ post.title }}
+        </h1>
+        <h2 class="subtitle">
+          {# <%= item.date.format(config.date_format) %> #}
+        </h2>
+
+        {# <%- partial('article-categories', {item: item}) %> <%- #}
+        {# partial('article-tags', {item: item}) %> #}
+      </div>
+    </div>
+  </section>
+
+  <div id="content">
+    {{ post.body | safe }}
+  </div>
+
+  {# <%- partial('mod/disqus_comments') %> #}
+</article>
 {% endblock content %}
