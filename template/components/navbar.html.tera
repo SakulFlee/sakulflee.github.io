@@ -35,7 +35,7 @@
         </span>
         <span>Projects</span>
       </a>
-      <a class="navbar-item" href="/aboutme">
+      <a class="navbar-item" href="/about_me">
         <span class="icon is-large">
           <i class="fas fa-user"></i>
         </span>

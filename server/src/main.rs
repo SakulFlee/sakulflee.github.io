@@ -37,6 +37,7 @@ fn main() {
                 endpoints::credits::credits,
                 endpoints::legal::legal,
                 endpoints::contact::contact,
+                endpoints::about_me::about_me,
             ],
         )
         .mount("/", StaticFiles::from(static_path))

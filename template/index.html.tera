@@ -60,7 +60,7 @@
               </span>
               <span>Blog</span>
             </a>
-            <a href="/aboutme" class="button mr-4 ml-4 mt-6 is-large is-white is-outlined column">
+            <a href="/about_me" class="button mr-4 ml-4 mt-6 is-large is-white is-outlined column">
               <span class="icon is-large">
                 <i class="fas fa-user"></i>
               </span>
