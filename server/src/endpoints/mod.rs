@@ -1,4 +1,3 @@
-pub mod about_me;
 pub mod blog;
 pub mod catch;
 pub mod contact;

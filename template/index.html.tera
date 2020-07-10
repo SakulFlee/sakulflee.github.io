@@ -60,12 +60,6 @@
               </span>
               <span>Blog</span>
             </a>
-            <a href="/about_me" class="button mr-4 ml-4 mt-6 is-large is-white is-outlined column">
-              <span class="icon is-large">
-                <i class="fas fa-user"></i>
-              </span>
-              <span>About me</span>
-            </a>
             <a href="/projects" class="button ml-4 mt-6 is-large is-white is-outlined column">
               <span class="icon is-large">
                 <i class="fas fa-code-branch"></i>
