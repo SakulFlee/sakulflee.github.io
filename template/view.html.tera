@@ -25,6 +25,4 @@
 
   {# <%- partial('mod/disqus_comments') %> #}
 </article>
-
-<hr/>
 {% endblock content %}
