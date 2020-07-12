@@ -5,11 +5,12 @@
         About me
       </u>
       <p>
-        Hello there! My name is Lukas Weber and I am {{ age }} years
-        old. Currently, I live in Germany, but I am studying
-        <i>Software Engineering</i> in the Netherlands. I am interested in a lot
-        of topics, mainly IT related, which is also why I taught myself a lot of
-        skills already and am continually learning new things!
+        Hello there! My name is Lukas Weber and I am {{ age }} years old.
+      </p>
+      <p>
+        Currently, I live in Germany, but I am studying <i>Software Engineering</i> in the Netherlands. I am interested in a lot
+        of topics (mainly IT related).
+        I am constantly learning new skills and about new topics I find interesting.
       </p>
       <br />
       <p>I am currently also in need of an internship.</p>
