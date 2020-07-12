@@ -16,6 +16,7 @@ log = "0.4"
 dotenv = "0.15"
 walkdir = "2"
 data = { path = "../data" }
+chrono = "0.4"
 
 [dependencies.rocket_contrib]
 version = "0.4.5"
