@@ -7,44 +7,44 @@
   <h1 class="is-size-5 has-text-black">Languages I speak:</h1>
   <section class="column is-mobile is-centered tags">
     <div
-      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
       data-tooltip="My native language.">German</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
       data-tooltip="My secondary language! B1 LCCI Business Certificate/B2 school english">English</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline"
       data-tooltip="I am studying in the netherlands! Basic dutch is a must, although I mainly only understand ...">
       Dutch</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline"
       data-tooltip="Not fluent but an very interesting and different language!">Japanese</div>
   </section>
 
   <h1 class="is-size-5 has-text-black">Languages I <s>speak</s> code:</h1>
   <section class="column is-mobile is-centered tags">
     <div
-      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
       data-tooltip="JVM languages and tools like Java, Kotlin, Maven and Gradle">Java</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
       data-tooltip="The classic native tools">C/C++</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
       data-tooltip="HTML5, CSS4, JS9, PHP, Ruby, ...">WEB</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
       data-tooltip="Rust focuses on security, while maintaining speeds similar or sometimes even better than C/C++/Native solutions!">
       Rust</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-dark has-tooltip-dark is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-dark has-tooltip-dark is-medium is-tooltip-multiline"
       data-tooltip="Focus on writing instead of designing office documents">LaTeX</div>
 
     <div
@@ -52,30 +52,42 @@
       data-tooltip="[Z|Ba]SH, Python, Ruby, ...">Script languages</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-small is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-small is-tooltip-multiline"
       data-tooltip=".NET's main language">C#</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-medium is-tooltip-multiline"
       data-tooltip="A Java based language!">Kotlin</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-warning has-tooltip-warning is-medium is-tooltip-multiline"
+      data-tooltip="A Java based language!">Haskell</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-medium is-tooltip-multiline"
+      data-tooltip="A Java based language!">Prolog</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-medium is-tooltip-multiline"
+      data-tooltip="A Java based language!">R</div>
   </section>
 
   <h1 class="is-size-5 has-text-black">Tools I use:</h1>
   <section class="column is-mobile is-centered tags">
     <div
-      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
       data-tooltip="GIT, SVN and other VCS">GIT</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
       data-tooltip="IntelliJ IDEA, Clion, Dadivrip, WebStorm, PyCharm, PHPStorm, Rider, ...">JetBrains IDEs</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
       data-tooltip="Mainly Visual Studio Code, but also Visual Studio">VisualStudio[Code]</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-normal is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-normal is-tooltip-multiline"
       data-tooltip="The classic CLI editor!">VIM</div>
 
     <div
@@ -83,15 +95,15 @@
       data-tooltip="CMake, Make, QMake, Gradle, Maven, Ant, and more!">Build-Tools</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
       data-tooltip="Oracle's Java IDE">NetBeans</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-small is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-small is-tooltip-multiline"
       data-tooltip="All-in-one modelling and management software">VisualParadigm</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-dark has-tooltip-dark is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-dark has-tooltip-dark is-medium is-tooltip-multiline"
       data-tooltip="Open source and proprietary office product solutions">MS/Libre/OpenOffice</div>
 
     <div
@@ -105,20 +117,20 @@
   </h1>
   <section class="column is-mobile is-centered tags">
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
       data-tooltip="Standard unit and integration testing library and suite for Java based languages">JUnit</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-normal is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-normal is-tooltip-multiline"
       data-tooltip="Mockito extends JUnit with useful additions and prevents overhead while testing">Mockito</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-normal is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-normal is-tooltip-multiline"
       data-tooltip="RESTAssured extends JUnit by providing easy ways to test and validate REST API server and clients">
       RESTAssured</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-small is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-small is-tooltip-multiline"
       data-tooltip="Standard unit and integration testing library and suite for C/ C++ based languages">GTest</div>
 
     <div
@@ -131,16 +143,24 @@
       data-tooltip="Responsive, mobile-first, framework for website projects. Similar to Bulma.">Bootstrap</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-primary has-tooltip-primary is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-primary has-tooltip-primary is-medium is-tooltip-multiline"
       data-tooltip="An easy to use and highly optimized Java WebServer with many possibilities">Spring.io</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
       data-tooltip="Single page websites!">ReactJS</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
       data-tooltip="NodeJS">NPM</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
+      data-tooltip="WebAssembly">WASM</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-large is-tooltip-multiline"
+      data-tooltip="Rocket.rs WebFramework, Server, Client, ...">Rocket</div>
   </section>
 
   <h1 class="is-size-5 has-text-black">
@@ -148,19 +168,19 @@
   </h1>
   <section class="column is-mobile is-centered tags">
     <div
-      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
       data-tooltip="My primary operating system! Mainly Manjaro but also self-installed arch.">ArchLinux</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-medium is-tooltip-multiline"
       data-tooltip="Ubuntu and other Debian based distros!">Ubuntu</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-medium is-tooltip-multiline"
       data-tooltip="OpenSource version of RedHat's Enterprise Linux">CentOS</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-small is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-small is-tooltip-multiline"
       data-tooltip="Linux based distribution, made for security testing and hacking">KaliLinux</div>
 
     <div
@@ -168,7 +188,7 @@
       data-tooltip="Microsoft's operating system. While not being a huge fan of it I still use it often.">Windows</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-primary has-tooltip-primary is-small is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-primary has-tooltip-primary is-small is-tooltip-multiline"
       data-tooltip="Apple's operating system. Very similar to Linux; sometimes porting applications there.">Mac OS X
     </div>
   </section>
@@ -178,12 +198,12 @@
   </h1>
   <section class="column is-mobile is-centered tags">
     <div
-      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
       data-tooltip="I think brains are mysterious and so interesting. AI tries to reverse-engineer that! How can one not be interested in AI?">
       AI</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-medium is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-medium is-tooltip-multiline"
       data-tooltip="I like to find bugs and security problems in existing and still developing systems to then fix or report them. Activities include Pen-Testing and CTFs.">
       Hacking</div>
 
@@ -192,13 +212,17 @@
       data-tooltip="'Internet of Things' devices are electronics that are connected with the internet">IoT</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-large is-tooltip-multiline"
       data-tooltip="I really enjoy having no creative limits and simply create something others might like. Sadly I haven't finished any games yet ...">
       Game Development</div>
 
     <div
-      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-large is-tooltip-multiline has-text-white"
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-large is-tooltip-multiline"
       data-tooltip="Being creative is one of my biggest interests">3D Modelling / Design</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
+      data-tooltip="Being creative is one of my biggest interests">Security</div>
   </section>
 
   <div class="has-text-grey tooltip has-tooltip-danger" data-data-tooltip="Click to see more!">
