@@ -1,7 +1,7 @@
 {% extends "components/base" %}
 
 {% block content %}
-<section class="hero is-dark is-fullheight-with-navbar" id="index-hero">
+<section class="hero is-dark is-fullheight-with-navbar">
   <div class="hero-head">
   </div>
   <div class="hero-body">
