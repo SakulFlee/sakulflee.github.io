@@ -5,6 +5,7 @@ extern crate rocket;
 
 pub mod endpoints;
 
+use data::database::connection::connection_valid;
 use data::database::migration::run_db_migrations;
 use dotenv::dotenv;
 use rocket::fairing::AdHoc;
@@ -16,6 +17,18 @@ use std::env;
 fn main() {
     dotenv().ok();
     let static_path = env::var("STATIC_PATH").unwrap_or(String::from("static/"));
+
+    // Test if connection is valid
+    if !connection_valid() {
+        println!("Could not connect to database.");
+        println!("Please make sure that an environment variable 'DATABASE_URL' is set properly and that the defined database is accepting connections.");
+        println!(
+            "Currently, the variable is set to: {}",
+            env::var("DATABASE_URL").unwrap_or(String::from("NONE"))
+        );
+        println!("The variable should follow this schema: <protocol>://<username>:<password>@<host>:<port>/<database>");
+        return;
+    }
 
     rocket::ignite()
         .attach(AdHoc::on_attach("Database Migrations", run_db_migrations))
