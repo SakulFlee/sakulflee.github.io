@@ -38,7 +38,7 @@
         class="is-warning tag is-large tooltip has-tooltip-warning is-tooltip-multiline has-text-black"
         data-tooltip="Major step into the 'native world'!"
       >
-        Started with C/C+"
+        Started with C/C+
       </div>
       <div class="solid-line"></div>
       <div
