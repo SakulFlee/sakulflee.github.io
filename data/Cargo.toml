@@ -18,6 +18,7 @@ walkdir = "2"
 toml = "0.5"
 pulldown-cmark = "0.7"
 chrono = { version = "0.4", features = ["serde"] }
+rand = "0.7"
 
 [dependencies.rocket_contrib]
 version = "0.4.5"
