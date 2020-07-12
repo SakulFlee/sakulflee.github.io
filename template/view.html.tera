@@ -2,19 +2,54 @@
 
 {% block content %}
 <article id="blog-post">
-  <section class="hero is-info is-bold">
+  <section class="hero {{ theme }}">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
-          {# <%- item.title || item.link%> #}
           {{ post.title }}
         </h1>
         <h2 class="subtitle">
-          {# <%= item.date.format(config.date_format) %> #}
+          {{ post.date | date }}
         </h2>
 
-        {# <%- partial('article-categories', {item: item}) %> <%- #}
-        {# partial('article-tags', {item: item}) %> #}
+        <div class="columns">
+          <div class="column is-half has-text-left">
+            <p><b>Categories</b></p>
+            {% if post.categories != "['']"%}
+              <span>
+                {% set categories = post.categories | replace(from="'", to="") | replace(from="[", to="") | replace(from="]", to="") | split(pat=", ") %}
+                {% set categories_size = categories | length %}
+                {% for category in categories %}
+                  <a href="/blog/category/{{ category }}" class="{{ text_theme }}">
+                    <i class="fas fa-link"></i>
+                    {{ category }}
+                  </a>
+                  {% if loop.index != categories_size %}
+                    ,
+                  {% endif %}
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+          <div class="column is-half has-text-right">
+            <p><b>Tags</b></p>
+            {% if post.tags != "['']"%}
+              <span>
+                {% set tags = post.tags | replace(from="'", to="") | replace(from="[", to="") | replace(from="]", to="") | split(pat=", ") %}
+                {% set categories_size = tags | length %}
+                {% for tags in tags %}
+                  <a href="/blog/tags/{{ tags }}" class="{{ text_theme }}">
+                    <i class="fas fa-link"></i>
+                    {{ tags }}
+                  </a>
+                  {% if loop.index != categories_size %}
+                    ,
+                  {% endif %}
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -22,7 +57,5 @@
   <div id="content">
     {{ post.body | safe }}
   </div>
-
-  {# <%- partial('mod/disqus_comments') %> #}
 </article>
 {% endblock content %}
