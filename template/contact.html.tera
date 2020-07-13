@@ -1,0 +1,140 @@
+{% extends "components/base" %}
+
+{% block content %}
+<div id="contact">
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container">
+        <p class="title">Contact</p>
+        <p class="subtitle">How to get in contact with me?</p>
+      </div>
+    </div>
+  </section>
+  <div>
+    <div class="columns mx-2 my-2">
+      <div class="column card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                {% include "components/svg/mail" %}
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Mail</p>
+              <p class="subtitle is-6">
+                <a href="mailto:me@sakul6499.de" class="has-text-grey-dark">
+                  me@sakul6499.de
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            I prefer to use email <b>only</b> for professional and content related contact requests.
+            Contact me at <a href="mailto:me@sakul6499.de" class="has-text-grey-dark">me@sakul6499.de</a> or <a href="mailto:me@webmaster.sakul6499.de" class="has-text-grey-dark">webmaster.sakul6499.de</a>.
+            Encrypted messages are preferred!
+            Check out my <a href="https://keybase.io/sakul6499/pgp_keys.asc">public key</a>.
+          </div>
+        </div>
+      </div>
+      <div class="column card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                {% include "components/svg/twitter" %}
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Twitter</p>
+              <p class="subtitle is-6">
+                <a href="https://twitter.com/sakul6499" class="has-text-grey-dark">
+                  @Sakul6499
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            Reach out to me publicly by <i>@dding</i> me at <a href="https://twitter.com/sakul6499" class="has-text-grey-dark">@Sakul6499</a> or contact me privately via PMs!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns mx-2 my-2">
+      <div class="column card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                {% include "components/svg/keybase" %}
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">KeyBase</p>
+              <p class="subtitle is-6">
+                <a href="https://keybase.io/sakul6499" class="has-text-grey-dark">
+                  @Sakul6499
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            Keybase is the best of having a secure and private chat with me!
+            Additionally, my other proven profiles are listed there.
+            Add me at <a href="https://keybase.io/sakul6499" class="has-text-grey-dark">@Sakul6499</a> and start talking!
+          </div>
+        </div>
+      </div>
+      <div class="column card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                {% include "components/svg/telegram" %}
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Telegram</p>
+              <p class="subtitle is-6">
+                <a href="https://t.me/sakul6499" class="has-text-grey-dark">
+                  @Sakul6499
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            Telegram is a great alterative for having a fast, but secure, chat with me.
+            Say hello!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered mx-2 my-2">
+      <div class="column is-6 card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                {% include "components/svg/linkedin" %}
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">LinkedIn</p>
+              <p class="subtitle is-6">
+                <a href="https://www.linkedin.com/in/lukaswebersakul6499/" class="has-text-grey-dark">
+                  @lukaswebersakul6499
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            LinkedIn is definitely the more professional way of contacting me.
+            Unfortunately, I am not that often online there, so replying back can take a day or so.
+            Nevertheless, many of my skills and education is listed there so checking it out is definitely worth it!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
