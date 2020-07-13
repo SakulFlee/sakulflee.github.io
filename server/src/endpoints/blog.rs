@@ -18,7 +18,7 @@ pub fn blog_no_page_var() -> Redirect {
 
 #[get("/blog/page/<page>")]
 pub fn blog_posts(page: i64) -> Template {
-    let total_posts = posts::count().expect("Failed to count posts");
+    let total_posts = posts::count_published().expect("Failed to count posts");
     let post_base = (page - 1) * POSTS_PER_PAGE;
 
     let posts = posts::get_ordered_range(post_base, POSTS_PER_PAGE)
