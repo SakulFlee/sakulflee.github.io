@@ -26,7 +26,7 @@ pub fn count_published() -> QueryResult<i64> {
         .get_result(&connection)
 }
 
-pub fn count_categories(x: &String) -> QueryResult<i64> {
+pub fn count_posts_by_category(x: &String) -> QueryResult<i64> {
     let connection = establish_connection();
     posts
         .filter(published.eq(true))
