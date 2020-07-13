@@ -1,5 +1,8 @@
+use crate::Template;
+use std::collections::HashMap;
+
 #[get("/credits")]
-pub fn credits() -> &'static str {
-    // Template::render("view", &context)
-    "<h1>WIP</h1>"
+pub fn credits() -> Template {
+    let context = HashMap::<String, String>::new();
+    Template::render("component/credit", &context)
 }
