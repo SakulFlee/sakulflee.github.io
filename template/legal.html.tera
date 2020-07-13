@@ -2,6 +2,14 @@
 
 {% block content %}
 <div>
+  <section class="hero is-dark is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Legal</h1>
+        <h2 class="subtitle">What is allowed and what not?</h2>
+      </div>
+    </div>
+  </section>
   <div class="tile is-parent">
     <article class="tile is-child notification is-dark">
       <p class="title">Legal Disclosure</p>
