@@ -86,7 +86,7 @@ pub fn get_by_title(x: String) -> Result<Post, Error> {
     }
 }
 
-pub fn get_by_category(x: String, start: i64, range: i64) -> Result<Vec<Post>, Error> {
+pub fn get_by_category(x: &String, start: i64, range: i64) -> Result<Vec<Post>, Error> {
     let connection = establish_connection();
     posts
         .filter(published.eq(true))
@@ -97,7 +97,7 @@ pub fn get_by_category(x: String, start: i64, range: i64) -> Result<Vec<Post>, E
         .load::<Post>(&connection)
 }
 
-pub fn get_by_tag(x: String, start: i64, range: i64) -> Result<Vec<Post>, Error> {
+pub fn get_by_tag(x: &String, start: i64, range: i64) -> Result<Vec<Post>, Error> {
     let connection = establish_connection();
     posts
         .filter(published.eq(true))
