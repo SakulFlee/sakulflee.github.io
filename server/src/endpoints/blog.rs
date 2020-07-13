@@ -19,9 +19,31 @@ pub fn blog_no_page_var() -> Redirect {
 #[get("/blog/page/<page>")]
 pub fn blog_posts(page: i64) -> Template {
     let total_posts = posts::count().expect("Failed to count posts");
-
     let post_base = (page - 1) * POSTS_PER_PAGE;
+
     let posts = posts::get_ordered_range(post_base, POSTS_PER_PAGE)
+        .expect("Failed to get post range")
+        .iter()
+        .map(|x| BlogContextPost::new(x.to_owned()))
+        .collect();
+
+    let context = BlogContext::new(page, posts, Some(total_posts));
+
+    Template::render("blog", &context)
+}
+
+/// If no page was given, redirect to first page.
+#[get("/blog/category/<category>")]
+pub fn blog_category_no_page(category: String) -> Redirect {
+    Redirect::to(format!("/blog/category/{}/1", category))
+}
+
+#[get("/blog/category/<category>/<page>")]
+pub fn blog_category(category: String, page: i64) -> Template {
+    let total_posts = posts::count_categories(&category).expect("Failed to count posts");
+    let post_base = (page - 1) * POSTS_PER_PAGE;
+
+    let posts = posts::get_by_category(category, post_base, POSTS_PER_PAGE)
         .expect("Failed to get post range")
         .iter()
         .map(|x| BlogContextPost::new(x.to_owned()))
