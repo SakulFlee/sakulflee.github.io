@@ -40,7 +40,6 @@
           </span>
           {% if post.categories != "['']"%}
             <span>
-              <i class="fas fa-link"></i>
               {% set categories = post.categories | replace(from="'", to="") | replace(from="[", to="") | replace(from="]", to="") | split(pat=", ") %}
               {% set categories_size = categories | length %}
               {% for category in categories %}

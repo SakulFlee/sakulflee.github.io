@@ -21,7 +21,6 @@
                 {% set categories_size = categories | length %}
                 {% for category in categories %}
                   <a href="/blog/category/{{ category }}" class="{{ text_theme }}">
-                    <i class="fas fa-link"></i>
                     {{ category }}
                   </a>
                   {% if loop.index != categories_size %}
@@ -39,7 +38,6 @@
                 {% set categories_size = tags | length %}
                 {% for tags in tags %}
                   <a href="/blog/tags/{{ tags }}" class="{{ text_theme }}">
-                    <i class="fas fa-link"></i>
                     {{ tags }}
                   </a>
                   {% if loop.index != categories_size %}
