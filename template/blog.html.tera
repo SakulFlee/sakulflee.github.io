@@ -29,6 +29,13 @@
       </div>
     </div>
   {% else %}
+    <article class="message is-dark">
+      {% if searching_for_type and searching_for_value %}
+        <div class="message-body">
+          Currently searching for <b>{{ searching_for_type }}</b> matching <i>{{ searching_for_value }}</i>.
+        </div>
+      {% endif %}
+    </article>
     {% for post in posts %}
       <article class="message">
         <div class="message-header">
