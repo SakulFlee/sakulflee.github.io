@@ -27,7 +27,14 @@ pub fn blog_posts(page: i64) -> Template {
         .map(|x| BlogContextPost::new(x.to_owned()))
         .collect();
 
-    let context = BlogContext::new(page, posts, Some(total_posts));
+    let context = BlogContext::new(
+        page,
+        posts,
+        Some(total_posts),
+        String::from("/blog/page"),
+        None,
+        None,
+    );
 
     Template::render("blog", &context)
 }
@@ -43,13 +50,20 @@ pub fn blog_category(category: String, page: i64) -> Template {
     let total_posts = posts::count_posts_by_category(&category).expect("Failed to count posts");
     let post_base = (page - 1) * POSTS_PER_PAGE;
 
-    let posts = posts::get_by_category(category, post_base, POSTS_PER_PAGE)
+    let posts = posts::get_by_category(&category, post_base, POSTS_PER_PAGE)
         .expect("Failed to get post range")
         .iter()
         .map(|x| BlogContextPost::new(x.to_owned()))
         .collect();
 
-    let context = BlogContext::new(page, posts, Some(total_posts));
+    let context = BlogContext::new(
+        page,
+        posts,
+        Some(total_posts),
+        format!("/blog/category/{}", &category),
+        Some("categories".to_string()),
+        Some(category.clone()),
+    );
 
     Template::render("blog", &context)
 }
@@ -65,13 +79,20 @@ pub fn blog_tag(tag: String, page: i64) -> Template {
     let total_posts = posts::count_posts_by_tag(&tag).expect("Failed to count posts");
     let post_base = (page - 1) * POSTS_PER_PAGE;
 
-    let posts = posts::get_by_tag(tag, post_base, POSTS_PER_PAGE)
+    let posts = posts::get_by_tag(&tag, post_base, POSTS_PER_PAGE)
         .expect("Failed to get post range")
         .iter()
         .map(|x| BlogContextPost::new(x.to_owned()))
         .collect();
 
-    let context = BlogContext::new(page, posts, Some(total_posts));
+    let context = BlogContext::new(
+        page,
+        posts,
+        Some(total_posts),
+        format!("/blog/tag/{}", &tag),
+        Some("tags".to_string()),
+        Some(tag.clone()),
+    );
 
     Template::render("blog", &context)
 }
