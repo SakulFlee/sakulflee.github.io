@@ -69,11 +69,14 @@ pub fn get_by_title(x: String) -> Result<Post, Error> {
     }
 }
 
-pub fn get_by_category(x: String) -> Result<Vec<Post>, Error> {
+pub fn get_by_category(x: String, start: i64, range: i64) -> Result<Vec<Post>, Error> {
     let connection = establish_connection();
     posts
         .filter(published.eq(true))
         .filter(categories.ilike(format!("%{}%", x)))
+        .order(date.desc())
+        .limit(range)
+        .offset(start)
         .load::<Post>(&connection)
 }
 
