@@ -80,11 +80,14 @@ pub fn get_by_category(x: String, start: i64, range: i64) -> Result<Vec<Post>, E
         .load::<Post>(&connection)
 }
 
-pub fn get_by_tags(x: String) -> Result<Vec<Post>, Error> {
+pub fn get_by_tags(x: String, start: i64, range: i64) -> Result<Vec<Post>, Error> {
     let connection = establish_connection();
     posts
         .filter(published.eq(true))
         .filter(tags.ilike(format!("%{}%", x)))
+        .order(date.desc())
+        .limit(range)
+        .offset(start)
         .load::<Post>(&connection)
 }
 
