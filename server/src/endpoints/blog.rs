@@ -32,13 +32,13 @@ pub fn blog_posts(page: i64) -> Template {
     Template::render("blog", &context)
 }
 
-fn prepare_context(x: String) -> ViewContext {
+fn prepare_view_context(x: String) -> ViewContext {
     let post = posts::get_by_title(x).expect("Failed to fetch post with given url");
     ViewContext::new(post)
 }
 
 #[get("/blog/view/<x>")]
 pub fn blog_view_post(x: String) -> Template {
-    let context = prepare_context(x);
+    let context = prepare_view_context(x);
     Template::render("view", &context)
 }
