@@ -60,6 +60,22 @@ pub fn get_by_title(x: String) -> Result<Post, Error> {
     }
 }
 
+pub fn get_by_category(x: String) -> Result<Vec<Post>, Error> {
+    let connection = establish_connection();
+    posts
+        .filter(published.eq(true))
+        .filter(categories.ilike(format!("%{}%", x)))
+        .load::<Post>(&connection)
+}
+
+pub fn get_by_tags(x: String) -> Result<Vec<Post>, Error> {
+    let connection = establish_connection();
+    posts
+        .filter(published.eq(true))
+        .filter(tags.ilike(format!("%{}%", x)))
+        .load::<Post>(&connection)
+}
+
 pub fn create(new_post: NewPost) -> QueryResult<Post> {
     let connection = establish_connection();
     diesel::insert_into(posts)
