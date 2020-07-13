@@ -35,6 +35,15 @@ pub fn count_categories(x: &String) -> QueryResult<i64> {
         .get_result(&connection)
 }
 
+pub fn count_posts_by_tag(x: &String) -> QueryResult<i64> {
+    let connection = establish_connection();
+    posts
+        .filter(published.eq(true))
+        .filter(tags.ilike(format!("%{}%", x)))
+        .count()
+        .get_result(&connection)
+}
+
 pub fn get_ordered_range(start: i64, range: i64) -> Result<Vec<Post>, Error> {
     let connection = establish_connection();
     posts
