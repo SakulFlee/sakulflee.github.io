@@ -18,6 +18,15 @@ pub fn count() -> QueryResult<i64> {
     posts.count().get_result(&connection)
 }
 
+pub fn count_categories(x: &String) -> QueryResult<i64> {
+    let connection = establish_connection();
+    posts
+        .filter(published.eq(true))
+        .filter(categories.ilike(format!("%{}%", x)))
+        .count()
+        .get_result(&connection)
+}
+
 pub fn get_ordered_range(start: i64, range: i64) -> Result<Vec<Post>, Error> {
     let connection = establish_connection();
     posts
