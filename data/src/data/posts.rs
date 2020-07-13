@@ -18,6 +18,14 @@ pub fn count() -> QueryResult<i64> {
     posts.count().get_result(&connection)
 }
 
+pub fn count_published() -> QueryResult<i64> {
+    let connection = establish_connection();
+    posts
+        .filter(published.eq(true))
+        .count()
+        .get_result(&connection)
+}
+
 pub fn count_categories(x: &String) -> QueryResult<i64> {
     let connection = establish_connection();
     posts
