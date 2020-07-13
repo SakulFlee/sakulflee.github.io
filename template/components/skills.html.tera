@@ -13,6 +13,8 @@
     <div
       class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
       data-tooltip="My secondary language! B1 LCCI Business Certificate/B2 school english">English</div>
+    
+    <br/>
 
     <div
       class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline"
@@ -22,6 +24,10 @@
     <div
       class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline"
       data-tooltip="Not fluent but an very interesting and different language!">Japanese</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline"
+      data-tooltip="Only very basic sentences and definetely not fluent!">Spanish</div>
   </section>
 
   <h1 class="is-size-5 has-text-black">Languages I <s>speak</s> code:</h1>
