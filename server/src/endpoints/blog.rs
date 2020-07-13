@@ -40,7 +40,7 @@ pub fn blog_category_no_page(category: String) -> Redirect {
 
 #[get("/blog/category/<category>/<page>")]
 pub fn blog_category(category: String, page: i64) -> Template {
-    let total_posts = posts::count_categories(&category).expect("Failed to count posts");
+    let total_posts = posts::count_posts_by_category(&category).expect("Failed to count posts");
     let post_base = (page - 1) * POSTS_PER_PAGE;
 
     let posts = posts::get_by_category(category, post_base, POSTS_PER_PAGE)
@@ -62,7 +62,7 @@ pub fn blog_tag_no_page(tag: String) -> Redirect {
 
 #[get("/blog/tag/<tag>/<page>")]
 pub fn blog_tag(tag: String, page: i64) -> Template {
-    let total_posts = posts::count_categories(&tag).expect("Failed to count posts");
+    let total_posts = posts::count_posts_by_tag(&tag).expect("Failed to count posts");
     let post_base = (page - 1) * POSTS_PER_PAGE;
 
     let posts = posts::get_by_tag(tag, post_base, POSTS_PER_PAGE)
