@@ -16,6 +16,7 @@ pub struct NewPost {
     pub tags: String,
     pub date: NaiveDateTime,
     pub published: bool,
+    pub project: bool,
 }
 
 impl NewPost {
@@ -27,6 +28,7 @@ impl NewPost {
         tags: String,
         date: NaiveDateTime,
         published: bool,
+        project: bool,
     ) -> Self {
         Self {
             title,
@@ -36,6 +38,7 @@ impl NewPost {
             tags,
             date,
             published,
+            project,
         }
     }
 
@@ -90,6 +93,7 @@ impl NewPost {
             preface.tags(),
             date,
             preface.published.unwrap_or(false),
+            preface.project.unwrap_or(false),
         ))
     }
 
