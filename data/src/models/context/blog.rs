@@ -14,6 +14,7 @@ pub struct Context {
     base_uri: String,
     searching_for_type: Option<String>,
     searching_for_value: Option<String>,
+    project: bool,
 }
 
 impl Context {
@@ -24,6 +25,7 @@ impl Context {
         base_uri: String,
         searching_for_type: Option<String>,
         searching_for_value: Option<String>,
+        project: bool,
     ) -> Self {
         let total_posts = total_posts.unwrap_or(posts.len() as i64);
         Self {
@@ -35,6 +37,7 @@ impl Context {
             base_uri,
             searching_for_type,
             searching_for_value,
+            project,
         }
     }
 }
