@@ -6,5 +6,6 @@ CREATE TABLE posts (
     categories TEXT NOT NULL,
     tags TEXT NOT NULL,
     date TIMESTAMP NOT NULL,
-    published BOOL NOT NULL
+    published BOOL NOT NULL,
+    project BOOL NOT NULL DEFAULT 'f'
 )
