@@ -6,6 +6,7 @@ pub struct Preface {
     pub tags: Option<Vec<String>>,
     pub date: Option<String>,
     pub published: Option<bool>,
+    pub project: Option<bool>,
 }
 
 impl Preface {
