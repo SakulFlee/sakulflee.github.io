@@ -59,7 +59,11 @@
             </div>
           </div>
           <div class="content">
-            {{ post.excerpt | safe }}
+            {% if project and post.project %}
+              {{ post.body | safe }}
+            {% else %}
+              {{ post.excerpt | safe }}
+            {% endif %}
             <span>
               <i class="fas fa-link"></i>
               <a href="/blog/view/{{ post.uri }}">Read more ...</a>
