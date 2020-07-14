@@ -107,3 +107,32 @@ pub fn blog_view_post(x: String) -> Template {
     let context = prepare_view_context(x);
     Template::render("view", &context)
 }
+
+/// If no page was given, redirect to first page.
+#[get("/projects")]
+pub fn projects_no_page() -> Redirect {
+    Redirect::to("/projects/1")
+}
+
+#[get("/projects/<page>")]
+pub fn projects(page: i64) -> Template {
+    let total_posts = posts::count_projects().expect("Failed to count posts");
+    let post_base = (page - 1) * POSTS_PER_PAGE;
+
+    let posts = posts::get_projects(post_base, POSTS_PER_PAGE)
+        .expect("Failed to get post range")
+        .iter()
+        .map(|x| BlogContextPost::new(x.to_owned()))
+        .collect();
+
+    let context = BlogContext::new(
+        page,
+        posts,
+        Some(total_posts),
+        "/projects".to_string(),
+        None,
+        None,
+    );
+
+    Template::render("blog", &context)
+}
