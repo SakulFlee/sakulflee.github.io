@@ -5,4 +5,3 @@ pub mod credits;
 pub mod index;
 pub mod legal;
 pub mod posts;
-pub mod projects;
