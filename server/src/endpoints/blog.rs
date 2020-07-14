@@ -34,6 +34,7 @@ pub fn blog_posts(page: i64) -> Template {
         String::from("/blog/page"),
         None,
         None,
+        false,
     );
 
     Template::render("blog", &context)
@@ -63,6 +64,7 @@ pub fn blog_category(category: String, page: i64) -> Template {
         format!("/blog/category/{}", &category),
         Some("categories".to_string()),
         Some(category.clone()),
+        false,
     );
 
     Template::render("blog", &context)
@@ -92,6 +94,7 @@ pub fn blog_tag(tag: String, page: i64) -> Template {
         format!("/blog/tag/{}", &tag),
         Some("tags".to_string()),
         Some(tag.clone()),
+        false,
     );
 
     Template::render("blog", &context)
@@ -132,6 +135,7 @@ pub fn projects(page: i64) -> Template {
         "/projects".to_string(),
         None,
         None,
+        true,
     );
 
     Template::render("blog", &context)
