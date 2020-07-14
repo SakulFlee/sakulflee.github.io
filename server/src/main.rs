@@ -48,6 +48,7 @@ fn main() {
                 endpoints::blog::blog_tag,
                 endpoints::blog::blog_tag_no_page,
                 endpoints::blog::projects,
+                endpoints::blog::projects_no_page,
                 endpoints::posts::get_posts,
                 endpoints::posts::get_posts_by_id,
                 endpoints::posts::post_posts,
