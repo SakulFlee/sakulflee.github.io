@@ -8,5 +8,6 @@ table! {
         tags -> Text,
         date -> Timestamp,
         published -> Bool,
+        project -> Bool,
     }
 }
