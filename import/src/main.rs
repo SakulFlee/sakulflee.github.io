@@ -30,18 +30,19 @@ fn get_posts_path() -> PathBuf {
 fn process_posts(path: PathBuf) {
     println!("> Processing posts");
 
-    for entry in WalkDir::new(path)
-        .min_depth(1)
-        .into_iter()
-        .filter_entry(|x| x.file_type().is_file())
-    {
-        println!("");
+    println!("Path: {:?}", path);
+
+    for entry in WalkDir::new(path).min_depth(1).into_iter() {
         if entry.is_err() {
             println!("Failed traversing file: {}", entry.unwrap_err());
             continue;
         }
 
         let entry = entry.unwrap();
+        if entry.file_type().is_dir() {
+            continue;
+        }
+
         let path = entry.path();
         println!("Path: {:?}", path);
         let file = File::open(path).expect(&format!("Failed to open file ({:?})", path));
