@@ -1,6 +1,6 @@
-<%=/* Projects */%>
-<%=/* Displays a page that lists and talks about my projects. */%>
+{% extends "components/base" %}
 
+{% block content %}
 <div id="projects">
     <section class="hero is-medium is-dark is-bold">
         <div class="hero-body">
@@ -98,3 +98,4 @@
       </div>
     </article>
   </div>
+{% endblock content %}
