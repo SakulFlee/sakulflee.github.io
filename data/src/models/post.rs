@@ -10,4 +10,5 @@ pub struct Post {
     pub tags: String,
     pub date: NaiveDateTime,
     pub published: bool,
+    pub project: bool,
 }
