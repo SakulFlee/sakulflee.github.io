@@ -63,6 +63,17 @@ pub fn get_ordered_range(start: i64, range: i64) -> Result<Vec<Post>, Error> {
         .load::<Post>(&connection)
 }
 
+pub fn get_projects(start: i64, range: i64) -> Result<Vec<Post>, Error> {
+    let connection = establish_connection();
+    posts
+        .filter(published.eq(true))
+        .filter(project.eq(true))
+        .order(date.desc())
+        .limit(range)
+        .offset(start)
+        .load::<Post>(&connection)
+}
+
 pub fn get_by_id(x: i32) -> Result<Post, Error> {
     let connection = establish_connection();
     match posts
