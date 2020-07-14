@@ -1,18 +1,22 @@
-image: node:10-alpine # use nodejs v10 LTS
-cache:
-  paths:
-    - node_modules/
+image: rust
 
-before_script:
-  - npm install hexo-cli -g
-  - cd themes/aether && npm install
-  - cd ../.. && npm install
-
-pages:
+build:
   script:
-    - hexo generate
+    - cargo build
   artifacts:
     paths:
-      - public
-  only:
-    - master
+      - target/
+
+build-docs:
+  script:
+    - cargo docs
+  artifacts:
+    paths:
+      - target/
+
+test:
+  script:
+    - cargo test
+  artifacts:
+    paths:
+      - target/
