@@ -44,7 +44,7 @@
     {
       "label": "Build SASS",
       "type": "shell",
-      "command": "sass style.sass style.css",
+      "command": "sassc style.sass style.css",
       "group": "build",
       "options": {
         "cwd": "${workspaceFolder}/static"
