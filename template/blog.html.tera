@@ -63,11 +63,11 @@
               {{ post.body | safe }}
             {% else %}
               {{ post.excerpt | safe }}
+              <span>
+                <i class="fas fa-link"></i>
+                <a href="/blog/view/{{ post.uri }}">Go to full post</a>
+              </span>
             {% endif %}
-            <span>
-              <i class="fas fa-link"></i>
-              <a href="/blog/view/{{ post.uri }}">Read more ...</a>
-            </span>
             <div class="columns">
               <span class="column">
               {% if post.categories != "['']"%}
