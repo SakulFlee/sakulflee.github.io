@@ -59,15 +59,11 @@
             </div>
           </div>
           <div class="content">
-            {% if project and post.project %}
-              {{ post.body | safe }}
-            {% else %}
-              {{ post.excerpt | safe }}
-              <span>
-                <i class="fas fa-link"></i>
-                <a href="/blog/view/{{ post.uri }}">Go to full post</a>
-              </span>
-            {% endif %}
+            {{ post.excerpt | safe }}
+            <span>
+              <i class="fas fa-link"></i>
+              <a href="/blog/view/{{ post.uri }}">Go to full post</a>
+            </span>
             <div class="columns">
               <span class="column">
               {% if post.categories != "['']"%}
