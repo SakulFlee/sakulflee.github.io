@@ -1,6 +1,12 @@
-image: rust
+stages:
+  - build
+  - build-docs
+  - test
+  - build-docker
 
 build:
+  image: rust
+  stage: build
   before_script:
     - rustup update nightly
     - rustup default nightly
@@ -11,6 +17,8 @@ build:
       - target/
 
 build-docs:
+  image: rust
+  stage: build-docs
   before_script:
     - rustup update nightly
     - rustup default nightly
@@ -21,6 +29,8 @@ build-docs:
       - target/
 
 test:
+  image: rust
+  stage: test
   before_script:
     - rustup update nightly
     - rustup default nightly
@@ -31,7 +41,7 @@ test:
       - target/
 
 build-docker-server:
-  stage: build
+  stage: build-docker
   image: docker:19.03.12
   services:
     - docker:19.03.12-dind
@@ -49,7 +59,7 @@ build-docker-server:
     - docker push $IMAGE:latest
 
 build-docker-importer:
-  stage: build
+  stage: build-docker
   image: docker:19.03.12
   services:
     - docker:19.03.12-dind
