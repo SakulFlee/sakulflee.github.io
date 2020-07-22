@@ -4,13 +4,17 @@ use rocket::Rocket;
 // Defines a module `embedded_migrations` with a function `run` that performs database migrations when run.
 embed_migrations!();
 
-pub fn run_db_migrations(rocket: Rocket) -> Result<Rocket, Rocket> {
+pub fn run_db_migrations() -> Result<(), diesel_migrations::RunMigrationsError> {
     let conn = establish_connection();
-    match embedded_migrations::run(&conn) {
+    embedded_migrations::run(&conn) 
+}
+
+pub fn run_db_migrations_rocket(rocket: Rocket) -> Result<Rocket, Rocket> {
+    match run_db_migrations() {
         Ok(()) => Ok(rocket),
-        Err(e) => {
-            error!("Failed to run database migrations: {:?}", e);
+        Err(_) => {
+            println!("Failed to run migrations!");
             Err(rocket)
-        }
+        },
     }
 }
