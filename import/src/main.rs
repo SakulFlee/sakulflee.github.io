@@ -1,5 +1,5 @@
 use data::data::posts::create;
-use data::database::connection::connection_valid;
+use data::database::{migration::run_db_migrations, connection::connection_valid};
 use data::models::NewPost;
 use dotenv::dotenv;
 use std::env;
@@ -84,6 +84,8 @@ fn main() {
         println!("The variable should follow this schema: <protocol>://<username>:<password>@<host>:<port>/<database>");
         return;
     }
+
+    run_db_migrations().expect("Failed to run db migrations!");
 
     clean_database();
 
