@@ -1,6 +1,5 @@
 stages:
   - build
-  - build-docs
   - test
   - build-docker
 
@@ -18,7 +17,7 @@ build:
 
 build-docs:
   image: rust
-  stage: build-docs
+  stage: build
   before_script:
     - rustup update nightly
     - rustup default nightly
