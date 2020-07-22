@@ -6,7 +6,7 @@ extern crate rocket;
 pub mod endpoints;
 
 use data::database::connection::connection_valid;
-use data::database::migration::run_db_migrations;
+use data::database::migration::run_db_migrations_rocket;
 use dotenv::dotenv;
 use rocket::fairing::AdHoc;
 use rocket_contrib::helmet::SpaceHelmet;
@@ -31,7 +31,7 @@ fn main() {
     }
 
     rocket::ignite()
-        .attach(AdHoc::on_attach("Database Migrations", run_db_migrations))
+        .attach(AdHoc::on_attach("Database Migrations", run_db_migrations_rocket))
         .register(catchers![endpoints::catch::not_found])
         .attach(Template::fairing())
         .attach(SpaceHelmet::default())
