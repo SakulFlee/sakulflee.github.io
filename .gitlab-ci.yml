@@ -145,7 +145,7 @@ deploy:
     - ssh-add -L
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-    - ansible-playbook -i inventory.conf playbooks/00_main.yml
+    - ansible-playbook -i ansible/inventory.conf ansible/playbooks/00_main.yml
   only:
     - master
     - schedules
