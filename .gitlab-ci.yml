@@ -2,6 +2,7 @@ stages:
   - build
   - test
   - build-docker
+  - deploy
 
 build:
   image: rust
@@ -82,3 +83,20 @@ build-docker-importer:
     - docker push $IMAGE:$CI_COMMIT_SHA
     - docker push $IMAGE:$CI_COMMIT_BRANCH
     - docker push $IMAGE:latest
+
+deploy:
+  stage: deploy
+  image: ansible/ansible
+  before_script:
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 0700 ~/.ssh
+    - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 0600 ~/.ssh/id_rsa
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-add -L
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - ansible-playbook -i inventory.conf playbooks/00_main.yml
+  only:
+    - master
