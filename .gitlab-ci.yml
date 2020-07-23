@@ -87,10 +87,10 @@ build-docker-server:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - docker pull $IMAGE:latest || true
-    - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest --tag $IMAGE:$CI_COMMIT_BRANCH -f docker/server/Dockerfile .
+    - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest -f docker/server/Dockerfile .
     - docker push $IMAGE:$CI_COMMIT_SHA
-    - docker push $IMAGE:$CI_COMMIT_BRANCH
     - docker push $IMAGE:latest
+    - if [ "$CI_COMMIT_BRANCH" -eq "master" ]; then docker tag "$IMAGE:$CI_COMMIT_SHA" "$IMAGE:$CI_COMMIT_BRANCH"; docker push "$IMAGE:$CI_COMMIT_BRANCH"; fi
   only:
     - branches
     - tags
@@ -115,10 +115,10 @@ build-docker-importer:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - docker pull $IMAGE:latest || true
-    - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest --tag $IMAGE:$CI_COMMIT_BRANCH -f docker/import/Dockerfile .
+    - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest -f docker/import/Dockerfile .
     - docker push $IMAGE:$CI_COMMIT_SHA
-    - docker push $IMAGE:$CI_COMMIT_BRANCH
     - docker push $IMAGE:latest
+    - if [ "$CI_COMMIT_BRANCH" -eq "master" ]; then docker tag "$IMAGE:$CI_COMMIT_SHA" "$IMAGE:$CI_COMMIT_BRANCH"; docker push "$IMAGE:$CI_COMMIT_BRANCH"; fi
   only:
     - branches
     - tags
