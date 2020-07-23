@@ -131,7 +131,7 @@ build-docker-importer:
 
 deploy:
   stage: deploy
-  image: ansible/ansible
+  image: ansible/ansible:ubuntu1404
   before_script:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
