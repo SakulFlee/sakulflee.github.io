@@ -131,7 +131,7 @@ build-docker-importer:
 
 deploy:
   stage: deploy
-  image: ansible/ansible:ubuntu1404
+  image: ubuntu
   before_script:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
@@ -141,6 +141,8 @@ deploy:
     - ssh-add ~/.ssh/id_rsa
     - ssh-add -L
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - apt-get update && apt-get install -y python3 python3-pip
+    - pip3 install ansible
   script:
     - ansible-playbook -i inventory.conf playbooks/00_main.yml
   only:
