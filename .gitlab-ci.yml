@@ -17,6 +17,15 @@ build:
   artifacts:
     paths:
       - target/
+  only:
+    - branches
+    - tags
+    - api
+    - pipelines
+    - schedules
+    - triggers
+    - web
+    - merge_requests
 
 build-docs:
   image: rust
@@ -31,6 +40,15 @@ build-docs:
   artifacts:
     paths:
       - target/
+  only:
+    - branches
+    - tags
+    - api
+    - pipelines
+    - schedules
+    - triggers
+    - web
+    - merge_requests
 
 test:
   image: rust
@@ -45,6 +63,15 @@ test:
   artifacts:
     paths:
       - target/
+  only:
+    - branches
+    - tags
+    - api
+    - pipelines
+    - schedules
+    - triggers
+    - web
+    - merge_requests
 
 build-docker-server:
   stage: build-docker
@@ -64,6 +91,15 @@ build-docker-server:
     - docker push $IMAGE:$CI_COMMIT_SHA
     - docker push $IMAGE:$CI_COMMIT_BRANCH
     - docker push $IMAGE:latest
+  only:
+    - branches
+    - tags
+    - api
+    - pipelines
+    - schedules
+    - triggers
+    - web
+    - merge_requests
 
 build-docker-importer:
   stage: build-docker
@@ -83,6 +119,15 @@ build-docker-importer:
     - docker push $IMAGE:$CI_COMMIT_SHA
     - docker push $IMAGE:$CI_COMMIT_BRANCH
     - docker push $IMAGE:latest
+  only:
+    - branches
+    - tags
+    - api
+    - pipelines
+    - schedules
+    - triggers
+    - web
+    - merge_requests
 
 deploy:
   stage: deploy
@@ -100,3 +145,5 @@ deploy:
     - ansible-playbook -i inventory.conf playbooks/00_main.yml
   only:
     - master
+    - schedules
+    - web
