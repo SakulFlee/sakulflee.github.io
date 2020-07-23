@@ -1,0 +1,155 @@
+{% extends "components/base" %}
+
+{% block content %}
+<div id="credit">
+  <section class="hero is-dark is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Credits</h1>
+        <h2 class="subtitle">Building blocks of this website</h2>
+      </div>
+    </div>
+  </section>
+  <div class="columns mx-1 mt-1">
+    <div class="tile is-parent column">
+      <div class="tile">
+        <article class="tile is-child notification is-dark">
+          <h1 class="title">Open-Source</h1>
+          <div class="content">
+            The entire source code of my website is Open-Source, licensed under <a href="https://choosealicense.com/licenses/mit/">MIT</a> and can be found on my <a href="https://gitlab.com/sakul6499_de/sakul6499_de.gitlab.io">repository</a>.
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="columns mx-1">
+    <div class="tile is-parent column">
+      <article class="tile is-child notification is-danger">
+        <h1 class="title">Rocket.rs</h1>
+        <p class="subtitle">Backend</p>
+        <div class="content">
+          <p>
+            <a href="https://rocket.rs/">Rocket.rs</a> is used for the <i>backend</i>.
+            All required files for the <i>frontend</i> are served by <a href="https://rocket.rs/">Rocket.rs</a> and required data is fetched from the <i>database</i>.
+          </p>
+          <p>
+            <a href="https://rocket.rs/">Rocket.rs</a> is not only a server and client library / crate, but comes powered with a lot of useful features, tools and libraries / crates included!
+          </p>
+        </div>
+      </article>
+    </div>
+    <div class="tile is-parent column">
+      <article class="tile is-child notification is-success">
+        <h1 class="title">Bulma</h1>
+        <p class="subtitle">CSS Framework</p>
+        <div class="content">
+          <p>
+            This website is designed with <a href="https://bulma.io/">Bulma</a>, <em>a free, open source CSS framework based on Flexbox</em>.
+          </p>
+          <p>
+            <a href="https://bulma.io/">Bulma</a> makes it extremely easy to design responsive (flex) user-interfaces.
+            It is even possible to create websites without own stylesheets.
+          </p>
+          <p>
+            I still added some things myself and modified some of the component, but this websites design-core is <a href="https://bulma.io/">Bulma</a>.
+            If you are interested in my changes check out the style-sheets <a href="https://gitlab.com/sakul6499_de/sakul6499_de.gitlab.io/">on my repository</a>.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="columns mx-1">
+    <div class="tile is-parent column">
+      <article class="tile is-child notification is-warning">
+        <h1 class="title">Diesel.rs</h1>
+        <p class="subtitle">Data-Layer</p>
+        <div class="content">
+          <p>
+            <a href="https://diesel.rs/">Diesel.rs</a> is used for the <i>data-layer</i>.
+            <a href="https://diesel.rs/">Diesel.rs</a> is <b>not</b> a <i>database</i> on its own, but can be used to connect to different <i>databases</i> and make queries easier.
+          </p>
+          <p>
+            <a href="https://diesel.rs/">Diesel.rs</a> makes it incredibly easy to create a schema and use it without restrictions.
+            <a href="https://diesel.rs/">Diesel.rs</a> also integrates with <a href="https://rocket.rs/">Rocket.rs</a>
+          </p>
+        </div>
+      </article>
+    </div>
+    <div class="tile is-parent column">
+      <article class="tile is-child notification is-info">
+        <h1 class="title">Tera</h1>
+        <p class="subtitle">Template Engine</p>
+        <div class="content">
+          <p>
+            <a href="https://tera.netlify.app/">Tera</a> is used as a template engine for the <i>frontend</i>.
+          </p>
+          <p>
+            Using templates makes it possible to reuse a lot of code and split the website into multiple parts / components, which then only need to be combined.
+          </p>
+          <p>
+            <a href="https://tera.netlify.app/">Tera</a> also includes quite powerful tools and a sort-of scripting language
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="columns mx-1">
+    <div class="tile is-parent column">
+      <article class="tile is-child notification is-link">
+        <h1 class="title">Font Awesome</h1>
+        <p class="subtitle">Icons</p>
+        <div class="content">
+          <p>
+            This website makes use of different icons.<br/>
+            Most, if not all, are from <a href="https://fontawesome.com/">Font Awesome</a>.
+          </p>
+          <p>
+            <a href="https://fontawesome.com/">Font Awesome</a>, in its free license model, requires you to give proper credit to all used icons and state their changes.
+          </p>
+          <p>
+            I did introduce slight optimization on some icons, but the overall look of the icon did not change.
+            <br/>
+            Furthermore, some icon colors where changed to better fit the color-schema of my website.
+          </p>
+          <p>
+            The license can be found <a href="https://fontawesome.com/license">here</a>.
+          </p>
+        </div>
+      </article>
+    </div>
+    <div class="tile is-parent column">
+      <article class="tile is-child notification is-dark">
+        <h1 class="title">And many more ...</h1>
+        <p class="subtitle">Rust crates</p>
+        <div class="content">
+          <p>
+            This entire website is build with <a href="https://www.rust-lang.org/">Rust</a>.
+          </p>
+          <p>
+            Even the client-library is written in <a href="https://www.rust-lang.org/">Rust</a> and compiled to <a href="https://webassembly.org/">WASM</a>.
+          </p>
+          <p>
+            There are soooooo many different crates I am using, and even more crates that other crates depend on.
+            Currently, there are, per-project, over 200 crates in use.
+            If you want to know more check out the <a href="https://gitlab.com/sakul6499_de/sakul6499_de.gitlab.io/">repository</a> and compile the code yourself!
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <article class="message is-danger mx-4">
+    <div class="message-header">
+      <p>Note</p>
+    </div>
+    <div class="message-body">
+      This page is extended by the <a href="/legal">legal</a> page.
+      <br/>
+      Please also consult the <a href="/legal">legal</a> page for further information about this website.
+      <br/>
+      <br/>
+      The <a href="/legal">legal</a> page can be found <a href="/legal">here</a>.
+    </div>
+  </article>  
+</div>
+{% endblock content %}

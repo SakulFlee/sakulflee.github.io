@@ -1,18 +1,84 @@
-image: node:10-alpine # use nodejs v10 LTS
-cache:
-  paths:
-    - node_modules/
+stages:
+  - build
+  - test
+  - build-docker
 
-before_script:
-  - npm install hexo-cli -g
-  - cd themes/aether && npm install
-  - cd ../.. && npm install
-
-pages:
+build:
+  image: rust
+  stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - rustup update nightly
+    - rustup default nightly
   script:
-    - hexo generate
+    - cargo build
   artifacts:
     paths:
-      - public
-  only:
-    - master
+      - target/
+
+build-docs:
+  image: rust
+  stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - rustup update nightly
+    - rustup default nightly
+  script:
+    - cargo doc
+  artifacts:
+    paths:
+      - target/
+
+test:
+  image: rust
+  stage: test
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - rustup update nightly
+    - rustup default nightly
+  script:
+    - cargo test
+  artifacts:
+    paths:
+      - target/
+
+build-docker-server:
+  stage: build-docker
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    DOCKER_HOST: tcp://docker:2376
+    DOCKER_TLS_CERTDIR: "/certs"
+    IMAGE: "$CI_REGISTRY_IMAGE/server"
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker pull $IMAGE:latest || true
+    - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest --tag $IMAGE:$CI_COMMIT_BRANCH -f docker/server/Dockerfile .
+    - docker push $IMAGE:$CI_COMMIT_SHA
+    - docker push $IMAGE:$CI_COMMIT_BRANCH
+    - docker push $IMAGE:latest
+
+build-docker-importer:
+  stage: build-docker
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    DOCKER_HOST: tcp://docker:2376
+    DOCKER_TLS_CERTDIR: "/certs"
+    IMAGE: "$CI_REGISTRY_IMAGE/importer"
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker pull $IMAGE:latest || true
+    - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest --tag $IMAGE:$CI_COMMIT_BRANCH -f docker/import/Dockerfile .
+    - docker push $IMAGE:$CI_COMMIT_SHA
+    - docker push $IMAGE:$CI_COMMIT_BRANCH
+    - docker push $IMAGE:latest

@@ -1,0 +1,16 @@
+---
+- name: Docker
+  become: true
+  become_user: root
+  hosts: aether
+  vars:
+    - ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Create DB container
+      docker_container:
+        name: website_db
+        image: postgres
+        restart: yes
+        recreate: yes
+        env:
+          POSTGRES_PASSWORD: postgres

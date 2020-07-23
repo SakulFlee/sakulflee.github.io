@@ -1,0 +1,26 @@
+<hr/>
+<section id="footer">
+    <p class="has-text-centered">
+        Made with <span class="icon has-text-danger"><i class="fas fa-heart fas fa-1x"></i></span> by @Sakul6499
+    </p>
+    <div class="buttons columns mt-4 is-centered">
+        <a href="/contact" class="button is-normal mr-4 ml-4">
+            <span class="icon is-medium">
+                <i class="fas fa-address-card"></i>
+            </span>
+            <span>Contact</span>
+        </a>
+        <a href="/credits" class="button is-normal mr-4 ml-4">
+            <span class="icon is-medium">
+                <i class="fas fa-star"></i>
+            </span>
+            <span>Credits</span>
+        </a>
+        <a href="/legal" class="button is-normal mr-4 ml-4">
+            <span class="icon is-medium">
+                <i class="fas fa-balance-scale"></i>
+            </span>
+            <span>Legal</span>
+        </a>
+    </div>
+</section>

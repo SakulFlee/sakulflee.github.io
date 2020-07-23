@@ -1,0 +1,40 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <span class="title is-5">@Sakul6499 | Lukas Weber</span>
+    </a>
+    <a
+      role="button"
+      class="navbar-burger burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="main-nav"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="main-nav" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/">
+        <span class="icon is-large">
+          <i class="fas fa-home"></i>
+        </span>
+        <span>Home</span>
+      </a>
+      <a class="navbar-item" href="/blog">
+        <span class="icon is-large">
+          <i class="fas fa-book"></i>
+        </span>
+        <span>Blog</span>
+      </a>
+      <a class="navbar-item" href="/projects">
+        <span class="icon is-large">
+          <i class="fas fa-code-branch"></i>
+        </span>
+        <span>Projects</span>
+      </a>
+    </div>
+  </div>
+</nav>

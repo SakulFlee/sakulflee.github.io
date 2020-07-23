@@ -19,3 +19,16 @@ db.json
 
 # VSCode
 .vscode/
+!.vscode/tasks.json
+!.vscode/launch.json
+
+#Added by cargo
+target/
+*.lock
+
+# SASS output
+*.css
+*.css.map
+*.sassc
+*.scssc
+.sass-cache/

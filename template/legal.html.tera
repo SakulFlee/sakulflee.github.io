@@ -1,0 +1,252 @@
+{% extends "components/base" %}
+
+{% block content %}
+<div>
+  <section class="hero is-dark is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Legal</h1>
+        <h2 class="subtitle">What is allowed and what not?</h2>
+      </div>
+    </div>
+  </section>
+  <div class="tile is-parent">
+    <article class="tile is-child notification is-dark">
+      <p class="title">Legal Disclosure</p>
+      <div class="content columns">
+        <div class="column is-half">
+          <div class="is-size-5 is-family-code">Responsible person</div>
+          <p>
+            The <b>responsible person</b> of this website is also the <b>owner</b> of this website.
+            Said person is <i>Lukas Weber</i>.
+          </p>
+          <p>
+            According to <span class="is-family-code">§5 German Telemedia Act (TMG)</span>, the <b>responsible person</b> has to offer at least one way of getting into contact <underline>quickly</underline> with the <b>owner</b>.
+          </p>
+          <p>
+            This, however, is excluded for <b>private</b> / <b>personal</b> projects.
+            My website, and thus the blog and content on this website, is purely <b>personal</b>, but not <b>private</b>.
+          </p>
+          <p>
+            Nevertheless, communication via letters is the traditional way, but can be extremly slow.
+            I am also not feeling confident with putting out my <b>private address</b> here.
+          </p>
+          <p>
+            Thus, if you feel the need to contact me:<br/>
+            <b>Please</b>, use my <a href="mailto:webmaster@sakul6499.de">email</a>.<br/>
+            I can react the quickest this way.
+          </p>
+          <p>
+            If you insist on sending me a letter:<br/>
+            Either, scan the letter and attach it to the <a href="mailto:webmaster@sakul6499.de">email</a>, or, request my address via <a href="mailto:webmaster@sakul6499.de">email</a>.
+            However, such a request must follow a <b>valid</b> and <b>strong</b> reason to be accepted.
+            <b>Anything that can be done via <a href="mailto:webmaster@sakul6499.de">email</a> and <underline>does not</underline> require my address <underline>will be denied.</underline></b>
+          </p>
+          <p>
+            Alternatively to using <a href="mailto:webmaster@sakul6499.">email</a>, use <b>any</b> other method of getting in contact with me as described on <a href="/contact">my contact page</a>.
+          </p>
+        </div>
+        <div class="column is-half">
+          <div class="is-size-5 is-family-code">Contact information</div>
+          <span>
+            <b>E-Mail</b>: <a href="mailto:me@sakul6499.de">me@sakul6499.de</a><br/>
+            or<br/>
+            <b>E-Mail</b>: <a href="mailto:webmaster@sakul6499.de">webmaster@sakul6499.de</a>
+          </span>
+          <br/>
+          <br/>
+          <span>
+            <b>Telephone</b>: Unpon request <underline>only</underline>.<br/>
+            Please see left side.
+          </span>
+          <br/>
+          <br/>
+          <span>
+            <b>Address</b>: Unpon request <underline>only</underline>.<br/>
+            Please see left side.
+          </span>
+          <br/>
+          <br/>
+          <span>
+            And <b>any</b> other methods as described on <a href="/contact">my contact page</a>.
+          </span>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-warning">
+          <div class="content">
+            <div class="is-size-5 is-family-code">
+              Copyright
+            </div>
+            <p>
+              Content, data and information published on this website are subjected to the german copyright laws.
+            </p>
+            <p>
+              The following speaks of <i>content</i>.
+              <i>Content</i> mainly refers to my blog posts and projects.
+              However, <i>content</i> can be any other form of information as well in a given context.
+            </p>
+            <p>
+              Where not otherwise stated applies:<br/>
+              I <b>do</b> encourage the share and contribution of and to my content.<br/>
+              I <b>do not</b> encourage redistribution of my content in any form, shameless 'copy&paste' and misclaims regarding my content.
+            </p>
+            <p>
+              However, generally applies:<br />
+              I am doing this not only for myself, but to share information, strategies, code, projects and ideas with others.
+              As long as our goals are the same, there will be no issues at all. 
+              You are allowed to use the projects and code from my website, as long as you:
+            </p>
+            <ul>
+              <li>
+                Credit me, my work and a way of contacting me (e.g. use the link to the project or post you are using/referencing)
+              </li>
+              <li>
+                <b>Not a requirement:</b> Inform me (see <a href="/contact">my contact page</a>) that you are using or referencing my content and what you are using it for
+              </li>
+              <li>
+                Accept and adhere to the license of that post and/or project
+              </li>
+            </ul>
+            <b
+              >Single posts and projects may exclude and differ from this if
+              stated differently on the project or post page.</b
+            >
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="column">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-link">
+          <div class="content">
+            <div class="is-size-5 is-family-code">
+              CloudFlare
+            </div>
+            This website integrates components of
+            <a href="https://www.cloudflare.com/">CloudFlare</a>.
+            <br />
+            <a href="https://www.cloudflare.com/">CloudFlare</a> is used as:
+            <ul>
+              <li>
+                a CDN (Content-Delivery-Network); One place for getting the
+                entire website
+              </li>
+              <li>a cache for faster response-time</li>
+              <li>
+                an optimization platform (Rocket Loader; See below) for
+                optimized builds
+              </li>
+              <li>a domain and DNS controller, used for faster routing</li>
+              <li>as a server shield against attacks</li>
+            </ul>
+            To provide these features, <b>all traffic</b> is routed through
+            <a href="https://www.cloudflare.com/">CloudFlare</a>.
+            <a href="https://www.cloudflare.com/">CloudFlare</a> itself uses
+            several technologies to shield and optimize, such as their
+            <a
+              href="https://blog.cloudflare.com/we-have-lift-off-rocket-loader-ga-is-mobile/"
+              >Rocket Loader</a
+            >.
+            <br />
+            Additionally,
+            <a href="https://www.cloudflare.com/">CloudFlare</a> is collecting
+            minimal, anonymised, usage data of <b>all traffic</b> passing
+            through them. This data is only kept for a limited time frame and
+            only visible to the owner. Although, the same data can be collected
+            on the servers.
+            <br />
+            For further information, please consider
+            <a href="https://www.cloudflare.com/">CloudFlare</a>'s
+            <a href="https://www.cloudflare.com/privacypolicy/"
+              >privacy policy</a
+            >.
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-danger">
+          <div class="content">
+            <div class="is-size-5 is-family-code">
+              Liability for content
+            </div>
+            We are liable for our <b>own</b> content on this website according
+            to §7¶1 German Telemedia Act (TMG). However, according to §8-10
+            German Telemedia Act (TMG) service providers are not obligated to
+            permanently monitor submitted and/or stored information, as well as
+            searching for evidences that indicate illegal activities.
+            <br /><br />
+            Legal obligations to remove or block the use of certain information
+            remains excluded from this. In such a case, a liability is only
+            possible from the time of knowledge about a specific violation of
+            law. Illegal content will be removed immediately after knowledge of
+            them.
+            <br /><br />
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+          <div class="content">
+            <div class="is-size-5 is-family-code">
+              Liability for links
+            </div>
+            This website might contain links to external websites and services
+            of third-parties. We can and will not guarantee for there content.
+            <br /><br />
+            The linked websites of said third-parties have been checked for
+            possible violations and illegal activities at the time of the
+            establishment of the link and nothing could be found. However,
+            permanent monitoring of linked websites cannot be imposed without
+            reasonable indications that there has been a violation of law.
+            Illegal links will be removed immediately after acknowledging them.
+            <br /><br />
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="column">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-warning">
+          <div class="is-size-5 is-family-code">
+            Liability for third-party software, libraries and solutions
+          </div>
+          Furthermore, used third-party software, libraries and software, as
+          described in <a href="/credits.html">credits</a>, and links in any
+          form to said third-party services are <b>not</b> guaranteed to work,
+          are <b>not</b> guaranteed to provide only legal content and are
+          <b>not</b> guaranteed to work with the same terms as this website.
+          <br />
+          Terms of service apply from used third-parties solutions.
+        </article>
+      </div>
+    </div>
+  </div>
+  <article class="message is-danger mx-4">
+    <div class="message-header">
+      <p>Note</p>
+    </div>
+    <div class="message-body">
+      This page is extended by the <a href="/credits">credits</a> page.
+      <br/>
+      Please also consult the <a href="/credits">credits</a> page for further information about software, libraries and services used to build this website.
+      <br/>
+      <br/>
+      The <a href="/credits">credit</a> page can be found <a href="/credits">here</a>.
+    </div>
+  </article>
+</div>
+{% endblock content %}
