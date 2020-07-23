@@ -61,6 +61,7 @@ build-docker-server:
     - docker pull $IMAGE:latest || true
     - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest --tag $IMAGE:$CI_COMMIT_BRANCH -f docker/server/Dockerfile .
     - docker push $IMAGE:$CI_COMMIT_SHA
+    - docker push $IMAGE:$CI_COMMIT_BRANCH
     - docker push $IMAGE:latest
 
 build-docker-importer:
@@ -79,4 +80,5 @@ build-docker-importer:
     - docker pull $IMAGE:latest || true
     - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest --tag $IMAGE:$CI_COMMIT_BRANCH -f docker/import/Dockerfile .
     - docker push $IMAGE:$CI_COMMIT_SHA
+    - docker push $IMAGE:$CI_COMMIT_BRANCH
     - docker push $IMAGE:latest
