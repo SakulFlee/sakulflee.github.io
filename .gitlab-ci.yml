@@ -10,8 +10,6 @@ build:
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
   before_script:
-    - ls -al target/
-    - du -sh target/
     - rustup update nightly
     - rustup default nightly
   script:
