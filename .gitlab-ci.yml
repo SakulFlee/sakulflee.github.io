@@ -17,6 +17,10 @@ build:
   artifacts:
     paths:
       - target/
+  cache:
+    key: rust_target
+    paths:
+      - target/
   only:
     - branches
     - tags
@@ -40,6 +44,10 @@ build-docs:
   artifacts:
     paths:
       - target/
+  cache:
+    key: rust_target
+    paths:
+      - target/
   only:
     - branches
     - tags
@@ -61,6 +69,10 @@ test:
   script:
     - cargo test
   artifacts:
+    paths:
+      - target/
+  cache:
+    key: rust_target
     paths:
       - target/
   only:
