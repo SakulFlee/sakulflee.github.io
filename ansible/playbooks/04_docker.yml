@@ -16,6 +16,10 @@
         state: started
         env:
           POSTGRES_PASSWORD: postgres
+    - name: Wait for PostgreSQL to fully start-up
+      wait_for:
+        timeout: 30
+      delegate_to: localhost
     - name: Importer container
       docker_container:
         name: website_importer
