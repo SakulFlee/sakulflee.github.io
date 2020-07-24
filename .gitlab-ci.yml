@@ -102,7 +102,7 @@ build-docker-server:
     - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest -f docker/server/Dockerfile .
     - docker push $IMAGE:$CI_COMMIT_SHA
     - docker push $IMAGE:latest
-    - if [ "$CI_COMMIT_BRANCH" -eq "master" ]; then docker tag "$IMAGE:$CI_COMMIT_SHA" "$IMAGE:$CI_COMMIT_BRANCH"; docker push "$IMAGE:$CI_COMMIT_BRANCH"; fi
+    - if [ "$CI_COMMIT_BRANCH" = "master" ]; then docker tag "$IMAGE:$CI_COMMIT_SHA" "$IMAGE:$CI_COMMIT_BRANCH"; docker push "$IMAGE:$CI_COMMIT_BRANCH"; fi
   only:
     - branches
     - tags
@@ -130,7 +130,7 @@ build-docker-importer:
     - docker build --cache-from $IMAGE:latest --tag $IMAGE:$CI_COMMIT_SHA --tag $IMAGE:latest -f docker/import/Dockerfile .
     - docker push $IMAGE:$CI_COMMIT_SHA
     - docker push $IMAGE:latest
-    - if [ "$CI_COMMIT_BRANCH" -eq "master" ]; then docker tag "$IMAGE:$CI_COMMIT_SHA" "$IMAGE:$CI_COMMIT_BRANCH"; docker push "$IMAGE:$CI_COMMIT_BRANCH"; fi
+    - if [ "$CI_COMMIT_BRANCH" = "master" ]; then docker tag "$IMAGE:$CI_COMMIT_SHA" "$IMAGE:$CI_COMMIT_BRANCH"; docker push "$IMAGE:$CI_COMMIT_BRANCH"; fi
   only:
     - branches
     - tags
