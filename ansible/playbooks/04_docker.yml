@@ -25,8 +25,8 @@
         pull: yes
         state: started
         env:
-          POSTS_PATH: /posts
-          DATABASE_URL: postgres://postgres:postgres@website_db:5432/postgres
+          POSTS_PATH: "/posts"
+          DATABASE_URL: "postgres://postgres:postgres@website_db:5432/postgres"
         links:
           - website_db
     - name: Server container
@@ -38,10 +38,10 @@
         pull: yes
         state: started
         env:
-          TEMPLATE_PATH: /template
-          STATIC_PATH: /static
-          DATABASE_URL: postgres://postgres:postgres@website_db:5432/postgres
-          ROCKET_ENV: production
+          TEMPLATE_PATH: "/template"
+          STATIC_PATH: "/static"
+          DATABASE_URL: "postgres://postgres:postgres@website_db:5432/postgres"
+          ROCKET_ENV: "production"
         ports:
           - "8000:8000"
         links:
