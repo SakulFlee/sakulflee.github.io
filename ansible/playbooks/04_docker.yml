@@ -13,6 +13,7 @@
         restart: yes
         recreate: yes
         pull: yes
+        restart_policy: always
         state: started
         env:
           POSTGRES_PASSWORD: postgres
@@ -27,6 +28,7 @@
         restart: yes
         recreate: yes
         pull: yes
+        restart_policy: always
         state: started
         env:
           POSTS_PATH: "/posts"
@@ -40,6 +42,7 @@
         restart: yes
         recreate: yes
         pull: yes
+        restart_policy: always
         state: started
         env:
           TEMPLATE_PATH: "/template"
