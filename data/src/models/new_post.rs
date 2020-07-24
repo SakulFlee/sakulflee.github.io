@@ -78,7 +78,8 @@ impl NewPost {
         let excerpt = NewPost::markdown_to_html(&excerpt_markdown);
         println!("Excerpt (HTML): {}", excerpt);
 
-        let html = NewPost::markdown_to_html(&markdown);
+        let markdown_without_title: &str = &markdown[markdown.find('\n').unwrap_or(0)..];
+        let html = NewPost::markdown_to_html(&markdown_without_title);
 
         let date = match preface.date() {
             Some(date) => date,
