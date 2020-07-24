@@ -2,7 +2,7 @@
 categories = ["Website"]
 tags = ["Rust"]
 date = "2020-07-05 18:00:00"
-published = true
+published = false
 ---
 
 # Engineering a website + blog: Frontend

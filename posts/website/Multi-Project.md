@@ -2,7 +2,7 @@
 categories = ["Website"]
 tags = ["Rust"]
 date = "2020-06-15 19:00:00"
-published = true
+published = false
 ---
 
 # Engineering a website + blog: Multi Project
