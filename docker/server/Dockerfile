@@ -47,7 +47,7 @@ COPY --from=sass_builder /project/template /template
 COPY --from=sass_builder /project/static /static
 
 ## Copy client_lib
-COPY --from=clientlib_builder /project/static/client_lib /static/
+COPY --from=clientlib_builder /project/static/client_lib /static/client_lib
 
 ## Execute server
 ENV TEMPLATE_PATH /template
