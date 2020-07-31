@@ -31,33 +31,6 @@ build:
     - web
     - merge_requests
 
-build-docs:
-  image: rust
-  stage: build
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-  before_script:
-    - rustup update nightly
-    - rustup default nightly
-  script:
-    - cargo doc
-  artifacts:
-    paths:
-      - target/
-  cache:
-    key: rust_target
-    paths:
-      - target/
-  only:
-    - branches
-    - tags
-    - api
-    - pipelines
-    - schedules
-    - triggers
-    - web
-    - merge_requests
-
 test:
   image: rust
   stage: test
