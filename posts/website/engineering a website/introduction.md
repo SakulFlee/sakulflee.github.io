@@ -46,7 +46,7 @@ We need mainly three things:
 - A _backend_, serving the _frontend_ with everything it needs. Might also include a template engine to support reusing code as much as possible. Acts in between the _frontend_ and _database_.
 - A _database_ (& adaptor), storing non-static content such as blog posts.
 
-![Module Graph](./modules_graph.drawio.svg)
+![Module Graph](https://sakul6499.de/img/website/engineering_a_website/modules_graph.drawio.svg)
 
 Now, I won't write my _database_.
 I will probably use either [PostgreSQL] or [MongoDB].  
@@ -84,7 +84,7 @@ Overall, we will have at least two docker images:
 Though, with the previously mentioned other project, I also had a _data-layer_.
 Essentially, that the _backend_ is a bridge layer between the _frontend_ and _data-layer_
 
-![Module Graph](./modules_graph_extended.drawio.svg)
+![Module Graph](https://sakul6499.de/img/website/engineering_a_website/modules_graph_extended.drawio.svg)
 
 However, this only applies if the [Rocket]-[Diesel] code gets out of hand, **or** if the backend needs to focus on serving files to the frontend.
 
