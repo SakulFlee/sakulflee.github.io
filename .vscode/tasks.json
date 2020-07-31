@@ -44,10 +44,10 @@
     {
       "label": "Build SASS",
       "type": "shell",
-      "command": "sassc style.sass style.css",
+      "command": "sassc style/style.sass static/style.css",
       "group": "build",
       "options": {
-        "cwd": "${workspaceFolder}/static"
+        "cwd": "${workspaceFolder}"
       },
       "problemMatcher": []
     },

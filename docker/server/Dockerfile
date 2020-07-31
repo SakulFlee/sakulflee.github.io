@@ -18,7 +18,7 @@ RUN apt update \
 
 ## Build
 COPY . /project
-RUN cd /project/static && sassc style.sass style.css
+RUN cd /project && sassc style/style.sass static/style.css
 
 # ClientLIB
 FROM rust:latest as clientlib_builder
