@@ -23,14 +23,12 @@ RUN cd /project && sassc style/style.sass static/style.css
 # ClientLIB
 FROM rust:latest as clientlib_builder
 
-## Install SASSC
-RUN apt update \
-    && apt install -y sassc \
-    && apt clean cache
+# Install WASM-Pack
+RUN curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh 
 
 ## Build
 COPY . /project
-RUN cd /project/static && sassc style.sass style.css
+RUN cd /project/client_lib && wasm-pack build --no-typescript --target web --out-dir ../static/client_lib
 
 # Server
 FROM ubuntu:latest
@@ -47,6 +45,9 @@ COPY --from=rust_builder /project/server/Rocket.toml /Rocket.toml
 ## Copy templates and static content
 COPY --from=sass_builder /project/template /template
 COPY --from=sass_builder /project/static /static
+
+## Copy client_lib
+COPY --from=clientlib_builder /project/static/client_lib /static/
 
 ## Execute server
 ENV TEMPLATE_PATH /template
