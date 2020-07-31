@@ -4,7 +4,7 @@ stages:
   - build-docker
   - deploy
 
-build:
+build_rust:
   image: rust
   stage: build
   variables:
@@ -13,13 +13,64 @@ build:
     - rustup update nightly
     - rustup default nightly
   script:
-    - cargo build
+    - cargo build --release
   artifacts:
     paths:
       - target/
   cache:
-    key: rust_target
     paths:
+      - target/
+  only:
+    - branches
+    - tags
+    - api
+    - pipelines
+    - schedules
+    - triggers
+    - web
+    - merge_requests
+
+build_style:
+  image: ubuntu
+  stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - apt update
+    - apt install -y sassc
+  script:
+    - sassc style/style.sass static/style.css
+  artifacts:
+    paths:
+      - static/
+  cache:
+    paths:
+      - static/
+  only:
+    - branches
+    - tags
+    - api
+    - pipelines
+    - schedules
+    - triggers
+    - web
+    - merge_requests
+
+build_client_lib:
+  image: rust
+  stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+  script:
+    - cd client_lib && wasm-pack build --no-typescript --target web --out-dir ../static/client_lib
+  artifacts:
+    paths:
+      - static/client_lib
+  cache:
+    paths:
+      - static/
       - target/
   only:
     - branches
@@ -45,9 +96,10 @@ test:
     paths:
       - target/
   cache:
-    key: rust_target
     paths:
       - target/
+  needs:
+    - build_rust
   only:
     - branches
     - tags
@@ -76,6 +128,10 @@ build-docker-server:
     - docker push $IMAGE:$CI_COMMIT_SHA
     - docker push $IMAGE:latest
     - if [ "$CI_COMMIT_BRANCH" = "master" ]; then docker tag "$IMAGE:$CI_COMMIT_SHA" "$IMAGE:$CI_COMMIT_BRANCH"; docker push "$IMAGE:$CI_COMMIT_BRANCH"; fi
+  needs:
+    - build_rust
+    - build_style
+    - build_client_lib
   only:
     - branches
     - tags
@@ -104,6 +160,8 @@ build-docker-importer:
     - docker push $IMAGE:$CI_COMMIT_SHA
     - docker push $IMAGE:latest
     - if [ "$CI_COMMIT_BRANCH" = "master" ]; then docker tag "$IMAGE:$CI_COMMIT_SHA" "$IMAGE:$CI_COMMIT_BRANCH"; docker push "$IMAGE:$CI_COMMIT_BRANCH"; fi
+  needs:
+    - build_rust
   only:
     - branches
     - tags
