@@ -1,13 +1,3 @@
-# Builder
-FROM rust:latest as builder
-
-## Nightly is required to build crates
-RUN rustup default nightly
-
-## Build
-COPY . /project
-RUN cd /project/import && cargo build --release
-
 # Importer
 FROM ubuntu:latest
 
@@ -17,10 +7,10 @@ RUN apt update \
     && apt clean cache
 
 ## Copy import binary
-COPY --from=builder /project/target/release/import /import
+COPY target/release/import /import
 
 ## Copy blog posts
-COPY ./posts /posts
+COPY posts /posts
 
 ## Execute importer
 ENV POSTS_PATH /posts 
