@@ -17,9 +17,6 @@ build_rust:
   artifacts:
     paths:
       - target/
-  cache:
-    paths:
-      - target/
   only:
     - branches
     - tags
@@ -41,9 +38,6 @@ build_style:
   script:
     - sassc style/style.sass static/style.css
   artifacts:
-    paths:
-      - static/
-  cache:
     paths:
       - static/
   only:
@@ -68,10 +62,6 @@ build_client_lib:
   artifacts:
     paths:
       - static/client_lib
-  cache:
-    paths:
-      - static/
-      - target/
   only:
     - branches
     - tags
@@ -92,12 +82,6 @@ test:
     - rustup default nightly
   script:
     - cargo test
-  artifacts:
-    paths:
-      - target/
-  cache:
-    paths:
-      - target/
   needs:
     - build_rust
   only:
