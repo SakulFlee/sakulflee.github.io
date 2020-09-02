@@ -1,2 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
+Disallow: /client_lib/
+Disallow: /.sass_cache/
+Disallow: /img/
