@@ -1,7 +1,8 @@
 use data::data::posts::create;
-use data::database::{migration::run_db_migrations, connection::connection_valid};
+use data::database::{connection::connection_valid, migration::run_db_migrations};
 use data::models::NewPost;
 use dotenv::dotenv;
+use glob::glob;
 use std::env;
 use std::fs::File;
 use std::io::BufReader;
@@ -30,42 +31,39 @@ fn get_posts_path() -> PathBuf {
 fn process_posts(path: PathBuf) {
     println!("> Processing posts");
 
-    println!("Path: {:?}", path);
+    println!("Posts Path: {:?}", path);
 
-    for entry in WalkDir::new(path).min_depth(1).into_iter() {
-        if entry.is_err() {
-            println!("Failed traversing file: {}", entry.unwrap_err());
-            continue;
+    for entry in
+        glob(&format!("{}/**/*.md", path.to_str().unwrap())).expect("Failed to read glob pattern")
+    {
+        match entry {
+            Ok(path) => {
+                println!("Processing: {:?}", path.display());
+
+                let file = File::open(&path).expect(&format!("Failed to open file ({:?})", &path));
+                let mut buf_reader = BufReader::new(file);
+                let mut contents = String::new();
+                let result = buf_reader
+                    .read_to_string(&mut contents)
+                    .expect(&format!("Failed to read file ({:?})", path));
+                if result <= 0 {
+                    println!("Empty file at {:?}!", path);
+                    continue;
+                }
+        
+                let post = match NewPost::parse(contents) {
+                    Some(post) => post,
+                    None => {
+                        println!("Failed to parse: {:?}", path);
+                        continue;
+                    }
+                };
+        
+                let result = create(post).expect("Failed to create new post");
+                println!("New post id: {}", result.id);
+            },
+            Err(e) => println!("Failed reading: {:?}", e),
         }
-
-        let entry = entry.unwrap();
-        if entry.file_type().is_dir() {
-            continue;
-        }
-
-        let path = entry.path();
-        println!("Path: {:?}", path);
-        let file = File::open(path).expect(&format!("Failed to open file ({:?})", path));
-        let mut buf_reader = BufReader::new(file);
-        let mut contents = String::new();
-        let result = buf_reader
-            .read_to_string(&mut contents)
-            .expect(&format!("Failed to read file ({:?})", path));
-        if result <= 0 {
-            println!("Empty file at {:?}!", path);
-            continue;
-        }
-
-        let post = match NewPost::parse(contents) {
-            Some(post) => post,
-            None => {
-                println!("Failed to parse: {:?}", path);
-                continue;
-            }
-        };
-
-        let result = create(post).expect("Failed to create new post");
-        println!("New post id: {}", result.id);
     }
 }
 
