@@ -3,6 +3,8 @@ FROM rust:latest as builder
 
 COPY . /project
 WORKDIR /project
+
+RUN rustup default nightly
 RUN cargo build --release
 
 # ---
