@@ -9,3 +9,4 @@ publish = false
 data = { path = "../data" }
 walkdir = "2"
 dotenv = "0.15"
+glob = "0.3"
