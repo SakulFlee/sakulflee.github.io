@@ -1,4 +1,11 @@
 # Server
+FROM rust:latest as builder
+
+COPY . /project
+WORKDIR /project
+RUN cargo build --release
+
+# ---
 FROM ubuntu:latest
 
 ## Install PostgreSQL lib
@@ -7,12 +14,12 @@ RUN apt update \
     && apt clean cache
 
 ## Copy server binary and Rocket.toml
-COPY target/release/server /server
-COPY server/Rocket.toml /Rocket.toml
+COPY --from=builder /project/target/release/server /server
+COPY --from=builder /project/server/Rocket.toml /Rocket.toml
 
 ## Copy templates and static content
-COPY template /template
-COPY static /static
+COPY --from=builder /project/template /template
+COPY --from=builder /project/static /static
 
 ## Execute server
 ENV TEMPLATE_PATH /template

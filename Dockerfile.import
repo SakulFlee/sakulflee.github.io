@@ -1,4 +1,11 @@
 # Importer
+FROM rust:latest as builder
+
+COPY . /project
+WORKDIR /project
+RUN cargo build --release
+
+# ---
 FROM ubuntu:latest
 
 ## Install PostgreSQL lib
@@ -7,10 +14,10 @@ RUN apt update \
     && apt clean cache
 
 ## Copy import binary
-COPY target/release/import /import
+COPY --from=builder /project/target/release/import /import
 
 ## Copy blog posts
-COPY posts /posts
+COPY --from=builder /project/posts /posts
 
 ## Execute importer
 ENV POSTS_PATH /posts 
