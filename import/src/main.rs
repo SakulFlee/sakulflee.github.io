@@ -8,7 +8,6 @@ use std::fs::File;
 use std::io::BufReader;
 use std::io::Read;
 use std::path::PathBuf;
-use walkdir::WalkDir;
 
 fn clean_database() {
     println!("> Cleaning database");
