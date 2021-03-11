@@ -14,8 +14,8 @@ impl Context {
         let mut text_theme = String::new();
 
         let mut rng = rand::thread_rng();
-        let r_theme = rng.gen_range(0, 6);
-        let r_bold = rng.gen_range(0, 2);
+        let r_theme = rng.gen_range(0..6);
+        let r_bold = rng.gen_range(0..2);
 
         if r_theme == 0 {
             theme.push_str("is-success");
