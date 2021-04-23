@@ -32,3 +32,6 @@ target/
 *.sassc
 *.scssc
 .sass-cache/
+
+# Logs
+*.log
