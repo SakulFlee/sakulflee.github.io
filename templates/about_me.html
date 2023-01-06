@@ -4,22 +4,29 @@
       <u class="is-half is-family-code has-text-underlined">
         About me
       </u>
-      <p>
-        Hello there! My name is Lukas Weber and I am \{\{ TODO age TODO \}\} years old.
-      </p>
-      <p>
-        Currently, I live in Germany, but I am studying <i>Software Engineering</i> in the Netherlands. I am interested
-        in a lot
-        of topics (mainly IT related).
-        I am constantly learning new skills and about new topics I find interesting.
-      </p>
-      <br />
-      <p>I am currently also in need of an internship.</p>
-      <p>
-        Interested? Contact me via <a href="mailto:me@sakul6499.de">Email</a>,
-        <a href="https://t.me/sakul6499">Telegram</a> or
-        <a href="https://keybase.io/sakul6499">KeyBase</a>.
-      </p>
+      {% set now = now() %}
+      {% set current_year = now | date(format="%Y") | int %}
+      {% set current_month = now | date(format="%m") | int %}
+      {% set current_day = now | date(format="%d") | int %}
+      {% set birth_year = 1999 %}
+      {% set age = current_year - birth_year %}
+      {% if current_month < 4%} {% set age=age - 1 %} {% elif current_day < 6 %} {% set age=age - 1 %} {% endif %} <p>
+        Hello there! My name is Lukas
+        Weber and I am {{ age }} years old. </p>
+        <p>
+          Currently, I live in Germany, but I am studying <i>Software Engineering</i> in the Netherlands. I am
+          interested
+          in a lot
+          of topics (mainly IT related).
+          I am constantly learning new skills and about new topics I find interesting.
+        </p>
+        <br />
+        <p>I am currently also in need of an internship.</p>
+        <p>
+          Interested? Contact me via <a href="mailto:me@sakul6499.de">Email</a>,
+          <a href="https://t.me/sakul6499">Telegram</a> or
+          <a href="https://keybase.io/sakul6499">KeyBase</a>.
+        </p>
     </div>
     {% include "components/timeline.html" %}
   </article>
