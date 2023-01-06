@@ -1,40 +1,46 @@
 <nav class="pagination is-centered pt-2" role="navigation" aria-label="pagination">
-    <ul class="pagination-list">
-      {# Go page left / previous page #}
-      <li>
-        <a {% if page - 1 > 0 %}href="{{base_uri}}/{{page - 1}}"{% endif %} class="pagination-link pagination-previous" aria-label="Previous page" {% if page - 1 == 0 %}disabled{% endif %}>
-          <i class="fas fa-caret-square-left"></i>
-        </a>
-      </li>
-      {# Go to first page #}
-      <li>
-        <a {% if page != 1 %}href="{{base_uri}}/1"{% endif %} class="pagination-link" aria-label="Go to first page" {% if page == 1 %}disabled{% endif %}>
-          1
-        </a>
-      </li>
-      <li>
-        <span class="pagination-ellipsis">&hellip;</span>
-      </li>
-      {# Current page #}
-      <li>
-          <a href="{{base_uri}}/{{page}}" class="pagination-link is-current" aria-label="Current Page; Page {{page}}" aria-current="Current page">
-            {{page}}
-          </a>
-      </li>
-      <li>
-        <span class="pagination-ellipsis">&hellip;</span>
-      </li>  
-      {# Go to last page #}
-      <li>
-        <a {% if pages > 0 and page < pages %}href="{{base_uri}}/{{pages}}"{% endif %} class="pagination-link" aria-label="Go to last page" {% if pages < 1 or page == pages %}disabled{% endif %}>
+  <ul class="pagination-list">
+    {# Go page left / previous page #}
+    <li>
+      <a {% if page - 1> 0 %}href="{{base_uri}}/{{page - 1}}"{% endif %} class="pagination-link pagination-previous"
+        aria-label="Previous page" {% if page - 1 == 0 %}disabled{% endif %}>
+        <i class="fas fa-caret-square-left"></i>
+      </a>
+    </li>
+    {# Go to first page #}
+    <li>
+      <a {% if page !=1 %}href="{{base_uri}}/1" {% endif %} class="pagination-link" aria-label="Go to first page" {% if
+        page==1 %}disabled{% endif %}>
+        1
+      </a>
+    </li>
+    <li>
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+    {# Current page #}
+    <li>
+      <a href="{{base_uri}}/{{page}}" class="pagination-link is-current" aria-label="Current Page; Page {{page}}"
+        aria-current="Current page">
+        {{page}}
+      </a>
+    </li>
+    <li>
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+    {# Go to last page #}
+    <li>
+      <a {% if pages> 0 and page < pages %}href="{{base_uri}}/{{pages}}" {% endif %} class="pagination-link"
+          aria-label="Go to last page" {% if pages < 1 or page==pages %}disabled{% endif %}>
           {{pages}}
-        </a>
-      </li>
-      {# Go page right / next page #}
-      <li>
-        <a {% if pages > 0 and page + 1 <= pages %}href="{{base_uri}}/{{page + 1}}"{% endif %} class="pagination-link pagination-next" aria-label="Next page" {% if pages < 1 or page + 1 > pages %}disabled{% endif %}>
+      </a>
+    </li>
+    {# Go page right / next page #}
+    <li>
+      <a {% if pages> 0 and page + 1 <= pages %}href="{{base_uri}}/{{page + 1}}" {% endif %}
+          class="pagination-link pagination-next" aria-label="Next page" {% if pages < 1 or page + 1> pages %}disabled{%
+          endif %}>
           <i class="fas fa-caret-square-right"></i>
-        </a>
-      </li>
-    </ul>
+      </a>
+    </li>
+  </ul>
 </nav>

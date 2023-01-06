@@ -2,33 +2,27 @@
 
 {% block content %}
 <article id="blog-post">
-  <section class="hero">
+  <section class="hero is-dark">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
           {{ page.title }}
         </h1>
         <h2 class="subtitle">
-          {{ page.date | date }}
+          {{ page.description }}
         </h2>
 
         <div class="columns">
           <div class="column is-half has-text-left">
             <p><b>Categories</b></p>
             {% if 'categories' in page.taxonomies %}
-            {% set categories_size = page.taxonomies['categories'] | length %}
-            {% if categories_size > 0 %}
             <span>
               {% for category in page.taxonomies['categories'] %}
-              <a href="/blog/category/{{ category }}" class="tag">
+              <a href="/categories/{{ category }}" class="tag is-success">
                 {{ category }}
               </a>
-              {% if loop.index != categories_size %}
-              ,
-              {% endif %}
               {% endfor %}
             </span>
-            {% endif %}
             {% else %}
             <span class="tag">None</span>
             {% endif %}
@@ -36,30 +30,32 @@
           <div class="column is-half has-text-right has-text-left-mobile">
             <p><b>Tags</b></p>
             {% if 'tags' in page.taxonomies %}
-            {% set tags_size = page.taxonomies['tags'] | length %}
-            {% if tags_size > 0 %}
             <span>
               {% for tag in page.taxonomies['tags'] %}
-              <a href="/blog/tag/{{ tag }}" class="tag">
+              <a href="/tags/{{ tag }}" class="tag is-danger">
                 {{ tag }}
               </a>
-              {% if loop.index != tags_size %}
-              ,
-              {% endif %}
               {% endfor %}
             </span>
-            {% endif %}
             {% else %}
             <span class="tag">None</span>
             {% endif %}
           </div>
         </div>
+
+        <span class="columns has-text-centered">
+          <p class="column is-4">Published on: {{ page.date }}</p>
+          <p class="column is-4">Word count: {{ page.word_count }}</p>
+          <p class="column is-4">Estimated reading time: {{ page.reading_time }} {% if page.reading_time == 1 %} minute
+            {% else %} minutes {% endif %}</p>
+        </span>
       </div>
     </div>
   </section>
 
-  <div id="content">
-    {{ page.content | safe }}
-  </div>
+  <div class="card m-4">
+    <div class="card-content">
+      {{ page.content | safe }}
+    </div>
 </article>
 {% endblock content %}

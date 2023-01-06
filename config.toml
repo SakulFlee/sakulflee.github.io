@@ -56,8 +56,8 @@ hard_link_static = false
 #     ]
 #
 taxonomies = [
-    { name = "categories", feed = true },
-    { name = "tags", feed = true },
+    { name = "categories", feed = true, paginate_by = 10 },
+    { name = "tags", feed = true, paginate_by = 10 },
 ]
 
 # When set to "true", a search index is built from the pages and section
