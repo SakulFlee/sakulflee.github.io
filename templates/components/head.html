@@ -9,18 +9,10 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <script defer src="/bulma-menu.js"></script>
 
-<script type="module">
-import init from '/client_lib/client_lib.js';
-async function run() {
-    await init();
-}
-run();
-</script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160626331-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'UA-160626331-1');
@@ -30,12 +22,12 @@ run();
 
 <title>
     {% block title %}
-        {% if title %}
-            {{ title }}
-        {% elif post %}
-            {{ post.title }}
-        {% else %}
-            @Sakul6499 | Lukas Weber
-        {% endif %}
+    {% if title %}
+    {{ title }}
+    {% elif post %}
+    {{ post.title }}
+    {% else %}
+    @Sakul6499 | Lukas Weber
+    {% endif %}
     {% endblock title %}
 </title>
