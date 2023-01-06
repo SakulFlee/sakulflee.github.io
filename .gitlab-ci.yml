@@ -96,9 +96,9 @@ test:
 
 build-docker-server:
   stage: build-docker
-  image: docker:20.10.17
+  image: docker:20.10.22
   services:
-    - docker:20.10.17-dind
+    - docker:20.10.22-dind
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
     DOCKER_HOST: tcp://docker:2376
@@ -128,9 +128,9 @@ build-docker-server:
 
 build-docker-importer:
   stage: build-docker
-  image: docker:20.10.17
+  image: docker:20.10.22
   services:
-    - docker:20.10.17-dind
+    - docker:20.10.22-dind
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
     DOCKER_HOST: tcp://docker:2376
