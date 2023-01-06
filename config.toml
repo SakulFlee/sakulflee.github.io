@@ -3,7 +3,7 @@ base_url = "sakul6499.github.io"
 
 # The site title and description; used in feeds by default.
 title = "@SakulFlee | @Sakul6499 | Lukas Weber"
-description = "TODO"
+description = "My personal blog and archive for projects and interest I enjoy."
 
 # The default language; used in feeds.
 default_language = "en"
