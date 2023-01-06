@@ -1,0 +1,65 @@
+{% extends "components/base.html" %}
+
+{% block content %}
+<article id="blog-post">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          {{ page.title }}
+        </h1>
+        <h2 class="subtitle">
+          {{ page.date | date }}
+        </h2>
+
+        <div class="columns">
+          <div class="column is-half has-text-left">
+            <p><b>Categories</b></p>
+            {% if 'categories' in page.taxonomies %}
+            {% set categories_size = page.taxonomies['categories'] | length %}
+            {% if categories_size > 0 %}
+            <span>
+              {% for category in page.taxonomies['categories'] %}
+              <a href="/blog/category/{{ category }}" class="tag">
+                {{ category }}
+              </a>
+              {% if loop.index != categories_size %}
+              ,
+              {% endif %}
+              {% endfor %}
+            </span>
+            {% endif %}
+            {% else %}
+            <span class="tag">None</span>
+            {% endif %}
+          </div>
+          <div class="column is-half has-text-right has-text-left-mobile">
+            <p><b>Tags</b></p>
+            {% if 'tags' in page.taxonomies %}
+            {% set tags_size = page.taxonomies['tags'] | length %}
+            {% if tags_size > 0 %}
+            <span>
+              {% for tag in page.taxonomies['tags'] %}
+              <a href="/blog/tag/{{ tag }}" class="tag">
+                {{ tag }}
+              </a>
+              {% if loop.index != tags_size %}
+              ,
+              {% endif %}
+              {% endfor %}
+            </span>
+            {% endif %}
+            {% else %}
+            <span class="tag">None</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="content">
+    {{ page.content | safe }}
+  </div>
+</article>
+{% endblock content %}

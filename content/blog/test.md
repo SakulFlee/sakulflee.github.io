@@ -1,8 +1,8 @@
 +++
-title = "List of blog posts"
-sort_by = "date"
-template = "blog.html"
-page_template = "blog-page.html"
+title = "my first post"
+date = "2023-01-05"
+[taxonomies] 
+categories = ["markdown"]
 +++
 
 Test
