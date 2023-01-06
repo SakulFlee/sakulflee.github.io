@@ -1,6 +1,6 @@
 +++
 title = "List of project posts"
 sort_by = "date"
-template = "blog.html"
-page_template = "blog-page.html"
+template = "posting-list.html"
+page_template = "posting-view.html"
 +++
