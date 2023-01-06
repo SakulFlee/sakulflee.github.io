@@ -1,4 +1,4 @@
 +++
-title = "Contact"
+title = "Credits"
 template = "credits.html"
 +++
