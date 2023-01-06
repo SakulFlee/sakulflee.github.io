@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+<meta name="description" content="Blog-Post view page">
+<meta name="author" content="@Sakul6499 | Lukas Weber">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/style.css">
+<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer src="/bulma-menu.js"></script>
+
+<script type="module">
+import init from '/client_lib/client_lib.js';
+async function run() {
+    await init();
+}
+run();
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160626331-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-160626331-1');
+</script>
+
+<link rel="icon" href="/favicon.ico">
+
+<title>
+    
+        
+            @Sakul6499 | Lukas Weber
+        
+    
+</title>
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <span class="title is-5">@Sakul6499 | Lukas Weber</span>
+    </a>
+    <a
+      role="button"
+      class="navbar-burger burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="main-nav"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="main-nav" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/">
+        <span class="icon is-large">
+          <i class="fas fa-home"></i>
+        </span>
+        <span>Home</span>
+      </a>
+      <a class="navbar-item" href="/blog">
+        <span class="icon is-large">
+          <i class="fas fa-book"></i>
+        </span>
+        <span>Blog</span>
+      </a>
+      <a class="navbar-item" href="/projects">
+        <span class="icon is-large">
+          <i class="fas fa-code-branch"></i>
+        </span>
+        <span>Projects</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+    
+<section class="hero is-dark is-fullheight-with-navbar">
+  <div class="hero-head">
+  </div>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column">
+        <div id="title-text">
+          <h1 class="title has-text-danger is-family-code">
+            Hello, world!
+          </h1>
+          <h2 class="has-text-white subtitle">
+            I am @Sakul6499 | Lukas Weber.
+          </h2>
+          <p class="has-text-white is-family-code">
+            Software Engineer Student
+          </p>
+        </div>
+
+        <div class="is-vcentered">
+          <ul>
+            <li class="icon p-icon">
+              <a class="tooltip has-tooltip-bottom" 
+    data-tooltip="Gitea"
+    href="https://git.sakul6499.de/sakul6499"
+    >
+    <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 135.467 135.467"><path d="M27.71 33.618c-9.547-.028-22.34 6.798-21.632 23.904C7.184 84.25 31.535 86.73 41.27 86.945c1.068 5.013 12.522 22.305 21.002 23.216h37.152c22.278-1.668 38.961-75.756 26.594-76.038-20.452 1.083-32.576 1.627-42.972 1.719v23.127l-3.241-1.61-.021-21.505c-11.932-.004-22.433-.627-42.366-1.731-2.495-.027-5.972-.495-9.708-.505zm1.351 9.45c.371-.004.751-.002 1.14.008C31.553 56.77 33.757 64.78 38.22 77.02c-11.383-1.505-21.07-5.224-22.85-19.11-.922-7.18 2.185-14.683 13.692-14.841zm43.943 13.474a5.476 5.476 0 012.643.55l21.403 10.4a5.47 5.47 0 012.536 7.328l-10.4 21.404a5.47 5.47 0 01-7.327 2.535l-21.405-10.4a5.47 5.47 0 01-2.535-7.327l10.4-21.404a5.47 5.47 0 014.685-3.086z" fill="#fff" stroke="#fff" stroke-width="1.0001124"/><circle transform="rotate(-19.796)" r="3.475" cy="90.078" cx="49.065" fill="#fff"/><circle transform="rotate(-19.796)" r="3.475" cy="102.105" cx="36.81" fill="#fff"/><circle transform="rotate(-19.796)" r="3.475" cy="111.439" cx="46.484" fill="#fff"/><path fill="#fff" d="M79.54 58.936l2.402 1.172L69.98 84.605l-2.402-1.172z"/><path d="M76.558 68.116c12.976 6.396 13.013 4.102 4.891 20.908" fill="none" stroke="#fff" stroke-width="2.68"/></svg>
+</a>
+            </li>
+            <li class="icon p-icon">
+              <a class="tooltip has-tooltip-bottom" 
+    data-tooltip="GitLab"
+    href="https://gitlab.com/Sakul6499"
+    >
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M105.2 24.9c-3.1-8.9-15.7-8.9-18.9 0L29.8 199.7h132c-.1 0-56.6-174.8-56.6-174.8zM.9 287.7c-2.6 8 .3 16.9 7.1 22l247.9 184-226.2-294zm160.8-88l94.3 294 94.3-294zm349.4 88l-28.8-88-226.3 294 247.9-184c6.9-5.1 9.7-14 7.2-22zM425.7 24.9c-3.1-8.9-15.7-8.9-18.9 0l-56.6 174.8h132z" stroke="none"/></svg>
+</a>
+            </li>
+            <li class="icon p-icon">
+              <a class="tooltip has-tooltip-bottom" 
+    data-tooltip="GitHub"
+    href="https://github.com/Sakul6499"
+    >
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" stroke="none"/></svg>
+</a>
+            </li>
+          </ul>
+          <ul>
+            <li class="icon p-icon">
+              <a class="tooltip has-tooltip-bottom" 
+    data-tooltip="BitBucket"
+    href="https://bitbucket.org/sakul6499/"
+    >
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M22.2 32A16 16 0 006 47.8a26.35 26.35 0 00.2 2.8l67.9 412.1a21.77 21.77 0 0021.3 18.2h325.7a16 16 0 0016-13.4L505 50.7a16 16 0 00-13.2-18.3 24.58 24.58 0 00-2.8-.2L22.2 32zm285.9 297.8h-104l-28.1-147h157.3l-25.2 147z" stroke="none"/></svg>
+</a>
+            </li>
+            <li class="icon p-icon">
+              <a 
+    class="tooltip has-tooltip-bottom" 
+    data-tooltip="LinkedIn"
+    href="https://www.linkedin.com/in/lukaswebersakul6499/"
+    >
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 01107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" stroke="none"/></svg>
+</a>
+            </li>
+            <li class="icon p-icon">
+              <a 
+    class="tooltip has-tooltip-bottom" 
+    data-tooltip="KeyBase"
+    href="https://keybase.io/sakul6499"
+    >
+    <svg aria-hidden="true" data-prefix="fab" data-icon="keybase" class="svg-inline--fa fa-keybase fa-w-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M286.17 419a18 18 0 1018 18 18 18 0 00-18-18zm111.92-147.6c-9.5-14.62-39.37-52.45-87.26-73.71q-9.1-4.06-18.38-7.27a78.43 78.43 0 00-47.88-104.13c-12.41-4.1-23.33-6-32.41-5.77-.6-2-1.89-11 9.4-35L198.66 32l-5.48 7.56c-8.69 12.06-16.92 23.55-24.34 34.89a51 51 0 00-8.29-1.25c-41.53-2.45-39-2.33-41.06-2.33-50.61 0-50.75 52.12-50.75 45.88l-2.36 36.68c-1.61 27 19.75 50.21 47.63 51.85l8.93.54a214 214 0 00-46.29 35.54C14 304.66 14 374 14 429.77v33.64l23.32-29.8a148.6 148.6 0 0014.56 37.56c5.78 10.13 14.87 9.45 19.64 7.33 4.21-1.87 10-6.92 3.75-20.11a178.29 178.29 0 01-15.76-53.13l46.82-59.83-24.66 74.11c58.23-42.4 157.38-61.76 236.25-38.59 34.2 10.05 67.45.69 84.74-23.84.72-1 1.2-2.16 1.85-3.22a156.09 156.09 0 012.8 28.43c0 23.3-3.69 52.93-14.88 81.64-2.52 6.46 1.76 14.5 8.6 15.74 7.42 1.57 15.33-3.1 18.37-11.15C429 443 434 414 434 382.32c0-38.58-13-77.46-35.91-110.92zM142.37 128.58l-15.7-.93-1.39 21.79 13.13.78a93 93 0 00.32 19.57l-22.38-1.34a12.28 12.28 0 01-11.76-12.79L107 119c1-12.17 13.87-11.27 13.26-11.32l29.11 1.73a144.35 144.35 0 00-7 19.17zm148.42 172.18a10.51 10.51 0 01-14.35-1.39l-9.68-11.49-34.42 27a8.09 8.09 0 01-11.13-1.08l-15.78-18.64a7.38 7.38 0 011.34-10.34l34.57-27.18-14.14-16.74-17.09 13.45a7.75 7.75 0 01-10.59-1s-3.72-4.42-3.8-4.53a7.38 7.38 0 011.37-10.34L214 225.19s-18.51-22-18.6-22.14a9.56 9.56 0 011.74-13.42 10.38 10.38 0 0114.3 1.37l81.09 96.32a9.58 9.58 0 01-1.74 13.44zM187.44 419a18 18 0 1018 18 18 18 0 00-18-18z"/></svg>
+</a>
+            </li>
+          </ul>
+          <ul>
+            <li class="icon p-icon">
+              <a 
+   class="tooltip has-tooltip-bottom" 
+   data-tooltip="Telegram"
+   href="https://telegram.me/sakul6499"
+   >
+   <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="512" viewBox="0 0 24 24" height="512"><g fill="#fff"><path d="M12.618-14.33c.179 0 .357.002.535.007a21.078 25.285 0 00-.535-.008zm0 0a21.078 25.285 0 00-.536.007c.178-.005.357-.008.536-.008zm.535.007a21.078 25.285 0 01.016 0h-.016zm-1.079 0l-.011.001a21.078 25.285 0 01.015 0h-.004zm-.011.001a21.078 25.285 0 00-.484.022c.16-.01.322-.017.484-.022zm-.484.022l-.096.006a21.078 25.285 0 01.096-.006zm-.096.006a21.078 25.285 0 00-.387.03c.129-.012.258-.022.387-.03zm-.387.03a17.77 17.77 0 00-.222.02 21.078 25.285 0 01.222-.02zm-.222.02a21.078 25.285 0 00-.247.026l.247-.026zm-.247.026c-4.926.554-9.357 3.139-12.708 7.05a21.078 25.285 0 0112.708-7.05zm2.545-.104c.163.005.325.013.487.022a21.078 25.285 0 00-.487-.022zm.487.022a21.078 25.285 0 01.091.006l-.091-.006zm.091.006c.13.008.259.018.387.03a21.078 25.285 0 00-.387-.03zm.387.03a21.078 25.285 0 01.23.02 17.77 17.77 0 00-.23-.02zm.23.02l.242.026a21.078 25.285 0 00-.242-.026zm.243.026a21.078 25.285 0 0112.707 7.05c-3.351-3.912-7.782-6.496-12.707-7.05zM-2.164-7.07c-.079.093-.157.187-.235.282a21.078 25.285 0 01.235-.282zm29.573.011a21.078 25.285 0 01.235.282 23.802 23.802 0 00-.235-.282zm.316.381a21.078 25.285 0 015.877 15.245C33.141 2.657 30.986-2.66 27.725-6.68zm5.877 15.245l.022.296a21.078 25.285 0 00-.022-.296zm.022.296a21.078 25.285 0 01.017.267l-.017-.267zm.017.267c.01.154.018.308.025.463a21.078 25.285 0 00-.025-.463zm.025.463a21.078 25.285 0 01.005.115l-.005-.115zm.005.115c.007.193.014.387.018.58a21.078 25.285 0 00-.018-.58zm.018.58a21.078 25.285 0 010 .019v-.018zM-2.49-6.677c-3.26 4.02-5.415 9.335-5.877 15.243A21.078 25.285 0 01-2.489-6.678zM22.019.892c-.162 0-.334.038-.511.115l-20.323 9.4c-1.393.653-1.368 1.578-.239 2.007l5.203 1.947 12.069-9.115c.56-.447 1.08-.194.655.255L9.107 16.085l-.374 6.433c.544 0 .781-.285 1.062-.622l2.542-2.937 5.27 4.659c.96.653 1.647.316 1.904-1.07l3.46-19.556-.002.002c.249-1.39-.249-2.103-.95-2.102zM-8.366 8.566a21.078 25.285 0 00-.021.29l.021-.29zm-.021.29l-.018.276a21.078 25.285 0 01.018-.275zm-.018.276a21.078 25.285 0 00-.024.464c.007-.155.015-.31.024-.464zm-.024.464l-.005.11a21.078 25.285 0 01.005-.11zm-.005.11a21.078 25.285 0 00-.019.584c.005-.195.011-.39.019-.584zm-.019.588v.019a21.078 25.285 0 010-.02zm0 .019a21.078 25.285 0 00-.007.641c0-.214.003-.428.007-.641zm-.007.641a21.078 25.285 0 00.007.644 30.932 30.932 0 01-.007-.644zm42.15-.643c.004.214.006.428.006.643a21.078 25.285 0 00-.006-.643zm.006.643c0 .215-.002.429-.006.642a21.078 25.285 0 00.006-.642zm-.006.642a21.078 25.285 0 01-.001.019v-.02zm-42.143.007v.018a21.078 25.285 0 010-.018zm0 .018a21.078 25.285 0 00.019.58 30.73 30.73 0 01-.018-.58zm.019.58l.005.115a21.078 25.285 0 01-.005-.115zm.005.115a21.078 25.285 0 00.024.464c-.009-.154-.017-.309-.024-.464zm.024.464l.018.267a21.078 25.285 0 01-.018-.267zm.018.267a21.078 25.285 0 00.021.296 30.39 30.39 0 01-.021-.296zm.021.296c.462 5.909 2.617 11.225 5.877 15.244a21.078 25.285 0 01-5.877-15.244zm42.055-1.724a30.7 30.7 0 01-.018.583 21.078 25.285 0 00.018-.583zm-.018.583a21.078 25.285 0 01-.005.11l.005-.11zm-.005.11c-.007.155-.016.31-.025.464a21.078 25.285 0 00.025-.464zm-.025.464a21.078 25.285 0 01-.017.276l.017-.276zm-.017.276l-.022.29a21.078 25.285 0 00.022-.29zm-.022.291a21.078 25.285 0 01-5.876 15.243c3.26-4.02 5.415-9.335 5.876-15.243zm-36.01 15.343c.078.095.156.189.235.282a21.078 25.285 0 01-.235-.282zm30.043.012a21.078 25.285 0 01-.235.282 23.8 23.8 0 00.235-.282zm-.318.378a21.078 25.285 0 01-12.708 7.05c4.926-.553 9.358-3.138 12.708-7.05zm-12.708 7.05c-.082.01-.164.018-.246.026a21.078 25.285 0 00.246-.026zm-.246.026a21.078 25.285 0 01-.223.021l.223-.02zm-.223.021a17.79 17.79 0 01-.387.03 21.078 25.285 0 00.387-.03zm-.387.03a21.078 25.285 0 01-.095.005c.032-.001.064-.004.095-.006zm-.095.005c-.161.01-.322.017-.484.022a21.078 25.285 0 00.484-.022zm-.484.022a21.078 25.285 0 01-.015.001h.015zM-2.08 29.077c3.35 3.911 7.782 6.496 12.707 7.05a21.078 25.285 0 01-12.707-7.05zm12.707 7.05a21.078 25.285 0 00.243.025l-.243-.026zm.243.025c.076.008.153.015.23.021a21.078 25.285 0 01-.23-.02zm.23.021a21.078 25.285 0 00.386.03c-.13-.009-.258-.019-.387-.03zm.386.03l.092.005a21.078 25.285 0 01-.092-.005zm.092.005a21.078 25.285 0 00.486.023 17.814 17.814 0 01-.486-.023zm.49.023h.015a21.078 25.285 0 01-.016 0zm.015 0a21.078 25.285 0 00.535.008c-.179 0-.357-.003-.535-.008zm.535.008a21.078 25.285 0 00.537-.008c-.179.006-.357.008-.537.008z"/><path d="M-10.36-4.042h8.264v35.656h-8.264z"/><path d="M-9.95 25.883h44.546v12.642H-9.95z"/><path d="M27.317 8.77h6.922v20.307h-6.922z"/><path d="M25.962-18.773h9.301v30.604h-9.3z"/><path d="M-8.397-17.679h36.88v9.678h-36.88z"/><path d="M-10.568-14.169H7.298V-.767h-17.866z"/></g></svg>
+</a>
+            </li>
+            <li class="icon p-icon">
+              <a 
+   class="tooltip has-tooltip-bottom" 
+   data-tooltip="Twitter"
+   href="https://twitter.com/sakul6499"
+   >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z" fill="#fff"/></svg>
+</a>
+
+            </li>
+            <li class="icon p-icon">
+              <a 
+   class="tooltip has-tooltip-bottom" 
+   data-tooltip="Mail"
+   href="mailto:me@sakul6499.de"
+   >
+   <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M339.392 258.624L512 367.744V144.896zM0 144.896v222.848l172.608-109.12zM480 80H32C16.032 80 3.36 91.904.96 107.232L256 275.264l255.04-168.032C508.64 91.904 495.968 80 480 80zM310.08 277.952l-45.28 29.824a15.983 15.983 0 01-8.8 2.624c-3.072 0-6.112-.864-8.8-2.624l-45.28-29.856L1.024 404.992C3.488 420.192 16.096 432 32 432h448c15.904 0 28.512-11.808 30.976-27.008L310.08 277.952z" fill="#fff"/></svg>
+</a>
+            </li>
+          </ul>
+          <div class="buttons columns">
+            <a href="/blog" class="button mr-4 mt-6 is-large is-white is-outlined column">
+              <span class="icon is-large">
+                <i class="fas fa-book"></i>
+              </span>
+              <span>Blog</span>
+            </a>
+            <a href="/projects" class="button ml-4 mt-6 is-large is-white is-outlined column">
+              <span class="icon is-large">
+                <i class="fas fa-code-branch"></i>
+              </span>
+              <span>Projects</span>
+            </a>
+          </div>
+          <div class="container" id="down-arrow">
+    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>
+    <p>Scroll down!</p>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="columns has-text-centered" id="AboutMe">
+  <article class="column">
+    <div>
+      <u class="is-half is-family-code has-text-underlined">
+        About me
+      </u>
+      <p>
+        Hello there! My name is Lukas Weber and I am \{\{ TODO age TODO \}\} years old.
+      </p>
+      <p>
+        Currently, I live in Germany, but I am studying <i>Software Engineering</i> in the Netherlands. I am interested
+        in a lot
+        of topics (mainly IT related).
+        I am constantly learning new skills and about new topics I find interesting.
+      </p>
+      <br />
+      <p>I am currently also in need of an internship.</p>
+      <p>
+        Interested? Contact me via <a href="mailto:me@sakul6499.de">Email</a>,
+        <a href="https://t.me/sakul6499">Telegram</a> or
+        <a href="https://keybase.io/sakul6499">KeyBase</a>.
+      </p>
+    </div>
+    <div id="timeline">
+  <u class="is-half is-family-code has-text-underlined">Timeline</u>
+  <div class="entry">
+    <div class="date">2005</div>
+    <div class="texts">
+      <div
+        class="is-dark tag is-large tooltip has-tooltip-dark is-tooltip-multiline has-text-white"
+        data-tooltip="Here starts everything... First real experience with computers, mainly windows, etc."
+      >
+        Start of everything
+      </div>
+    </div>
+  </div>
+  <div class="dotted-line"></div>
+  <div class="entry">
+    <div class="date">2009</div>
+    <div class="texts">
+      <div
+        class="is-warning tag is-large tooltip has-tooltip-warning is-tooltip-multiline has-text-black"
+        data-tooltip="Beginning of my programming knowledge"
+      >
+        Started with Java and WEB
+      </div>
+      <div class="solid-line"></div>
+      <div
+        class="is-dark tag is-large tooltip has-tooltip-dark is-tooltip-multiline has-text-white"
+        data-tooltip="Beginning of my programming knowledge"
+      >
+        First look into Linux
+      </div>
+    </div>
+  </div>
+  <div class="dotted-line"></div>
+  <div class="entry">
+    <div class="date">2012</div>
+    <div class="texts">
+      <div
+        class="is-warning tag is-large tooltip has-tooltip-warning is-tooltip-multiline has-text-black"
+        data-tooltip="Major step into the 'native world'!"
+      >
+        Started with C/C+
+      </div>
+      <div class="solid-line"></div>
+      <div
+        class="is-link tag is-large tooltip has-tooltip-link is-tooltip-multiline has-text-white"
+        data-tooltip="I loved this language since the beginning!"
+      >
+        Started learning Japanese
+      </div>
+    </div>
+  </div>
+  <div class="dotted-line"></div>
+  <div class="entry">
+    <div class="date">2014</div>
+    <div class="texts">
+      <div
+        class="is-link tag is-large tooltip has-tooltip-link is-tooltip-multiline has-text-white"
+        data-tooltip="Finished my LCCI business english certificate"
+      >
+        LCCI certificate
+      </div>
+    </div>
+  </div>
+  <div class="dotted-line"></div>
+  <div class="entry">
+    <div class="date">2015</div>
+    <div class="texts">
+      <div
+        class="is-info tag is-large tooltip has-tooltip-info is-tooltip-multiline has-text-white"
+        data-tooltip="[2009-2015] German primary school education, completed with allowance for secondary school education."
+      >
+        Primary education
+      </div>
+    </div>
+  </div>
+  <div class="dotted-line"></div>
+  <div class="entry">
+    <div class="date">2018</div>
+    <div class="texts">
+      <div
+        class="is-link tag is-large tooltip has-tooltip-link is-tooltip-multiline has-text-white"
+        data-tooltip="Right before starting my study!"
+      >
+        Dutch certificate
+      </div>
+      <div class="solid-line"></div>
+      <div
+        class="is-info tag is-large tooltip has-tooltip-info is-tooltip-multiline has-text-white"
+        data-tooltip="[2015-2018] German secondary school education, completed with vocational diploma."
+      >
+        Secondary education
+      </div>
+      <div class="solid-line"></div>
+      <div
+        class="is-success tag is-large tooltip has-tooltip-success is-tooltip-multiline has-text-white"
+        data-tooltip="My team got voted the best first semester project!"
+      >
+        Best 1st semester uni project
+      </div>
+    </div>
+  </div>
+  <div class="dotted-line"></div>
+  <div class="entry">
+    <div class="date">2019</div>
+    <div class="texts">
+      <div
+        class="is-warning tag is-large tooltip has-tooltip-warning is-tooltip-multiline has-text-black"
+        data-tooltip="Starting point of learning rust"
+      >
+        Started with Rust
+      </div>
+      <div class="solid-line"></div>
+      <div
+        class="is-success tag is-large tooltip has-tooltip-success is-tooltip-multiline has-text-white"
+        data-tooltip="One of the best three-tier business application!"
+      >
+        Best 2nd semester uni project
+      </div>
+      <div class="solid-line"></div>
+      <div
+        class="is-success tag is-large tooltip has-tooltip-success is-tooltip-multiline has-text-white"
+        data-tooltip="Compared to other groups, very advanced traffic light simulations"
+      >
+        Best 3rd semester uni project
+      </div>
+    </div>
+  </div>
+  <div class="dotted-line"></div>
+  <div class="entry">
+    <div class="date">2020</div>
+    <div class="texts">
+      <div
+        class="is-success tag is-large tooltip has-tooltip-success is-tooltip-multiline has-text-white"
+        data-tooltip="My team created the best android app!">
+        Best 4th semester uni project
+      </div>
+      <div class="solid-line"></div>
+      <div
+        class="is-white tag is-large tooltip has-tooltip-white is-tooltip-multiline has-text-black"
+        data-tooltip="Hopefully a fantastic experience!"
+      >
+        Internship
+      </div>
+    </div>
+  </div>
+  <div class="dotted-line"></div>
+  <div class="entry">
+    <div class="date">2021</div>
+    <div class="texts">
+      <div
+        class="is-white tag is-large tooltip has-tooltip-white is-tooltip-multiline has-text-black"
+        data-tooltip="Not yet sure what ..."
+      >
+        Minor
+      </div>
+    </div>
+  </div>
+  <div class="dotted-line"></div>
+  <div class="entry">
+    <div class="date">2022</div>
+    <div class="texts">
+      <div
+        class="is-white tag is-large tooltip has-tooltip-white is-tooltip-multiline has-text-black"
+        data-tooltip="[2018-2022] Software engineering study, abroad in the Netherlands. To be completed with a bachelor of science degree."
+      >
+        Bachelor of Applied Sciences
+      </div>
+    </div>
+  </div>
+</div>
+
+  </article>
+  <aside class="column">
+  <u class="is-half is-family-code has-text-underlined tooltip is-tooltip-active has-tooltip-info has-text-black is-tooltip-active"
+    data-tooltip="Hover over my tags!">
+    Skills
+  </u>
+
+  <h1 class="is-size-5 has-text-black">Languages I speak:</h1>
+  <section class="column is-mobile is-centered tags">
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
+      data-tooltip="My native language.">German</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
+      data-tooltip="My secondary language! B1 LCCI Business Certificate/B2 school english">English</div>
+    
+    <br/>
+
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline"
+      data-tooltip="I am studying in the netherlands! Basic dutch is a must, although I mainly only understand ...">
+      Dutch</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline"
+      data-tooltip="Not fluent but an very interesting and different language!">Japanese</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-small is-tooltip-multiline"
+      data-tooltip="Only very basic sentences and definetely not fluent!">Spanish</div>
+  </section>
+
+  <h1 class="is-size-5 has-text-black">Languages I <s>speak</s> code:</h1>
+  <section class="column is-mobile is-centered tags">
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
+      data-tooltip="JVM languages and tools like Java, Kotlin, Maven and Gradle">Java</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
+      data-tooltip="The classic native tools">C/C++</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
+      data-tooltip="HTML5, CSS4, JS9, PHP, Ruby, ...">WEB</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
+      data-tooltip="Rust focuses on security, while maintaining speeds similar or sometimes even better than C/C++/Native solutions!">
+      Rust</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-dark has-tooltip-dark is-medium is-tooltip-multiline"
+      data-tooltip="Focus on writing instead of designing office documents">LaTeX</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-warning has-tooltip-warning is-small is-tooltip-multiline has-text-black"
+      data-tooltip="[Z|Ba]SH, Python, Ruby, ...">Script languages</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-small is-tooltip-multiline"
+      data-tooltip=".NET's main language">C#</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-medium is-tooltip-multiline"
+      data-tooltip="A Java based language!">Kotlin</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-warning has-tooltip-warning is-medium is-tooltip-multiline"
+      data-tooltip="A Java based language!">Haskell</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-medium is-tooltip-multiline"
+      data-tooltip="A Java based language!">Prolog</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-medium is-tooltip-multiline"
+      data-tooltip="A Java based language!">R</div>
+  </section>
+
+  <h1 class="is-size-5 has-text-black">Tools I use:</h1>
+  <section class="column is-mobile is-centered tags">
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
+      data-tooltip="GIT, SVN and other VCS">GIT</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
+      data-tooltip="IntelliJ IDEA, Clion, Dadivrip, WebStorm, PyCharm, PHPStorm, Rider, ...">JetBrains IDEs</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
+      data-tooltip="Mainly Visual Studio Code, but also Visual Studio">VisualStudio[Code]</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-normal is-tooltip-multiline"
+      data-tooltip="The classic CLI editor!">VIM</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-warning has-tooltip-warning is-large is-tooltip-multiline has-text-black"
+      data-tooltip="CMake, Make, QMake, Gradle, Maven, Ant, and more!">Build-Tools</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
+      data-tooltip="Oracle's Java IDE">NetBeans</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-small is-tooltip-multiline"
+      data-tooltip="All-in-one modelling and management software">VisualParadigm</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-dark has-tooltip-dark is-medium is-tooltip-multiline"
+      data-tooltip="Open source and proprietary office product solutions">MS/Libre/OpenOffice</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-white has-tooltip-white is-medium is-tooltip-multiline has-text-black"
+      data-tooltip="Docker, Vagrant, VirtualBox, VMWare products (Workstation, ESXi), libVirt/QEMU, Kubernetes, ..."
+      style="border: 1px solid black">Virtualization</div>
+  </section>
+
+  <h1 class="is-size-5 has-text-black">
+    Frameworks I am familiar with:
+  </h1>
+  <section class="column is-mobile is-centered tags">
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-medium is-tooltip-multiline"
+      data-tooltip="Standard unit and integration testing library and suite for Java based languages">JUnit</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-normal is-tooltip-multiline"
+      data-tooltip="Mockito extends JUnit with useful additions and prevents overhead while testing">Mockito</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-normal is-tooltip-multiline"
+      data-tooltip="RESTAssured extends JUnit by providing easy ways to test and validate REST API server and clients">
+      RESTAssured</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-small is-tooltip-multiline"
+      data-tooltip="Standard unit and integration testing library and suite for C/ C++ based languages">GTest</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-warning has-tooltip-warning is-large is-tooltip-multiline has-text-black"
+      data-tooltip="An awesome open-source framework for building websites with flex and other tools, which is also highly extendable and modifiable. This website is build with it! Similar to bootstrap.">
+      Bulma</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-warning has-tooltip-warning is-medium is-tooltip-multiline has-text-black"
+      data-tooltip="Responsive, mobile-first, framework for website projects. Similar to Bulma.">Bootstrap</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-primary has-tooltip-primary is-medium is-tooltip-multiline"
+      data-tooltip="An easy to use and highly optimized Java WebServer with many possibilities">Spring.io</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
+      data-tooltip="Single page websites!">ReactJS</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
+      data-tooltip="NodeJS">NPM</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
+      data-tooltip="WebAssembly">WASM</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-large is-tooltip-multiline"
+      data-tooltip="Rocket.rs WebFramework, Server, Client, ...">Rocket</div>
+  </section>
+
+  <h1 class="is-size-5 has-text-black">
+    Operating Systems I work on:
+  </h1>
+  <section class="column is-mobile is-centered tags">
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
+      data-tooltip="My primary operating system! Mainly Manjaro but also self-installed arch.">ArchLinux</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-medium is-tooltip-multiline"
+      data-tooltip="Ubuntu and other Debian based distros!">Ubuntu</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-medium is-tooltip-multiline"
+      data-tooltip="OpenSource version of RedHat's Enterprise Linux">CentOS</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-small is-tooltip-multiline"
+      data-tooltip="Linux based distribution, made for security testing and hacking">KaliLinux</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-warning has-tooltip-warning is-medium is-tooltip-multiline has-text-black"
+      data-tooltip="Microsoft's operating system. While not being a huge fan of it I still use it often.">Windows</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-primary has-tooltip-primary is-small is-tooltip-multiline"
+      data-tooltip="Apple's operating system. Very similar to Linux; sometimes porting applications there.">Mac OS X
+    </div>
+  </section>
+
+  <h1 class="is-size-5 has-text-black">
+    Other topics I am interested in:
+  </h1>
+  <section class="column is-mobile is-centered tags">
+    <div
+      class="tag is-half is-family-code tooltip is-success has-tooltip-success is-large is-tooltip-multiline"
+      data-tooltip="I think brains are mysterious and so interesting. AI tries to reverse-engineer that! How can one not be interested in AI?">
+      AI</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-danger has-tooltip-danger is-medium is-tooltip-multiline"
+      data-tooltip="I like to find bugs and security problems in existing and still developing systems to then fix or report them. Activities include Pen-Testing and CTFs.">
+      Hacking</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-warning has-tooltip-warning is-normal is-tooltip-multiline has-text-black"
+      data-tooltip="'Internet of Things' devices are electronics that are connected with the internet">IoT</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-large is-tooltip-multiline"
+      data-tooltip="I really enjoy having no creative limits and simply create something others might like. Sadly I haven't finished any games yet ...">
+      Game Development</div>
+
+    <div
+      class="tag is-half is-family-code tooltip is-info has-tooltip-info is-large is-tooltip-multiline"
+      data-tooltip="Being creative is one of my biggest interests">3D Modelling / Design</div>
+    
+    <div
+      class="tag is-half is-family-code tooltip is-link has-tooltip-link is-large is-tooltip-multiline"
+      data-tooltip="Being creative is one of my biggest interests">Security</div>
+  </section>
+
+  <div class="has-text-grey tooltip has-tooltip-danger" data-data-tooltip="Click to see more!">
+    <Link to="/blog">And much more on my blog ...</Link>
+  </div>
+</aside>
+</section>
+
+
+    <hr/>
+<section id="footer">
+    <p class="has-text-centered">
+        Made with <span class="icon has-text-danger"><i class="fas fa-heart fas fa-1x"></i></span> by @Sakul6499
+    </p>
+    <div class="buttons columns mt-4 is-centered">
+        <a href="/contact" class="button is-normal mr-4 ml-4">
+            <span class="icon is-medium">
+                <i class="fas fa-address-card"></i>
+            </span>
+            <span>Contact</span>
+        </a>
+        <a href="/credits" class="button is-normal mr-4 ml-4">
+            <span class="icon is-medium">
+                <i class="fas fa-star"></i>
+            </span>
+            <span>Credits</span>
+        </a>
+        <a href="/legal" class="button is-normal mr-4 ml-4">
+            <span class="icon is-medium">
+                <i class="fas fa-balance-scale"></i>
+            </span>
+            <span>Legal</span>
+        </a>
+    </div>
+</section>
+</body>
+
+</html>

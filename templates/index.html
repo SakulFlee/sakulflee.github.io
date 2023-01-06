@@ -1,4 +1,4 @@
-{% extends "components/base" %}
+{% extends "components/base.html" %}
 
 {% block content %}
 <section class="hero is-dark is-fullheight-with-navbar">
@@ -22,35 +22,35 @@
         <div class="is-vcentered">
           <ul>
             <li class="icon p-icon">
-              {% include "components/svg/gitea" %}       
+              {% include "components/svg/gitea.html" %}
             </li>
             <li class="icon p-icon">
-              {% include "components/svg/gitlab" %}
+              {% include "components/svg/gitlab.html" %}
             </li>
             <li class="icon p-icon">
-              {% include "components/svg/github" %}   
-            </li>
-          </ul>
-          <ul>
-            <li class="icon p-icon">
-              {% include "components/svg/bitbucket" %}   
-            </li>
-            <li class="icon p-icon">
-              {% include "components/svg/linkedin" %}
-            </li>
-            <li class="icon p-icon">
-              {% include "components/svg/keybase" %}
+              {% include "components/svg/github.html" %}
             </li>
           </ul>
           <ul>
             <li class="icon p-icon">
-              {% include "components/svg/telegram" %}   
+              {% include "components/svg/bitbucket.html" %}
             </li>
             <li class="icon p-icon">
-              {% include "components/svg/twitter" %}   
+              {% include "components/svg/linkedin.html" %}
             </li>
             <li class="icon p-icon">
-              {% include "components/svg/mail" %}   
+              {% include "components/svg/keybase.html" %}
+            </li>
+          </ul>
+          <ul>
+            <li class="icon p-icon">
+              {% include "components/svg/telegram.html" %}
+            </li>
+            <li class="icon p-icon">
+              {% include "components/svg/twitter.html" %}
+            </li>
+            <li class="icon p-icon">
+              {% include "components/svg/mail.html" %}
             </li>
           </ul>
           <div class="buttons columns">
@@ -67,11 +67,11 @@
               <span>Projects</span>
             </a>
           </div>
-          {% include 'components/scroll-down' %}
+          {% include "components/scroll-down.html" %}
         </div>
       </div>
     </div>
   </div>
 </section>
-{% include 'about_me' %}
+{% include "about_me.html" %}
 {% endblock content %}

@@ -1,0 +1,61 @@
+{% extends "components/base.html" %}
+
+{% block content %}
+<article id="blog-post">
+  <section class="hero {{ theme }}">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          {{ post.title }}
+        </h1>
+        <h2 class="subtitle">
+          {{ post.date | date }}
+        </h2>
+
+        <div class="columns">
+          <div class="column is-half has-text-left">
+            <p><b>Categories</b></p>
+            {% if post.categories != "['']"%}
+            <span>
+              {% set categories = post.categories | replace(from="'", to="") | replace(from="[", to="") |
+              replace(from="]", to="") | split(pat=", ") %}
+              {% set categories_size = categories | length %}
+              {% for category in categories %}
+              <a href="/blog/category/{{ category }}" class="{{ text_theme }}">
+                {{ category }}
+              </a>
+              {% if loop.index != categories_size %}
+              ,
+              {% endif %}
+              {% endfor %}
+            </span>
+            {% endif %}
+          </div>
+          <div class="column is-half has-text-right">
+            <p><b>Tags</b></p>
+            {% if post.tags != "['']"%}
+            <span>
+              {% set tags = post.tags | replace(from="'", to="") | replace(from="[", to="") | replace(from="]", to="") |
+              split(pat=", ") %}
+              {% set categories_size = tags | length %}
+              {% for tag in tags %}
+              <a href="/blog/tag/{{ tag }}" class="{{ text_theme }}">
+                {{ tag }}
+              </a>
+              {% if loop.index != categories_size %}
+              ,
+              {% endif %}
+              {% endfor %}
+            </span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="content">
+    {{ post.body | safe }}
+  </div>
+</article>
+{% endblock content %}

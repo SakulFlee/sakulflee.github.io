@@ -866,7 +866,7 @@ This _block_ will be defined in each template that _extends_ `base`.
 Lets change `static/blog/view.html.tera`:
 
 ```tera
-{% extends "base" %}
+{% extends "base.html" %}
 
 {% block content %}
   {% if published %}
