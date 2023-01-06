@@ -1,5 +1,5 @@
-<section class="columns has-text-centered" id="AboutMe">
-  <article class="column">
+<section class="columns has-text-centered" id="about_me">
+  <article class="column is-12">
     <div>
       <u class="is-half is-family-code has-text-underlined">
         About me
@@ -19,7 +19,13 @@
         </p>
         <p>My goal is to provide interesting and helpful resources for others.</p>
     </div>
+  </article>
+</section>
+<section class="columns has-text-centered" id="about_me">
+  <article class="column is-6">
+    {% include "components/skills.html" %}
+  </article>
+  <article class="column is-6">
     {% include "components/timeline.html" %}
   </article>
-  {% include "components/skills.html" %}
 </section>
