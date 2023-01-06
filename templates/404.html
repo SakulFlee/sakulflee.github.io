@@ -16,10 +16,12 @@
 {%- endblock seo %}
 
 {%- block content %}
-<div>
-  <h1>Page not found :(</h1>
-  <p>The page you are looking for doesn't exist or has been moved.</p>
-  <p>Try using the search, or <a
-      href="{{ config.base_url | safe }}{%- if config.extra.uglyurls %}index.html{%- endif %}">go home</a>.</p>
-</div>
+<section class="columns has-text-centered" id="about_me">
+  <article class="column is-12">
+    <h1>Page not found :(</h1>
+    <p>The page you are looking for doesn't exist or has been moved.</p>
+    <p>Try <a onclick="history.back()">going back</a> or <a
+        href="{{ config.base_url | safe }}{%- if config.extra.uglyurls %}index.html{%- endif %}">go home</a>.</p>
+  </article>
+</section>
 {%- endblock content %}
