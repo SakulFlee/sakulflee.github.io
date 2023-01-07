@@ -1,0 +1,34 @@
+{% extends "components/base.html" %}
+
+{%- block content %}
+<section class="hero is-info">
+    <div class="hero-body">
+        <p class="title">
+            {{ taxonomy.name | capitalize }}
+        </p>
+        <p class="subtitle">
+            Cloud of all {{ taxonomy.name }}
+        </p>
+    </div>
+</section>
+
+<section class="column is-mobile is-centered tags has-text-centered">
+    {% for term in terms %}
+    {% set color_index = get_random(start = 0, end = 4) %}
+    {% if color_index == 0 %}
+    {% set color = "is-link" %}
+    {% elif color_index == 1 %}
+    {% set color = "is-success" %}
+    {% elif color_index == 2 %}
+    {% set color = "is-warning" %}
+    {% elif color_index == 3 %}
+    {% set color = "is-danger" %}
+    {% elif color_index == 4 %}
+    {% set color = "is-black" %}
+    {% endif %}
+
+    <a href="{{ term.permalink }}" class="tag is-half is-family-code is-large {{ color }}">{{ term.name }}</a>
+    {% endfor %}
+</section>
+
+{%- endblock content %}

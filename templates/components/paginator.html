@@ -1,46 +1,21 @@
 <nav class="pagination is-centered pt-2" role="navigation" aria-label="pagination">
-  <ul class="pagination-list">
-    {# Go page left / previous page #}
-    <li>
-      <a {% if page - 1> 0 %}href="{{base_uri}}/{{page - 1}}"{% endif %} class="pagination-link pagination-previous"
-        aria-label="Previous page" {% if page - 1 == 0 %}disabled{% endif %}>
-        <i class="fas fa-caret-square-left"></i>
-      </a>
+  <ul class="pagination-list columns">
+    <li class="column is-2">
+      {% if paginator.previous %}
+      <a class="button" href="{{ paginator.previous }}" aria-label="previous page">⏮️ Previous Page</a>
+      {% else %}
+      <a class="button" aria-label="previous page (disabled)" disabled>⏮️ Previous Page</a>
+      {% endif %}
     </li>
-    {# Go to first page #}
-    <li>
-      <a {% if page !=1 %}href="{{base_uri}}/1" {% endif %} class="pagination-link" aria-label="Go to first page" {% if
-        page==1 %}disabled{% endif %}>
-        1
-      </a>
+    <li class="column is-1">
+      {{ paginator.current_index }} / {{ paginator.number_pagers }}
     </li>
-    <li>
-      <span class="pagination-ellipsis">&hellip;</span>
-    </li>
-    {# Current page #}
-    <li>
-      <a href="{{base_uri}}/{{page}}" class="pagination-link is-current" aria-label="Current Page; Page {{page}}"
-        aria-current="Current page">
-        {{page}}
-      </a>
-    </li>
-    <li>
-      <span class="pagination-ellipsis">&hellip;</span>
-    </li>
-    {# Go to last page #}
-    <li>
-      <a {% if pages> 0 and page < pages %}href="{{base_uri}}/{{pages}}" {% endif %} class="pagination-link"
-          aria-label="Go to last page" {% if pages < 1 or page==pages %}disabled{% endif %}>
-          {{pages}}
-      </a>
-    </li>
-    {# Go page right / next page #}
-    <li>
-      <a {% if pages> 0 and page + 1 <= pages %}href="{{base_uri}}/{{page + 1}}" {% endif %}
-          class="pagination-link pagination-next" aria-label="Next page" {% if pages < 1 or page + 1> pages %}disabled{%
-          endif %}>
-          <i class="fas fa-caret-square-right"></i>
-      </a>
+    <li class="column is-2">
+      {% if paginator.next %}
+      <a class="button" href="{{ paginator.next }}" aria-label="next page">Next Page ⏭️</a>
+      {% else %}
+      <a class="button" aria-label="next page (disabled)" disabled>Next Page ⏭️</a>
+      {% endif %}
     </li>
   </ul>
 </nav>

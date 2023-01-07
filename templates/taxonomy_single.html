@@ -1,0 +1,24 @@
+{% extends "components/base.html" %}
+
+{%- block content %}
+
+{% set path_split = current_path | split(pat = "/") %}
+{% set taxonomy_index = path_split | length - 2 %}
+{% set actual_taxonomy = path_split | nth(n=taxonomy_index) %}
+
+<section class="hero is-info">
+    <div class="hero-body">
+        <p class="title">
+            All posts with {{ taxonomy.name | lower }} <span class="tag is-half is-family-code is-large">{{
+                actual_taxonomy }}</span>
+        </p>
+        <p class="subtitle">
+            Posts found: {{ paginator.pages | length }}
+        </p>
+    </div>
+</section>
+
+{% include "components/page-list.html" %}
+{% include "components/paginator.html" %}
+
+{%- endblock content %}

@@ -9,72 +9,7 @@
   </div>
 </section>
 
-{% for page in paginator.pages %}
-<div class="card m-4">
-  <div class="card-content">
-    <p class="title">
-      {{ page.title }}
-    </p>
-    <p class="subtitle">
-      {{ page.description }}
-    </p>
-  </div>
-  <footer class="card-footer">
-    <p class="card-footer-item">
-      Published on: {{ page.date }}
-    </p>
-    <p class="card-footer-item">
-      Word Count: {{ page.word_count }}
-    <p class="card-footer-item">
-      Reading time: {{ page.reading_time }} {% if page.reading_time == 1 %} minute {% else %} minutes {% endif %}
-    </p>
-    <p class="card-footer-item">
-      <span>
-        {% if 'categories' in page.taxonomies %}
-        {% for category in page.taxonomies['categories'] %}
-        <a href="/categories/{{ category }}" class="tag is-success">
-          {{ category }}
-        </a>
-        {% endfor %}
-        {% endif %}
+{% include "components/page-list.html" %}
+{% include "components/paginator.html" %}
 
-        {% if 'tags' in page.taxonomies %}
-        {% for tag in page.taxonomies['tags'] %}
-        <a href="/tags/{{ tag }}" class="tag is-danger">
-          {{ tag }}
-        </a>
-        {% endfor %}
-        {% endif %}
-      </span>
-    </p>
-    <p class="card-footer-item">
-      <span>
-        <a href="{{ page.permalink }}">Read more</a>
-      </span>
-    </p>
-  </footer>
-</div>
-{% endfor %}
-
-<nav class="pagination is-centered pt-2" role="navigation" aria-label="pagination">
-  <ul class="pagination-list columns">
-    <li class="column is-2">
-      {% if paginator.previous %}
-      <a class="button" href="{{ paginator.previous }}" aria-label="previous page">⏮️ Previous Page</a>
-      {% else %}
-      <a class="button" aria-label="previous page (disabled)" disabled>⏮️ Previous Page</a>
-      {% endif %}
-    </li>
-    <li class="column is-1">
-      {{ paginator.current_index }} / {{ paginator.number_pagers }}
-    </li>
-    <li class="column is-2">
-      {% if paginator.next %}
-      <a class="button" href="{{ paginator.next }}" aria-label="next page">Next Page ⏭️</a>
-      {% else %}
-      <a class="button" aria-label="next page (disabled)" disabled>Next Page ⏭️</a>
-      {% endif %}
-    </li>
-  </ul>
-</nav>
 {% endblock content %}
