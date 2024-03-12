@@ -1,2 +1,5 @@
 # Public
 public/
+
+# Engine
+/static/engine/
