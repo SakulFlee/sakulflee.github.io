@@ -34,11 +34,15 @@ jobs:
         run: sed -e s,/engine_web,/engine/engine_web,g -i static/engine/index.html
 
       - name: Download latest main branch engine version
-        uses: actions/download-artifact@v4
+        uses: dawidd6/action-download-artifact@v3
         with:
+          github_token: ${{ secrets.DISPATCH_PAT }}
+          workflow: multiplatform_build.yml
+          workflow_conclusion: success
+          branch: main
           name: engine-web
-          repository: SakulFlee/Akimo-Project
-          github-token: ${{ secrets.DISPATCH_PAT }}
+          skip_unpack: false
+          repo: SakulFlee/Akimo-Project
 
       - run: ls -al .
 
