@@ -27,6 +27,9 @@ jobs:
           fileName: Akimo-Project.Engine-Web.zip
           extract: true
 
+      - name: Remove ZIP after extraction
+        run: rm static/Akimo-Project.Engine-Web.zip
+
       - name: Move extracted engine into static folder
         run: mv static/engine-web/ static/engine/
 
@@ -45,9 +48,8 @@ jobs:
           skip_unpack: false
           repo: SakulFlee/Akimo-Project
 
-      - run: ls -al .
-      - run: ls -al static  
-      - run: ls -al static/engine-beta
+      - name: Make path adjustments to engine-beta
+        run: sed -e s,/engine_web,/engine-beta/engine_web,g -i static/engine-beta/index.html
 
       - name: build_and_deploy
         uses: shalzz/zola-deploy-action@v0.17.2
