@@ -37,10 +37,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: engine-web
-          path: static/engine-beta/
           repository: SakulFlee/Akimo-Project
+          github-token: ${{ secrets.DISPATCH_PAT }}
 
-      - run: ls -al static/
+      - run: ls -al .
 
       - name: build_and_deploy
         uses: shalzz/zola-deploy-action@v0.17.2
