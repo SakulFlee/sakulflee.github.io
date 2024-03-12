@@ -27,6 +27,10 @@ jobs:
           fileName: Akimo-Project.Engine-Web.zip
           extract: true
 
+      - run: ls -al .
+      - run: ls -al static/
+      - run: ls -al static/engine/
+
       - name: Make path adjustments to engine
         run: sed -e s,/engine_web,/engine/engine_web,g -i static/engine/index.html
 
