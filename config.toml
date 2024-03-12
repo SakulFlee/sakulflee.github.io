@@ -1,8 +1,8 @@
 # The base URL of the site; the only required configuration variable.
-base_url = "sakul6499.github.io"
+base_url = "sakul-flee.de"
 
 # The site title and description; used in feeds by default.
-title = "@SakulFlee | @Sakul6499 | Lukas Weber"
+title = "@SakulFlee | Lukas Weber"
 description = "My personal blog and archive for projects and interest I enjoy."
 
 # The default language; used in feeds.
