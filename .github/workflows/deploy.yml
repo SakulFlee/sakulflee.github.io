@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v3.5.0
+        uses: actions/checkout@v4.1.1
 
       - name: Download latest released engine version
         uses: robinraju/release-downloader@v1.9
@@ -55,7 +55,7 @@ jobs:
           sed -e s,/style.css,/engine-beta/style.css,g -i static/engine-beta/index.html
 
       - name: Build & Deploy
-        uses: shalzz/zola-deploy-action@v0.17.2
+        uses: shalzz/zola-deploy-action@v0.18.0
         env:
           # Target branch
           PAGES_BRANCH: gh-pages
