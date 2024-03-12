@@ -23,15 +23,12 @@ jobs:
           repository: SakulFlee/Akimo-Project
           latest: true
           preRelease: false
-          out-file-path: Akimo-Project.Engine-Web.zip
+          out-file-path: static/
           fileName: Akimo-Project.Engine-Web.zip
           extract: true
 
       - name: Move extracted engine into static folder
-        run: mv engine-web/ static/engine/
-
-      - name: Remove downloaded ZIP
-        run: rm Akimo-Project.Engine-Web.zip
+        run: mv static/engine-web/ static/engine/
 
       - name: Make path adjustments to engine
         run: sed -e s,/engine_web,/engine/engine_web,g -i static/engine/index.html
