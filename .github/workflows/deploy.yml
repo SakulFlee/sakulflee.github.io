@@ -38,7 +38,7 @@ jobs:
           sed -e s,/style.css,/engine/style.css,g -i static/engine/index.html
 
       - name: Download latest main branch engine version
-        uses: dawidd6/action-download-artifact@v3
+        uses: dawidd6/action-download-artifact@v6
         with:
           github_token: ${{ secrets.DISPATCH_PAT }}
           workflow: multiplatform_build.yml
