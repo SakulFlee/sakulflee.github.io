@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.2
 
       - name: Download latest released engine version
         uses: robinraju/release-downloader@v1.11
