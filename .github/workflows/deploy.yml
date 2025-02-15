@@ -55,7 +55,7 @@ jobs:
           sed -e s,/style.css,/engine-beta/style.css,g -i static/engine-beta/index.html
 
       - name: Build & Deploy
-        uses: shalzz/zola-deploy-action@v0.19.2
+        uses: shalzz/zola-deploy-action@v0.20.0
         env:
           # Target branch
           PAGES_BRANCH: gh-pages
