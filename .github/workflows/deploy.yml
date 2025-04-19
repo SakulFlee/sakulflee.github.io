@@ -1,63 +1,15 @@
-name: Build and deploy to GitHub Pages
-
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - "main"
-
+name: Build and deploy GH Pages
+on: push
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     if: github.ref == 'refs/heads/main'
-
+    
     steps:
       - name: checkout
-        uses: actions/checkout@v4.2.2
-
-      - name: Download latest released engine version
-        uses: robinraju/release-downloader@v1.12
-        with:
-          repository: SakulFlee/Akimo-Project
-          latest: true
-          preRelease: false
-          out-file-path: static/
-          fileName: Akimo-Project.Engine-Web.zip
-          extract: true
-
-      - name: Remove ZIP after extraction
-        run: rm static/Akimo-Project.Engine-Web.zip
-
-      - name: Move extracted engine into static folder
-        run: mv static/engine-web/ static/engine/
-
-      - name: Make path adjustments to engine
-        run: |
-          sed -e s,/engine_web,/engine/engine_web,g -i static/engine/index.html
-          sed -e s,/style.css,/engine/style.css,g -i static/engine/index.html
-
-      - name: Download latest main branch engine version
-        uses: dawidd6/action-download-artifact@v9
-        with:
-          github_token: ${{ secrets.DISPATCH_PAT }}
-          workflow: multiplatform_build.yml
-          workflow_conclusion: success
-          branch: main
-          name: engine-web
-          path: static/engine-beta/
-          skip_unpack: false
-          repo: SakulFlee/Akimo-Project
-
-      - name: Make path adjustments to engine-beta
-        run: |
-          sed -e s,/engine_web,/engine-beta/engine_web,g -i static/engine-beta/index.html
-          sed -e s,/style.css,/engine-beta/style.css,g -i static/engine-beta/index.html
-
-      - name: Build & Deploy
-        uses: shalzz/zola-deploy-action@v0.20.0
+        uses: actions/checkout@v4
+        
+      - name: build_and_deploy
+        uses: shalzz/zola-deploy-action@master
         env:
-          # Target branch
           PAGES_BRANCH: gh-pages
-          # Provide personal access token
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
