@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>@SakulFlee | Lukas Weber - Guide</title>
+    <subtitle>My personal blog and archive for projects and interest I enjoy.</subtitle>
+    <link rel="self" type="application/atom+xml" href="sakulflee.github.io/categories/guide/atom.xml"/>
+    <link rel="alternate" type="text/html" href="sakulflee.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-01-07T00:00:00+00:00</updated>
+    <id>sakulflee.github.io/categories/guide/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Properly exporting glTF from Blender (3.4+) for use with Bevy (0.9+)</title>
+        <published>2023-01-07T00:00:00+00:00</published>
+        <updated>2023-01-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="sakulflee.github.io/blog/bevy-blender-export/"/>
+        <id>sakulflee.github.io/blog/bevy-blender-export/</id>
+        
+        <content type="html" xml:base="sakulflee.github.io/blog/bevy-blender-export/">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#context&quot;&gt;Context&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#why-gltf&quot;&gt;Why glTF&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#exporting&quot;&gt;Exporting&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#project-setup&quot;&gt;Project Setup&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#manual-exporting&quot;&gt;Manual Exporting&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#bevy-usage&quot;&gt;Bevy Usage&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#adding-materials&quot;&gt;Adding materials&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#advice-for-blender-project-organization&quot;&gt;Advice for Blender Project organization&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#automated-exporting&quot;&gt;Automated Exporting&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#bake-script&quot;&gt;Bake Script&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#gltf-export-script&quot;&gt;glTF Export Script&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;sakulflee.github.io&#x2F;blog&#x2F;bevy-blender-export&#x2F;#afterwords&quot;&gt;Afterwords&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;context&quot;&gt;Context&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; (or &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy-Engine&lt;&#x2F;a&gt;) is&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“A refreshingly simple data-driven game engine built in &lt;a href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt; Free and Open Source Forever!”&lt;&#x2F;p&gt;
+&lt;p&gt;– &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Many people turn to &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt;, a Free and Open-Source 3D-Suite, when creating assets for their &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; game.&lt;br &#x2F;&gt;
+And there is the problem: Blender uses it’s own file format &lt;code&gt;.blend&lt;&#x2F;code&gt;, while also being able to export into many different formats like &lt;code&gt;.obj&lt;&#x2F;code&gt;, &lt;code&gt;.fbx&lt;&#x2F;code&gt;, &lt;code&gt;.gltf&lt;&#x2F;code&gt; and many more.&lt;br &#x2F;&gt;
+&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; can also render images and whole movies.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The question now becomes:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What is the best format to use when exporting from &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; to be used with &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;, and how is this done the best way?&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Before we head into any details I want to make my intentions clear:&lt;&#x2F;p&gt;
+&lt;p&gt;First of all, I had trouble finding any up-to-date resource on this.
+There are a few blog posts explaining (very) roughly how to do this, but none is up-to-date as of writing this and all came with a lot of problems.
+This blog-post is intended to be an up-to-date resource for others.&lt;&#x2F;p&gt;
+&lt;p&gt;Secondly, this guide is written for &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; version 3.4 and &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; 0.9.&lt;br &#x2F;&gt;
+Both, &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;, are still working on glTF support.&lt;br &#x2F;&gt;
+Thus, things may change in the future.&lt;&#x2F;p&gt;
+&lt;p&gt;Thirdly, my goal was also to automate this process using &lt;a href=&quot;https:&#x2F;&#x2F;www.python.org&#x2F;&quot;&gt;Python&lt;&#x2F;a&gt; scripts.&lt;br &#x2F;&gt;
+Said scripts will be included here and can be freely used if credited.&lt;&#x2F;p&gt;
+&lt;p&gt;Lastly, this guide expects some very basic skills in &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt;.
+The python scripts can be used without any &lt;a href=&quot;https:&#x2F;&#x2F;www.python.org&#x2F;&quot;&gt;Python&lt;&#x2F;a&gt; knowledge.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you run into any trouble, need help or found an issue with my write-up, please &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Sakul6499&#x2F;sakul6499.github.io&#x2F;issues&#x2F;new&quot;&gt;open an issue&lt;&#x2F;a&gt; or &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Sakul6499&#x2F;sakul6499.github.io&#x2F;discussions&#x2F;new&quot;&gt;start a discussion&lt;&#x2F;a&gt; on my &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Sakul6499&#x2F;sakul6499.github.io&quot;&gt;GitHub repository&lt;&#x2F;a&gt;!&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;why-gltf&quot;&gt;Why glTF&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; both support many different formats.
+Choosing the right one can be a challenging task.&lt;&#x2F;p&gt;
+&lt;p&gt;The main problem with most formats is that they are proprietary.
+Usually meaning: hard to license and official parsers and writers are either closed source or don’t exist at all.
+This often leads to partial implementations of said parsers&#x2F;writers which may or may not work and different applications may use different parsers&#x2F;writers making them incompatible with each other.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; is different in those regards.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;glTF™ is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by engines and applications. glTF minimizes the size of 3D assets, and the runtime processing needed to unpack and use them. glTF defines an extensible, publishing format that streamlines authoring workflows and interactive services by enabling the interoperable use of 3D content across the industry.&lt;&#x2F;p&gt;
+&lt;p&gt;– &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;Khronos Group glTF&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;This is ideal for us!
+Not only area there official libraries, but the whole standard is defined in a &lt;a href=&quot;https:&#x2F;&#x2F;registry.khronos.org&#x2F;glTF&#x2F;&quot;&gt;specification document&lt;&#x2F;a&gt; readable by everyone.
+This enables glTF to be used universally.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; also supports three versions of it’s format:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.gltf&lt;&#x2F;code&gt;: A JSON-like format that describes everything in a human-readable fashion. Slower to process and read but easier to debug and change things quick (if you aren’t exporting them).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;.glb&lt;&#x2F;code&gt;: A binary format that is optimized for loading and streaming inside engines.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;.gltf + .bin&lt;&#x2F;code&gt;: A mixture of both where the main values (like settings, locations, etc.) are stored in a JSON-like format (&lt;code&gt;.gltf&lt;&#x2F;code&gt;) and things like models, meshes, textures, meshes are compressed into a binary (&lt;code&gt;.bin&lt;&#x2F;code&gt;). However, loosing either of the files invalidates the whole file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Additionally, &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; supports a wide range of things you can pack into it.&lt;br &#x2F;&gt;
+Primarily, we are interested in:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Models&lt;&#x2F;li&gt;
+&lt;li&gt;Meshes&lt;&#x2F;li&gt;
+&lt;li&gt;Textures&lt;&#x2F;li&gt;
+&lt;li&gt;Materials&lt;&#x2F;li&gt;
+&lt;li&gt;Scenes&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;And luckily &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; can do all of this!
+… with some caveats as we will find out.&lt;&#x2F;p&gt;
+&lt;p&gt;However, there is also a downside:&lt;br &#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; is relatively new (as of writing this) format.
+While &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; both implement it, there are features missing on both ends.
+However, there are also lots of workarounds for those missing features.
+&lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; is currently very well priced as &lt;em&gt;THE next format&lt;&#x2F;em&gt; in anything that uses graphical engines and is very likely to be fully implemented within no time at all.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;exporting&quot;&gt;Exporting&lt;&#x2F;h2&gt;
+&lt;p&gt;This guide will cover two ways of exporting &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; from &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; to be used by &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Manual Exporting&lt;&#x2F;li&gt;
+&lt;li&gt;Automated Exporting&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Both ways require the same setup, but we will start with manual exporting to show the full workflow.
+Let’s start there.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;project-setup&quot;&gt;Project Setup&lt;&#x2F;h3&gt;
+&lt;p&gt;First, let’s create a new Blender Project and add some model.
+You can delete or keep the default cube, camera and light, or delete them.
+important point is to have a or multiple model in your project like so:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_example_project.png&quot; alt=&quot;Blender example project&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;manual-exporting&quot;&gt;Manual Exporting&lt;&#x2F;h3&gt;
+&lt;p&gt;With this setup, we can click on &lt;code&gt;File &amp;gt; Export &amp;gt; glTF&lt;&#x2F;code&gt; in the top left corner:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_export_menu.png&quot; alt=&quot;Blender export menu&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;In the new menu we can select a location for the &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; to be saved, but before clicking on export look to the right side!
+These settings are &lt;strong&gt;essential&lt;&#x2F;strong&gt; for &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; to properly import this model.&lt;&#x2F;p&gt;
+&lt;p&gt;First of all, you can choose the format there like mentioned above:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;gltf_format_menu.png&quot; alt=&quot;glTF format menu&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This format is for you to choose, &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; will work with any of the three.&lt;&#x2F;p&gt;
+&lt;p&gt;Next, make sure to have these settings:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;gltf_settings.png&quot; alt=&quot;glTF format menu&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tip: If you select “Remember Export Settings” at the top under Copyright Blender will remember these settings in this &lt;code&gt;.blend&lt;&#x2F;code&gt; file.
+Making exporting much faster in the future.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Here is a short overview:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;Include &amp;gt; Limit to&lt;&#x2F;code&gt; defines what gets into the &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; file.&lt;br &#x2F;&gt;
+It doesn’t matter what you chose here, but generally &lt;code&gt;Visible Objects&lt;&#x2F;code&gt; is a good choice.
+You can hide whatever you don’t want in your &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;Include &amp;gt; Data&lt;&#x2F;code&gt; defines what data is included.
+Check &lt;code&gt;Custom Properties&lt;&#x2F;code&gt;, this includes extra data and makes it easier work with glTF inside &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; later.
+You can export Lights and Cameras from Blender but you loose control over them inside &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;.&lt;br &#x2F;&gt;
+Furthermore, specific files like a scene or player may include those, but &lt;strong&gt;don’t pack cameras and lights into every mesh export you do&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;Transform &amp;gt; +Y Up&lt;&#x2F;code&gt; should be checked.&lt;br &#x2F;&gt;
+This is the orientation Bevy uses.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;Data &amp;gt; Mesh&lt;&#x2F;code&gt; defines how our &lt;em&gt;Mesh&lt;&#x2F;em&gt; is exported.&lt;br &#x2F;&gt;
+Check whatever you need.
+However, it may be a good idea to export “everything but Loose*” by default to ensure the model is in &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; as close as possible to &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;Data &amp;gt; Material&lt;&#x2F;code&gt; defines how our &lt;em&gt;Materials&lt;&#x2F;em&gt; are exported.
+Set &lt;code&gt;Materials&lt;&#x2F;code&gt; to &lt;code&gt;Export&lt;&#x2F;code&gt; and &lt;code&gt;Images&lt;&#x2F;code&gt; to &lt;code&gt;Automatic&lt;&#x2F;code&gt;.
+This will export &lt;strong&gt;all&lt;&#x2F;strong&gt; used Materials by default and convert them if needed.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note that &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; currently only exports in PNG and if it’s another format they will be converted to either PNG or JPEG.
+Something like KTX2 or DDS are much better for graphical engines but are nto yet supported by &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt;.
+&lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; needs a special feature flag for those.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Data &amp;gt; PBR Extensions&lt;&#x2F;code&gt; defines how PBR Materials are exported.&lt;br &#x2F;&gt;
+I couldn’t find a difference between the options.
+Exporting with the &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; default will &lt;em&gt;probably&lt;&#x2F;em&gt; get you the closest to how it looks in &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;Data &amp;gt; Lighting&lt;&#x2F;code&gt; defines how lighting is exported.
+&lt;code&gt;Standard&lt;&#x2F;code&gt; light works very well with &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;Data &amp;gt; Compression&lt;&#x2F;code&gt; defines if the &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; is compressed (if the format &lt;code&gt;.glb&lt;&#x2F;code&gt; or &lt;code&gt;.gltf + .bin&lt;&#x2F;code&gt; is selected).&lt;br &#x2F;&gt;
+&lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; does not support this compression at the moment.&lt;&#x2F;strong&gt;
+&lt;strong&gt;Thus, turn this off!&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;Animation&lt;&#x2F;code&gt; defines how &lt;em&gt;Animations&lt;&#x2F;em&gt; are exported.
+Let them at default settings, this guide is not about Animation exports.&lt;&#x2F;p&gt;
+&lt;p&gt;With this we can hit the &lt;code&gt;Export glTF&lt;&#x2F;code&gt; button and save the file.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;bevy-usage&quot;&gt;Bevy Usage&lt;&#x2F;h3&gt;
+&lt;p&gt;Inside your &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; project we need to define a new &lt;em&gt;System&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;scene_renderer&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mut &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;commands&lt;&#x2F;span&gt;&lt;span&gt;: Commands,
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;assets&lt;&#x2F;span&gt;&lt;span&gt;: Res&amp;lt;AssetServer&amp;gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; ...
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now all we need to do to load out &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; file is:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Load it with the &lt;code&gt;AssetServer&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Tell &lt;code&gt;Commands&lt;&#x2F;code&gt; to spawn a &lt;code&gt;SceneBundle&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;commands.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;spawn&lt;&#x2F;span&gt;&lt;span&gt;(SceneBundle {
+&lt;&#x2F;span&gt;&lt;span&gt;    scene: assets.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;load&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;assets&#x2F;scene.gltf#Scene0&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;),
+&lt;&#x2F;span&gt;&lt;span&gt;    ..&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;default&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;});
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In this case I exported the &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; file into &lt;code&gt;assets&#x2F;scene.gltf&lt;&#x2F;code&gt;.
+Your file may be with a &lt;code&gt;.glb&lt;&#x2F;code&gt; extension if you choose the binary format and may be in a different path.
+Adjust accordingly.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Now there is one weird bit here: The &lt;code&gt;#Scene0&lt;&#x2F;code&gt; at the end.&lt;br &#x2F;&gt;
+As we established, &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; supports a wide range of use cases.
+The hashtag (&lt;code&gt;#&lt;&#x2F;code&gt;) tells the &lt;code&gt;AssetServer&lt;&#x2F;code&gt; to not load the whole file, but a specific section of that file.
+In our case we load &lt;code&gt;Scene0&lt;&#x2F;code&gt; which is always the first and default scene of this file.
+There could be multiple scenes in our &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; and we could access them with &lt;code&gt;Scene1&lt;&#x2F;code&gt;, &lt;code&gt;Scene2&lt;&#x2F;code&gt;, …, &lt;code&gt;SceneX&lt;&#x2F;code&gt;.&lt;br &#x2F;&gt;
+&lt;strong&gt;It’s important to know that if you don’t add the &lt;code&gt;#Scene0&lt;&#x2F;code&gt; (or similar) to the file-path, &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; will load the &lt;em&gt;whole&lt;&#x2F;em&gt; file and will require you to do some more manual work on what needs to be spawned where.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Furthermore, we could load &lt;em&gt;just&lt;&#x2F;em&gt; the &lt;em&gt;Mesh&lt;&#x2F;em&gt; with &lt;code&gt;#Mesh0&lt;&#x2F;code&gt;.&lt;br &#x2F;&gt;
+Export to &lt;code&gt;.gltf&lt;&#x2F;code&gt; (JSON-like format) and open it in your code editor if you are curious about what there is.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Now all we need to do is call this &lt;em&gt;System&lt;&#x2F;em&gt; like so:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;app.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;add_startup_system&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;Self&lt;&#x2F;span&gt;&lt;span&gt;::scene_render); 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Below you will find the full example.
+However, your implementation may vary wildly of this.
+I’d also recommend putting this into a plugin and calling it based on an &lt;code&gt;AppState&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;scene_renderer&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mut &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;commands&lt;&#x2F;span&gt;&lt;span&gt;: Commands,
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;assets&lt;&#x2F;span&gt;&lt;span&gt;: Res&amp;lt;AssetServer&amp;gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    commands.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;spawn&lt;&#x2F;span&gt;&lt;span&gt;(SceneBundle {
+&lt;&#x2F;span&gt;&lt;span&gt;        scene: assets.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;load&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;assets&#x2F;scene.gltf#Scene0&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;),
+&lt;&#x2F;span&gt;&lt;span&gt;        ..&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;default&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;    });
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; Somewhere in our plugin init _or_ main
+&lt;&#x2F;span&gt;&lt;span&gt;app.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;add_startup_system&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;Self&lt;&#x2F;span&gt;&lt;span&gt;::scene_render); 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That’s it.
+You should see your model appear inside &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;If you can’t see it take a look into &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;’s log and check if the path and export is correct.&lt;br &#x2F;&gt;
+You can also open a new Blender project and &lt;code&gt;File &amp;gt; Import &amp;gt; glTF&lt;&#x2F;code&gt; to validate what was exported!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;adding-materials&quot;&gt;Adding materials&lt;&#x2F;h3&gt;
+&lt;p&gt;Now… this seemed to simple, didn’t it?&lt;&#x2F;p&gt;
+&lt;p&gt;If you now add a simple &lt;em&gt;Material&lt;&#x2F;em&gt; to your &lt;em&gt;Model&lt;&#x2F;em&gt; in &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; everything will work fine.&lt;br &#x2F;&gt;
+But just one colour is kinda boring, isn’t it?&lt;&#x2F;p&gt;
+&lt;p&gt;Try using the &lt;em&gt;Shading Nodes&lt;&#x2F;em&gt; in &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; for your Material.&lt;br &#x2F;&gt;
+Inside &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; it will look fine, no matter what you do.
+Try exporting it as a &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; and then reimport into &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt;.&lt;br &#x2F;&gt;
+Still, everything looks fine (assuming you applied the export settings correctly).&lt;&#x2F;p&gt;
+&lt;p&gt;But now try importing the &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; into &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;.&lt;br &#x2F;&gt;
+There are &lt;em&gt;some&lt;&#x2F;em&gt; (very little) things that will work inside &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;.
+You may be lucky and it just works, but that’s a rare case.
+Most likely you will get a &lt;code&gt;StandardMaterial&lt;&#x2F;code&gt; inside Bevy that has a light-yellow standard colour.
+That’s no good.&lt;&#x2F;p&gt;
+&lt;p&gt;The problem is that &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; has it’s shading nodes and &lt;em&gt;some&lt;&#x2F;em&gt; (but rarely if at all) translate to &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; shading, while &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; has it’s own &lt;em&gt;Material&lt;&#x2F;em&gt; and &lt;em&gt;Shading&lt;&#x2F;em&gt; system. Again, some of &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; features include &lt;em&gt;Materials&lt;&#x2F;em&gt; and &lt;em&gt;Shading&lt;&#x2F;em&gt; but neither does &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; export it “correctly” at the moment, nor does &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; import it “correctly”.&lt;br &#x2F;&gt;
+In the future &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt; may play nicely with &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; &lt;em&gt;Materials&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Now how do we fix this?&lt;br &#x2F;&gt;
+The solution sounds complicated at first but is actually a very easy process!&lt;br &#x2F;&gt;
+Here is what we need to do:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a uniform object to apply our &lt;em&gt;Material&lt;&#x2F;em&gt; on (e.g. &lt;code&gt;Plane&lt;&#x2F;code&gt;).&lt;&#x2F;li&gt;
+&lt;li&gt;Apply our &lt;em&gt;Material&lt;&#x2F;em&gt; on this object.&lt;&#x2F;li&gt;
+&lt;li&gt;Inside the &lt;em&gt;Material&lt;&#x2F;em&gt; create a &lt;code&gt;Texture Node&lt;&#x2F;code&gt; (no need to attach it).&lt;&#x2F;li&gt;
+&lt;li&gt;Create a new &lt;em&gt;Texture&lt;&#x2F;em&gt; from the &lt;code&gt;Texture Node&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Change &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; to &lt;em&gt;Cycles&lt;&#x2F;em&gt; (&lt;code&gt;Render Properties &amp;gt; Render Engine&lt;&#x2F;code&gt;)&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Under &lt;code&gt;Render Properties &amp;gt; Bake&lt;&#x2F;code&gt; make some changes and hit the &lt;code&gt;Bake&lt;&#x2F;code&gt; button.&lt;&#x2F;li&gt;
+&lt;li&gt;Ensure &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; bundles &lt;em&gt;Textures&lt;&#x2F;em&gt; (&lt;code&gt;File &amp;gt; External Data &amp;gt; Automatically Pack Resources&lt;&#x2F;code&gt;) (or: Save the &lt;em&gt;Texture&lt;&#x2F;em&gt; externally).&lt;&#x2F;li&gt;
+&lt;li&gt;Go back to our original object and add a new &lt;em&gt;Material&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Open the new &lt;em&gt;Material&lt;&#x2F;em&gt; in the &lt;em&gt;Shading Nodes&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Import the created &lt;em&gt;Texture&lt;&#x2F;em&gt; and use it as our Color.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note that this only covers the “Diffuse” Map (i.e. color), but you can repeat those steps for e.g. Normals, Roughness, etc.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;How does this work? How does this change things?&lt;br &#x2F;&gt;
+Simple! The “baking” creates a &lt;em&gt;Texture&lt;&#x2F;em&gt; for us.
+This &lt;em&gt;Texture&lt;&#x2F;em&gt; is then imported and used as our &lt;em&gt;Material&lt;&#x2F;em&gt;.
+&lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; supports &lt;em&gt;Textures&lt;&#x2F;em&gt; and so does &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;!
+When importing into &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;, the &lt;em&gt;Texture&lt;&#x2F;em&gt; will be unpacked from the &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; and applied.
+No custom &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; nodes involved!&lt;&#x2F;p&gt;
+&lt;p&gt;The downside of this is that we now have a two-step process:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Bake&lt;&#x2F;code&gt; the &lt;em&gt;Texture&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Export to &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;However, if there hasn’t been changes to the &lt;em&gt;Material&lt;&#x2F;em&gt; there is no need to &lt;code&gt;Bake&lt;&#x2F;code&gt;!&lt;br &#x2F;&gt;
+Assuming &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; packed the &lt;em&gt;Texture&lt;&#x2F;em&gt; correctly first time.&lt;&#x2F;p&gt;
+&lt;p&gt;Now let’s see how this is done:&lt;&#x2F;p&gt;
+&lt;p&gt;First, we need to create a uniform object in &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt;.&lt;br &#x2F;&gt;
+For our use-case a &lt;em&gt;Plane&lt;&#x2F;em&gt; works the best, but other use-cases may use any other shapes.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Make sure to disable Viewing and Rendering of the original &lt;em&gt;Object&lt;&#x2F;em&gt;!&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_plane.png&quot; alt=&quot;Add plane in Blender&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Next, we apply the &lt;em&gt;Material&lt;&#x2F;em&gt; (or create a new one) to the &lt;em&gt;Object&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_material.png&quot; alt=&quot;Blender Material&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Now, we a &lt;em&gt;Image Texture&lt;&#x2F;em&gt; Node and create a new Image:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_add_image_texture.png&quot; alt=&quot;Blender Add Image-Texture&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You should change the Name and Resolution of this Texture.&lt;br &#x2F;&gt;
+1024 x 1024 = 1k Textures&lt;br &#x2F;&gt;
+4096 x 4096 = 4k Textures&lt;br &#x2F;&gt;
+etc.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Change into Cycles if not already done:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_change_to_cycles.png&quot; alt=&quot;Blender change to Cycles&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you can it’s recommended to set Cycles to use your GPU.
+This will reduce rendering times by a lot.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Scroll down to find the &lt;code&gt;Bake&lt;&#x2F;code&gt; settings and apply the following:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_bake_settings.png&quot; alt=&quot;Blender Bake Settings&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In our case we &lt;strong&gt;just&lt;&#x2F;strong&gt; want the color values, no shading, light, whatsoever.
+You may change this based on what your &lt;em&gt;Texture&lt;&#x2F;em&gt; needs.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Pay attention to the &lt;code&gt;Bake Type&lt;&#x2F;code&gt; too!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_bake_type.png&quot; alt=&quot;Blender Bake Type&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;By default this will be &lt;code&gt;Combined&lt;&#x2F;code&gt;.&lt;br &#x2F;&gt;
+Like the name suggest, this combines all (most?) of the &lt;code&gt;Bake Types&lt;&#x2F;code&gt; into one image.&lt;&#x2F;p&gt;
+&lt;p&gt;This may be useful if you want to extract multiple &lt;em&gt;Texture Maps&lt;&#x2F;em&gt; from one &lt;em&gt;Texture&lt;&#x2F;em&gt; later.
+But for our use-case we &lt;em&gt;just&lt;&#x2F;em&gt; want the Colors.
+This is called the &lt;em&gt;Diffuse Map&#x2F;Texture&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Alternatively, instead of using the &lt;code&gt;Combined&lt;&#x2F;code&gt; &lt;code&gt;Bake Type&lt;&#x2F;code&gt;, we can repeat the same process multiple times for each &lt;code&gt;Bake Type&lt;&#x2F;code&gt; we need.&lt;&#x2F;p&gt;
+&lt;p&gt;Now hit the &lt;code&gt;Bake&lt;&#x2F;code&gt; button atop and wait!&lt;br &#x2F;&gt;
+At the bottom there will be a progress bar, depending on your hardware and &lt;em&gt;Texture&lt;&#x2F;em&gt; resolution this may take a bit.&lt;&#x2F;p&gt;
+&lt;p&gt;Once done, you can view the &lt;em&gt;Texture&lt;&#x2F;em&gt; in the &lt;em&gt;Image View&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;BrickTexture.png&quot; alt=&quot;Result: Brick Texture&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Double check that everything is looking as it should.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, we go back to our original &lt;em&gt;Object&lt;&#x2F;em&gt; and create a new “Fake” &lt;em&gt;Material&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_add_new_material.png&quot; alt=&quot;Blender add new Fake Material&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Make sure to disable viewing and rendering of the Plane and re-enable it for the &lt;em&gt;Object&lt;&#x2F;em&gt;!&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Lastly, open this “Fake” &lt;em&gt;Material&lt;&#x2F;em&gt; as &lt;em&gt;Shading Nodes&lt;&#x2F;em&gt;, add the &lt;code&gt;Image Texture&lt;&#x2F;code&gt; Node and select (from the list, not “Open”!) the generated &lt;em&gt;Texture&lt;&#x2F;em&gt;.
+(Or, if you saved your &lt;em&gt;Texture&lt;&#x2F;em&gt; externally, click on “Open” and import it!)&lt;br &#x2F;&gt;
+Then hookup the Color like so:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_add_texture_to_fake_material.png&quot; alt=&quot;Blender add Texture to Fake Material&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you have multiple textures, e.g. for Normals, repeat this step with the other textures and&#x2F;or extract it from the &lt;code&gt;Combined&lt;&#x2F;code&gt; &lt;em&gt;Texture&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;If everything was done right the &lt;em&gt;Texture&lt;&#x2F;em&gt; should appear on the &lt;em&gt;Object&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, optionally, based on your &lt;em&gt;Object&lt;&#x2F;em&gt;, you may still need to adjust UV Maps:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;bevy_blender_export&#x2F;blender_uv.png&quot; alt=&quot;Blender UV Map&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;If you now export from &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; to &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; like above and import the &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; into &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;, everything should be working perfectly fine.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;advice-for-blender-project-organization&quot;&gt;Advice for Blender Project organization&lt;&#x2F;h3&gt;
+&lt;p&gt;Now that everything is exporting as it should, let me give some advice:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Textures&#x2F;Materials&lt;&#x2F;em&gt; are commonly used multiple times per different &lt;em&gt;Objects&lt;&#x2F;em&gt;.
+With this current setup the &lt;em&gt;Material&lt;&#x2F;em&gt;, Plane Setup, etc. would have to be repeated &lt;strong&gt;for each &lt;em&gt;Object&lt;&#x2F;em&gt; Blender Project&lt;&#x2F;strong&gt;.
+This will make organizing much more complicated, Baking must be done in different steps and re-using &lt;em&gt;Textures&#x2F;Materials&lt;&#x2F;em&gt; is complicated if not impossible.&lt;&#x2F;p&gt;
+&lt;p&gt;To solve this and make it &lt;strong&gt;much&lt;&#x2F;strong&gt; easier to keep organized we can use the fact that &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt; can be universally used for &lt;em&gt;Models&#x2F;Meshes&lt;&#x2F;em&gt;, &lt;em&gt;Materials&#x2F;Textures&lt;&#x2F;em&gt; and &lt;em&gt;Scenes&lt;&#x2F;em&gt;.
+And that’s exactly what I am suggesting!&lt;&#x2F;p&gt;
+&lt;p&gt;Create (for this project) three Blender Projects:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;One for the &lt;em&gt;Material&#x2F;Texture&lt;&#x2F;em&gt;, includes the Baking process and packs the Texture inside the &lt;code&gt;.blend&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;One for the &lt;em&gt;Model&#x2F;Mesh&lt;&#x2F;em&gt; itself, will link against the Baked &lt;em&gt;Texture&lt;&#x2F;em&gt; from the first file.&lt;&#x2F;li&gt;
+&lt;li&gt;One for the &lt;em&gt;Scene&lt;&#x2F;em&gt;, where all the &lt;em&gt;Models&#x2F;Meshes&lt;&#x2F;em&gt; are organized and put together into a &lt;em&gt;Scene&lt;&#x2F;em&gt; that can be imported into &lt;a href=&quot;https:&#x2F;&#x2F;bevyengine.org&#x2F;&quot;&gt;Bevy&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The beauty of this approach is that for as long as the linked &lt;code&gt;.blend&lt;&#x2F;code&gt; files are in tact and the paths didn’t change (which can be relative!), we only need to export from the &lt;em&gt;Scene&lt;&#x2F;em&gt; Blender Project.&lt;br &#x2F;&gt;
+This export will automatically fetch everything needed from the linked files.
+This includes &lt;em&gt;Materials&#x2F;Textures&lt;&#x2F;em&gt;, &lt;em&gt;Models&#x2F;Meshes&lt;&#x2F;em&gt; and everything that is required to successfully export.&lt;&#x2F;p&gt;
+&lt;p&gt;The only downside of this is that we are now working with three files.&lt;br &#x2F;&gt;
+For each &lt;em&gt;Material&lt;&#x2F;em&gt; we would add a new Project File.&lt;br &#x2F;&gt;
+For each &lt;em&gt;Model&lt;&#x2F;em&gt; we would add a new Project File.&lt;br &#x2F;&gt;
+And we can’t edit linked Files from the &lt;em&gt;Scene&lt;&#x2F;em&gt;, but have to open the e.g. &lt;em&gt;Material&lt;&#x2F;em&gt; file itself.&lt;&#x2F;p&gt;
+&lt;p&gt;We also need to make sure that changes are detected upstream.
+Meaning since we have this dependency order: &lt;code&gt;Scene -&amp;gt; Mesh -&amp;gt; Material&lt;&#x2F;code&gt;.
+And we change the &lt;code&gt;Material&lt;&#x2F;code&gt; (and bake it!), we need to make sure that our &lt;code&gt;Mesh&lt;&#x2F;code&gt; &lt;strong&gt;and&lt;&#x2F;strong&gt; the &lt;code&gt;Scene&lt;&#x2F;code&gt; gets updated with this change.&lt;br &#x2F;&gt;
+This &lt;em&gt;should&lt;&#x2F;em&gt; work out of the box with &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt;, but just to be sure I may suggest keeping the total linked File-Count low.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;automated-exporting&quot;&gt;Automated Exporting&lt;&#x2F;h3&gt;
+&lt;p&gt;Finally we reached the automation part.
+&lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; does this quite easily actually.&lt;br &#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; gives us a fully features Python API.
+Everything you can do in the &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; UI, you can do with the Python API.&lt;br &#x2F;&gt;
+Just… possibly a bit more complicated.&lt;&#x2F;p&gt;
+&lt;p&gt;I have written two scripts, partially sourced from StackOverflow, that solve two issues:&lt;&#x2F;p&gt;
+&lt;p&gt;Firstly, &lt;code&gt;Bake&lt;&#x2F;code&gt; &lt;em&gt;Materials&lt;&#x2F;em&gt; into &lt;em&gt;Textures&lt;&#x2F;em&gt;.
+This &lt;em&gt;may&lt;&#x2F;em&gt; only work if you are following the above suggestion of splitting the project into multiple Blender Files.
+For as long as there is just one &lt;em&gt;Object&lt;&#x2F;em&gt; and one &lt;em&gt;Material&lt;&#x2F;em&gt;, it should work flawlessly with any file.
+Even with multiple &lt;em&gt;Texture&lt;&#x2F;em&gt; outputs.&lt;br &#x2F;&gt;
+The &lt;em&gt;Texture&lt;&#x2F;em&gt; result will be &lt;strong&gt;packed into the &lt;code&gt;.blend&lt;&#x2F;code&gt; file&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Secondly, export a &lt;em&gt;Mesh&#x2F;Model&lt;&#x2F;em&gt; (or &lt;em&gt;Scene&lt;&#x2F;em&gt;!) from &lt;a href=&quot;https:&#x2F;&#x2F;www.blender.org&#x2F;&quot;&gt;Blender&lt;&#x2F;a&gt; to &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt;.
+The script will automatically apply all the settings and even save them for future manual exports.&lt;br &#x2F;&gt;
+The exact output location can be chosen via an argument.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;bake-script&quot;&gt;Bake Script&lt;&#x2F;h4&gt;
+&lt;p&gt;Save the file below and use it like so:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;blender your_blender_file.blend --background --python bake_all.py
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This will automatically &lt;code&gt;Bake&lt;&#x2F;code&gt; and pack for us.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Loosely based on:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# - (baking) https:&#x2F;&#x2F;blender.stackexchange.com&#x2F;a&#x2F;10861
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# - (saving) https:&#x2F;&#x2F;blender.stackexchange.com&#x2F;a&#x2F;143043
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;os
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;sys
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;bpy
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BLEND_FILE_ARG &lt;&#x2F;span&gt;&lt;span&gt;= sys.argv[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BLEND_FILE &lt;&#x2F;span&gt;&lt;span&gt;= os.path.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;abspath&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BLEND_FILE_ARG&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Processing &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BLEND_FILE_ARG &lt;&#x2F;span&gt;&lt;span&gt;+ &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39; (&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BLEND_FILE &lt;&#x2F;span&gt;&lt;span&gt;+ &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;) and packing afterwards ...&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;scene = bpy.context.scene
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Scene: &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; + scene.name)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Clear selection
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;object &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span&gt;scene.objects:
+&lt;&#x2F;span&gt;&lt;span&gt;    object.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;select_set&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Bake
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;object &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span&gt;scene.objects:
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Object: &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; + object.name)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Make the object active
+&lt;&#x2F;span&gt;&lt;span&gt;    bpy.context.view_layer.objects.active = object
+&lt;&#x2F;span&gt;&lt;span&gt;    object.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;select_set&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# https:&#x2F;&#x2F;docs.blender.org&#x2F;api&#x2F;current&#x2F;bpy.ops.object.html#bpy.ops.object.bake
+&lt;&#x2F;span&gt;&lt;span&gt;    bpy.ops.object.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;bake&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;type &lt;&#x2F;span&gt;&lt;span&gt;= &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;UV&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, 
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;use_clear &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# https:&#x2F;&#x2F;docs.blender.org&#x2F;api&#x2F;current&#x2F;bpy_types_enum_items&#x2F;bake_pass_type_items.html#rna-enum-bake-pass-type-items
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;save_mode &lt;&#x2F;span&gt;&lt;span&gt;= &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;INTERNAL&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;,
+&lt;&#x2F;span&gt;&lt;span&gt;    )
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Unselect after
+&lt;&#x2F;span&gt;&lt;span&gt;    object.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;select_set&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Pack it!
+&lt;&#x2F;span&gt;&lt;span&gt;bpy.ops.file.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack_all&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#Pack all images into the file
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Save it!
+&lt;&#x2F;span&gt;&lt;span&gt;bpy.ops.wm.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;save_as_mainfile&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;filepath&lt;&#x2F;span&gt;&lt;span&gt;=bpy.data.filepath)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;gltf-export-script&quot;&gt;glTF Export Script&lt;&#x2F;h4&gt;
+&lt;p&gt;Save the file below and use it like so:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;blender your_blender_file.blend --background --python gltf_export.py -- your_gltf_output.gltf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This will automatically export your Blender file to &lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;gltf&#x2F;&quot;&gt;glTF&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;To change the export format change the &lt;code&gt;export_format=&#x27;GLTF_EMBEDDED&#x27;&lt;&#x2F;code&gt; below to &lt;code&gt;&#x27;GLB&#x27;&lt;&#x2F;code&gt; (binary format), &lt;code&gt;&#x27;GLTF_EMBEDDED&#x27;&lt;&#x2F;code&gt; (JSON-like format) and &lt;code&gt;&#x27;GLTF_SEPARATE&#x27;&lt;&#x2F;code&gt; (JSON-like + binary packed format).&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;bpy
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;sys
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;os
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;OUTPUT_FILE&lt;&#x2F;span&gt;&lt;span&gt;=sys.argv[-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;OUTPUT_DIR &lt;&#x2F;span&gt;&lt;span&gt;= os.path.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;dirname&lt;&#x2F;span&gt;&lt;span&gt;(os.path.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;abspath&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;OUTPUT_FILE&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Blender export scene in glTF Format to file &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;OUTPUT_FILE &lt;&#x2F;span&gt;&lt;span&gt;+ &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39; in directory: &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;OUTPUT_DIR &lt;&#x2F;span&gt;&lt;span&gt;+ &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;.&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# https:&#x2F;&#x2F;docs.blender.org&#x2F;api&#x2F;current&#x2F;bpy.ops.export_scene.html#bpy.ops.export_scene.gltf
+&lt;&#x2F;span&gt;&lt;span&gt;bpy.ops.export_scene.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;gltf&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Output File
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;filepath&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;OUTPUT_FILE&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Don&amp;#39;t warn if existing and overwrite
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;check_existing&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# glTF Light
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;convert_lighting_mode&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;SPEC&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# glTF Format
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_format&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;GLTF_EMBEDDED&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Copyright
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_copyright&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Bevy-Game&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Image format
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_image_format&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;AUTO&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Texture output directory
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_texture_dir&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;OUTPUT_DIR&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# What to export
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;## Careful with PBR textures!
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_keep_originals&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_texcoords&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_normals&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_tangents&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_materials&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;EXPORT&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_original_specular&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_colors&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_attributes&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;use_mesh_edges&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;use_mesh_vertices&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# No compression (Bevy doesn&amp;#39;t support)
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_draco_mesh_compression_enable&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Selection of what is exported (everything &amp;quot;visible&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;use_visible&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;use_selection&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;use_renderable&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;use_active_collection_with_nested&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;use_active_collection&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;use_active_scene&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Camera will be added by Bevy
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_cameras&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Lights will be added by Bevy
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_lights&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Anything special (might break things!)
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_extras&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Axis for export (Y+ Up)
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_yup&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Apply modifiers
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;export_apply&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Remember export settings, nice for debugging!
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;will_save_settings&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;afterwords&quot;&gt;Afterwords&lt;&#x2F;h2&gt;
+&lt;p&gt;I hope this will help anyone.
+I’d wish I would have found such a resource and wouldn’t have figured all of this out myself.&lt;&#x2F;p&gt;
+&lt;p&gt;As mentioned before, if you run into any trouble, need help or found an issue with my write-up, please &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Sakul6499&#x2F;sakul6499.github.io&#x2F;issues&#x2F;new&quot;&gt;open an issue&lt;&#x2F;a&gt; or &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Sakul6499&#x2F;sakul6499.github.io&#x2F;discussions&#x2F;new&quot;&gt;start a discussion&lt;&#x2F;a&gt; on my &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Sakul6499&#x2F;sakul6499.github.io&quot;&gt;GitHub repository&lt;&#x2F;a&gt;!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
