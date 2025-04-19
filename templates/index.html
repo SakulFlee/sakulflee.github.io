@@ -2,12 +2,6 @@
 
 {% block content %}
 <section class="hero is-dark is-fullheight-with-navbar">
-  <div class="hero-head m-2">
-    <div class="notification">
-      Looking for <i>Akimo-Project: Engine</i>? 
-      <a href="/engine">Click here</a> for the latests release or <a href="/engine-beta">here</a> for the latest beta!
-    </div>
-  </div>
   <div class="hero-body">
     <div class="container has-text-centered">
       <div class="column">
@@ -23,43 +17,51 @@
           </p>
         </div>
 
-        <div class="is-vcentered">
-          <ul>
-            <li class="icon p-icon">
-              {% include "components/svg/github.html" %}
-            </li>
-            <li class="icon p-icon">
-              {% include "components/svg/gitlab.html" %}
-            </li>
-          </ul>
-          <ul>
-            <li class="icon p-icon">
-              {% include "components/svg/bitbucket.html" %}
-            </li>
-            <li class="icon p-icon">
-              {% include "components/svg/mail.html" %}
-            </li>
-          </ul>
-          <div class="buttons columns mt-6">
-            <a href="/blog" class="button is-large is-white is-outlined column is-4">
-              <span class="icon is-large">
-                <i class="fas fa-book"></i>
-              </span>
-              <span>Blog</span>
-            </a>
-            <span class="column"></span>
-            <a href="/projects" class="button is-large is-white is-outlined column is-4 is-pulled-right">
-              <span class="icon is-large">
-                <i class="fas fa-code-branch"></i>
-              </span>
-              <span>Projects</span>
-            </a>
-          </div>
-
-          {% include "components/scroll-down.html" %}
+        <div class="column is-6 is-offset-3">
+          <article class="message is-warning has-text-centered">
+            <div class="message-header">
+              <p>Maintenance warning!</p>
+            </div>
+            <div class="message-body">
+              This website is under maintenance.<br />
+              Select parts will be unavailable and some information may be outdated.<br />
+              <br />
+              Please check back later.<br />
+              ETA: Unknown<br />
+            </div>
         </div>
+        </article>
+      </div>
+
+      <div class="is-vcentered">
+        <ul>
+          <li class="icon p-icon">
+            {% include "components/svg/github.html" %}
+          </li>
+          <li class="icon p-icon">
+            {% include "components/svg/mail.html" %}
+          </li>
+        </ul>
+        <div class="buttons columns mt-6">
+          <a href="/blog" class="button is-large is-white is-outlined column is-4">
+            <span class="icon is-large">
+              <i class="fas fa-book"></i>
+            </span>
+            <span>Blog</span>
+          </a>
+          <span class="column"></span>
+          <a href="/projects" class="button is-large is-white is-outlined column is-4 is-pulled-right">
+            <span class="icon is-large">
+              <i class="fas fa-code-branch"></i>
+            </span>
+            <span>Projects</span>
+          </a>
+        </div>
+
+        {% include "components/scroll-down.html" %}
       </div>
     </div>
+  </div>
   </div>
 </section>
 {% include "components/about_me.html" %}
