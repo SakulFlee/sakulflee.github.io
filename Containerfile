@@ -8,7 +8,7 @@ WORKDIR /project
 COPY . .
 
 # Build the site
-RUN mkdir /export && zola build --output-dir /export
+RUN zola build --output-dir /export
 
 # --- Stage 2: Serve ---
 FROM docker.io/nginx:alpine
