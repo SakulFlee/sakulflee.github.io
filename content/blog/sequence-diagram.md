@@ -1,17 +1,13 @@
----
-title: 'Sequence Diagram'
-comments: true
-categories:
-  - [Design Pattern]
-  - Behavioral Design Pattern
-  - Interactional Diagram
-tags:
-  - Design Pattern
-  - Sequence Diagram
-  - Behavior
-date: 2020-05-09 16:00:00
-updated: 2020-05-09 20:00:00
----
++++
+title = "Sequence Diagram"
+date = "2020-05-09"
+updated = "2020-05-09"
+description = "Sequence Diagram - interactional diagrams group, behavioral design pattern"
+[taxonomies]
+categories = ["Design Pattern"]
+tags = ["Design Pattern", "Sequence Diagram", "Behavior"]
++++
+
 The **sequence diagram** belongs to the *interactional diagrams* group, which is a sub-group of *behavioral design pattern*.
 
 A **sequence diagram** shows interactions between *objects* of a *system*.
@@ -225,7 +221,7 @@ void authenticate(Actor actor, int pin) {
 ## Final remarks
 
 As you probably noticed: A sequence diagram is not about every tiny detail of a system, but the time aspects of each *object* within the system and their interactions.
-Thus, it is okay in our examples to simply say `If PIN valid`.
+Thus, it is okay in our examples to simply say `If X (is) valid`.
 This diagram **does not** define what a `Valid PIN` is.
 Something like this should be noted in e.g. the Use-Case description.
 

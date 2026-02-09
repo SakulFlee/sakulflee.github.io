@@ -1,10 +1,11 @@
----
++++
+title = "University Project 1: Tickify, a web-store from scratch"
+date = "2019-01-01"
+description = "University Project 1: Tickify, a web-store from scratch"
+[taxonomies]
 categories = ["Project"]
 tags = ["Project"]
-date = "2019-01-01 18:00:00"
-published = true
-project = true
----
++++
 
 # University Project 1: Tickify, a web-store from scratch
 

@@ -1,16 +1,12 @@
----
-title: 'Strategy Pattern'
-comments: true
-categories:
-  - [Design Pattern]
-  - Behavioral Design Pattern
-tags:
-  - Design Pattern
-  - Strategy Pattern
-  - Behavior
-date: 2019-11-25 00:00:00
-updated: 2020-05-09 15:47:00
----
++++
+title = "Strategy Pattern"
+date = "2019-11-25"
+updated = "2020-05-09"
+description = "Strategy Pattern - behavioral software design pattern"
+[taxonomies]
+categories = ["Design Pattern"]
+tags = ["Design Pattern", "Strategy Pattern", "Behavior"]
++++
 
 The **strategy pattern** is a *behavioral software design pattern*.
 It is also known as a **policy pattern**.

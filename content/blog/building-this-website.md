@@ -1,14 +1,13 @@
----
-title: Building this website
-comments: true
-categories:
-  - [Website]
-tags:
-  - hexo
-  - blog
-date: 2020-04-19 17:26:16
-updated: 2020-04-19 17:26:16
----
++++
+title = "Building this website"
+date = "2020-04-19"
+updated = "2020-04-19"
+description = "Building this website - hexo framework"
+[taxonomies]
+categories = ["Website"]
+tags = ["hexo", "blog"]
++++
+
 This post goes above the details of building this website.  
 Furthermore, it discusses how [hexo] is working.
 
@@ -187,8 +186,6 @@ Furthermore, it discusses how [hexo] is working.
 ```
 
 I hope this gave you a basic understanding of [hexo].
-
-
 
 [hexo]: https://hexo.io/
 [#hexo-tag]: /tags/hexo/

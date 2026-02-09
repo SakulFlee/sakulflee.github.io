@@ -1,10 +1,11 @@
----
++++
+title = "University Project 2: Business application for Liquid Transport Company"
+date = "2019-06-01"
+description = "University Project 2: Business application for Liquid Transport Company"
+[taxonomies]
 categories = ["Project"]
 tags = ["Project"]
-date = "2019-06-01 18:00:00"
-published = true
-project = true
----
++++
 
 # University Project 2: Business application for Liquid Transport Company
 

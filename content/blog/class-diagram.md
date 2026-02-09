@@ -1,15 +1,12 @@
----
-title: 'Class Diagram'
-comments: true
-categories:
-  - [Design Pattern]
-  - Structural Design Pattern
-tags:
-  - Design Pattern
-  - Class Diagram
-date: 2020-05-13 16:00:00
-updated: 2020-05-13 16:00:00
----
++++
+title = "Class Diagram"
+date = "2020-05-13"
+updated = "2020-05-13"
+description = "Class Diagram - structural software design pattern"
+[taxonomies]
+categories = ["Design Pattern"]
+tags = ["Design Pattern", "Class Diagram"]
++++
 
 The **class diagram** is a *structural software design pattern*.
 It is also known as a **blueprint** or **base class**.
@@ -26,13 +23,13 @@ Vise versa, depending on the program used, a class diagram can generate code **b
 
 A class at its most basic level looks like this:
 
-![Basic class](https://sakul6499.de/images/design_pattern/structural/class_diagram/class_base.svg)
+![Basic class](/images/class-diagram/class_base.svg)
 
 ### Fields
 
 Fields are added in a separate box under the class name like so:
 
-![Class with fields](https://sakul6499.de/images/design_pattern/structural/class_diagram/class_fields.svg)
+![Class with fields](/images/class-diagram/class_fields.svg)
 
 > Note: If no *fields* are needed this box can be skipped completely.
 
@@ -66,7 +63,7 @@ For example, in the table above we used the type `String`.
 
 Lastly, it is possible to assign a default value or constant but is rarely done:
 
-![Class with methods](https://sakul6499.de/images/design_pattern/structural/class_diagram/class_fields_value.svg)
+![Class with methods](/images/class-diagram/class_fields_value.svg)
 
 After the **field type** a `=` (equality-sign) is placed, followed by the **fields value**.
 
@@ -87,7 +84,7 @@ After the **field type** a `=` (equality-sign) is placed, followed by the **fiel
 More or less the same as for fields applies to methods.  
 A third box is placed under the fields box:  
 
-![Class with methods](https://sakul6499.de/images/design_pattern/structural/class_diagram/class_methods.svg)
+![Class with methods](/images/class-diagram/class_methods.svg)
 
 > Note: If no *methods* are needed this box can be skipped completely.
 
@@ -95,7 +92,7 @@ Each line first has a `+`, `-`, `~` or none (uncommon).
 This indicates the **method security**:  
 
 | Symbol  | Clear Text  | Meaning           | Code example                        |
-| ------  | ----------- | ----------------- | ----------------------------------- |
+| ------  | ----------------- | - | ----------------------------------- |
 | `+`     | Plus Sign   | Public method     | `public void myMethod() { ... }`    |
 | `-`     | Minus Sign  | Private method    | `private void myMethod() { ... }`   |
 | `~`     | Tilde       | Protected method  | `protected void myMethod() { ... }` |
@@ -141,11 +138,11 @@ Whenever something is abstract (or better: stated as *undefined*) it is written 
 
 Here is an abstract basic class:
 
-![Abstract basic class](https://sakul6499.de/images/design_pattern/structural/class_diagram/class_base_abstract.svg)
+![Abstract basic class](/images/class-diagram/class_base_abstract.svg)
 
 Here is an abstract class with an abstract method:
 
-![Abstract class with method](https://sakul6499.de/images/design_pattern/structural/class_diagram/class_methods_abstract.svg)
+![Abstract class with method](/images/class-diagram/class_methods_abstract.svg)
 
 ## Interfaces, Enumerations and others
 
@@ -153,15 +150,15 @@ Interfaces, Enumerations and others are treated as *classes*, but have a **prefi
 
 Here is a basic interface:
 
-![Basic Interface](https://sakul6499.de/images/design_pattern/structural/class_diagram/interface_base.svg)
+![Basic Interface](/images/class-diagram/interface_base.svg)
 
 Here is an interface with *methods* and *fields*:
 
-![Basic Interface](https://sakul6499.de/images/design_pattern/structural/class_diagram/interface_extended.svg)
+![Basic Interface](/images/class-diagram/interface_extended.svg)
 
 Here is an enum:
 
-![Enum](https://sakul6499.de/images/design_pattern/structural/class_diagram/enumeration.svg)
+![Enum](/images/class-diagram/enumeration.svg)
 
 > Note: Other types depend on the language.
 > Some have interfaces, some have structs (structures), some have enums and some have something totally different.
@@ -176,4 +173,4 @@ It can be useful to first just get an overview of what is needed and then later 
 
 Here is the difference:  
 
-![Difference between Signatured and Non-Signatured](https://sakul6499.de/images/design_pattern/structural/class_diagram/signature_difference.svg)
+![Difference between Signatured and Non-Signatured](/images/class-diagram/signature_difference.svg)

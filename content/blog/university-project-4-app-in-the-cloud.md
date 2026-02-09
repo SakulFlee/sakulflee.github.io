@@ -1,10 +1,11 @@
----
++++
+title = "University Project 4: App in the cloud"
+date = "2020-07-16"
+description = "University Project 4: App in the cloud"
+[taxonomies]
 categories = ["Project"]
 tags = ["Project"]
-date = "2020-07-16 18:00:00"
-published = true
-project = true
----
++++
 
 # University Project 4: App in the cloud
 

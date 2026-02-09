@@ -1,18 +1,12 @@
----
-title: 'Encrypting and decrypting jenkins credentials'
-comments: true
-categories:
-  - [Jenkins]
-  - Security
-tags:
-  - JCasC
-  - Script Console
-  - Groovy
-  - Jenkins
-  - Credentials
-date: 2020-04-28 21:30:00
-updated: 2020-04-28 21:30:00
----
++++
+title = "Encrypting and decrypting jenkins credentials"
+date = "2020-04-28"
+updated = "2020-04-28"
+description = "Encrypting and decrypting jenkins credentials - security"
+[taxonomies]
+categories = ["Jenkins"]
+tags = ["JCasC", "Script Console", "Groovy", "Jenkins", "Credentials"]
++++
 
 [Jenkins] uses [AES-128-ECB] to encrypt and decrypt secrets.  
 Each [jenkins] instance generates an encryption key on first-start.

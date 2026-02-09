@@ -1,17 +1,12 @@
----
-title: 'Mass removing builds'
-comments: true
-categories:
-  - [Jenkins]
-  - Scripts
-tags:
-  - Script Console
-  - Groovy
-  - Jenkins
-  - Mass removing
-date: 2020-04-28 23:45:00
-updated: 2020-04-28 23:45:00
----
++++
+title = "Mass removing builds"
+date = "2020-04-28"
+updated = "2020-04-28"
+description = "Mass removing builds - scripts"
+[taxonomies]
+categories = ["Jenkins"]
+tags = ["Script Console", "Groovy", "Jenkins", "Mass removing"]
++++
 
 Ever wanted to mass remove builds of a certain project but did not want to click `Delete Build -> Yes` a thousand times?  
 Good news: There is an easier way!

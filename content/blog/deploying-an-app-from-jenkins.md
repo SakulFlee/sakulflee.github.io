@@ -1,14 +1,12 @@
----
-title: 'Deploying an app from Jenkins'
-comments: true
-categories:
-  - [Jenkins]
-tags:
-  - Jenkins
-  - Deployment
-date: 2020-05-01 22:30:00
-updated: 2020-05-09 22:45:00
----
++++
+title = "Deploying an app from Jenkins"
+date = "2020-05-01"
+updated = "2020-05-09"
+description = "Deploying an app from Jenkins - CI/CD tasks"
+[taxonomies]
+categories = ["Jenkins"]
+tags = ["Jenkins", "Deployment"]
++++
 
 [Jenkins] is commonly used for CI (continuos integration) tasks, such as building and testing your code.  
 However, [Jenkins] can also be used to deploy your apps and perform other CD (continuos delivery) tasks.

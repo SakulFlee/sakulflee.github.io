@@ -110,26 +110,26 @@ First, let's create a new Blender Project and add some model.
 You can delete or keep the default cube, camera and light, or delete them.
 important point is to have a or multiple model in your project like so:
 
-![Blender example project](/bevy_blender_export/blender_example_project.png)
+![Blender example project](/images/bevy_blender_export/blender_example_project.png)
 
 ### Manual Exporting
 
 With this setup, we can click on `File > Export > glTF` in the top left corner:
 
-![Blender export menu](/bevy_blender_export/blender_export_menu.png)
+![Blender export menu](/images/bevy_blender_export/blender_export_menu.png)
 
 In the new menu we can select a location for the [glTF] to be saved, but before clicking on export look to the right side!
 These settings are **essential** for [Bevy] to properly import this model.
 
 First of all, you can choose the format there like mentioned above:
 
-![glTF format menu](/bevy_blender_export/gltf_format_menu.png)
+![glTF format menu](/images/bevy_blender_export/gltf_format_menu.png)
 
 This format is for you to choose, [Bevy] will work with any of the three.
 
 Next, make sure to have these settings:
 
-![glTF format menu](/bevy_blender_export/gltf_settings.png)
+![glTF format menu](/images/bevy_blender_export/gltf_settings.png)
 
 > Tip: If you select "Remember Export Settings" at the top under Copyright Blender will remember these settings in this `.blend` file.
 > Making exporting much faster in the future.
@@ -306,15 +306,15 @@ For our use-case a _Plane_ works the best, but other use-cases may use any other
 
 > Make sure to disable Viewing and Rendering of the original _Object_!
 
-![Add plane in Blender](/bevy_blender_export/blender_plane.png)
+![Add plane in Blender](/images/bevy_blender_export/blender_plane.png)
 
 Next, we apply the _Material_ (or create a new one) to the _Object_:
 
-![Blender Material](/bevy_blender_export/blender_material.png)
+![Blender Material](/images/bevy_blender_export/blender_material.png)
 
 Now, we a _Image Texture_ Node and create a new Image:
 
-![Blender Add Image-Texture](/bevy_blender_export/blender_add_image_texture.png)
+![Blender Add Image-Texture](/images/bevy_blender_export/blender_add_image_texture.png)
 
 > You should change the Name and Resolution of this Texture.  
 > 1024 x 1024 = 1k Textures  
@@ -323,21 +323,21 @@ Now, we a _Image Texture_ Node and create a new Image:
 
 Change into Cycles if not already done:
 
-![Blender change to Cycles](/bevy_blender_export/blender_change_to_cycles.png)
+![Blender change to Cycles](/images/bevy_blender_export/blender_change_to_cycles.png)
 
 > If you can it's recommended to set Cycles to use your GPU.
 > This will reduce rendering times by a lot.
 
 Scroll down to find the `Bake` settings and apply the following:
 
-![Blender Bake Settings](/bevy_blender_export/blender_bake_settings.png)
+![Blender Bake Settings](/images/bevy_blender_export/blender_bake_settings.png)
 
 > In our case we **just** want the color values, no shading, light, whatsoever.
 > You may change this based on what your _Texture_ needs.
 
 Pay attention to the `Bake Type` too!
 
-![Blender Bake Type](/bevy_blender_export/blender_bake_type.png)
+![Blender Bake Type](/images/bevy_blender_export/blender_bake_type.png)
 
 By default this will be `Combined`.  
 Like the name suggest, this combines all (most?) of the `Bake Types` into one image.
@@ -353,13 +353,13 @@ At the bottom there will be a progress bar, depending on your hardware and _Text
 
 Once done, you can view the _Texture_ in the _Image View_:
 
-![Result: Brick Texture](/bevy_blender_export/BrickTexture.png)
+![Result: Brick Texture](/images/bevy_blender_export/BrickTexture.png)
 
 Double check that everything is looking as it should.
 
 Now, we go back to our original _Object_ and create a new "Fake" _Material_:
 
-![Blender add new Fake Material](/bevy_blender_export/blender_add_new_material.png)
+![Blender add new Fake Material](/images/bevy_blender_export/blender_add_new_material.png)
 
 > Make sure to disable viewing and rendering of the Plane and re-enable it for the _Object_!
 
@@ -367,7 +367,7 @@ Lastly, open this "Fake" _Material_ as _Shading Nodes_, add the `Image Texture` 
 (Or, if you saved your _Texture_ externally, click on "Open" and import it!)  
 Then hookup the Color like so:
 
-![Blender add Texture to Fake Material](/bevy_blender_export/blender_add_texture_to_fake_material.png)
+![Blender add Texture to Fake Material](/images/bevy_blender_export/blender_add_texture_to_fake_material.png)
 
 > If you have multiple textures, e.g. for Normals, repeat this step with the other textures and/or extract it from the `Combined` _Texture_.
 
@@ -375,7 +375,7 @@ If everything was done right the _Texture_ should appear on the _Object_.
 
 Now, optionally, based on your _Object_, you may still need to adjust UV Maps:
 
-![Blender UV Map](/bevy_blender_export/blender_uv.png)
+![Blender UV Map](/images/bevy_blender_export/blender_uv.png)
 
 If you now export from [Blender] to [glTF] like above and import the [glTF] into [Bevy], everything should be working perfectly fine.
 

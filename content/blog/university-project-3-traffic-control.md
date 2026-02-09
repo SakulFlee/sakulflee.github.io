@@ -1,10 +1,11 @@
----
++++
+title = "University Project 3: Traffic Control System"
+date = "2020-01-01"
+description = "University Project 3: Traffic Control System"
+[taxonomies]
 categories = ["Project"]
 tags = ["Project"]
-date = "2020-01-01 18:00:00"
-published = true
-project = true
----
++++
 
 # University Project 3: Traffic Control System
 

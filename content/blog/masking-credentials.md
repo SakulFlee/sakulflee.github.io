@@ -1,17 +1,12 @@
----
-title: 'Masking credentials and secrets in Jenkinsfile`s'
-comments: true
-categories:
-  - [Jenkins]
-  - Credentials
-tags:
-  - JCasC
-  - Declarative Pipelines
-  - Jenkins
-  - Jenkinsfile
-date: 2020-04-28 16:08:12
-updated: 2020-04-28 20:28:00
----
++++
+title = "Masking credentials and secrets in Jenkinsfile`s"
+date = "2020-04-28"
+updated = "2020-04-28"
+description = "Masking credentials and secrets in Jenkinsfile`s - security"
+[taxonomies]
+categories = ["Jenkins"]
+tags = ["JCasC", "Declarative Pipelines", "Jenkins", "Jenkinsfile"]
++++
 
 Masking secrets, such as credentials (username & password), token or any other text that should be hidden from others, is important to maintain a secure and private environment within Jenkins.
 
