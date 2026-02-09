@@ -1,6 +1,8 @@
 # --- Stage 1: Build ---
 FROM docker.io/jauderho/zola:latest AS builder
 
+USER root
+
 # Copy project files
 WORKDIR /project
 COPY . .
