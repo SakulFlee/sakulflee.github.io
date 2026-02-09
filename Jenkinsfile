@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 
 def registry = 'forgejo.sakul-flee.de'
-def namespace = 'container'
+def namespace = 'sakulflee'
 def name = 'website'
 
 def full = "${registry}/${namespace}/${name}"
