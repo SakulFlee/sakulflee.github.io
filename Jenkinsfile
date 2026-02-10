@@ -37,6 +37,9 @@ pipeline {
 
   stages {
     stage('Login') {
+      when {
+        branch 'main'
+      }
       steps {
         container('buildah') {
           sh "cat /var/run/secrets/additional/secret-jenkins-forgejo-token/token | buildah login --username jenkins --password-stdin \"${registry}\""
@@ -53,6 +56,9 @@ pipeline {
     }
 
     stage('Push') {
+      when {
+        branch 'main'
+      }
       steps {
         container('buildah') {
           sh """
